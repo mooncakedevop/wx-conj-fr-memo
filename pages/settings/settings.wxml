@@ -1,0 +1,83 @@
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+
+  <view class="cu-bar bg-mauve light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-white'></text>关于
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow lg' bindtap="help">使用帮助</button>
+        <button class='cu-btn lines-blue round shadow lg' bindtap="about">报错和建议</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-white'></text>单词设置
+    </view>
+  </view>
+  <view class='padding bg-white'>
+
+
+    <view class="cu-form-group margin-top">
+      <view class='title'>50基础动词（共50词）</view>
+      <switch checked="{{isChecked1_50}}" bindchange="words_50" />
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class='title'>100进阶动词（共50词）</view>
+      <switch checked="{{isChecked1_100}}" bindchange="words_100" />
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class='title'>230高手动词（共130词）</view>
+      <switch checked="{{isChecked1_230}}" bindchange="words_230" />
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class='title'>典型精选</view>
+      <switch checked="{{isChecked1_selected}}" bindchange="words_selected" />
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class='title'>典型动词（不建议勾选）</view>
+      <switch checked="{{isChecked1}}" bindchange="extra_words" />
+    </view>
+
+    <view class='text-left padding'>请选择对应的背词范围。</view>
+  </view>
+
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-white'></text>时态设置
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class="cu-form-group margin-top">
+      <view class='title'>进阶时态</view>
+      <switch checked="{{isChecked2}}" bindchange="advanced_shitai" />
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>高手时态</view>
+      <switch checked="{{isChecked3}}" bindchange="extra_shitai" />
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class='title'>不常用时态</view>
+      <switch checked="{{isChecked4}}" bindchange="inusuel_shitai" />
+    </view>
+    <view class='text-left padding'>默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时；</view>
+    <view class='text-left padding'>进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先过去时、直陈式先将来时；</view>
+    <view class='text-left padding'>高手时态包括了条件式现在时、条件式过去时、虚拟式现在时、虚拟式过去时；</view>
+    <view class='text-left padding'>非常用时态包括了直陈式 简单过去时。</view>
+  </view>
+
+
+
+
+
+
+</view>

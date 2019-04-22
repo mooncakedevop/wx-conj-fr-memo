@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/lab/lab",
+    "pages/chat/chat",
+    "pages/settings/settings",
+    "pages/lab/result/result",
+    "pages/settings/help/help"
+  ],
+  "tabBar": {
+    "backgroundColor": "#F7F7FA",
+    "selectedColor":"#317ef3",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "默写练习",
+        "iconPath": "style/study1.png",
+        "selectedIconPath": "style/study_selected.png"
+      },
+      {
+        "pagePath": "pages/lab/lab",
+        "text": "7000动词查询",
+        "iconPath": "style/search.png",
+        "selectedIconPath": "style/search_selected.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "个性化",
+        "iconPath": "style/mine.png",
+        "selectedIconPath": "style/mine_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "法语动词变位记忆小助手",
+    "navigationBarTextStyle": "black"
+  }
+}

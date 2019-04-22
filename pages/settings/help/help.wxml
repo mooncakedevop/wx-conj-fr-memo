@@ -1,0 +1,57 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>关于
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>个人主页：uniquelab.cn</view>
+    <view class='text-center'>écrit à Saint Nazaire, France</view>
+    <view class='text-center'>2019.3.22</view>
+    <view class='text-center'>2019.4.6 更新</view>
+  </view>
+
+  <view class="cu-bar bg-cyan light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>默写练习
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-left'>1.1 输入答案，点击“检查”。</view>
+    <view class='text-left'>1.2 结果将会显示在右侧，答对会显示绿色对勾，打错会显示红色感叹号。</view>
+    <view class='text-left'>1.3 单词和时态随机出现，单词和时态出现的范围是您在设置页面的设置。</view>
+    <view class='text-left'>1.4 若全部答对，则会跳至下一个随机单词及其时态。</view>
+    <view class='text-left'>1.5 点击“提示”将会显示当前单词的答案，若单词对您来说太简单或者太难，则可以选择跳过。</view>
+    <view class='text-left'>1.6 输入答案时，请输入完整、严格使用法语特殊字符。例如avoir的第一人称直陈式现在时变位，应当填写“ai”；例如être的第一人称直陈式复合过去时，应当填写“ai été”。</view>
+  </view>
+
+    <view class="cu-bar bg-green light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>常用动词变位查询
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-left'>2.1 输入对应的动词，会显示对应的变位。</view>
+    <view class='text-left'>2.2 输入动词时，不区分大小写、特殊字符。例如搜索être的动词变位，可以填写“etre”、可以填写“être”、也可以填写“Etre”。</view>
+    <view class='text-left'>2.3 搜索框下方列出了最常用的法语动词，点击可以直接查询。</view>
+    <view class='text-left'>2.4 本小程序使用了verbiste的动词和变位数据。</view>
+    <view class='text-left'>2.5 现已更新至7016个法语动词查询。</view>
+  </view>
+
+      <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>设置
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-left'>3.1 在设置页面，您可以自定义单词和时态，点击右侧开关即可。设置实时生效。</view>
+    <view class='text-left'>3.2 本小程序暂不获取用户任何数据。设置仅存在于本地。</view>
+    <view class='text-left'>3.3 默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时。</view>
+    <view class='text-left'>3.4 进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先过去时、直陈式先将来时。</view>
+    <view class='text-left'>3.5 非常用时态包括了直陈式 简单过去时。</view>
+  </view>
+</view>
+</view>

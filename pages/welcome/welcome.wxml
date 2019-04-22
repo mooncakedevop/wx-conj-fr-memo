@@ -1,0 +1,19 @@
+   <view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+
+   <view class='flex-sub text-center'>
+   <view class="margin-avatar">
+     <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+   </view>
+      <view class=' text-sm margin-text '>
+        <text class='text-white'>✔ 7000+法语动词变位查询\n</text>
+        <text class='text-white'>✔ 常用法语动词变位默写\n</text>
+        <text class='text-white'>✔ 初中高级法语学习者覆盖\n</text>
+        <text class='text-white'>✔ 自由选择动词和时态范围\n</text>
+      </view>
+   </view>
+
+
+  <view class="padding flex flex-direction bg-btn-conj">
+    <button class='cu-btn lines-white round shadow lg' disabled="{{true_or_false}}" bindtap="intro">{{welcome_botton}}</button>
+  </view>
+</view>

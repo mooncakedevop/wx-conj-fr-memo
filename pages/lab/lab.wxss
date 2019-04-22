@@ -1,0 +1,14 @@
+/* pages/lab/lab.wxss */
+
+.title_css{
+  padding-top: 15vh;
+  padding-bottom: 5vh
+}
+
+.search-conj{
+  margin-bottom: 3vh
+}
+
+.btn-conj{
+  margin-bottom: 1vh
+}

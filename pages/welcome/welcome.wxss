@@ -1,0 +1,27 @@
+
+.page{
+  overflow: hidden;
+}
+
+
+.margin-avatar{
+  padding-top: 20vh;
+  margin-left: 32vw;
+  margin-right: 32vw;
+}
+
+.margin-title{
+  margin-top: 0vh;
+  margin-bottom: 20vh;
+}
+
+.margin-text{
+  margin-top: 28vh;
+  margin-bottom: 2vh
+}
+
+.bg-btn-conj{
+  margin-left: 5vh;
+  margin-right: 5vh;
+  padding-bottom: 18vh
+}

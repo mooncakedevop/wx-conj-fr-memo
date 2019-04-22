@@ -1,0 +1,208 @@
+<view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+
+  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
+    <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_debutant}}">基础动词</view>
+    
+  <view class="text-sl">{{ow}}</view>
+  <view class="text-white">{{shitai_chinois}}</view>
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>分词 Participe Présent & Passé
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[13]}}</view>
+    <view class='text-center'>{{show_conj_tu[13]}}</view>
+    <view class='text-center'>{{show_conj_il[13]}}</view>
+    <view class='text-center'>{{show_conj_nous[13]}}</view>
+    <view class='text-center'>{{show_conj_vous[13]}}</view>
+    <view class='text-center'>{{show_conj_ils[13]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 现在时 Indicatif Présent
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[1]}}</view>
+    <view class='text-center'>{{show_conj_tu[1]}}</view>
+    <view class='text-center'>{{show_conj_il[1]}}</view>
+    <view class='text-center'>{{show_conj_nous[1]}}</view>
+    <view class='text-center'>{{show_conj_vous[1]}}</view>
+    <view class='text-center'>{{show_conj_ils[1]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 复合过去时 Indicatif Passé composé
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[0]}}</view>
+    <view class='text-center'>{{show_conj_tu[0]}}</view>
+    <view class='text-center'>{{show_conj_il[0]}}</view>
+    <view class='text-center'>{{show_conj_nous[0]}}</view>
+    <view class='text-center'>{{show_conj_vous[0]}}</view>
+    <view class='text-center'>{{show_conj_ils[0]}}</view>
+  </view>
+
+
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 未完成过去时 Indicatif Imparfait
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[2]}}</view>
+    <view class='text-center'>{{show_conj_tu[2]}}</view>
+    <view class='text-center'>{{show_conj_il[2]}}</view>
+    <view class='text-center'>{{show_conj_nous[2]}}</view>
+    <view class='text-center'>{{show_conj_vous[2]}}</view>
+    <view class='text-center'>{{show_conj_ils[2]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 愈过去时 Indicatif Plus-que-parfait
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[3]}}</view>
+    <view class='text-center'>{{show_conj_tu[3]}}</view>
+    <view class='text-center'>{{show_conj_il[3]}}</view>
+    <view class='text-center'>{{show_conj_nous[3]}}</view>
+    <view class='text-center'>{{show_conj_vous[3]}}</view>
+    <view class='text-center'>{{show_conj_ils[3]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 简单过去时 Indicatif Passé simple
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[4]}}</view>
+    <view class='text-center'>{{show_conj_tu[4]}}</view>
+    <view class='text-center'>{{show_conj_il[4]}}</view>
+    <view class='text-center'>{{show_conj_nous[4]}}</view>
+    <view class='text-center'>{{show_conj_vous[4]}}</view>
+    <view class='text-center'>{{show_conj_ils[4]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 先过去时 Indicatif Passé antérieur
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[5]}}</view>
+    <view class='text-center'>{{show_conj_tu[5]}}</view>
+    <view class='text-center'>{{show_conj_il[5]}}</view>
+    <view class='text-center'>{{show_conj_nous[5]}}</view>
+    <view class='text-center'>{{show_conj_vous[5]}}</view>
+    <view class='text-center'>{{show_conj_ils[5]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 简单将来时 Indicatif Futur
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[6]}}</view>
+    <view class='text-center'>{{show_conj_tu[6]}}</view>
+    <view class='text-center'>{{show_conj_il[6]}}</view>
+    <view class='text-center'>{{show_conj_nous[6]}}</view>
+    <view class='text-center'>{{show_conj_vous[6]}}</view>
+    <view class='text-center'>{{show_conj_ils[6]}}</view>
+  </view>
+
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>直陈式 先将来时 Indicatif Futur antérieur
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[7]}}</view>
+    <view class='text-center'>{{show_conj_tu[7]}}</view>
+    <view class='text-center'>{{show_conj_il[7]}}</view>
+    <view class='text-center'>{{show_conj_nous[7]}}</view>
+    <view class='text-center'>{{show_conj_vous[7]}}</view>
+    <view class='text-center'>{{show_conj_ils[7]}}</view>
+  </view>
+
+  <view class="cu-bar bg-green light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>条件式 现在时 Conditionnel Présent
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[8]}}</view>
+    <view class='text-center'>{{show_conj_tu[8]}}</view>
+    <view class='text-center'>{{show_conj_il[8]}}</view>
+    <view class='text-center'>{{show_conj_nous[8]}}</view>
+    <view class='text-center'>{{show_conj_vous[8]}}</view>
+    <view class='text-center'>{{show_conj_ils[8]}}</view>
+  </view>
+
+  <view class="cu-bar bg-green light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>条件式 过去时 Conditionnel Passé
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[9]}}</view>
+    <view class='text-center'>{{show_conj_tu[9]}}</view>
+    <view class='text-center'>{{show_conj_il[9]}}</view>
+    <view class='text-center'>{{show_conj_nous[9]}}</view>
+    <view class='text-center'>{{show_conj_vous[9]}}</view>
+    <view class='text-center'>{{show_conj_ils[9]}}</view>
+  </view>
+
+  <view class="cu-bar bg-orange light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>虚拟式 现在时 Subjonctif Présent
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[10]}}</view>
+    <view class='text-center'>{{show_conj_tu[10]}}</view>
+    <view class='text-center'>{{show_conj_il[10]}}</view>
+    <view class='text-center'>{{show_conj_nous[10]}}</view>
+    <view class='text-center'>{{show_conj_vous[10]}}</view>
+    <view class='text-center'>{{show_conj_ils[10]}}</view>
+  </view>
+
+  <view class="cu-bar bg-orange light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>虚拟式 过去时 Subjonctif Passé
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[11]}}</view>
+    <view class='text-center'>{{show_conj_tu[11]}}</view>
+    <view class='text-center'>{{show_conj_il[11]}}</view>
+    <view class='text-center'>{{show_conj_nous[11]}}</view>
+    <view class='text-center'>{{show_conj_vous[11]}}</view>
+    <view class='text-center'>{{show_conj_ils[11]}}</view>
+  </view>
+
+  <view class="cu-bar bg-yellow light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>命令式 Impératif Présent
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-center'>{{show_conj_je[12]}}</view>
+    <view class='text-center'>{{show_conj_tu[12]}}</view>
+    <view class='text-center'>{{show_conj_il[12]}}</view>
+    <view class='text-center'>{{show_conj_nous[12]}}</view>
+    <view class='text-center'>{{show_conj_vous[12]}}</view>
+    <view class='text-center'>{{show_conj_ils[12]}}</view>
+  </view>
+
+
+</view>

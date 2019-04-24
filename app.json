@@ -10,7 +10,7 @@
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",
-    "selectedColor":"#317ef3",
+    "selectedColor": "#317ef3",
     "borderStyle": "white",
     "list": [
       {
@@ -25,6 +25,12 @@
         "iconPath": "style/search.png",
         "selectedIconPath": "style/search_selected.png"
       },
+            {
+              "pagePath": "pages/chat/chat",
+              "text": "小助手",
+              "iconPath": "style/search.png",
+              "selectedIconPath": "style/search_selected.png"
+            },
       {
         "pagePath": "pages/settings/settings",
         "text": "个性化",

@@ -1,0 +1,41 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+
+    <view class="cu-bar bg-blue light solid-bottom margin-top">
+      <view class='action'>
+        <text class='icon-title text-blue'></text>卡片1 动词变位形式
+      </view>
+    </view>
+    <view class='padding bg-white'>
+      <view class='text-center'>{{show_conj_je[2]}}</view>
+      <view class='text-center'>{{show_conj_tu[2]}}</view>
+      <view class='text-center'>{{show_conj_il[2]}}</view>
+      <view class='text-center'>{{show_conj_nous[2]}}</view>
+      <view class='text-center'>{{show_conj_vous[2]}}</view>
+      <view class='text-center'>{{show_conj_ils[2]}}</view>
+    </view>
+
+
+    <view class="cu-bar bg-red light solid-bottom margin-top">
+      <view class='action'>
+        <text class='icon-title text-blue'></text>需要注意的那些地方
+      </view>
+    </view>
+    <view class='padding bg-white'>
+      <view class='text-center'>法语动词变位记忆小助手</view>
+      <view class='text-center'>v1.2.1 (2019.4.22)</view>
+      <view class='text-center'>by bu要搞事情</view>
+      <view class='text-center'>个人主页：uniquelab.cn</view>
+      <view class="text-center">2019.3</view>
+      <view class="text-center">Fait à Saint Nazaire, France</view>
+      <view class="text-center">使用了verbiste v0.1.45</view>
+      <view class="text-center">使用了ColorUI</view>
+      <view class='box'>
+        <view class="cu-bar btn-group">
+          <button class='cu-btn bg-red round shadow lg' bindtap="iknow">测试</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

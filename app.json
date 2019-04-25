@@ -6,6 +6,7 @@
     "pages/chat/chat",
     "pages/settings/settings",
     "pages/lab/result/result",
+    "pages/carte/carte",
     "pages/settings/help/help"
   ],
   "tabBar": {
@@ -26,7 +27,7 @@
         "selectedIconPath": "style/search_selected.png"
       },
             {
-              "pagePath": "pages/chat/chat",
+              "pagePath": "pages/carte/carte",
               "text": "小助手",
               "iconPath": "style/search.png",
               "selectedIconPath": "style/search_selected.png"

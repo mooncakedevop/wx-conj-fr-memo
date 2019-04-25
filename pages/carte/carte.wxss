@@ -1,0 +1,14 @@
+.title_css{
+  padding-top: 10vh;
+  padding-bottom: 5vh
+}
+
+.page__title{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.page__hd{
+  padding-top: 200px;
+  padding-bottom: 10px;
+}

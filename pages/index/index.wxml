@@ -1,14 +1,15 @@
 <!--index.wxml-->
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
   <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
-  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
+    <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
     <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
-      <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
+    <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
     <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_100}}">进阶100</view>
     <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_230}}">高手230</view>
     <view class="text-sl">{{content}}</view>
     <view class="text-white">{{shitai_chinois}}
-      <view class='cu-tag bg-red light round sm shadow' bindtap="hint"> <text class='icon-question'></text>提示</view>
+      <view class='cu-tag bg-red light round sm shadow' bindtap="hint">
+        <text class='icon-question'></text>提示</view>
     </view>
     <view class="text-white "></view>
   </view>
@@ -56,9 +57,9 @@
 
 
   <view class='box'>
-  <view class="cu-bar btn-group">
-   <button class='cu-btn bg-red round shadow lg' bindtap="next_conj">跳过</button>
-      <button class='cu-btn bg-blue round shadow lg' bindtap="check">检查</button>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-red round shadow lg' bindtap="next_conj">💨跳过</button>
+      <button class='cu-btn bg-blue round shadow lg' bindtap="check">🛠检查</button>
+    </view>
   </view>
-</view>
 </view>

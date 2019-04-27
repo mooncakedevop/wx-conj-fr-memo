@@ -5,7 +5,7 @@
 
 
 .margin-avatar{
-  padding-top: 20vh;
+  padding-top: 12vh;
   margin-left: 32vw;
   margin-right: 32vw;
 }
@@ -15,13 +15,12 @@
   margin-bottom: 20vh;
 }
 
-.margin-text{
-  margin-top: 28vh;
+.bg-btn-conj{
+  margin-top: 7vh;
   margin-bottom: 2vh
 }
 
-.bg-btn-conj{
-  margin-left: 5vh;
-  margin-right: 5vh;
-  padding-bottom: 18vh
+.margin-text{
+  margin-top: 7vh;
+  margin-bottom: 10vh
 }

@@ -1,13 +1,24 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
 
   <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+ 
+  <view class="cu-progress radius striped active shadow-blur">
+    <view class='bg-red' style="width:{{loading?'30%':''}};">30%</view>
+    <view class='bg-olive' style="width:{{loading?'45%':''}};">45%</view>
+    <view class='bg-cyan' style="width:{{loading?'25%':''}};">25%</view>
+  </view>
 
     <view class="cu-bar bg-blue light solid-bottom margin-top">
-      <view class='action'>
-        <text class='icon-title text-blue'></text>卡片1 动词变位形式
+      <view class='action italic'>
+        <text class='text-center italic'></text>Carte No.{{carte_number}}1
       </view>
     </view>
     <view class='padding bg-white'>
+      <view class="text-sl">{{check_word}}avoir</view>
+      <view class='text-center italic'>{{shitai_word}}直陈式现在时</view>
+    </view>
+
+    <view class='padding bg-white dash-conj'>
       <view class='text-center'>{{show_conj_je[2]}}</view>
       <view class='text-center'>{{show_conj_tu[2]}}</view>
       <view class='text-center'>{{show_conj_il[2]}}</view>
@@ -16,26 +27,18 @@
       <view class='text-center'>{{show_conj_ils[2]}}</view>
     </view>
 
-
-    <view class="cu-bar bg-red light solid-bottom margin-top">
-      <view class='action'>
-        <text class='icon-title text-blue'></text>需要注意的那些地方
-      </view>
-    </view>
-    <view class='padding bg-white'>
+    <view class='padding bg-white dash-conj'>
       <view class='text-center'>法语动词变位记忆小助手</view>
       <view class='text-center'>v1.2.1 (2019.4.22)</view>
       <view class='text-center'>by bu要搞事情</view>
-      <view class='text-center'>个人主页：uniquelab.cn</view>
-      <view class="text-center">2019.3</view>
-      <view class="text-center">Fait à Saint Nazaire, France</view>
-      <view class="text-center">使用了verbiste v0.1.45</view>
-      <view class="text-center">使用了ColorUI</view>
+    </view>
+
       <view class='box'>
-        <view class="cu-bar btn-group">
-          <button class='cu-btn bg-red round shadow lg' bindtap="iknow">测试</button>
-        </view>
-      </view>
+    <view class="cu-bar btn-group bg-btn-conj">
+      <button class='cu-btn light bg-red round shadow lg' bindtap="">😪不太清楚</button>
+      <button class='cu-btn light bg-blue round shadow lg' bindtap="">👌记住了</button>
     </view>
   </view>
+  </view>
+
 </view>

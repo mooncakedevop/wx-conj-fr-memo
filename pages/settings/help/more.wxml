@@ -28,10 +28,10 @@
     <view class='text-center'>法语动词变位记忆小助手</view>
     <view class='text-center'>v1.2.1 (2019.4.22)</view>
     <view class='text-center'>by bu要搞事情</view>
-    <view class='text-center'>个人主页：uniquelab.cn</view>
+    <view class='text-center'>个人主页：https://hxd.red</view>
     <view class="text-center">2019.3</view>
     <view class="text-center">Fait à Saint Nazaire, France</view>
-    <view class="text-center">使用了verbiste v0.1.45</view>
+    <view class="text-center">动词变位数据库 v0.1.45</view>
     <view class="text-center">使用了ColorUI</view>
   </view>
 </view>

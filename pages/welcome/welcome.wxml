@@ -1,19 +1,49 @@
-   <view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
 
-   <view class='flex-sub text-center'>
-   <view class="margin-avatar">
-     <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
-   </view>
-      <view class=' text-sm margin-text '>
-        <text class='text-white'>✔ 7000+法语动词变位查询\n</text>
-        <text class='text-white'>✔ 常用法语动词变位默写\n</text>
-        <text class='text-white'>✔ 初中高级法语学习者覆盖\n</text>
-        <text class='text-white'>✔ 自由选择动词和时态范围\n</text>
+  <view class='flex-sub text-center'>
+    <view class="margin-avatar">
+      <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+    </view>
+
+    <view class='grid col-2 padding-sm bg-btn-conj'>
+      <view class='padding-sm'>
+        <view class='bg-green light round padding radius text-center shadow-blur'bindtap="training">
+          <view class="text-sl">
+            <text class='icon-text'></text>
+          </view>
+          <view class="text-sm">典型动词训练营</view>
+        </view>
       </view>
-   </view>
-
-
-  <view class="padding flex flex-direction bg-btn-conj">
-    <button class='cu-btn lines-white round shadow lg' disabled="{{true_or_false}}" bindtap="intro">{{welcome_botton}}</button>
+      <view class='padding-sm'>
+        <view class='bg-cyan light round padding radius text-center shadow-blur'bindtap="searcher">
+          <view class="text-sl">
+            <text class='icon-search'></text>
+          </view>
+          <view class="text-sm">7000动词查询</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-purple light round padding radius text-center shadow-blur' bindtap="intro">
+          <view class="text-sl">
+            <text class='icon-write'></text>
+          </view>
+          <view class="text-sm">默写练习</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-mauve light round padding radius text-center shadow-blur' bindtap="settings">
+          <view class="text-sl">
+            <text class='icon-settings'></text>
+          </view>
+          <view class="text-sm">设置</view>
+        </view>
+      </view>
+    </view>
+    <view class=' text-sm margin-text'>
+      <text class='text-white'>✔ 7000+法语动词变位查询\n</text>
+      <text class='text-white'>✔ 常用法语动词变位默写\n</text>
+      <text class='text-white'>✔ 初中高级法语学习者覆盖\n</text>
+      <text class='text-white'>✔ 自由选择动词和时态范围\n</text>
+    </view>
   </view>
 </view>

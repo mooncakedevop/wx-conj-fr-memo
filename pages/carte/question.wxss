@@ -1,5 +1,6 @@
+
 .title_css{
-  padding-top: 10vh;
+  padding-top: 15vh;
   padding-bottom: 5vh
 }
 
@@ -14,10 +15,10 @@
 }
 
 .bg-btn-conj{
-  margin-left: 3vh;
-  margin-right: 3vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
   padding-bottom: 18vh;
-  padding-top: 7vh;
+  padding-top: 18vh
 }
 
 .margin-top{

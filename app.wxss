@@ -45,3 +45,14 @@ page {
   text-align: center;
   font-size: 15px;
 }
+
+.dash-conj{
+  border-style:dashed none none none;
+  border-color:aqua;
+}
+
+.italic{
+  font-style:italic;
+  padding-bottom: 1px;
+}
+

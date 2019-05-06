@@ -38,5 +38,9 @@ App({
     tag_50: true,
     tag_100: true,
     tag_230: true,
+
+    shitai_no: null,
+    search_word: null,
+    carte_number: null,
   }
 })

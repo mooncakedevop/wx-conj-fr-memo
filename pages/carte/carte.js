@@ -6,7 +6,7 @@ const classic = require('../../data/classic_149_fr_20190330.js')
 
 Page({
   data: {
-    input_word_conj: null,
+    search_word: null,
     idx_shitai: null,
     shitai_chinois: null,
 
@@ -26,6 +26,7 @@ Page({
       show_conj_nous: app.globalData.shitai_nous,
       show_conj_vous: app.globalData.shitai_vous,
       show_conj_ils: app.globalData.shitai_ils,
+      search_word: app.globalData.search_word
     })
 
     let that = this;

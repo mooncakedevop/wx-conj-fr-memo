@@ -71,7 +71,7 @@ Page({
 
   training: function () {
     wx.switchTab({
-      url: '../carte/question',
+      url: '../carte/milestone',
     })
   },
 

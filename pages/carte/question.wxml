@@ -9,12 +9,12 @@
   </view> 
     <view class="cu-bar bg-blue light solid-bottom margin-top">
       <view class='action italic'>
-        <text class='text-center italic'></text>Carte No.{{carte_number}}1
+        <text class='text-center italic'></text>Carte No.{{carte_number}}
       </view>
     </view>
     <view class='padding bg-white'>
       <view class='text-center'>{{shitai_word}}请思考下列单词的变位形式</view>
-      <view class="text-sl">{{check_word}}avoir</view>
+      <view class="text-sl">{{search_word}}</view>
       <view class='text-center italic'>{{shitai_word}}直陈式现在时</view>
     </view>
 

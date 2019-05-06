@@ -7,12 +7,14 @@
 
     <view class='grid col-2 padding-sm bg-btn-conj'>
       <view class='padding-sm'>
+        
         <view class='bg-green light round padding radius text-center shadow-blur'bindtap="training">
           <view class="text-sl">
             <text class='icon-text'></text>
           </view>
           <view class="text-sm">典型动词训练营</view>
         </view>
+      
       </view>
       <view class='padding-sm'>
         <view class='bg-cyan light round padding radius text-center shadow-blur'bindtap="searcher">

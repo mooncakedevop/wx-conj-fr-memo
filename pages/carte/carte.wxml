@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class='padding bg-white'>
-      <view class="text-sl">{{check_word}}avoir</view>
+      <view class="text-sl">{{search_word}}</view>
       <view class='text-center italic'>{{shitai_word}}直陈式现在时</view>
     </view>
 

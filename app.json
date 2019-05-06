@@ -29,7 +29,7 @@
         "selectedIconPath": "style/search_selected.png"
       },
       {
-        "pagePath": "pages/carte/question",
+        "pagePath": "pages/carte/milestone",
         "text": "小助手",
         "iconPath": "style/search.png",
         "selectedIconPath": "style/search_selected.png"

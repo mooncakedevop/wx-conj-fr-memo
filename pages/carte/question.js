@@ -20,6 +20,10 @@ Page({
     show_conj_vous: [],
     show_conj_ils: [],
     seconds_wait: 30,
+
+    carte_number: null,
+    search_word: null,
+
   },
 
   onLoad: function () {
@@ -50,6 +54,21 @@ Page({
         loading: true
       })
     }, 500)
+
+    var carte_number = 5;
+    var search_word = carte.carteFr[carte_number].mot
+    var idx_shitai = app.globalData.shitai_no;
+
+    app.globalData.carte_number = carte_number;
+    app.globalData.search_word = search_word;
+
+    this.setData({
+      carte_number: carte_number,
+      search_word: search_word,
+      idx_shitai: idx_shitai,
+    })
+
+
   },
 
   input_word_conj: function (e) {
@@ -77,20 +96,9 @@ Page({
 
 
   iknow: function () {
-    var search_word = this.data.input_word_conj;
-    var search_word = "avoir";
-    var idx_shitai = 3;
-    if (search_word == null) {
-      wx.showToast({
-        title: '请输入内容！',
-        image: '/style/gantanhao.png',
-        icon: 'sucess',
-        duration: 1000,
-        mask: true,
-      })
-      return;
-    }
 
+    var search_word = app.globalData.search_word
+    var idx_shitai = app.globalData.shitai_no
     this.exp(search_word, idx_shitai);
 
     wx.navigateTo({

@@ -36,11 +36,18 @@ Page({
     }, 500)
   },
 
-  next: function(){
+  next: function () {
 
     wx.navigateBack({
       delta: 1
     })
-console.log("next")
+    console.log("next")
+  },
+
+  onUnload: function () {
+    // 页面关闭
+    var pages = getCurrentPages()
+    var prevPage = pages[pages.length - 2]
+    prevPage.onLoad()
   }
 });

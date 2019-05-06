@@ -19,24 +19,23 @@
     </view>
 
     <view class='padding bg-white dash-conj'>
-      <view class='text-center'>{{show_conj_je[2]}}</view>
-      <view class='text-center'>{{show_conj_tu[2]}}</view>
-      <view class='text-center'>{{show_conj_il[2]}}</view>
-      <view class='text-center'>{{show_conj_nous[2]}}</view>
-      <view class='text-center'>{{show_conj_vous[2]}}</view>
-      <view class='text-center'>{{show_conj_ils[2]}}</view>
+      <view class='text-center'>{{show_conj_je}}</view>
+      <view class='text-center'>{{show_conj_tu}}</view>
+      <view class='text-center'>{{show_conj_il}}</view>
+      <view class='text-center'>{{show_conj_nous}}</view>
+      <view class='text-center'>{{show_conj_vous}}</view>
+      <view class='text-center'>{{show_conj_ils}}</view>
     </view>
 
     <view class='padding bg-white dash-conj'>
-      <view class='text-center'>法语动词变位记忆小助手</view>
-      <view class='text-center'>v1.2.1 (2019.4.22)</view>
-      <view class='text-center'>by bu要搞事情</view>
+      <view class='text-center'>暂无</view>
+      <view class='text-center'>请期待下一个版本更新</view>
     </view>
 
       <view class='box'>
     <view class="cu-bar btn-group bg-btn-conj">
-      <button class='cu-btn light bg-red round shadow lg' bindtap="">😪不太清楚</button>
-      <button class='cu-btn light bg-blue round shadow lg' bindtap="">👌记住了</button>
+      <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😪不太清楚</button>
+      <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌记住了</button>
     </view>
   </view>
   </view>

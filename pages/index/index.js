@@ -417,12 +417,12 @@ Page({
         var root_nous = root_nous["indicative-simple-past"]
         var root_vous = root_vous["indicative-simple-past"]
         var root_ils = root_ils["indicative-simple-past"]
-        var shitai_je = mode_je + ' ' + wr + root_je //拼接开始
-        var shitai_tu = 'Tu' + ' ' + wr + root_tu
-        var shitai_il = 'Il' + ' ' + wr + root_il
-        var shitai_nous = 'Nous' + ' ' + wr + root_nous
-        var shitai_vous = 'Vous' + ' ' + wr + root_vous
-        var shitai_ils = 'Ils' + ' ' + wr + root_ils
+        var shitai_je = wr + root_je //拼接开始
+        var shitai_tu = wr + root_tu
+        var shitai_il = wr + root_il
+        var shitai_nous = wr + root_nous
+        var shitai_vous = wr + root_vous
+        var shitai_ils = wr + root_ils
         this.setData({
           mode_je: mode_je,
           shitai_je: shitai_je,

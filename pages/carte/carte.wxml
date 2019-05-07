@@ -10,12 +10,12 @@
 
     <view class="cu-bar bg-blue light solid-bottom margin-top">
       <view class='action italic'>
-        <text class='text-center italic'></text>Carte No.{{carte_number}}1
+        <text class='text-center italic'></text>Carte No.{{carte_number}}
       </view>
     </view>
     <view class='padding bg-white'>
       <view class="text-sl">{{search_word}}</view>
-      <view class='text-center italic'>{{shitai_word}}直陈式现在时</view>
+      <view class='text-center italic'>{{shitai_chinois}}</view>
     </view>
 
     <view class='padding bg-white dash-conj'>

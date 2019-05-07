@@ -3,12 +3,15 @@
 const app = getApp()
 const verb = require('../../data/verb_7016_fr_20190330.js')
 const classic = require('../../data/classic_149_fr_20190330.js')
+const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
+
 
 Page({
   data: {
     search_word: null,
     idx_shitai: null,
     shitai_chinois: null,
+    carte_number:null,
 
     show_conj_je: [],
     show_conj_tu: [],
@@ -19,6 +22,11 @@ Page({
   },
 
   onLoad: function () {
+
+    var idx_shitai = app.globalData.shitai_no;    //显示时态序号
+    var shitai_chinois = shitai[idx_shitai]
+    var carte_number = app.globalData.carte_number;
+
     this.setData({
       show_conj_je: app.globalData.shitai_je,
       show_conj_tu: app.globalData.shitai_tu,
@@ -26,7 +34,10 @@ Page({
       show_conj_nous: app.globalData.shitai_nous,
       show_conj_vous: app.globalData.shitai_vous,
       show_conj_ils: app.globalData.shitai_ils,
-      search_word: app.globalData.search_word
+
+      search_word: app.globalData.search_word,
+      carte_number: carte_number,
+      shitai_chinois: shitai_chinois //通过时态序号查找时态对应的中文
     })
 
     let that = this;

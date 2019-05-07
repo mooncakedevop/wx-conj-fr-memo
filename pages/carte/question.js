@@ -4,7 +4,7 @@ const app = getApp()
 const verb = require('../../data/verb_7016_fr_20190330.js')
 const classic = require('../../data/classic_149_fr_20190330.js')
 const carte = require('../../data/apprendre_500_20190506.js')
-
+const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时","直陈式愈过去时","直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
 
 Page({
   data: {
@@ -55,17 +55,20 @@ Page({
       })
     }, 500)
 
-    var carte_number = 5;
-    var search_word = carte.carteFr[carte_number].mot
-    var idx_shitai = app.globalData.shitai_no;
+    var carte_number = 5;   //卡号
+    var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词
+    var idx_shitai = app.globalData.shitai_no;    //显示时态序号
+    var shitai_chinois = shitai[idx_shitai]
 
     app.globalData.carte_number = carte_number;
     app.globalData.search_word = search_word;
+    console.log(idx_shitai)
 
     this.setData({
       carte_number: carte_number,
       search_word: search_word,
       idx_shitai: idx_shitai,
+      shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
     })
 
 
@@ -97,7 +100,7 @@ Page({
 
   iknow: function () {
 
-    var search_word = app.globalData.search_word
+    var search_word = app.globalData.search_word  
     var idx_shitai = app.globalData.shitai_no
     this.exp(search_word, idx_shitai);
 

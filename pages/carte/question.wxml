@@ -15,7 +15,7 @@
     <view class='padding bg-white'>
       <view class='text-center'>{{shitai_word}}请思考下列单词的变位形式</view>
       <view class="text-sl">{{search_word}}</view>
-      <view class='text-center italic'>{{shitai_word}}直陈式现在时</view>
+      <view class='text-center italic'>{{shitai_chinois}}</view>
     </view>
 
 

@@ -13,7 +13,7 @@ Page({
     wx.navigateTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 15
+    app.globalData.shitai_no = 15    //指定时态序号
   },
 
 

@@ -34,26 +34,6 @@ Page({
     var seconds_wait = 10;  //设定倒计时时间
     Countdown(this);  //注意this和that
 
-    function Countdown(that) { //注意this和that
-      timer = setTimeout(function () {
-        seconds_wait--;
-        that.setData({
-          seconds_wait: seconds_wait,
-        })
-        if (seconds_wait <= 0) {
-          seconds_wait = 0;
-          that.setData({
-            true_or_false: false,
-          })
-          wx.navigateTo({      //倒计时结束之后立马跳转
-            url: 'carte',
-          })//要延时执行的代码
-        } else {
-          Countdown(that);
-        }
-      }, 1000);
-    };
-
     var carte_arrey = app.globalData.carte_arrey   //从卡片历史进度中读取对应时态的历史进度
     
     console.log(carte_arrey)
@@ -96,6 +76,26 @@ Page({
     var search_word = app.globalData.search_word
     var idx_shitai = app.globalData.shitai_no
     this.exp(search_word, idx_shitai);
+
+    function Countdown(that) { //注意this和that
+      timer = setTimeout(function () {
+        seconds_wait--;
+        that.setData({
+          seconds_wait: seconds_wait,
+        })
+        if (seconds_wait <= 0) {
+          seconds_wait = 0;
+          that.setData({
+            true_or_false: false,
+          })
+          wx.navigateTo({      //倒计时结束之后立马跳转
+            url: 'carte',
+          })//要延时执行的代码
+        } else {
+          Countdown(that);
+        }
+      }, 1000);
+    };
 
   },
 
@@ -811,4 +811,18 @@ Page({
 
   },
 
+  
+  hint_countdown: function(tap_word) {
+    wx.showModal({
+      title: '提示',
+      content: '在倒计时的这段时间内，您可以回想或者口头念出它们的变位形式。时间归0之后您能看到答案以检验。下一个版本将能自由修改时间。',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('确定')
+        } else if (res.cancel) {
+          console.log('取消')
+        }
+      }
+    })
+  },
 });

@@ -6,6 +6,9 @@
     </view>
   </view>
   <view class='padding bg-white'>
+            <view class='text-sm'>如果您觉得本小程序有用的话</view>
+          <view class='text-sm'>点击右上角☝的三个点➡关于➡推荐给朋友</view>
+          <view class='text-sm'>分享给小伙伴哟</view>
     <view class='box'>
       <view class="cu-bar btn-group">
         <button class='cu-btn bg-red round shadow lg' bindtap="help">📄使用帮助</button>
@@ -20,7 +23,6 @@
     </view>
   </view>
   <view class='padding bg-white'>
-
 
     <view class="cu-form-group margin-top">
       <view class='title'>50基础动词（共50词）</view>

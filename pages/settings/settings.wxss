@@ -1,3 +1,7 @@
+.text-sm{
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh
+}
 
 .weui-footer{
   padding-top: 20px;

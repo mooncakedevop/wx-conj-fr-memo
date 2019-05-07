@@ -27,4 +27,5 @@
 
 .text-xs{
   margin-top: 1vh;
+  font-size:xx-small;
 }

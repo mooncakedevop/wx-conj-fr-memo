@@ -11,12 +11,21 @@
     <view class='text-center'>个人主页：https://hxd.red</view>
     <view class='text-center'>écrit à Saint Nazaire, France</view>
     <view class='text-center'>2019.3.22</view>
-    <view class='text-center'>2019.4.6 更新</view>
+    <view class='text-center'>2019.5.8 更新</view>
+  </view>
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-white'></text>重要提示
+    </view>
+  </view>
+  <view class='padding bg-white'>
+    <view class='text-left'>小程序中没有特别制作返回按钮，若要返回上一个页面，请将手指放在屏幕左侧边缘向右滑动，即可回到上一个页面。</view>
   </view>
 
   <view class="cu-bar bg-cyan light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>默写练习
+      <text class='icon-title text-white'></text>默写练习
     </view>
   </view>
   <view class='padding bg-white'>
@@ -30,7 +39,7 @@
 
     <view class="cu-bar bg-green light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>常用动词变位查询
+      <text class='icon-title text-white'></text>常用动词变位查询
     </view>
   </view>
   <view class='padding bg-white'>
@@ -43,7 +52,7 @@
 
       <view class="cu-bar bg-blue light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>设置
+      <text class='icon-title text-white'></text>设置
     </view>
   </view>
   <view class='padding bg-white'>

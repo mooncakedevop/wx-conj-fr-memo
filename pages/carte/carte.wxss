@@ -23,3 +23,8 @@
 .margin-top{
   margin-top: 5vh;
 }
+
+.padding-conj{
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}

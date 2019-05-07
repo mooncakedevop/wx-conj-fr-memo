@@ -30,9 +30,9 @@
       },
       {
         "pagePath": "pages/carte/milestone",
-        "text": "小助手",
-        "iconPath": "style/search.png",
-        "selectedIconPath": "style/search_selected.png"
+        "text": "分类记忆",
+        "iconPath": "style/classify.png",
+        "selectedIconPath": "style/classify_selected.png"
       },
       {
         "pagePath": "pages/settings/settings",

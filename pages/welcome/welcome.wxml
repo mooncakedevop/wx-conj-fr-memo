@@ -9,6 +9,11 @@
       <view class='padding-sm'>
         
         <view class='bg-green light round padding radius text-center shadow-blur'bindtap="training">
+
+      <view class='icon-cu-image'>
+        <view class='cu-tag badge'>新功能测试</view>
+      </view>
+
           <view class="text-sl">
             <text class='icon-text'></text>
           </view>

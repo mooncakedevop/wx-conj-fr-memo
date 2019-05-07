@@ -16,7 +16,7 @@
 
 
     <view class='padding bg-white dash-conj'>
-      <view class='text-center'>倒计时<text class='icon-question'></text></view>
+      <view class='text-center'>倒计时<text class='icon-question' bindtap='hint_countdown'></text></view>
       <text style="display: block;" class="text-sl">{{seconds_wait}}</text>
     </view>
     

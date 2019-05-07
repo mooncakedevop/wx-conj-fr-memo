@@ -2,11 +2,7 @@
 
   <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
 
-    <view class="cu-progress radius striped active shadow-blur">
-    <view class='bg-red' style="width:{{loading?'30%':''}};">30%</view>
-    <view class='bg-olive' style="width:{{loading?'45%':''}};">45%</view>
-    <view class='bg-cyan' style="width:{{loading?'25%':''}};">25%</view>
-  </view> 
+
     <view class="cu-bar bg-blue light solid-bottom margin-top">
       <view class='action italic'>
         <text class='text-center italic'></text>Carte No.{{carte_number}}
@@ -23,10 +19,6 @@
       <view class='text-center'>倒计时<text class='icon-question'></text></view>
       <text style="display: block;" class="text-sl">{{seconds_wait}}</text>
     </view>
-
-
-    <view class="padding flex flex-direction bg-btn-conj">
-      <button class='cu-btn lines-white round shadow lg' disabled="{{true_or_false}}" bindtap="iknow">欧了</button>
-    </view>
+    
   </view>
 </view>

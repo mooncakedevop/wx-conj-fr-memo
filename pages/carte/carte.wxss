@@ -1,6 +1,6 @@
 .title_css{
-  padding-top: 10vh;
-  padding-bottom: 5vh
+  padding-top: 20vh;
+  padding-bottom: 10vh
 }
 
 .page__title{
@@ -16,8 +16,8 @@
 .bg-btn-conj{
   margin-left: 3vh;
   margin-right: 3vh;
-  padding-bottom: 18vh;
-  padding-top: 7vh;
+  padding-bottom: 25vh;
+  padding-top: 10vh;
 }
 
 .margin-top{

@@ -1,6 +1,6 @@
 <view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
   <view class=' text-sm margin-text'>
-    <text class='text-white'>您一共学习了{{}}张卡片\n</text>
+    <text class='text-white'>您一共学习了{{zhangwo}}张卡片\n</text>
     <text class='text-white'>待复习{{}}张卡片\n</text>
     <text class='text-white'>还有{{}}张卡片您没有看过\n</text>
     <text class='text-white'>学会了{{}}张卡片\n</text>

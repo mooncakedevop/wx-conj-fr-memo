@@ -48,12 +48,29 @@ Page({
     }, 500)
   },
 
-  next: function () {
+  bien_enregistre: function () {
+
+
+    var idx_shitai = app.globalData.shitai_no;
+    var carte_number = app.globalData.carte_number + 1      //卡片编号加1
+    var carte_arrey = app.globalData.carte_arrey
+    carte_arrey.splice(idx_shitai, 1, carte_number)    //删除从idx_shitai开始1个元素，替换成carte_number
+    console.log(carte_arrey)
+    wx.setStorageSync('carte_arrey', carte_arrey)
 
     wx.navigateBack({
       delta: 1
     })
-    console.log("next")
+    console.log("bien_enregistre")
+
+
+  },
+
+  JNSP: function () {
+    wx.navigateBack({
+      delta: 1
+    })
+    console.log("JNSP")
   },
 
   onUnload: function () {

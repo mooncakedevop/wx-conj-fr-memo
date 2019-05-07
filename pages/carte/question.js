@@ -19,16 +19,19 @@ Page({
     show_conj_nous: [],
     show_conj_vous: [],
     show_conj_ils: [],
-    seconds_wait: 30,
+    seconds_wait: 10,
 
     carte_number: null,
     search_word: null,
 
+    zhangwo: null,
+    shengshu: null,
+    xin:null, 
   },
 
   onLoad: function () {
     var timer; // 计时器
-    var seconds_wait = 3;  //设定倒计时时间
+    var seconds_wait = 10;  //设定倒计时时间
     Countdown(this);  //注意this和that
 
     function Countdown(that) { //注意this和that
@@ -42,21 +45,31 @@ Page({
           that.setData({
             true_or_false: false,
           })
+          wx.navigateTo({      //倒计时结束之后立马跳转
+            url: 'carte',
+          })//要延时执行的代码
         } else {
           Countdown(that);
         }
       }, 1000);
     };
 
-    let that = this;
-    setTimeout(function () {
-      that.setData({
-        loading: true
-      })
-    }, 500)
+    var carte_arrey = app.globalData.carte_arrey   //从卡片历史进度中读取对应时态的历史进度
+    
+    console.log(carte_arrey)
+    
+    var sum = 0;
+    for (var i = 0; i < carte_arrey.length; i++){
+      var sum = carte_arrey[i] + sum
+    }
+    var zhangwo = sum - 3805;
 
-    var carte_number = 5;   //卡号
-    var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词
+    var idx_shitai = app.globalData.shitai_no;    //显示时态序号
+    var carte_number = carte_arrey[idx_shitai];   //卡号
+    console.log(idx_shitai)
+    console.log(carte_number)
+
+    var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词，直接看卡号，卡号唯一
     var idx_shitai = app.globalData.shitai_no;    //显示时态序号
     var shitai_chinois = shitai[idx_shitai]
 
@@ -65,12 +78,24 @@ Page({
     console.log(idx_shitai)
 
     this.setData({
+      zhangwo: zhangwo,
       carte_number: carte_number,
       search_word: search_word,
       idx_shitai: idx_shitai,
       shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
     })
 
+
+    let that = this;
+    setTimeout(function () {
+      that.setData({
+        loading: true
+      })
+    }, 500)
+
+    var search_word = app.globalData.search_word
+    var idx_shitai = app.globalData.shitai_no
+    this.exp(search_word, idx_shitai);
 
   },
 
@@ -97,17 +122,6 @@ Page({
     })
   },
 
-
-  iknow: function () {
-
-    var search_word = app.globalData.search_word  
-    var idx_shitai = app.globalData.shitai_no
-    this.exp(search_word, idx_shitai);
-
-    wx.navigateTo({
-      url: 'carte',
-    })
-  },
 
   exp: function (search_word,idx_shitai) {
     //查找verb中的单词行号

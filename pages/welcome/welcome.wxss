@@ -22,5 +22,5 @@
 
 .margin-text{
   margin-top: 7vh;
-  margin-bottom: 10vh
+  margin-bottom: 20vh
 }

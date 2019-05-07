@@ -14,6 +14,7 @@ App({
     userInfo: null,
     ow:null,
 
+    newer: null,
     isChecked1: false,
     isChecked1_selected: false,
     isChecked1_50: true,
@@ -42,5 +43,6 @@ App({
     shitai_no: null,
     search_word: null,
     carte_number: null,
+    carte_arrey: null
   }
 })

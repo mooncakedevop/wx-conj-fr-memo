@@ -15,6 +15,7 @@ Page({
     if (app.globalData.newer == '') {    //如果没有任何数据，那就代表是新用户
       wx.setStorageSync('mySettings_isChecked1_50', true)  //写下用户的第一个数据
       wx.setStorageSync('carte_arrey', [0, 0, 123, 1, 84,177,203,235,261,300,325,364,388,423,447,474]) //写下用户的第一个数据
+      wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
       wx.setStorageSync('newer',true)
       this.setData({
         welcome_botton: '轻触开始学习'
@@ -30,6 +31,7 @@ Page({
     app.globalData.isChecked3 = wx.getStorageSync('mySettings_isChecked3')
     app.globalData.isChecked4 = wx.getStorageSync('mySettings_isChecked4')
     app.globalData.carte_arrey = wx.getStorageSync('carte_arrey')
+    app.globalData.likeandsave = wx.getStorageSync('likeandsave')
 
     if (app.globalData.isChecked2 == true) {
       app.globalData.advanced_shitai = [4, 5, 7, 9];

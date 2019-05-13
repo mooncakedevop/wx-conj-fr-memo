@@ -24,14 +24,17 @@ Page({
     carte_number: null,
     search_word: null,
 
-    zhangwo: null,
-    shengshu: null,
+    zhangwo: null,   //掌握数量（看过）
+    shengshu: null,   //生疏数量（没看过）
     xin:null, 
+
+    ps1: null,
+    ps2: null,
   },
 
   onLoad: function () {
     var timer; // 计时器
-    var seconds_wait = 10;  //设定倒计时时间
+    var seconds_wait = 1;  //设定倒计时时间
     Countdown(this);  //注意this和that
 
     var carte_arrey = app.globalData.carte_arrey   //从卡片历史进度中读取对应时态的历史进度
@@ -50,11 +53,15 @@ Page({
     console.log(carte_number)
 
     var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词，直接看卡号，卡号唯一
+    var ps1 = carte.carteFr[carte_number].ps1     //卡片ps1信息
+    var ps2 = carte.carteFr[carte_number].ps2    //卡片ps2信息
     var idx_shitai = app.globalData.shitai_no;    //显示时态序号
     var shitai_chinois = shitai[idx_shitai]
 
     app.globalData.carte_number = carte_number;
     app.globalData.search_word = search_word;
+    app.globalData.ps1 = ps1;
+    app.globalData.ps2 = ps2;
     console.log(idx_shitai)
 
     this.setData({

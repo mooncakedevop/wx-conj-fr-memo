@@ -43,6 +43,10 @@ App({
     shitai_no: null,
     search_word: null,
     carte_number: null,
-    carte_arrey: null
+    carte_arrey: null,
+
+    ps1: null,
+    ps2: null,
+    likeandsave: [],
   }
 })

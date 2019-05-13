@@ -68,6 +68,12 @@
 					"pathName": "pages/settings/help/help",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "carte",
+					"pathName": "pages/carte/carte",
+					"scene": null
 				}
 			]
 		}

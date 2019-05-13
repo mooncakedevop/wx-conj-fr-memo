@@ -11,7 +11,7 @@ Page({
     search_word: null,
     idx_shitai: null,
     shitai_chinois: null,
-    carte_number:null,
+    carte_number: null,
 
     show_conj_je: [],
     show_conj_tu: [],
@@ -19,6 +19,10 @@ Page({
     show_conj_nous: [],
     show_conj_vous: [],
     show_conj_ils: [],
+    ps1: null,
+    ps2: null,
+    change_color: null,
+    likeandsave: [],
   },
 
   onLoad: function () {
@@ -26,6 +30,8 @@ Page({
     var idx_shitai = app.globalData.shitai_no;    //显示时态序号
     var shitai_chinois = shitai[idx_shitai]
     var carte_number = app.globalData.carte_number;
+    var ps1 = app.globalData.ps1;
+    var ps2 = app.globalData.ps2;
 
     this.setData({
       show_conj_je: app.globalData.shitai_je,
@@ -37,7 +43,9 @@ Page({
 
       search_word: app.globalData.search_word,
       carte_number: carte_number,
-      shitai_chinois: shitai_chinois //通过时态序号查找时态对应的中文
+      shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
+      ps1: ps1,
+      ps2: ps2,
     })
 
     let that = this;
@@ -49,10 +57,8 @@ Page({
   },
 
   bien_enregistre: function () {
-
-
     var idx_shitai = app.globalData.shitai_no;
-    var carte_number = app.globalData.carte_number + 1      //卡片编号加1
+    var carte_number = app.globalData.carte_number + 1      //全局卡片编号加1
     var carte_arrey = app.globalData.carte_arrey
     carte_arrey.splice(idx_shitai, 1, carte_number)    //删除从idx_shitai开始1个元素，替换成carte_number
     console.log(carte_arrey)
@@ -62,8 +68,6 @@ Page({
       delta: 1
     })
     console.log("bien_enregistre")
-
-
   },
 
   JNSP: function () {
@@ -78,5 +82,30 @@ Page({
     var pages = getCurrentPages()
     var prevPage = pages[pages.length - 2]
     prevPage.onLoad()
+  },
+
+  like_save: function (e) {
+    var id = e.target.id;   //获取当页的id号，也就是卡号
+    var likeandsave = app.globalData.likeandsave;  //读取原来全局变量中的likeandsave
+    var likeandsave_exist = likeandsave.indexOf(id);   //看看id号是否在原来的likeandsave中
+
+    if (likeandsave_exist == -1) {      //如果没有（返回-1），那么：
+      likeandsave.push(id);            //将id号写入likeandsave, likeandsave为加入后的数组
+      app.globalData.likeandsave = likeandsave;   //写入全局变量
+      wx.setStorageSync('likeandsave', likeandsave)    //写入缓存
+      this.setData({
+        change_color: 'text-yellow',            //改变颜色
+      })
+    } else {
+      likeandsave.splice(likeandsave_exist, 1);   //将id号起删除一个元素, likeandsave为删除后剩下的数组
+      app.globalData.likeandsave = likeandsave;  //写入全局变量
+      wx.setStorageSync('likeandsave', likeandsave)  //写入缓存
+      this.setData({
+        change_color: 'text-blue',      //改变颜色
+      })
+    }
+    
+    console.log(likeandsave_exist)
+    console.log(app.globalData.likeandsave)
   }
 });

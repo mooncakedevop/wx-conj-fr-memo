@@ -2,10 +2,32 @@
   <view class=' text-sm margin-text'>
     <text class='text-white'>您一共学习了{{zhangwo}}张卡片\n</text>
     <text class='text-white'>还有{{xin}}张卡片您没有看过\n</text>
-
   </view>
+
+
   <view class='flex-sub text-center'>
-    <view class='grid col-2 padding-sm bg-btn-conj'>
+    <view class='grid col-2 padding-sm'>
+      <view class='padding-sm'>
+
+        <view class="bg-img padding  radius text-center shadow-blur" style="background-image: url('https://uniquelab.oss-cn-beijing.aliyuncs.com/applet/2019-05-14%2014_25_22-screen_output.jpg')" bindtap="allcards">
+          <view class='icon-cu-image'>
+            <view class='cu-tag badge'>NEW</view>
+          </view>
+          <view class="text-sm">所有卡片</view>
+          <view class="text-xs">Tous les cartes</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class="bg-img padding  radius text-center shadow-blur" style="background-image: url('https://uniquelab.oss-cn-beijing.aliyuncs.com/applet/2019-05-14%2014_25_04-screen_output.jpg')" bindtap="myfavorite">
+          <view class='icon-cu-image'>
+            <view class='cu-tag badge'>NEW</view>
+          </view>
+          <view class="text-sm">我的收藏</view>
+          <view class="text-xs">Mes collections</view>
+        </view>
+      </view>
+      
       <view class='padding-sm'>
         <view class='bg-red light round padding radius text-center shadow-blur' bindtap="xianzaifenci">
           <view class="text-sm">现在分词 过去分词</view>
@@ -71,7 +93,7 @@
         </view>
       </view>
 
-            <view class='padding-sm'>
+      <view class='padding-sm'>
         <view class='bg-green light round padding radius text-center shadow-blur' bindtap="tjs_passe">
           <view class="text-sm">条件式过去时</view>
           <view class="text-xs">Conditionnel Passé</view>

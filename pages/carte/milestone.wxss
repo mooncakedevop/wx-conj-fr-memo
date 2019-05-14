@@ -3,26 +3,14 @@
   overflow: hidden;
 }
 
-
-.margin-avatar{
-  padding-top: 12vh;
-  margin-left: 32vw;
-  margin-right: 32vw;
-}
-
-.margin-title{
-  margin-top: 0vh;
-  margin-bottom: 20vh;
-}
-
-.bg-btn-conj{
-  margin-top: 2vh;
-  margin-bottom: 2vh
+.btn-milestone-conj{
+    margin-bottom: 0vh;
+    padding-bottom: 0vh;
 }
 
 .margin-text{
   margin-top: 10vh;
-  margin-bottom: 2vh
+  margin-bottom: 2vh;
 }
 
 .text-xs{

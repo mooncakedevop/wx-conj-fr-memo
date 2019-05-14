@@ -9,7 +9,8 @@
     "pages/carte/carte",
     "pages/carte/question",
     "pages/carte/milestone",
-    "pages/settings/help/help"
+    "pages/settings/help/help",
+    "pages/carte/list"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",

@@ -22,6 +22,24 @@ Page({
     })
   },
 
+  allcards: function () {
+    wx.navigateTo({
+      url: 'list',
+    })
+  },
+
+  allcards: function () {
+    wx.navigateTo({
+      url: 'list',
+    })
+  },
+
+  myfavorite: function () {
+    wx.navigateTo({
+      url: 'list',
+    })
+  },
+
   xianzaifenci: function() {
     wx.navigateTo({
       url: 'question',

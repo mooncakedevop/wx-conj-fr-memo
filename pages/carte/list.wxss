@@ -18,6 +18,9 @@
   content: "\e6db";
 }
 
+.text-blue{
+  padding-left: 5vw;
+}
 
 .margin-text{
   margin-top: 10vh;

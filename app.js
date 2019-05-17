@@ -15,7 +15,7 @@ App({
     ow:null,
 
     newer: null,
-    newest: null,
+    version: null,
     isChecked1: false,
     isChecked1_selected: false,
     isChecked1_50: true,
@@ -49,5 +49,6 @@ App({
     ps1: null,
     ps2: null,
     likeandsave: [],
+    list: null,
   }
 })

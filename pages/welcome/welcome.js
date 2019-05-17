@@ -11,21 +11,20 @@ Page({
 
   onLoad: function() {
     app.globalData.newer = wx.getStorageSync('newer')
-    app.globalData.newest = wx.getStorageSync('newest')
+    app.globalData.version = wx.getStorageSync('version')
 
-    if (app.globalData.newer == '' && app.globalData.newest == '') { //如果没有任何数据，那就代表是新用户
+    if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
       wx.setStorageSync('mySettings_isChecked1_50', true) //写下用户的第一个数据
       wx.setStorageSync('carte_arrey', [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474]) //写下用户的第一个数据
       wx.setStorageSync('newer', true)
+      wx.setStorageSync('version', "v1.3.2")   //写入新版本的版本号
       wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
     }
 
-    if (app.globalData.newest == '') { //如果没有任何数据，那就代表是新用户
-      wx.setStorageSync('newest', true)
-      wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
-    } else {
-      wx.removeStorageSync('newer')
-    }
+    if (app.globalData.version != "v1.3.2") { //如果只是新版本的数据没有
+      wx.setStorageSync('version', "v1.3.2")   //写入新版本的版本号
+      wx.setStorageSync('likeandsave', []) //写下用户在新版本所需的第一个数据
+    } 
 
     app.globalData.isChecked1 = wx.getStorageSync('mySettings_isChecked1')
     app.globalData.isChecked1_selected = wx.getStorageSync('mySettings_isChecked1_selected')

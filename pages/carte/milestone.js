@@ -136,4 +136,20 @@ Page({
     })
     app.globalData.shitai_no = 14 //指定时态序号
   },
+
+  allcards: function(){
+    wx.navigateTo({
+      url: 'list',
+    })
+    app.globalData.list = "all" //指定时态序号
+  },
+
+  myfavorite: function () {
+    wx.navigateTo({
+      url: 'list',
+    })
+    app.globalData.list = "favorite" //指定时态序号
+  }
+
+
 })

@@ -1,18 +1,38 @@
+
 <view class="cu-bar bg-white solid-bottom margin-top margin-text">
   <view class='action'>
-    <text class='icon-title text-orange '></text> 列表左滑
+    {{list_title}}<text class='icon-question text-blue' bindtap="hint"></text>
   </view>
 </view>
+
+
 <view class="cu-list menu">
-  <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart='ListTouchStart' bindtouchmove='ListTouchMove' bindtouchend='ListTouchEnd' data-target="move-box-{{index}}">
-    <view class='content'>
-      <view class='text-grey'>这里是单词</view>
-      <view class='text-gray text-sm'>
-        <text class='icon-infofill text-red'></text>这里是时态</view>
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{array}}" wx:key bindtouchstart='ListTouchStart' bindtouchmove='ListTouchMove' bindtouchend='ListTouchEnd' data-target="move-box-{{index}}">
+
+      <view class='content'>
+        <view class='text-black'>{{item.mot}}
+        </view>
+        <view class='text-gray text-sm'>
+          <view wx:if="{{item.st == 3}}">直陈式现在时</view>
+          <view wx:elif="{{item.st == 2}}">直陈式复合过去时</view>
+          <view wx:elif="{{item.st == 4}}">直陈式未完成过去时</view>
+          <view wx:elif="{{item.st == 5}}">直陈式愈过去时</view>
+          <view wx:elif="{{item.st == 6}}">直陈式简单过去时</view>
+          <view wx:elif="{{item.st == 7}}">直陈式先过去时</view>
+          <view wx:elif="{{item.st == 8}}">直陈式简单将来时</view>
+          <view wx:elif="{{item.st == 9}}">直陈式先将来时</view>
+          <view wx:elif="{{item.st == 10}}">条件式现在时</view>
+          <view wx:elif="{{item.st == 11}}">条件式过去时</view>
+          <view wx:elif="{{item.st == 12}}">虚拟式现在时</view>
+          <view wx:elif="{{item.st == 13}}">虚拟式过去式</view>
+          <view wx:elif="{{item.st == 14}}">命令式</view>
+          <view wx:elif="{{item.st == 15}}">现在分词和过去分词</view>
+        </view>
+      </view>
+
+      <view class='move'>
+        <view class='bg-grey' bindtap="like_save">星标</view>
+        <view class="bg-red" bindtap="unlike_save">删除</view>
+      </view>
     </view>
-    <view class='move'>
-      <view class='bg-grey'>星标</view>
-      <view class="bg-red">删除</view>
-    </view>
-  </view>
 </view>

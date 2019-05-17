@@ -49,6 +49,6 @@ App({
     ps1: null,
     ps2: null,
     likeandsave: [],
-    list: null,
+    idx_carte_number: 0,
   }
 })

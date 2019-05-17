@@ -1,0 +1,44 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+
+    <view class="cu-bar bg-blue light solid-bottom margin-top">
+      <view class="flex solid-bottom padding justify-between">
+        <text class='text-center italic'>Carte No.{{carte_number}}</text>
+
+      </view>
+
+      <view class="flex solid-bottom padding justify-between">
+        <view class='icon-favorfill {{change_color}}' bindtap='like_save'id='{{carte_number}}'></view>
+      </view>
+
+    </view>
+
+    <view class='padding bg-white'>
+      <view class="text-sl">{{search_word}}</view>
+      <view class='text-center italic'>{{shitai_chinois}}</view>
+    </view>
+
+    <view class='padding bg-white dash-conj padding-conj'>
+      <view class='text-center'>{{show_conj_je}}</view>
+      <view class='text-center'>{{show_conj_tu}}</view>
+      <view class='text-center'>{{show_conj_il}}</view>
+      <view class='text-center'>{{show_conj_nous}}</view>
+      <view class='text-center'>{{show_conj_vous}}</view>
+      <view class='text-center'>{{show_conj_ils}}</view>
+    </view>
+
+    <view class='padding bg-white dash-conj padding-conj'>
+      <view class='text-sm'>{{ps1}}</view>
+      <view class='text-sm'>{{ps2}}</view>
+    </view>
+
+    <view class='box'>
+      <view class="cu-bar btn-group bg-btn-conj">
+        <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😪不太清楚</button>
+        <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌记住了</button>
+      </view>
+    </view>
+  </view>
+
+</view>

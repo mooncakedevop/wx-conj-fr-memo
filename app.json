@@ -3,14 +3,14 @@
     "pages/welcome/welcome",
     "pages/index/index",
     "pages/lab/lab",
-    "pages/chat/chat",
     "pages/settings/settings",
     "pages/lab/result/result",
     "pages/carte/carte",
     "pages/carte/question",
     "pages/carte/milestone",
     "pages/settings/help/help",
-    "pages/carte/list"
+    "pages/carte/question_star",
+    "pages/carte/carte_star"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",

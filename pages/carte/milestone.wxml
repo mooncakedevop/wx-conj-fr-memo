@@ -7,16 +7,6 @@
 
   <view class='flex-sub text-center'>
     <view class='grid col-2 padding-sm'>
-      <view class='padding-sm'>
-
-        <view class="bg-img padding  radius text-center shadow-blur" style="background-image: url('https://uniquelab.oss-cn-beijing.aliyuncs.com/applet/2019-05-14%2014_25_22-screen_output.jpg')" bindtap="allcards">
-          <view class='icon-cu-image'>
-            <view class='cu-tag badge'>NEW</view>
-          </view>
-          <view class="text-sm">所有卡片</view>
-          <view class="text-xs">Tous les cartes</view>
-        </view>
-      </view>
 
       <view class='padding-sm'>
         <view class="bg-img padding  radius text-center shadow-blur" style="background-image: url('https://uniquelab.oss-cn-beijing.aliyuncs.com/applet/2019-05-14%2014_25_04-screen_output.jpg')" bindtap="myfavorite">

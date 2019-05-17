@@ -28,17 +28,7 @@ Page({
     })
   },
 
-  allcards: function () {
-    wx.navigateTo({
-      url: 'list',
-    })
-  },
 
-  myfavorite: function () {
-    wx.navigateTo({
-      url: 'list',
-    })
-  },
 
   xianzaifenci: function() {
     wx.navigateTo({
@@ -139,14 +129,14 @@ Page({
 
   allcards: function(){
     wx.navigateTo({
-      url: 'list',
+      url: 'question_star',
     })
     app.globalData.list = "all" //指定时态序号
   },
 
   myfavorite: function () {
     wx.navigateTo({
-      url: 'list',
+      url: 'question_star',
     })
     app.globalData.list = "favorite" //指定时态序号
   }

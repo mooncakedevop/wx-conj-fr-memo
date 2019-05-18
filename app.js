@@ -45,6 +45,7 @@ App({
     search_word: null,
     carte_number: null,
     carte_arrey: null,
+    time_count: null,
 
     ps1: null,
     ps2: null,

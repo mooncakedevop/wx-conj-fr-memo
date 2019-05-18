@@ -10,7 +10,8 @@
     "pages/carte/milestone",
     "pages/settings/help/help",
     "pages/carte/question_star",
-    "pages/carte/carte_star"
+    "pages/carte/carte_star",
+    "pages/carte/success"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",

@@ -17,3 +17,7 @@
   margin-top: 1vh;
   font-size:xx-small;
 }
+
+.padding-down{
+      margin-bottom: -3vh;
+}

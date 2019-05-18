@@ -19,11 +19,13 @@ Page({
       wx.setStorageSync('newer', true)
       wx.setStorageSync('version', "v1.3.2")   //写入新版本的版本号
       wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
+      wx.setStorageSync('time_count', 10) 
     }
 
     if (app.globalData.version != "v1.3.2") { //如果只是新版本的数据没有
       wx.setStorageSync('version', "v1.3.2")   //写入新版本的版本号
       wx.setStorageSync('likeandsave', []) //写下用户在新版本所需的第一个数据
+      wx.setStorageSync('time_count', 10) 
     } 
 
     app.globalData.isChecked1 = wx.getStorageSync('mySettings_isChecked1')
@@ -36,6 +38,7 @@ Page({
     app.globalData.isChecked4 = wx.getStorageSync('mySettings_isChecked4')
     app.globalData.carte_arrey = wx.getStorageSync('carte_arrey')
     app.globalData.likeandsave = wx.getStorageSync('likeandsave')
+    app.globalData.time_count = wx.getStorageSync('time_count')
 
     if (app.globalData.isChecked2 == true) {
       app.globalData.advanced_shitai = [4, 5, 7, 9];

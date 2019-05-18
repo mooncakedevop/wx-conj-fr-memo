@@ -2,6 +2,7 @@
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const settings = db.collection('mySettings')
+const picker = new Array('5', '10', '20', '30', '45', '60')
 
 Component({
 
@@ -17,7 +18,10 @@ Component({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+
+    index: null,
+    picker: ['5', '10', '20', '30', '45', '60']
   },
 
 
@@ -214,6 +218,24 @@ Component({
     about: function () {
       wx.navigateTo({
         url: 'help/more',
+      })
+    },
+
+    PickerChange(e) {                        //用来选时间
+      console.log(e);
+      var index = e.detail.value;
+      var index = parseInt(index)
+      var time_count = picker[index]
+      var time_count = parseInt(time_count)
+      console.log(index);
+      console.log(time_count);
+
+      app.globalData.time_count = time_count;
+      wx.setStorageSync('time_count', time_count)
+
+
+      this.setData({
+        index: e.detail.value
       })
     },
 

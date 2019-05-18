@@ -5,7 +5,6 @@ const verb = require('../../data/verb_7016_fr_20190330.js')
 const classic = require('../../data/classic_149_fr_20190330.js')
 const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
 
-
 Page({
   data: {
     search_word: null,
@@ -25,9 +24,8 @@ Page({
     likeandsave: [],
   },
 
-  onLoad: function () {
-
-    var idx_shitai = app.globalData.shitai_no;    //显示时态序号
+  onLoad: function() {
+    var idx_shitai = app.globalData.shitai_no; //显示时态序号
     var shitai_chinois = shitai[idx_shitai]
     var carte_number = app.globalData.carte_number;
     var ps1 = app.globalData.ps1;
@@ -46,20 +44,22 @@ Page({
       shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
       ps1: ps1,
       ps2: ps2,
+      change_color: 'text-yellow', //改变颜色
     })
 
     let that = this;
-    setTimeout(function () {
+    setTimeout(function() {
       that.setData({
         loading: true
       })
     }, 500)
   },
 
-  bien_enregistre: function () {
+  bien_enregistre: function() {
     var idx_shitai = app.globalData.shitai_no
-    app.globalData.idx_carte_number = app.globalData.idx_carte_number + 1      //全局卡片编号加1
+    app.globalData.idx_carte_number = app.globalData.idx_carte_number + 1 //全局卡片编号加1
     var carte_arrey = app.globalData.likeandsave
+    console.log(app.globalData.idx_carte_number)
 
     wx.navigateBack({
       delta: 1
@@ -67,14 +67,14 @@ Page({
     console.log("bien_enregistre")
   },
 
-  JNSP: function () {
+  JNSP: function() {
     wx.navigateBack({
       delta: 1
     })
     console.log("JNSP")
   },
 
-  onUnload: function () {
+  onUnload: function() {
     // 页面关闭
     var pages = getCurrentPages()
     var prevPage = pages[pages.length - 2]
@@ -97,6 +97,8 @@ Page({
       likeandsave.splice(likeandsave_exist, 1);   //将id号起删除一个元素, likeandsave为删除后剩下的数组
       app.globalData.likeandsave = likeandsave;  //写入全局变量
       wx.setStorageSync('likeandsave', likeandsave)  //写入缓存
+      app.globalData.idx_carte_number = app.globalData.idx_carte_number -1 ; //取消星标之后，likeandsave中也就少一个元素
+      app.globalData.carte_number
       this.setData({
         change_color: 'text-blue',      //改变颜色
       })

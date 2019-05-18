@@ -19,6 +19,24 @@
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
+      <text class='icon-title text-white'></text>倒计时设置
+    </view>
+  </view>
+  <view class='padding bg-white'>
+
+  <view class="cu-form-group margin-top">
+    <view class='title'>时间选择</view>
+    <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+      <view class="picker">
+        {{index?picker[index]:'单位：秒'}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
       <text class='icon-title text-white'></text>单词设置
     </view>
   </view>

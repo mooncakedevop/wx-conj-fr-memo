@@ -19,7 +19,6 @@ Page({
     show_conj_nous: [],
     show_conj_vous: [],
     show_conj_ils: [],
-    seconds_wait: 10,
 
     carte_number: null,
     search_word: null,
@@ -34,7 +33,7 @@ Page({
 
   onLoad: function () {
     var timer; // 计时器
-    var seconds_wait = 1;  //设定倒计时时间
+    var seconds_wait = app.globalData.time_count;  //设定倒计时时间
     Countdown(this);  //注意this和that
 
     var carte_arrey = app.globalData.carte_arrey   //从卡片历史进度中读取对应时态的历史进度

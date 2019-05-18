@@ -19,7 +19,6 @@ Page({
     show_conj_nous: [],
     show_conj_vous: [],
     show_conj_ils: [],
-    seconds_wait: 10,
 
     idx_carte_number: null,
     carte_number: null,
@@ -35,11 +34,11 @@ Page({
 
   onLoad: function () {
     var timer; // 计时器
-    var seconds_wait = 1;  //设定倒计时时间
-    Countdown(this);  //注意this和that
+    var seconds_wait = app.globalData.time_count;  //设定倒计时时间
+ 
 
     var carte_arrey = app.globalData.likeandsave   //从卡片历史进度中读取对应时态的历史进度
-    var idx_carte_number = app.globalData.idx_carte_number 
+    var idx_carte_number = app.globalData.idx_carte_number
     console.log(carte_arrey)
 
 
@@ -52,57 +51,67 @@ Page({
     console.log(idx_carte_number)
     console.log(carte_number)
 
-    var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词，直接看卡号，卡号唯一
-    var ps1 = carte.carteFr[carte_number].ps1     //卡片ps1信息
-    var ps2 = carte.carteFr[carte_number].ps2    //卡片ps2信息
-    var idx_shitai = carte.carteFr[carte_number].st;    //显示时态序号
-    idx_shitai = parseInt(idx_shitai)
-    var shitai_chinois = shitai[idx_shitai]
-
-    app.globalData.shitai_no = idx_shitai;
-    app.globalData.carte_number = carte_number;
-    app.globalData.search_word = search_word;
-    app.globalData.ps1 = ps1;
-    app.globalData.ps2 = ps2;
-    console.log(idx_shitai)
-
-    this.setData({
-      carte_number: carte_number,
-      search_word: search_word,
-      idx_shitai: idx_shitai,
-      shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
-    })
-
-
-    let that = this;
-    setTimeout(function () {
-      that.setData({
-        loading: true
+    if (carte_number == undefined) {
+      wx.redirectTo({
+        url: 'success',
       })
-    }, 500)
+      app.globalData.idx_carte_number = 0;
+    } else {
+      Countdown(this);  //注意this和that
+     
 
-    this.exp(search_word, idx_shitai);
+      var search_word = carte.carteFr[carte_number].mot     //初始页面显示单词，直接看卡号，卡号唯一
+      var ps1 = carte.carteFr[carte_number].ps1     //卡片ps1信息
+      var ps2 = carte.carteFr[carte_number].ps2    //卡片ps2信息
+      var idx_shitai = carte.carteFr[carte_number].st;    //显示时态序号
+      idx_shitai = parseInt(idx_shitai)
+      var shitai_chinois = shitai[idx_shitai]
 
-    function Countdown(that) { //注意this和that
-      timer = setTimeout(function () {
-        seconds_wait--;
+      app.globalData.shitai_no = idx_shitai;
+      app.globalData.carte_number = carte_number;
+      app.globalData.search_word = search_word;
+      app.globalData.ps1 = ps1;
+      app.globalData.ps2 = ps2;
+      console.log(idx_shitai)
+
+      this.setData({
+        carte_number: carte_number,
+        search_word: search_word,
+        idx_shitai: idx_shitai,
+        shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
+      })
+
+
+      let that = this;
+      setTimeout(function () {
         that.setData({
-          seconds_wait: seconds_wait,
+          loading: true
         })
-        if (seconds_wait <= 0) {
-          seconds_wait = 0;
-          that.setData({
-            true_or_false: false,
-          })
-          wx.navigateTo({      //倒计时结束之后立马跳转
-            url: 'carte_star',
-          })//要延时执行的代码
-        } else {
-          Countdown(that);
-        }
-      }, 1000);
-    };
+      }, 500)
 
+      this.exp(search_word, idx_shitai);
+      
+      function Countdown(that) { //注意this和that
+        timer = setTimeout(function () {
+          seconds_wait--;
+          that.setData({
+            seconds_wait: seconds_wait,
+          })
+          if (seconds_wait <= 0) {
+            seconds_wait = 0;
+            that.setData({
+              true_or_false: false,
+            })
+            wx.navigateTo({      //倒计时结束之后立马跳转
+              url: 'carte_star',
+            })//要延时执行的代码
+          } else {
+            Countdown(that);
+          }
+        }, 1000);
+      };
+
+    }
   },
 
   exp: function (search_word, idx_shitai) {

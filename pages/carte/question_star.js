@@ -806,7 +806,7 @@ Page({
   hint_countdown: function (tap_word) {
     wx.showModal({
       title: '提示',
-      content: '在倒计时的这段时间内，您可以回想或者口头念出它们的变位形式。时间归0之后您能看到答案以检验。下一个版本将能自由修改时间。',
+      content: '在倒计时的这段时间内，您可以回想或者口头念出它们的变位形式。时间归0之后您能看到答案以检验。',
       success: function (res) {
         if (res.confirm) {
           console.log('确定')

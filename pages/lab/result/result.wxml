@@ -8,7 +8,7 @@
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>分词 Participe Présent & Passé
+      <text class='icon-title text-red'></text>分词 Participe Présent & Passé
     </view>
   </view>
   <view class='padding bg-white'>
@@ -136,7 +136,7 @@
 
   <view class="cu-bar bg-green light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>条件式 现在时 Conditionnel Présent
+      <text class='icon-title text-green'></text>条件式 现在时 Conditionnel Présent
     </view>
   </view>
   <view class='padding bg-white'>
@@ -150,7 +150,7 @@
 
   <view class="cu-bar bg-green light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>条件式 过去时 Conditionnel Passé
+      <text class='icon-title text-green'></text>条件式 过去时 Conditionnel Passé
     </view>
   </view>
   <view class='padding bg-white'>
@@ -164,7 +164,7 @@
 
   <view class="cu-bar bg-orange light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>虚拟式 现在时 Subjonctif Présent
+      <text class='icon-title text-orange'></text>虚拟式 现在时 Subjonctif Présent
     </view>
   </view>
   <view class='padding bg-white'>
@@ -178,7 +178,7 @@
 
   <view class="cu-bar bg-orange light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>虚拟式 过去时 Subjonctif Passé
+      <text class='icon-title text-orange'></text>虚拟式 过去时 Subjonctif Passé
     </view>
   </view>
   <view class='padding bg-white'>
@@ -192,7 +192,7 @@
 
   <view class="cu-bar bg-yellow light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>命令式 Impératif Présent
+      <text class='icon-title text-yellow'></text>命令式 Impératif Présent
     </view>
   </view>
   <view class='padding bg-white'>

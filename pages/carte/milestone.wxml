@@ -7,7 +7,7 @@
 
     <view class='grid col-1 padding-sm padding-down'>
       <view class='padding-sm'>
-        <view class="bg-img padding  radius text-center shadow-blur" style="background-image: url('https://uniquelab.oss-cn-beijing.aliyuncs.com/applet/2019-05-14%2014_25_04-screen_output.jpg')" bindtap="myfavorite">
+        <view class="bg-orange light padding  radius text-center shadow-blur" bindtap="myfavorite">
           <view class='icon-cu-image'>
             <view class='cu-tag badge'>NEW</view>
           </view>

@@ -4,7 +4,7 @@
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>关于
+      <text class='icon-title text-red'></text>关于帮助
     </view>
   </view>
   <view class='padding bg-white'>
@@ -16,7 +16,7 @@
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-white'></text>重要提示
+      <text class='icon-title text-red'></text>重要提示
     </view>
   </view>
   <view class='padding bg-white'>
@@ -25,7 +25,7 @@
 
   <view class="cu-bar bg-cyan light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-white'></text>默写练习
+      <text class='icon-title text-cyan'></text>默写练习
     </view>
   </view>
   <view class='padding bg-white'>
@@ -39,7 +39,7 @@
 
     <view class="cu-bar bg-green light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-white'></text>常用动词变位查询
+      <text class='icon-title text-green'></text>常用动词变位查询
     </view>
   </view>
   <view class='padding bg-white'>
@@ -52,7 +52,7 @@
 
       <view class="cu-bar bg-blue light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-white'></text>设置
+      <text class='icon-title text-blue'></text>设置
     </view>
   </view>
   <view class='padding bg-white'>

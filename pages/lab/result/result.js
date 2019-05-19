@@ -23,7 +23,6 @@ Page({
       show_conj_ils: app.globalData.shitai_ils,
       ow: app.globalData.ow,
       tag_classic: app.globalData.tag_classic,
-      tag_debutant: app.globalData.tag_debutant,
     })
   }
 })

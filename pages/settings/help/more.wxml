@@ -21,12 +21,12 @@
 
  <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>关于
+      <text class='icon-title text-red'></text>关于
     </view>
   </view>
   <view class='padding bg-white'>
     <view class='text-center'>法语动词变位记忆小助手</view>
-    <view class='text-center'>v1.3.2 (2019.5.18)</view>
+    <view class='text-center'>v1.3.3 (2019.5.19)</view>
     <view class='text-center'>by bu要搞事情</view>
     <view class='text-center'>个人主页：https://hxd.red</view>
     <view class="text-center">2019.3</view>

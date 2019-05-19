@@ -24,10 +24,6 @@ Page({
     carte_number: null,
     search_word: null,
 
-    zhangwo: null,   //掌握数量（看过）
-    shengshu: null,   //生疏数量（没看过）
-    xin: null,
-
     ps1: null,
     ps2: null,
   },
@@ -40,12 +36,6 @@ Page({
     var carte_arrey = app.globalData.likeandsave   //从卡片历史进度中读取对应时态的历史进度
     var idx_carte_number = app.globalData.idx_carte_number
     console.log(carte_arrey)
-
-
-    var sum = 0;
-    for (var i = 0; i < carte_arrey.length; i++) {
-      var sum = carte_arrey[i] + sum
-    }
 
     var carte_number = carte_arrey[idx_carte_number];   //卡号
     console.log(idx_carte_number)
@@ -81,7 +71,6 @@ Page({
         shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文
       })
 
-
       let that = this;
       setTimeout(function () {
         that.setData({
@@ -98,11 +87,11 @@ Page({
             seconds_wait: seconds_wait,
           })
           if (seconds_wait <= 0) {
-            seconds_wait = 0;
+            seconds_wait = app.globalData.time_count;
             that.setData({
               true_or_false: false,
             })
-            wx.navigateTo({      //倒计时结束之后立马跳转
+            wx.redirectTo({      //倒计时结束之后立马跳转
               url: 'carte_star',
             })//要延时执行的代码
           } else {

@@ -17,12 +17,10 @@ Page({
 
 
   retour_accuill: function() {
-    wx.navigateBack({
-      delta: 5
+    wx.switchTab({
+      url: 'milestone',
     })
   },
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成

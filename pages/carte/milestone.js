@@ -22,13 +22,6 @@ Page({
     })
   },
 
-  allcards: function () {
-    wx.navigateTo({
-      url: 'list',
-    })
-  },
-
-
 
   xianzaifenci: function() {
     wx.navigateTo({
@@ -129,7 +122,7 @@ Page({
 
   allcards: function(){
     wx.navigateTo({
-      url: 'question_star',
+      url: 'question',
     })
     app.globalData.list = "all" //指定时态序号
   },

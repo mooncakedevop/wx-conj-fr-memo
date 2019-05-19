@@ -90,13 +90,13 @@ Page({
           seconds_wait: seconds_wait,
         })
         if (seconds_wait <= 0) {
-          seconds_wait = 0;
+          seconds_wait = app.globalData.time_count;
           that.setData({
             true_or_false: false,
           })
-          wx.navigateTo({      //倒计时结束之后立马跳转
+          wx.redirectTo({
             url: 'carte',
-          })//要延时执行的代码
+          })
         } else {
           Countdown(that);
         }

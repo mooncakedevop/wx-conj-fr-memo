@@ -64,17 +64,25 @@ Page({
     console.log(carte_arrey)
     wx.setStorageSync('carte_arrey', carte_arrey)
 
-    wx.navigateBack({
-      delta: 1
+    wx.navigateTo({
+      url: 'question',
     })
     console.log("bien_enregistre")
   },
 
   JNSP: function () {
-    wx.navigateBack({
-      delta: 1
+    wx.navigateTo({
+      url: 'question',
     })
     console.log("JNSP")
+  },
+
+
+  retour: function(){
+    wx.switchTab({
+      url: 'milestone',
+    })
+    console.log("retour")
   },
 
   onUnload: function () {

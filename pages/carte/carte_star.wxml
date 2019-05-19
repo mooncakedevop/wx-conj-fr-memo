@@ -34,9 +34,10 @@
     </view>
 
     <view class='box'>
-      <view class="cu-bar btn-group bg-btn-conj">
-        <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😪不太清楚</button>
-        <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌记住了</button>
+      <view class="cu-bar btn-group  bg-btn-conj">
+       <button class='cu-btn light bg-red round shadow lg' bindtap="retour">🏡</button>
+        <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😪</button>
+        <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌</button>
       </view>
     </view>
   </view>

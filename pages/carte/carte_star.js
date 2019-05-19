@@ -61,17 +61,24 @@ Page({
     var carte_arrey = app.globalData.likeandsave
     console.log(app.globalData.idx_carte_number)
 
-    wx.navigateBack({
-      delta: 1
+    wx.navigateTo({
+      url: 'question_star',
     })
     console.log("bien_enregistre")
   },
 
   JNSP: function() {
-    wx.navigateBack({
-      delta: 1
+    wx.navigateTo({
+      url: 'question_star',
     })
     console.log("JNSP")
+  },
+
+  retour: function () {
+    wx.switchTab({
+      url: 'milestone',
+    })
+    console.log("retour")
   },
 
   onUnload: function() {

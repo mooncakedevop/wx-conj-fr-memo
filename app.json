@@ -49,5 +49,6 @@
     "navigationStyle": "custom",
     "navigationBarTitleText": "法语动词变位记忆小助手",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

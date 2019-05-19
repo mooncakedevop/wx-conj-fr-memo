@@ -64,14 +64,14 @@ Page({
     console.log(carte_arrey)
     wx.setStorageSync('carte_arrey', carte_arrey)
 
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'question',
     })
     console.log("bien_enregistre")
   },
 
   JNSP: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'question',
     })
     console.log("JNSP")

@@ -61,14 +61,14 @@ Page({
     var carte_arrey = app.globalData.likeandsave
     console.log(app.globalData.idx_carte_number)
 
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'question_star',
     })
     console.log("bien_enregistre")
   },
 
   JNSP: function() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'question_star',
     })
     console.log("JNSP")

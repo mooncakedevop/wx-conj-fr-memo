@@ -81,12 +81,6 @@ Page({
     console.log("retour")
   },
 
-  onUnload: function() {
-    // 页面关闭
-    var pages = getCurrentPages()
-    var prevPage = pages[pages.length - 2]
-    prevPage.onLoad()
-  },
 
   like_save: function (e) {
     var id = e.target.id;   //获取当页的id号，也就是卡号

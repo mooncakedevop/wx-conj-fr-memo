@@ -1,24 +1,24 @@
-page{
-  width:100%;
+page {
+  width: 100%;
 }
 
-.text-sm{
+.text-sm {
   padding-top: 0.3vh;
-  padding-bottom: 0.3vh
+  padding-bottom: 0.3vh;
 }
 
-.button-sp-area{
-    margin: 0 auto;
-    padding-top: 15px;
-    width: 60%;
+.button-sp-area {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
 }
 
-.page__title{
-    font-size: 20px;
-    font-weight: 400;
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.title_css{
+.title_css {
   padding-top: 10vh;
-  padding-bottom: 5vh
+  padding-bottom: 5vh;
 }

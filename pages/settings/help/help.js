@@ -42,7 +42,7 @@ Component({
     copy: function() {
       var self = this;
       wx.setClipboardData({
-        data: "https://hxd.red/conj-helper",
+        data: "https://uniquelab.cn/conj-helper",
         success: function(res) {
           wx.showModal({
             title: '提示',

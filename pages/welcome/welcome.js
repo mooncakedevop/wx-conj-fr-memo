@@ -14,26 +14,29 @@ Page({
     app.globalData.version = wx.getStorageSync('version')
 
     if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
-      wx.setStorageSync('mySettings_isChecked1_50', true) //写下用户的第一个数据
+      wx.setStorageSync('isChecked1_50', true) //写下用户的第一个数据
       wx.setStorageSync('carte_arrey', [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474]) //写下用户的第一个数据
       wx.setStorageSync('newer', true)
-      wx.setStorageSync('version', "v1.3.4")   //写入新版本的版本号
+      wx.setStorageSync('version', "v1.4.0")   //写入新版本的版本号
       wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
       wx.setStorageSync('time_count', 10) 
+      wx.setStorageSync("hidden_or_not", false)
     }
 
-    if (app.globalData.version != "v1.3.4") { //如果只是新版本的数据没有
-      wx.setStorageSync('version', "v1.3.4")   //写入新版本的版本号
+    if (app.globalData.version != "v1.4.0") { //如果只是新版本的数据没有
+      wx.setStorageSync('version', "v1.4.0")   //写入新版本的版本号
+      wx.setStorageSync("hidden_or_not", false)
+      wx.setStorageSync("tongbu", "⛅点击进行同步")
     } 
 
-    app.globalData.isChecked1 = wx.getStorageSync('mySettings_isChecked1')
-    app.globalData.isChecked1_selected = wx.getStorageSync('mySettings_isChecked1_selected')
-    app.globalData.isChecked1_50 = wx.getStorageSync('mySettings_isChecked1_50')
-    app.globalData.isChecked1_100 = wx.getStorageSync('mySettings_isChecked1_100')
-    app.globalData.isChecked1_230 = wx.getStorageSync('mySettings_isChecked1_230')
-    app.globalData.isChecked2 = wx.getStorageSync('mySettings_isChecked2')
-    app.globalData.isChecked3 = wx.getStorageSync('mySettings_isChecked3')
-    app.globalData.isChecked4 = wx.getStorageSync('mySettings_isChecked4')
+    app.globalData.isChecked1 = wx.getStorageSync('isChecked1')
+    app.globalData.isChecked1_selected = wx.getStorageSync('isChecked1_selected')
+    app.globalData.isChecked1_50 = wx.getStorageSync('isChecked1_50')
+    app.globalData.isChecked1_100 = wx.getStorageSync('isChecked1_100')
+    app.globalData.isChecked1_230 = wx.getStorageSync('isChecked1_230')
+    app.globalData.isChecked2 = wx.getStorageSync('isChecked2')
+    app.globalData.isChecked3 = wx.getStorageSync('isChecked3')
+    app.globalData.isChecked4 = wx.getStorageSync('isChecked4')
     app.globalData.carte_arrey = wx.getStorageSync('carte_arrey')
     app.globalData.likeandsave = wx.getStorageSync('likeandsave')
     app.globalData.time_count = wx.getStorageSync('time_count')

@@ -51,5 +51,7 @@ App({
     ps2: null,
     likeandsave: [],
     idx_carte_number: 0,
+
+    openid: null,
   }
 })

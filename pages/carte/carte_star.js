@@ -81,7 +81,6 @@ Page({
     console.log("retour")
   },
 
-
   like_save: function (e) {
     var id = e.target.id;   //获取当页的id号，也就是卡号
     var likeandsave = app.globalData.likeandsave;  //读取原来全局变量中的likeandsave
@@ -104,10 +103,43 @@ Page({
         change_color: 'text-blue',      //改变颜色
       })
     }
-
+    this.onUpdate()
     console.log(likeandsave_exist)
     console.log(app.globalData.likeandsave)
   },
+
+  onUpdate: function () {
+    const db = wx.cloud.database()
+    db.collection('user_setting').doc().update({
+      data: {
+        carte_arrey: app.globalData.carte_arrey,
+        newer: app.globalData.newer,
+        version: app.globalData.version,
+        likeandsave: app.globalData.likeandsave,
+        time_count: app.globalData.time_count,
+        hidden_or_not: app.globalData.hidden_or_not,
+        isChecked1: app.globalData.isChecked1,
+        isChecked1_selected: app.globalData.isChecked1_selected,
+        isChecked1_50: app.globalData.isChecked1_50,
+        isChecked1_100: app.globalData.isChecked1_100,
+        isChecked1_230: app.globalData.isChecked1_230,
+        isChecked2: app.globalData.isChecked2,
+        isChecked3: app.globalData.isChecked3,
+        isChecked4: app.globalData.isChecked4,
+      },
+      success: res => {
+        wx.showToast({
+          title: '添加记录成功',
+        })
+        console.log('[数据库] [更新记录] 成功，记录 _id: ', res._id)
+      },
+      fail: err => {
+        icon: 'none',
+          console.error('[数据库] [更新记录] 失败：', err)
+      }
+    })
+  },
+
 
   onShareAppMessage: function (res) {
     return {

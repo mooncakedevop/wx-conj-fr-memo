@@ -1,5 +1,22 @@
 <view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
 
+  <view class="cu-bar bg-red light solid-bottom margin-top action" hidden="{{hidden_or_not}}">
+    <view class="flex padding justify-between">
+      <text class='text-red'></text>更新说明（点击右侧关闭）
+    </view>
+    <view class="flex padding justify-between">
+      <button class="cu-btn lines-red round shadow sm" bindtap="close_it">
+        <view class="icon-close text-red"></view>
+      </button>
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last' hidden="{{hidden_or_not}}">
+    <view class='text-sm'>v1.4.0 2019.6.24</view>
+    <view class='text-sm'>1.修复了下列单词的变位错误：terminer、déterminer、exterminer、prédéterminer。</view>
+    <view class='text-sm'>2.增加了卡片和设置的云同步。</view>
+    <view class='text-sm'>3.修复了一些细节。</view>
+  </view>
+
   <view class="cu-bar bg-mauve light solid-bottom margin-top">
     <view class='action'>
       <text class='icon-title text-mauve'></text>关于法语动词变位记忆小助手
@@ -18,26 +35,17 @@
     </view>
   </view>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top">
+  <view class="cu-bar bg-grey light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-red'></text>小程序推荐
-    </view>
-  </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='text-sm'>👇试试我的其他小程序👇</view>
-    <view class='box'>
-      <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="hard_choice">艰难的选择</button>
-      </view>
+      <text class='icon-title text-grey'></text>基础设置
     </view>
   </view>
 
-  <view class="cu-bar bg-grey light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-grey'></text>倒计时设置
-    </view>
-  </view>
+
   <view class='padding bg-white bg-white-last'>
+    <!-- 用户 openid style="background-image: url({{avatarUrl}})" -->
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-red round shadow"  bindtap="onGetOpenid">{{tongbu}}</button>
+    <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后您的所有设置和卡片将会和云端自动同步。</view>
     <view class="cu-form-group margin-top">
       <view class='title'>时间选择</view>
       <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
@@ -110,9 +118,18 @@
     <view class='text-left text-xs text-grey padding'>非常用时态包括了直陈式 简单过去时。</view>
   </view>
 
-
-
-
-
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-red'></text>小程序推荐
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last'>
+    <view class='text-sm'>👇试试我的其他小程序👇</view>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow' bindtap="hard_choice">艰难的选择</button>
+      </view>
+    </view>
+  </view>
 
 </view>

@@ -1,0 +1,30 @@
+
+.page{
+  overflow: hidden;
+}
+
+
+.margin-avatar{
+  padding-top: 12vh;
+  margin-left: 32vw;
+  margin-right: 32vw;
+}
+
+.margin-title{
+  margin-top: 0vh;
+  margin-bottom: 20vh;
+}
+
+.bg-btn-conj{
+  margin-top: 7vh;
+  margin-bottom: 2vh
+}
+
+.margin-text{
+  margin-top: 7vh;
+  margin-bottom: 20vh
+}
+
+.radius{
+  border-radius:2vw;
+}

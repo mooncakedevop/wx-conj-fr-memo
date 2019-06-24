@@ -1,0 +1,18 @@
+.title_css{
+  padding-top: 10vh;
+  padding-bottom: 5vh
+}
+
+.page__title{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.text-sm{
+  padding-top: 0.3vh;
+padding-bottom: 0.3vh;
+}
+
+.text-sm-left{
+  text-align: left;
+}

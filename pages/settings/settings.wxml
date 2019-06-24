@@ -1,4 +1,4 @@
-<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
 
   <view class="cu-bar bg-mauve light solid-bottom margin-top">
     <view class='action'>
@@ -12,8 +12,8 @@
     <view class='text-sm'>或者添加到“我的小程序”</view>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow lg' bindtap="help">📄使用帮助</button>
-        <button class='cu-btn lines-blue round shadow lg' open-type="feedback">❌报错和建议</button>
+        <button class='cu-btn bg-red round shadow' bindtap="help">📄使用帮助</button>
+        <button class='cu-btn lines-blue round shadow' open-type="feedback">❌报错和建议</button>
       </view>
     </view>
   </view>

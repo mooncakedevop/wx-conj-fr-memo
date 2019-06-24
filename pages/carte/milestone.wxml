@@ -1,0 +1,118 @@
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+  <view class=' text-sm margin-text'>
+    <text class='text-white'>您一共学习了{{zhangwo}}张卡片\n</text>
+    <text class='text-white'>还有{{xin}}张卡片您没有看过\n</text>
+  </view>
+
+
+    <view class='grid col-1 padding-sm padding-down'>
+      <view class='padding-sm'>
+        <view class="bg-orange light padding  radius text-center shadow-blur" bindtap="myfavorite">
+          <view class='icon-cu-image'>
+            <view class='cu-tag badge'>NEW</view>
+          </view>
+          <view class="text-sm">我的收藏</view>
+          <view class="text-xs">Mes collections</view>
+        </view>
+      </view>
+    </view>
+
+  <view class='flex-sub text-center'>
+    <view class='grid col-2 padding-sm'>
+      <view class='padding-sm'>
+        <view class='bg-red light round padding radius text-center shadow-blur' bindtap="xianzaifenci">
+          <view class="text-sm">现在分词 过去分词</view>
+          <view class="text-xs">Participe Présent & Passé</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_present">
+          <view class="text-sm">直陈式现在时</view>
+          <view class="text-xs">Indicatif Présent</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_passecomposee">
+          <view class="text-sm">直陈式复合过去时</view>
+          <view class="text-xs">Indicatif Passé composé</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_imparfait">
+          <view class="text-sm">直陈式未完成过去时</view>
+          <view class="text-xs">Indicatif Imparfait</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_plusqueparfait">
+          <view class="text-sm">直陈式愈过去时</view>
+          <view class="text-xs">Indicatif Plus-que-parfait</view>
+        </view>
+      </view>
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_passesimple">
+          <view class="text-sm">直陈式简单过去时</view>
+          <view class="text-xs">Indicatif Passé simple</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_passeanterieur">
+          <view class="text-sm">直陈式先过去时</view>
+          <view class="text-xs">Indicatif Passé antérieur</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_futur">
+          <view class="text-sm">直陈式简单将来时</view>
+          <view class="text-xs">Indicatif Futur</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-blue light round padding radius text-center shadow-blur' bindtap="zcs_futuranterieur">
+          <view class="text-sm">直陈式先将来时</view>
+          <view class="text-xs">Indicatif Futur antérieur</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-green light round padding radius text-center shadow-blur' bindtap="tjs_present">
+          <view class="text-sm">条件式现在时</view>
+          <view class="text-xs">Conditionnel Présent</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-green light round padding radius text-center shadow-blur' bindtap="tjs_passe">
+          <view class="text-sm">条件式过去时</view>
+          <view class="text-xs">Conditionnel Passé</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-orange light round padding radius text-center shadow-blur' bindtap="xns_present">
+          <view class="text-sm">虚拟式现在时</view>
+          <view class="text-xs">Subjonctif Présent</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-orange light round padding radius text-center shadow-blur' bindtap="xns_passe">
+          <view class="text-sm">虚拟式过去时</view>
+          <view class="text-xs">Subjonctif Passé</view>
+        </view>
+      </view>
+
+      <view class='padding-sm'>
+        <view class='bg-yellow light round padding radius text-center shadow-blur' bindtap="imperatif">
+          <view class="text-sm">命令式</view>
+          <view class="text-xs">Impératif Présent</view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+</view>

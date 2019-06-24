@@ -1,0 +1,15 @@
+
+.title_css{
+  padding-top: 10vh;
+  padding-bottom: 5vh
+}
+
+.page__hd{
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+}
+
+.box{
+  bottom: 0rem;
+  padding: 3vh
+}

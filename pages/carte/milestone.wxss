@@ -1,0 +1,27 @@
+
+.page{
+  overflow: hidden;
+}
+
+.btn-milestone-conj{
+    margin-bottom: 0vh;
+    padding-bottom: 0vh;
+}
+
+.margin-text{
+  margin-top: 10vh;
+  margin-bottom: 2vh;
+}
+
+.text-xs{
+  margin-top: 1vh;
+  font-size:xx-small;
+}
+
+.padding-down{
+      margin-bottom: -3vh;
+}
+
+.radius{
+  border-radius:2vw;
+}

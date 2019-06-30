@@ -12,7 +12,7 @@
   </view>
   <view class='padding bg-white bg-white-last' hidden="{{hidden_or_not}}">
     <view class='text-sm'>v1.4.1 （2019.6.30）</view>
-    <view class='text-sm'>1.修复了当动词的典型动词的词尾的文本在原动词中出现一次以上时，原动词的词根缺少对应文本的情况。此修复了约100个以上的动词。具体内容请参见 https://uniquelab.cn/conj-helper-1-4-1</view>
+    <view class='text-sm'>1.修复了当动词的典型动词的词尾的文本在原动词中出现一次以上时，原动词的词根缺少对应文本的情况。此修复了约100个以上的动词。（感谢这位用户：Marsha）具体内容请参见 https://uniquelab.cn/conj-helper-1-4-1</view>
   </view>
 
   <view class="cu-bar bg-mauve light solid-bottom margin-top">

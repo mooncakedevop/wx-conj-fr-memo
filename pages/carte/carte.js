@@ -1,10 +1,12 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const verb = require('../../data/verb_7016_fr_20190330.js')
-const classic = require('../../data/classic_149_fr_20190330.js')
 const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
 
+
+const db = wx.cloud.database() //初始化数据库
+const verb = db.collection('conj_verb7016')
+const classic = db.collection('conj_classic149')
 
 Page({
   data: {
@@ -12,7 +14,6 @@ Page({
     idx_shitai: null,
     shitai_chinois: null,
     carte_number: null,
-
     show_conj_je: [],
     show_conj_tu: [],
     show_conj_il: [],

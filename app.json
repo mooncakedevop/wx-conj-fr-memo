@@ -11,7 +11,8 @@
     "pages/settings/help/help",
     "pages/carte/question_star",
     "pages/carte/carte_star",
-    "pages/carte/success"
+    "pages/carte/success",
+    "pages/carte/test"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",

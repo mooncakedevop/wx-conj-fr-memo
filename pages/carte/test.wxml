@@ -1,0 +1,14 @@
+<!--pages/carte/test.wxml-->
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+<text>{{test_line}}</text>
+
+<view class="cu-bar search bg-white round search-conj">
+  <view class='search-form round'>
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜索动词（不分大小写、特殊字符）" confirm-type="input_word_conj" bindinput="input_word_conj"></input>
+  </view>
+  <view class='action'>
+    <button class='cu-btn bg-blue shadow-blur round' bindtap="search">搜索</button>
+  </view>
+</view>
+</view>

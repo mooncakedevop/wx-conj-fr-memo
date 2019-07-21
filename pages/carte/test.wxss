@@ -1,0 +1,21 @@
+/* pages/lab/lab.wxss */
+
+.title_css {
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+}
+
+.search-conj {
+  margin-bottom: 3vh;
+}
+
+.btn-conj {
+  margin-bottom: 1vh;
+}
+
+.cu-bar {
+  border-top-left-radius: 5vw;
+  border-top-right-radius: 5vw;
+  border-bottom-left-radius: 5vw;
+  border-bottom-right-radius: 5vw;
+}

@@ -34,8 +34,12 @@ Page({
 
     this.onQuery(input_word_conj);
 
-    wx.navigateTo({
-      url: 'result/result',
+    wx.showToast({
+      title: '查询中',
+      image: '/style/paper-plane.png',
+      icon: 'sucess',
+      duration: 1500,
+      mask: true,
     })
   },
 
@@ -53,17 +57,321 @@ Page({
     }
     this.onQuery(search_word);
 
-    wx.navigateTo({
-      url: 'result/result',
+    wx.showToast({
+      title: '查询中',
+      image: '/style/gantanhao.png',
+      icon: 'sucess',
+      duration: 1000,
+      mask: true,
     })
   },
 
+  etre: function() {
+    this.tap_word("être");
+  },
+
+  avoir: function() {
+    this.tap_word("avoir");
+  },
+
+  faire: function() {
+    this.tap_word("faire");
+  },
+
+  dire: function() {
+    this.tap_word("dire");
+  },
+
+  pouvoir: function() {
+    this.tap_word("pouvoir");
+  },
+
+  aller: function() {
+    this.tap_word("aller");
+  },
+
+  voir: function() {
+    this.tap_word("voir");
+  },
+
+  savoir: function() {
+    this.tap_word("savoir");
+  },
+
+  vouloir: function() {
+    this.tap_word("vouloir");
+  },
+
+  venir: function() {
+    this.tap_word("venir");
+  },
+
+  falloir: function() {
+    this.tap_word("falloir");
+  },
+
+  devoir: function() {
+    this.tap_word("devoir");
+  },
+
+  croire: function() {
+    this.tap_word("croire");
+  },
+
+  trouver: function() {
+    this.tap_word("trouver");
+  },
+
+  donner: function() {
+    this.tap_word("donner");
+  },
+
+  prendre: function() {
+    this.tap_word("prendre");
+  },
+
+  parler: function() {
+    this.tap_word("parler");
+  },
+
+  aimer: function() {
+    this.tap_word("aimer");
+  },
+
+  mettre: function() {
+    this.tap_word("mettre");
+  },
+
+  tenir: function() {
+    this.tap_word("tenir");
+  },
+
+  laisser: function() {
+    this.tap_word("laisser");
+  },
+
+  repondre: function() {
+    this.tap_word("répondre");
+  },
+
+  penser: function() {
+    this.tap_word("penser");
+  },
+
+  entendre: function() {
+    this.tap_word("entendre");
+  },
+
+  rendre: function() {
+    this.tap_word("rendre");
+  },
+
+  connaitre: function() {
+    this.tap_word("connaître");
+  },
+
+  sentir: function() {
+    this.tap_word("sentir");
+  },
+
+  ecrire: function() {
+    this.tap_word("écrire");
+  },
+
+  agir: function() {
+    this.tap_word("agir");
+  },
+
+  onQuery: function(search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+
+    const _ = db.command
+    db.collection('conj_all_20190722').where(_.or([{
+        sw: search_word
+      },
+      {
+        ow: search_word
+      },
+      {
+        condi_pre1: search_word
+      },
+      {
+        condi_pre2: search_word
+      },
+      {
+        condi_pre3: search_word
+      },
+      {
+        condi_pre4: search_word
+      },
+      {
+        condi_pre5: search_word
+      },
+      {
+        condi_pre6: search_word
+      },
+      {
+        imp_pre1: search_word
+      },
+      {
+        imp_pre2: search_word
+      },
+      {
+        imp_pre3: search_word
+      },
+      {
+        indi_fu1: search_word
+      },
+      {
+        indi_fu2: search_word
+      },
+      {
+        indi_fu3: search_word
+      },
+      {
+        indi_fu4: search_word
+      },
+      {
+        indi_fu5: search_word
+      },
+      {
+        indi_fu6: search_word
+      },
+      {
+        indi_imp1: search_word
+      },
+      {
+        indi_imp2: search_word
+      },
+      {
+        indi_imp3: search_word
+      },
+      {
+        indi_imp4: search_word
+      },
+      {
+        indi_imp5: search_word
+      },
+      {
+        indi_imp6: search_word
+      },
+      {
+        indi_past1: search_word
+      },
+      {
+        indi_past2: search_word
+      },
+      {
+        indi_past3: search_word
+      },
+      {
+        indi_past4: search_word
+      },
+      {
+        indi_past5: search_word
+      },
+      {
+        indi_past6: search_word
+      },
+      {
+        indi_pre1: search_word
+      },
+      {
+        indi_pre2: search_word
+      },
+      {
+        indi_pre3: search_word
+      },
+      {
+        indi_pre4: search_word
+      },
+      {
+        indi_pre5: search_word
+      },
+      {
+        indi_pre6: search_word
+      },
+      {
+        inf_pre: search_word
+      },
+      {
+        pre_part: search_word
+      },
+      {
+        past_part1: search_word
+      },
+      {
+        past_part2: search_word
+      },
+      {
+        past_part3: search_word
+      },
+      {
+        past_part4: search_word
+      },
+      {
+        subj_pre1: search_word
+      },
+      {
+        subj_pre2: search_word
+      },
+      {
+        subj_pre3: search_word
+      },
+      {
+        subj_pre4: search_word
+      },
+      {
+        subj_pre5: search_word
+      },
+      {
+        subj_pre6: search_word
+      },
+      {
+        subj_pre6: search_word
+      },
+      {
+        subj_imp1: search_word
+      },
+      {
+        subj_imp2: search_word
+      },
+      {
+        subj_imp3: search_word
+      },
+      {
+        subj_imp4: search_word
+      },
+      {
+        subj_imp5: search_word
+      },
+      {
+        subj_im6: search_word
+      }
+    ])).get({
+      success: function(res) {
+        console.log(res.data)
+        app.globalData.consult_data = res.data;
+        wx.setStorageSync('consult_data', res.data);
+        that.wait();
+        that.exp();
+
+        if (getCurrentPages().length != 0) {
+          //刷新当前页面的数据
+          getCurrentPages()[getCurrentPages().length - 1].onLoad()
+        }
+
+      }
+    })
+  },
 
   exp: function() {
 
     var consult_data = app.globalData.consult_data;
 
-    if (consult_data == null && consult_data != search_word){
+    if (consult_data == null && consult_data != search_word) {
       this.onQuery(search_word);
       var consult_data = app.globalData.consult_data;
     }
@@ -177,7 +485,7 @@ Page({
     var shitai_ils = shitai_ils.concat(['Ils' + ' ' + root_ils])
 
 
-    
+
 
 
     //直陈式愈过去时 复合时态
@@ -495,306 +803,9 @@ Page({
 
   },
 
-
-
-
-  etre: function() {
-    this.tap_word("être");
-  },
-
-  avoir: function() {
-    this.tap_word("avoir");
-  },
-
-  faire: function() {
-    this.tap_word("faire");
-  },
-
-  dire: function() {
-    this.tap_word("dire");
-  },
-
-  pouvoir: function() {
-    this.tap_word("pouvoir");
-  },
-
-  aller: function() {
-    this.tap_word("aller");
-  },
-
-  voir: function() {
-    this.tap_word("voir");
-  },
-
-  savoir: function() {
-    this.tap_word("savoir");
-  },
-
-  vouloir: function() {
-    this.tap_word("vouloir");
-  },
-
-  venir: function() {
-    this.tap_word("venir");
-  },
-
-  falloir: function() {
-    this.tap_word("falloir");
-  },
-
-  devoir: function() {
-    this.tap_word("devoir");
-  },
-
-  croire: function() {
-    this.tap_word("croire");
-  },
-
-  trouver: function() {
-    this.tap_word("trouver");
-  },
-
-  donner: function() {
-    this.tap_word("donner");
-  },
-
-  prendre: function() {
-    this.tap_word("prendre");
-  },
-
-  parler: function() {
-    this.tap_word("parler");
-  },
-
-  aimer: function() {
-    this.tap_word("aimer");
-  },
-
-  mettre: function() {
-    this.tap_word("mettre");
-  },
-
-  tenir: function() {
-    this.tap_word("tenir");
-  },
-
-  laisser: function() {
-    this.tap_word("laisser");
-  },
-
-  repondre: function() {
-    this.tap_word("répondre");
-  },
-
-  penser: function() {
-    this.tap_word("penser");
-  },
-
-  entendre: function() {
-    this.tap_word("entendre");
-  },
-
-  rendre: function() {
-    this.tap_word("rendre");
-  },
-
-  connaitre: function() {
-    this.tap_word("connaître");
-  },
-
-  sentir: function() {
-    this.tap_word("sentir");
-  },
-
-  ecrire: function() {
-    this.tap_word("écrire");
-  },
-
-  agir: function() {
-    this.tap_word("agir");
-  },
-
-  onQuery: function(search_word) {
-    var that = this
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-
-    const _ = db.command
-    db.collection('conj_all_20190722').where(_.or([{
-        sw: search_word
-      },
-      {
-        ow: search_word
-      },
-      {
-        condi_pre1: search_word
-      },
-      {
-        condi_pre2: search_word
-      },
-      {
-        condi_pre3: search_word
-      },
-      {
-        condi_pre4: search_word
-      },
-      {
-        condi_pre5: search_word
-      },
-      {
-        condi_pre6: search_word
-      },
-      {
-        imp_pre1: search_word
-      },
-      {
-        imp_pre2: search_word
-      },
-      {
-        imp_pre3: search_word
-      },
-      {
-        indi_fu1: search_word
-      },
-      {
-        indi_fu2: search_word
-      },
-      {
-        indi_fu3: search_word
-      },
-      {
-        indi_fu4: search_word
-      },
-      {
-        indi_fu5: search_word
-      },
-      {
-        indi_fu6: search_word
-      },
-      {
-        indi_imp1: search_word
-      },
-      {
-        indi_imp2: search_word
-      },
-      {
-        indi_imp3: search_word
-      },
-      {
-        indi_imp4: search_word
-      },
-      {
-        indi_imp5: search_word
-      },
-      {
-        indi_imp6: search_word
-      },
-      {
-        indi_past1: search_word
-      },
-      {
-        indi_past2: search_word
-      },
-      {
-        indi_past3: search_word
-      },
-      {
-        indi_past4: search_word
-      },
-      {
-        indi_past5: search_word
-      },
-      {
-        indi_past6: search_word
-      },
-      {
-        indi_pre1: search_word
-      },
-      {
-        indi_pre2: search_word
-      },
-      {
-        indi_pre3: search_word
-      },
-      {
-        indi_pre4: search_word
-      },
-      {
-        indi_pre5: search_word
-      },
-      {
-        indi_pre6: search_word
-      },
-      {
-        inf_pre: search_word
-      },
-      {
-        pre_part: search_word
-      },
-      {
-        past_part1: search_word
-      },
-      {
-        past_part2: search_word
-      },
-      {
-        past_part3: search_word
-      },
-      {
-        past_part4: search_word
-      },
-      {
-        subj_pre1: search_word
-      },
-      {
-        subj_pre2: search_word
-      },
-      {
-        subj_pre3: search_word
-      },
-      {
-        subj_pre4: search_word
-      },
-      {
-        subj_pre5: search_word
-      },
-      {
-        subj_pre6: search_word
-      },
-      {
-        subj_pre6: search_word
-      },
-      {
-        subj_imp1: search_word
-      },
-      {
-        subj_imp2: search_word
-      },
-      {
-        subj_imp3: search_word
-      },
-      {
-        subj_imp4: search_word
-      },
-      {
-        subj_imp5: search_word
-      },
-      {
-        subj_im6: search_word
-      }
-    ])).get({
-      success: function(res) {
-        console.log(res.data)
-        app.globalData.consult_data = res.data;
-        wx.setStorageSync('consult_data', res.data);
-        that.exp();
-
-        if (getCurrentPages().length != 0) {
-          //刷新当前页面的数据
-          getCurrentPages()[getCurrentPages().length - 1].onLoad()
-        }
-
-      }
+  wait: function() {
+    wx.navigateTo({
+      url: 'result/result',
     })
   },
 

@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -12,7 +12,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    ow:null,
+    ow: null,
+    consult_data: null,
 
     newer: null,
     version: null,
@@ -26,8 +27,8 @@ App({
     isChecked3: null,
     isChecked4: null,
     true_or_false: true,
-    advanced_shitai:[],
-    extra_shitai:[],
+    advanced_shitai: [],
+    extra_shitai: [],
     inusuel_shitai: [],
     shitai_je: [],
     shitai_tu: [],
@@ -53,5 +54,6 @@ App({
     idx_carte_number: 0,
 
     openid: null,
+
   }
 })

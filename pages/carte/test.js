@@ -1,6 +1,7 @@
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('conj_all')
+const verb = db.collection('conj_all_20190722')
+const classic = require('../../data/avoir_etre.js')
 
 Page({
   data: {
@@ -37,8 +38,11 @@ Page({
     // 查询当前用户所有的 counters
 
     const _ = db.command
-    db.collection('conj_all').where(_.or([{
+    db.collection('conj_all_20190722').where(_.or([{
         sw: search_word
+      },
+      {
+        ow: search_word
       },
       {
         condi_pre1: search_word
@@ -63,6 +67,9 @@ Page({
       },
       {
         imp_pre2: search_word
+      },
+      {
+        imp_pre3: search_word
       },
       {
         indi_fu1: search_word
@@ -138,13 +145,66 @@ Page({
       },
       {
         inf_pre: search_word
+      },
+      {
+        pre_part: search_word
+      },
+      {
+        past_part1: search_word
+      },
+      {
+        past_part2: search_word
+      },
+      {
+        past_part3: search_word
+      },
+      {
+        past_part4: search_word
+      },
+      {
+        subj_pre1: search_word
+      },
+      {
+        subj_pre2: search_word
+      },
+      {
+        subj_pre3: search_word
+      },
+      {
+        subj_pre4: search_word
+      },
+      {
+        subj_pre5: search_word
+      },
+      {
+        subj_pre6: search_word
+      },
+      {
+        subj_pre6: search_word
+      },
+      {
+        subj_imp1: search_word
+      },
+      {
+        subj_imp2: search_word
+      },
+      {
+        subj_imp3: search_word
+      },
+      {
+        subj_imp4: search_word
+      },
+      {
+        subj_imp5: search_word
+      },
+      {
+        subj_im6: search_word
       }
     ])).get({
       success: function(res) {
         console.log(res.data)
 
-        wx.setStorageSync('cw', res.data[0].cw);
-
+        wx.setStorageSync('consult_data', res.data);
 
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据

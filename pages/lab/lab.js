@@ -48,7 +48,7 @@ Page({
     if (search_word == null) {
       wx.showToast({
         title: '请输入内容！',
-        image: '/style/gantanhao.png',
+        image: '/style/paper-plane.png',
         icon: 'sucess',
         duration: 1000,
         mask: true,
@@ -59,7 +59,7 @@ Page({
 
     wx.showToast({
       title: '查询中',
-      image: '/style/gantanhao.png',
+      image: '/style/paper-plane.png',
       icon: 'sucess',
       duration: 1000,
       mask: true,

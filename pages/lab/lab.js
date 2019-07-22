@@ -32,7 +32,7 @@ Page({
     })
     console.log(input_word_conj);
 
-    this.exp(input_word_conj);
+    this.onQuery(input_word_conj);
 
     wx.navigateTo({
       url: 'result/result',
@@ -51,8 +51,7 @@ Page({
       })
       return;
     }
-    this.exp(search_word);
-
+    this.onQuery(search_word);
 
     wx.navigateTo({
       url: 'result/result',
@@ -60,11 +59,14 @@ Page({
   },
 
 
-  exp: function(search_word) {
+  exp: function() {
 
-    this.onQuery(search_word);
+    var consult_data = app.globalData.consult_data;
 
-    var consult_data = wx.getStorageSync('consult_data');
+    if (consult_data == null && consult_data != search_word){
+      this.onQuery(search_word);
+      var consult_data = app.globalData.consult_data;
+    }
 
     console.log(consult_data[0].indi_imp1)
 
@@ -118,7 +120,7 @@ Page({
     var random_shitai_chinois = "直陈式 现在时";
 
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -154,7 +156,7 @@ Page({
     var random_shitai_chinois = "直陈式 未完成过去时";
 
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -213,7 +215,7 @@ Page({
     var random_shitai_chinois = "直陈式 简单过去时";
 
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -272,7 +274,7 @@ Page({
     //直陈式简单将来时 简单时态
     var random_shitai_chinois = "直陈式 简单将来时";
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -331,7 +333,7 @@ Page({
     //条件式现在时 简单时态
     var random_shitai_chinois = "条件式 现在时";
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -390,7 +392,7 @@ Page({
     //虚拟式现在时 简单时态
     var random_shitai_chinois = "虚拟式 现在时";
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -449,7 +451,7 @@ Page({
     //命令式 简单时态
     var random_shitai_chinois = "命令式";
     var first_caracter = consult_data[0].sw.substr(0, 1)
-    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || verb_info["wn"] == 'aspirate-h') {
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
       var mode_je = 'J\''
     } else {
       var mode_je = 'Je'
@@ -783,8 +785,9 @@ Page({
     ])).get({
       success: function(res) {
         console.log(res.data)
-
+        app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
+        that.exp();
 
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据

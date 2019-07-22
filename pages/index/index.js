@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 const verb = require('../../data/verb_7016_fr_20190330.js')
-const classic = require('../../data/classic_149_fr_20190330.js')
+const classic = require('../../data/avoir_etre.js')
 const word_test = require('../../data/pour_word_test.js')
 
 Page({

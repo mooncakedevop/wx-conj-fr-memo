@@ -6,10 +6,10 @@
 
 .page__hd{
   padding-top: 20vh;
-  padding-bottom: 10vh;
+  padding-bottom: 20vh;
 }
 
 .box{
   bottom: 0rem;
-  padding: 3vh
+  padding: 2vh
 }

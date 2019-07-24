@@ -3,7 +3,7 @@
   <view class="cu-bar search bg-white round search-conj">
     <view class='search-form round'>
       <text class="icon-search"></text>
-      <input type="text" placeholder="搜索动词（支持动词变位反查）" confirm-type="input_word_conj" bindinput="input_word_conj"></input>
+      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}"confirm-type="input_word_conj" bindinput="input_word_conj"></input>
     </view>
     <view class='action'>
       <button class='cu-btn bg-blue shadow-blur round' bindtap="search">搜索</button>
@@ -13,15 +13,15 @@
 
   <view class='box'>
     <view class="cu-bar">
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">â</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">é</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">è</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">ê</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">î</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">ï</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">ô</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">û</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="avoir">ç</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="â">â</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="é">é</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="è">è</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ê">ê</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="î">î</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ï">ï</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ô">ô</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="û">û</button>
+      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ç">ç</button>
     </view>
 
     <view class="cu-bar btn-group btn-conj">

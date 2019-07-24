@@ -22,26 +22,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "默写练习",
-        "iconPath": "style/study1.png",
-        "selectedIconPath": "style/study_selected.png"
+        "iconPath": "style/draw.png",
+        "selectedIconPath": "style/draw.png"
       },
       {
         "pagePath": "pages/lab/lab",
         "text": "7000动词查询",
         "iconPath": "style/search.png",
-        "selectedIconPath": "style/search_selected.png"
+        "selectedIconPath": "style/search.png"
       },
       {
         "pagePath": "pages/carte/milestone",
         "text": "分类记忆",
-        "iconPath": "style/classify.png",
-        "selectedIconPath": "style/classify_selected.png"
+        "iconPath": "style/folder.png",
+        "selectedIconPath": "style/folder.png"
       },
       {
         "pagePath": "pages/settings/settings",
         "text": "个性化",
-        "iconPath": "style/mine.png",
-        "selectedIconPath": "style/mine_selected.png"
+        "iconPath": "style/setup.png",
+        "selectedIconPath": "style/setup.png"
       }
     ]
   },

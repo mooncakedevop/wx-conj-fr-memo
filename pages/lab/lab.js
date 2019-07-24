@@ -5,7 +5,8 @@ const avoir_etre = require('../../data/avoir_etre.js')
 
 Page({
   data: {
-    input_word_conj: null,
+    focus: false,
+    input_word_conj: "",
     idx_shitai: null,
     shitai_chinois: null,
     shitai_je: [],
@@ -14,15 +15,30 @@ Page({
     shitai_nous: [],
     shitai_vous: [],
     shitai_ils: [],
+
   },
 
   input_word_conj: function(e) {
-    var input_word_conj = e.detail.value.toLowerCase();
     console.log(e);
+    var input_word_conj = e.detail.value.toLowerCase();
+
     this.setData({
       input_word_conj: input_word_conj
     })
     console.log(input_word_conj);
+  },
+
+  special_fr: function(e) {
+    console.log(e.currentTarget.id);
+    var input_word_conj = this.data.input_word_conj;
+    var input_word_conj = input_word_conj.concat(e.currentTarget.id)
+
+    console.log(input_word_conj);
+
+    this.setData({
+      input_word_conj: input_word_conj,
+      focus: true
+    })
   },
 
   tap_word: function(tap_word) {

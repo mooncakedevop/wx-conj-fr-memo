@@ -19,3 +19,17 @@
   border-bottom-left-radius: 5vw;
   border-bottom-right-radius: 5vw;
 }
+
+.cu-bar.btn-group-nm {
+  justify-content: space-around;
+}
+
+.cu-bar.btn-group-nm button {
+  padding: 40rpx 1rpx;
+}
+
+.cu-bar.btn-group-nm button {
+  flex: 1;
+  margin: 0 10rpx;
+  max-width: 100%;
+}

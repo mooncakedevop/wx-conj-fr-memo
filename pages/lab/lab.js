@@ -5,7 +5,9 @@ const avoir_etre = require('../../data/avoir_etre.js')
 
 Page({
   data: {
-    input_word_conj: null,
+    focus: true,
+    disable_btn:true,
+    input_word_conj: "",
     idx_shitai: null,
     shitai_chinois: null,
     shitai_je: [],
@@ -17,12 +19,37 @@ Page({
   },
 
   input_word_conj: function(e) {
-    var input_word_conj = e.detail.value.toLowerCase();
     console.log(e);
+    var input_word_conj = e.detail.value.toLowerCase();
     this.setData({
-      input_word_conj: input_word_conj
+      input_word_conj: input_word_conj,
     })
     console.log(input_word_conj);
+  },
+
+  special_fr: function(e) {
+    console.log(e.currentTarget.id);
+    var input_word_conj = this.data.input_word_conj;
+    var input_word_conj = input_word_conj.concat(e.currentTarget.id)
+
+    console.log(input_word_conj);
+
+    this.setData({
+      input_word_conj: input_word_conj,
+      focus: true,
+    })
+  },
+
+  bindblur: function (){
+    this.setData({
+      disable_btn: false,
+    })
+  },
+
+  bindfocus: function () {
+    this.setData({
+      disable_btn: true,
+    })
   },
 
   tap_word: function(tap_word) {
@@ -801,6 +828,18 @@ Page({
     app.globalData.shitai_vous = shitai_vous
     app.globalData.shitai_ils = shitai_ils
 
+  },
+
+  intro: function () {
+    wx.switchTab({
+      url: '../index/index',
+    })
+  },
+
+  training: function () {
+    wx.switchTab({
+      url: '../carte/milestone',
+    })
   },
 
   wait: function() {

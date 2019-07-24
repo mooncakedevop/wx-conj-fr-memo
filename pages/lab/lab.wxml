@@ -3,7 +3,7 @@
   <view class="cu-bar search bg-white round search-conj">
     <view class='search-form round'>
       <text class="icon-search"></text>
-      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}"confirm-type="input_word_conj" bindinput="input_word_conj"></input>
+      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}" confirm-type="input_word_conj" bindinput="input_word_conj" bindblur="bindblur" bindfocus="bindfocus"></input>
     </view>
     <view class='action'>
       <button class='cu-btn bg-blue shadow-blur round' bindtap="search">搜索</button>
@@ -12,67 +12,72 @@
 
 
   <view class='box'>
-    <view class="cu-bar">
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="â">â</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="é">é</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="è">è</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ê">ê</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="î">î</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ï">ï</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ô">ô</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="û">û</button>
-      <button class="cu-tag bg-white round shadow-blur lg" bindtap="special_fr" id="ç">ç</button>
+    <view class="cu-bar btn-group-nm btn-conj">
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="â" disabled = "{{disable_btn}}">â</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="é" disabled = "{{disable_btn}}">é</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="è" disabled = "{{disable_btn}}">è</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ê" disabled = "{{disable_btn}}">ê</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="î" disabled = "{{disable_btn}}">î</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ï" disabled = "{{disable_btn}}">ï</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ô" disabled = "{{disable_btn}}">ô</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="û" disabled = "{{disable_btn}}">û</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ç" disabled = "{{disable_btn}}">ç</button>
     </view>
 
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="etre">Être</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="avoir">Avoir</button>
+      <button class="cu-btn lines-white round shadow-blur lg" bindtap="training">📚分类记忆</button>
+      <button class="cu-btn lines-white round shadow-blur lg" bindtap="intro">📝默写练习</button>
+    </view>
+
+    <view class="cu-bar btn-group btn-conj">
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="etre">Être</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="avoir">Avoir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="faire">Faire</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="dire">Dire</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="pouvoir">Pouvoir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="faire">Faire</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="dire">Dire</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="pouvoir">Pouvoir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="aller">Aller</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="voir">Voir</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="savoir">Savoir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="aller">Aller</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="voir">Voir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="savoir">Savoir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
 
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="vouloir">Vouloir</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="venir">Venir</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="falloir">Falloir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="vouloir">Vouloir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="venir">Venir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="falloir">Falloir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="devoir">Devoir</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="croire">Croire</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="trouver">Trouver</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="devoir">Devoir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="croire">Croire</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="trouver">Trouver</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="donner">Donner</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="prendre">Prendre</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="parler">Parler</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="donner">Donner</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="prendre">Prendre</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="parler">Parler</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="aimer">Aimer</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="mettre">Mettre</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="tenir">Tenir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="aimer">Aimer</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="mettre">Mettre</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="tenir">Tenir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="laisser">laisser</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="repondre">Répondre</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="penser">Penser</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="laisser">laisser</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="repondre">Répondre</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="penser">Penser</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="entendre">Entendre</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="rendre">Rendre</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="connaitre">Connaître</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="entendre">Entendre</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="rendre">Rendre</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="connaitre">Connaître</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="sentir">Sentir</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="ecrire">Écrire</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="agir">Agir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="sentir">Sentir</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="ecrire">Écrire</button>
+      <button class="cu-btn line-white round shadow-blur lg" bindtap="agir">Agir</button>
     </view>
   </view>
 

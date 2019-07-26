@@ -1,9 +1,7 @@
-//index.js
-//获取应用实例
+
 const app = getApp()
 const classic = require('../../data/avoir_etre.js')
-const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
-
+const shitai = new Array("直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
 Page({
   data: {
     search_word: null,
@@ -29,15 +27,10 @@ Page({
     var carte_number = app.globalData.carte_number;
     var ps1 = app.globalData.ps1;
     var ps2 = app.globalData.ps2;
+    var right_answer = app.globalData.right_answer
 
     this.setData({
-      show_conj_je: app.globalData.shitai_je,
-      show_conj_tu: app.globalData.shitai_tu,
-      show_conj_il: app.globalData.shitai_il,
-      show_conj_nous: app.globalData.shitai_nous,
-      show_conj_vous: app.globalData.shitai_vous,
-      show_conj_ils: app.globalData.shitai_ils,
-
+      right_answer: right_answer,
       search_word: app.globalData.search_word,
       carte_number: carte_number,
       shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文

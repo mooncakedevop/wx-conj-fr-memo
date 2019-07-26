@@ -19,18 +19,13 @@
       <view class='text-center italic'>{{shitai_chinois}}</view>
     </view>
 
-    <view class='padding bg-white dash-conj padding-conj'>
-      <view class='text-center'>{{show_conj_je}}</view>
-      <view class='text-center'>{{show_conj_tu}}</view>
-      <view class='text-center'>{{show_conj_il}}</view>
-      <view class='text-center'>{{show_conj_nous}}</view>
-      <view class='text-center'>{{show_conj_vous}}</view>
-      <view class='text-center'>{{show_conj_ils}}</view>
-    </view>
-
-    <view class='padding bg-white bg-white-last dash-conj padding-conj'>
-      <view class='text-sm'>{{ps1}}</view>
-      <view class='text-sm'>{{ps2}}</view>
+    <view class='padding bg-white dash-conj padding-conj bg-white-last'>
+      <view class='text-center'>{{right_answer[0]}}</view>
+      <view class='text-center'>{{right_answer[1]}}</view>
+      <view class='text-center'>{{right_answer[2]}}</view>
+      <view class='text-center'>{{right_answer[3]}}</view>
+      <view class='text-center'>{{right_answer[4]}}</view>
+      <view class='text-center'>{{right_answer[5]}}</view>
     </view>
 
     <view class='box'>

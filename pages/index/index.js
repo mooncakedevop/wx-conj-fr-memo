@@ -103,10 +103,12 @@ Page({
     var idx_shitai = shitai_choose[idx_shitai_num] //选择新的数组中idx_shitai_num-1个元素，该元素为下面switch的case值（时态）
     console.log(idx_shitai_num)
 
+    var is_bg_green = ["bg-green", " ", " ", " ", " ", " "] //先设置第一个绿
 
     this.setData({
       content: mot_test, //最终单词
       idx_shitai: idx_shitai, //最终时态
+      is_bg_green: is_bg_green,
     })
     console.log(idx_shitai)
     this.search()
@@ -577,11 +579,18 @@ Page({
     var value_answer = this.data.value_answer
     value_answer[current_position] = this.data.answer_for_choose[e.target.id]
 
+    var is_bg_green = [" ", " ", " ", " ", " ", " "]
+    if (current_position < 5) {
+      is_bg_green[current_position + 1] = "bg-green" //向下一格高亮
+    }
+
     this.setData({
-      value_answer: value_answer
+      value_answer: value_answer,
+      is_bg_green: is_bg_green
     })
 
-var that = this
+    //如果填满了
+    var that = this
     if (value_answer[0] != " " && value_answer[1] != " " && value_answer[2] != " " && value_answer[3] != " " && value_answer[4] != " " && value_answer[5] != " ") {
       console.log("ergbvsrtgbnsdrtgyhn")
       that.check()
@@ -589,7 +598,6 @@ var that = this
 
     console.log(current_position)
     console.log(value_answer)
-
   },
 
   input_je: function() {
@@ -710,7 +718,7 @@ var that = this
         duration: 3000,
         mask: true,
       })
-      
+
       this.setData({
         iconType: [" ", " ", " ", " ", " ", " "],
         iconColor: [" ", " ", " ", " ", " ", " "],
@@ -729,7 +737,7 @@ var that = this
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
-      content: this.data.shitai_je + '\r\n' + this.data.shitai_tu + '\r\n' + this.data.shitai_il + '\r\n' + this.data.shitai_nous + '\r\n' + this.data.shitai_vous + '\r\n' + this.data.shitai_ils,
+      content: this.data.right_answer[0] + '\r\n' + this.data.right_answer[1] + '\r\n' + this.data.right_answer[2] +'\r\n' + this.data.right_answer[3] + '\r\n' + this.data.right_answer[4] + '\r\n' + this.data.right_answer[5],
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
@@ -738,7 +746,7 @@ var that = this
     })
   },
 
-  next_conj: function () {
+  next_conj: function() {
     this.setData({
       iconType: [" ", " ", " ", " ", " ", " "],
       iconColor: [" ", " ", " ", " ", " ", " "],

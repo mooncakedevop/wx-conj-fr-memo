@@ -1,4 +1,5 @@
 
+
 .title_css{
   padding-top: 10vh;
   padding-bottom: 5vh
@@ -12,4 +13,9 @@
 .box{
   bottom: 0rem;
   padding: 2vh
+}
+
+.padding-tag-hc{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }

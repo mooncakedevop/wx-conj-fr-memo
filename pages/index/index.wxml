@@ -1,70 +1,56 @@
-
-
-  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
-    <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
-    <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
-    <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
-    <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_100}}">进阶100</view>
-    <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_230}}">高手230</view>
-    <view class="text-sl">{{content}}</view>
-    <view class="text-white">{{shitai_chinois}}
-      <view class='cu-tag bg-red light round sm shadow' bindtap="hint">
-        <text class='icon-question'></text>提示</view>
-    </view>
-    <view class="text-white "></view>
+<view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
+  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
+  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
+  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_100}}">进阶100</view>
+  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_230}}">高手230</view>
+  <view class="text-sl">{{content}}</view>
+  <view class="text-white">{{shitai_chinois}}
+    <view class='cu-tag bg-red light round sm shadow' bindtap="hint">
+      <text class='icon-question'></text>提示</view>
+    <view class='cu-tag bg-blue light round sm shadow' bindtap="next_conj">
+      <text class='icon-right'></text>跳过</view>
   </view>
-
-  <view class="cu-form-group shadow">
-    <view class="title">{{mode_je}}</view>
-    <input class="radius" placeholder="écrivez ici" bindinput="input_je" value="{{value_input}}" />
-    <icon type="{{iconType_je}}" size="23" color="{{iconColor_je}}"></icon>
-  </view>
-
-  <view class="cu-form-group shadow">
-    <view class="title">Tu</view>
-    <input class="radius" placeholder="par exemple, vous pouvez écrire: " bindinput="input_tu" value="{{value_input}}" />
-    <icon type="{{iconType_tu}}" size="23" color="{{iconColor_tu}}"></icon>
-  </view>
-
-  <view class="cu-form-group shadow">
-    <view class="title">Il</view>
-    <input class="radius" placeholder="est" bindinput="input_il" value="{{value_input}}" />
-    <icon type="{{iconType_il}}" size="23" color="{{iconColor_il}}"></icon>
-  </view>
-
-  <view class="cu-form-group  shadow">
-    <view class="title">Nous</view>
-    <input class="radius" placeholder="avons préparé" bindinput="input_nous" value="{{value_input}}" />
-    <icon type="{{iconType_nous}}" size="23" color="{{iconColor_nous}}"></icon>
-  </view>
-
-  <view class="cu-form-group shadow">
-    <view class="title">Vous</view>
-    <input class="radius" placeholder="Si vous avez des questions, " bindinput="input_vous" value="{{value_input}}" />
-    <icon type="{{iconType_vous}}" size="23" color="{{iconColor_vous}}"></icon>
-  </view>
-
-  <view class="cu-form-group shadow">
-    <view class="title">Ils</view>
-    <input class="radius" placeholder="allez à Paramètres." bindinput="input_ils" value="{{value_input}}" />
-    <icon type="{{iconType_ils}}" size="23" color="{{iconColor_ils}}"></icon>
-  </view>
-
-
-<view class="cu-bar">
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">â</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">é</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">è</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ê</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">î</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ï</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ô</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">û</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ç</button>
+  <view class="text-white "></view>
 </view>
-<view class='box'>
-  <view class="cu-bar btn-group">
-    <button class='cu-btn bg-red round shadow lg' bindtap="next_conj">💨跳过</button>
-    <button class='cu-btn bg-blue round shadow lg' bindtap="check">🛠检查</button>
-  </view>
+
+<view class="cu-form-group shadow {{is_bg_green[0]}} light" bindtap="input_je">
+  <view class="title">{{mode_je}}</view>
+  <view>{{value_answer[0]}}</view>
+  <icon type="{{iconType[0]}}" size="23" color="{{iconColor[0]}}"></icon>
+</view>
+
+<view class="cu-form-group shadow {{is_bg_green[1]}} light" bindtap="input_tu">
+  <view class="title">Tu</view>
+  <view>{{value_answer[1]}}</view>
+  <icon type="{{iconType[1]}}" size="23" color="{{iconColor[1]}}"></icon>
+</view>
+
+<view class="cu-form-group shadow {{is_bg_green[2]}} light" bindtap="input_il">
+  <view class="title">Il</view>
+  <view>{{value_answer[2]}}</view>
+  <icon type="{{iconType[2]}}" size="23" color="{{iconColor[2]}}"></icon>
+</view>
+
+<view class="cu-form-group  shadow {{is_bg_green[3]}} light" bindtap="input_nous">
+  <view class="title">Nous</view>
+  <view>{{value_answer[3]}}</view>
+  <icon type="{{iconType[3]}}" size="23" color="{{iconColor[3]}}"></icon>
+</view>
+
+<view class="cu-form-group shadow {{is_bg_green[4]}} light" bindtap="input_vous">
+  <view class="title">Vous</view>
+  <view>{{value_answer[4]}}</view>
+  <icon type="{{iconType[4]}}" size="23" color="{{iconColor[4]}}"></icon>
+</view>
+
+<view class="cu-form-group shadow {{is_bg_green[5]}} light" bindtap="input_ils">
+  <view class="title">Ils</view>
+  <view>{{value_answer[5]}}</view>
+  <icon type="{{iconType[5]}}" size="23" color="{{iconColor[5]}}"></icon>
+</view>
+
+
+<view class="padding bg-answer-hc">
+  <view class='cu-tag bg-green round shadow padding-tag-hc lg' wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
 </view>

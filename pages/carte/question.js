@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const verb = require('../../data/verb_7016_fr_20190330.js')
 const classic = require('../../data/avoir_etre.js')
 const carte = require('../../data/apprendre_500_20190506.js')
 const shitai = new Array("0", "1", "直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时","直陈式愈过去时","直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")

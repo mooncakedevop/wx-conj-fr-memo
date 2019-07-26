@@ -730,7 +730,6 @@ Page({
         getCurrentPages()[getCurrentPages().length - 1].onLoad()
       }
     }
-
   },
 
   hint: function() {

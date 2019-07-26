@@ -14,12 +14,7 @@ Page({
     idx_shitai: null,
     shitai_chinois: null,
     carte_number: null,
-    show_conj_je: [],
-    show_conj_tu: [],
-    show_conj_il: [],
-    show_conj_nous: [],
-    show_conj_vous: [],
-    show_conj_ils: [],
+    right_answer: [],
     ps1: null,
     ps2: null,
     change_color: null,
@@ -33,15 +28,10 @@ Page({
     var carte_number = app.globalData.carte_number;
     var ps1 = app.globalData.ps1;
     var ps2 = app.globalData.ps2;
+    var right_answer = app.globalData.right_answer
 
     this.setData({
-      show_conj_je: app.globalData.shitai_je,
-      show_conj_tu: app.globalData.shitai_tu,
-      show_conj_il: app.globalData.shitai_il,
-      show_conj_nous: app.globalData.shitai_nous,
-      show_conj_vous: app.globalData.shitai_vous,
-      show_conj_ils: app.globalData.shitai_ils,
-
+      right_answer: right_answer,
       search_word: app.globalData.search_word,
       carte_number: carte_number,
       shitai_chinois: shitai_chinois, //通过时态序号查找时态对应的中文

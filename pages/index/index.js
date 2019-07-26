@@ -10,12 +10,14 @@ Page({
     content: null,
     idx_shitai: null,
     answer_for_choose: null,
+    right_answer: null,
     current_input: null,
-    focus:false,
+    focus: false,
 
-    is_bg_green:[],
+    is_bg_green: [],
     value_answer: [" ", " ", " ", " ", " ", " "],
-    iconType:[],
+    iconType: [" ", " ", " ", " ", " ", " "],
+    iconColor: [" ", " ", " ", " ", " ", " "],
 
     shitai_je: null,
     shitai_tu: null,
@@ -34,6 +36,14 @@ Page({
   },
 
   onLoad: function() {
+
+    wx.showToast({
+      title: '加载中',
+      image: '/style/paper-plane.png',
+      icon: 'sucess',
+      duration: 500,
+      mask: true,
+    })
 
     console.log(app.globalData.isChecked1)
     console.log(app.globalData.isChecked1_selected)
@@ -557,161 +567,139 @@ Page({
       shitai_vous: shitai_vous,
       shitai_ils: shitai_ils,
       answer_for_choose: answer_for_choose,
+      right_answer: right_answer,
     })
 
   },
 
   choosed_answer: function(e) {
-    console.log(e._relatedInfo.anchorTargetText)
     var current_position = this.data.is_bg_green.indexOf("bg-green")
     var value_answer = this.data.value_answer
-    value_answer[current_position] = e._relatedInfo.anchorTargetText
-    console.log(current_position)
-    console.log(value_answer)
+    value_answer[current_position] = this.data.answer_for_choose[e.target.id]
+
     this.setData({
       value_answer: value_answer
     })
+
+var that = this
+    if (value_answer[0] != " " && value_answer[1] != " " && value_answer[2] != " " && value_answer[3] != " " && value_answer[4] != " " && value_answer[5] != " ") {
+      console.log("ergbvsrtgbnsdrtgyhn")
+      that.check()
+    }
+
+    console.log(current_position)
+    console.log(value_answer)
+
   },
 
   input_je: function() {
-    var is_bg_green = ["bg-green", " ", " ", " ", " ", " ", " "]
+    var is_bg_green = ["bg-green", " ", " ", " ", " ", " "]
     this.setData({
       is_bg_green: is_bg_green
     })
   },
 
   input_tu: function(e) {
-    console.log(e);
+    var is_bg_green = [" ", "bg-green", " ", " ", " ", " "]
     this.setData({
-      is_bg_green_tu: "bg-green"
+      is_bg_green: is_bg_green
     })
   },
 
   input_il: function(e) {
-    console.log(e);
+    var is_bg_green = [" ", " ", "bg-green", " ", " ", " "]
     this.setData({
-      is_bg_green_il: "bg-green"
+      is_bg_green: is_bg_green
     })
   },
 
   input_nous: function(e) {
-    console.log(e);
+    var is_bg_green = [" ", " ", " ", "bg-green", " ", " "]
     this.setData({
-      is_bg_green_nous: "bg-green"
+      is_bg_green: is_bg_green
     })
   },
 
   input_vous: function(e) {
-    console.log(e);
+    var is_bg_green = [" ", " ", " ", " ", "bg-green", " "]
     this.setData({
-      is_bg_green_vous: "bg-green"
+      is_bg_green: is_bg_green
     })
   },
 
   input_ils: function(e) {
-    console.log(e);
+    var is_bg_green = [" ", " ", " ", " ", " ", "bg-green"]
     this.setData({
-      is_bg_green_ils: "bg-green"
+      is_bg_green: is_bg_green
     })
   },
 
   check: function() {
-    console.log(this.data.input_je);
-    console.log(this.data.input_tu);
-    console.log(this.data.input_il);
-    console.log(this.data.input_nous);
-    console.log(this.data.input_vous);
-    console.log(this.data.input_ils);
+    var iconType = this.data.iconType;
+    var iconColor = this.data.iconColor;
 
-    console.log(this.data.shitai_je)
-
-    if (this.data.input_je == this.data.shitai_je) {
-      var iconType_je;
-      var vrai_je = 1;
-      this.setData({
-        iconType_je: 'success',
-        iconColor_je: '#44b549',
-      })
+    if (this.data.value_answer[0] == this.data.right_answer[0]) {
+      var vrai_je = 1
+      iconType[0] = 'success'
+      iconColor[0] = '#44b549'
     } else {
-      this.setData({
-        iconType_je: 'warn',
-        iconColor_je: '#E64340',
-      })
+      iconType[0] = 'warn'
+      iconColor[0] = '#E64340'
     }
 
-    console.log(iconType_je);
+    console.log(iconType)
+    console.log(iconColor)
 
-    if (this.data.input_tu == this.data.shitai_tu) {
-      var iconType_tu;
-      var vrai_tu = 1;
-      this.setData({
-        iconType_tu: 'success',
-        iconColor_tu: '#44b549',
-      })
+    if (this.data.value_answer[1] == this.data.right_answer[1]) {
+      var vrai_tu = 1
+      iconType[1] = 'success'
+      iconColor[1] = '#44b549'
     } else {
-      this.setData({
-        iconType_tu: 'warn',
-        iconColor_tu: '#E64340',
-      })
+      iconType[1] = 'warn'
+      iconColor[1] = '#E64340'
     }
 
-    if (this.data.input_il == this.data.shitai_il) {
-      var iconType_il;
-      var vrai_il = 1;
-      this.setData({
-        iconType_il: 'success',
-        iconColor_il: '#44b549',
-      })
+    if (this.data.value_answer[2] == this.data.right_answer[2]) {
+      var vrai_il = 1
+      iconType[2] = 'success'
+      iconColor[2] = '#44b549'
     } else {
-      this.setData({
-        iconType_il: 'warn',
-        iconColor_il: '#E64340',
-      })
+      iconType[2] = 'warn'
+      iconColor[2] = '#E64340'
     }
 
-    if (this.data.input_nous == this.data.shitai_nous) {
-      var iconType_nous;
-      var vrai_nous = 1;
-      this.setData({
-        iconType_nous: 'success',
-        iconColor_nous: '#44b549',
-      })
+    if (this.data.value_answer[3] == this.data.right_answer[3]) {
+      var vrai_nous = 1
+      iconType[3] = 'success'
+      iconColor[3] = '#44b549'
     } else {
-      this.setData({
-        iconType_nous: 'warn',
-        iconColor_nous: '#E64340',
-      })
+      iconType[3] = 'warn'
+      iconColor[3] = '#E64340'
     }
 
-    if (this.data.input_vous == this.data.shitai_vous) {
-      var iconType_vous;
-      var vrai_vous = 1;
-      this.setData({
-        iconType_vous: 'success',
-        iconColor_vous: '#44b549',
-      })
+    if (this.data.value_answer[4] == this.data.right_answer[4]) {
+      var vrai_vous = 1
+      iconType[4] = 'success'
+      iconColor[4] = '#44b549'
     } else {
-      this.setData({
-        iconType_vous: 'warn',
-        iconColor_vous: '#E64340',
-      })
+      iconType[4] = 'warn'
+      iconColor[4] = '#E64340'
     }
 
-    if (this.data.input_ils == this.data.shitai_ils) {
-      var iconType_ils;
-      var vrai_ils = 1;
-      this.setData({
-        iconType_ils: 'success',
-        iconColor_ils: '#44b549',
-      })
+    if (this.data.value_answer[5] == this.data.right_answer[5]) {
+      var vrai_ils = 1
+      iconType[5] = 'success'
+      iconColor[5] = '#44b549'
     } else {
-      this.setData({
-        iconType_ils: 'warn',
-        iconColor_ils: '#E64340',
-      })
+      iconType[5] = 'warn'
+      iconColor[5] = '#E64340'
     }
 
-    console.log(vrai_je)
+    this.setData({
+      iconType: iconType,
+      iconColor: iconColor,
+
+    })
 
     if (vrai_je == 1 && vrai_tu == 1 && vrai_il == 1 && vrai_nous == 1 && vrai_vous == 1 && vrai_ils == 1) {
 
@@ -722,27 +710,22 @@ Page({
         duration: 3000,
         mask: true,
       })
+      
+      this.setData({
+        iconType: [" ", " ", " ", " ", " ", " "],
+        iconColor: [" ", " ", " ", " ", " ", " "],
+        value_answer: [" ", " ", " ", " ", " ", " "],
+      })
 
       if (getCurrentPages().length != 0) {
         //刷新当前页面的数据
         getCurrentPages()[getCurrentPages().length - 1].onLoad()
       }
-
-      this.setData({
-        iconType_je: null,
-        iconType_tu: null,
-        iconType_il: null,
-        iconType_nous: null,
-        iconType_vous: null,
-        iconType_ils: null,
-        value_input: null,
-      })
     }
 
   },
 
   hint: function() {
-
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
@@ -755,22 +738,28 @@ Page({
     })
   },
 
-  next_conj: function() {
-    //判断是否有打开过页面
+  next_conj: function () {
+    this.setData({
+      iconType: [" ", " ", " ", " ", " ", " "],
+      iconColor: [" ", " ", " ", " ", " ", " "],
+      value_answer: [" ", " ", " ", " ", " ", " "],
+    })
+
+    wx.showToast({
+      title: '加载中',
+      image: '/style/paper-plane.png',
+      icon: 'sucess',
+      duration: 500,
+      mask: true,
+    })
+
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据
       getCurrentPages()[getCurrentPages().length - 1].onLoad()
     }
-    this.setData({
-      iconType_je: null,
-      iconType_tu: null,
-      iconType_il: null,
-      iconType_nous: null,
-      iconType_vous: null,
-      iconType_ils: null,
-      value_input: null,
-    })
+
   },
+
 
   onShareAppMessage: function(res) {
     return {

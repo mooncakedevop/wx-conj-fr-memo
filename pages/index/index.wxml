@@ -8,6 +8,8 @@
   <view class="text-white">{{shitai_chinois}}
     <view class='cu-tag bg-red light round sm shadow' bindtap="hint">
       <text class='icon-question'></text>提示</view>
+    <view class='cu-tag bg-blue light round sm shadow' bindtap="next_conj">
+      <text class='icon-right'></text>跳过</view>
   </view>
   <view class="text-white "></view>
 </view>
@@ -50,5 +52,5 @@
 
 
 <view class="padding bg-answer-hc">
-  <view class='cu-tag bg-green round sm shadow padding-tag-hc lg' wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
+  <view class='cu-tag bg-green round shadow padding-tag-hc lg' wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
 </view>

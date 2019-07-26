@@ -43,19 +43,19 @@ Page({
     app.globalData.time_count = wx.getStorageSync('time_count')
 
     if (app.globalData.isChecked2 == true) {
-      app.globalData.advanced_shitai = [4, 5, 7, 9];
+      app.globalData.advanced_shitai = [2, 3, 7];
     } else {
       app.globalData.advanced_shitai = [];
     }
 
     if (app.globalData.isChecked3 == true) {
-      app.globalData.extra_shitai = [10, 11, 12, 13];
+      app.globalData.extra_shitai = [8, 9, 10, 11];
     } else {
       app.globalData.extra_shitai = [];
     }
 
     if (app.globalData.isChecked4 == true) {
-      app.globalData.inusuel_shitai = [6];
+      app.globalData.inusuel_shitai = [4, 5];
     } else {
       app.globalData.inusuel_shitai = [];
     }

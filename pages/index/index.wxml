@@ -51,20 +51,6 @@
   </view>
 
 
-<view class="cu-bar">
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">â</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">é</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">è</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ê</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">î</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ï</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ô</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">û</button>
-  <button class="cu-tag bg-blue round shadow-blur lg" bindtap="avoir">ç</button>
-</view>
-<view class='box'>
-  <view class="cu-bar btn-group">
-    <button class='cu-btn bg-red round shadow lg' bindtap="next_conj">💨跳过</button>
-    <button class='cu-btn bg-blue round shadow lg' bindtap="check">🛠检查</button>
-  </view>
-</view>
+    <view class="padding bg-answer-hc">
+      <view class='cu-tag bg-green round sm shadow padding-tag-hc lg' wx:for="{{answer}}" wx:for-item="i" wx:for-index="j" wx:key>{{answer[j]}}</view>
+    </view>

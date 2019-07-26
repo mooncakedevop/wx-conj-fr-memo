@@ -7,15 +7,15 @@ const word_test = require('../../data/pour_word_test.js')
 Page({
   data: {
 
-    input_je: null,
-    input_tu: null,
-    input_il: null,
-    input_nous: null,
-    input_vous: null,
-    input_ils: null,
     content: null,
     idx_shitai: null,
-    answer: null,
+    answer_for_choose: null,
+    current_input: null,
+    focus:false,
+
+    is_bg_green:[],
+    value_answer: [" ", " ", " ", " ", " ", " "],
+    iconType:[],
 
     shitai_je: null,
     shitai_tu: null,
@@ -23,12 +23,6 @@ Page({
     shitai_nous: null,
     shitai_vous: null,
     shitai_ils: null,
-    iconType_je: null,
-    iconType_tu: null,
-    iconType_il: null,
-    iconType_nous: null,
-    iconType_vous: null,
-    iconType_ils: null,
 
     tag_classic: true,
     tag_selected: true,
@@ -95,37 +89,36 @@ Page({
     var shitai_choose = [0, 1, 6] //初始设置基础时态
     shitai_choose = shitai_choose.concat(app.globalData.advanced_shitai).concat(app.globalData.extra_shitai).concat(app.globalData.inusuel_shitai) //拼接四个时态的数组
     console.log(shitai_choose)
-    var idx_shitai_num = Math.floor(Math.random() * (shitai_choose.length - 2 + 1) + 2) //统计新的数组长度，并以此为范围取随机数
-    var idx_shitai = shitai_choose[idx_shitai_num - 1] //选择新的数组中idx_shitai_num-1个元素，该元素为下面switch的case值（时态）
-    console.log(idx_shitai)
+    var idx_shitai_num = Math.round(Math.random() * (shitai_choose.length - 1)) //统计新的数组长度，并以此为范围取随机数
+    var idx_shitai = shitai_choose[idx_shitai_num] //选择新的数组中idx_shitai_num-1个元素，该元素为下面switch的case值（时态）
+    console.log(idx_shitai_num)
 
 
     this.setData({
       content: mot_test, //最终单词
       idx_shitai: idx_shitai, //最终时态
     })
-    console.log(mot_test)
     console.log(idx_shitai)
     this.search()
 
   },
 
 
-  search: function () {
+  search: function() {
     var search_word = this.data.content;
     this.onQuery(search_word);
   },
 
-  onQuery: function (search_word) {
+  onQuery: function(search_word) {
     var that = this
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
 
     const _ = db.command
     db.collection('conj_all_20190722').where(_.or([{
-      sw: search_word
+      ow: search_word
     }])).get({
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
         app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
@@ -151,7 +144,7 @@ Page({
     console.log(consult_data[0].wn)
     consult_data[0].wn
 
-//复合过去时 复合时态
+    //复合过去时 复合时态
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
       var verbe_auxiliaire_je = avoir_etre.avoirEtre[1].indi_pre1 //etre的位置
       var verbe_auxiliaire_tu = avoir_etre.avoirEtre[1].indi_pre2
@@ -504,7 +497,47 @@ Page({
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
 
-    var answer = shitai_je
+    console.log(shitai_je)
+    console.log(shitai_tu)
+    console.log(random_shitai_chinois)
+    console.log(this.data.idx_shitai)
+
+
+    // 答案选项的处理
+    var idx_shitai = this.data.idx_shitai
+    var right_answer = []
+    right_answer.push(shitai_je[idx_shitai])
+    right_answer.push(shitai_tu[idx_shitai])
+    right_answer.push(shitai_il[idx_shitai])
+    right_answer.push(shitai_nous[idx_shitai])
+    right_answer.push(shitai_vous[idx_shitai])
+    right_answer.push(shitai_ils[idx_shitai])
+
+    var answer = shitai_je.concat(shitai_tu).concat(shitai_il).concat(shitai_nous).concat(shitai_vous).concat(shitai_ils) //所有答案总数
+
+    var answer_for_choose = []
+    for (var i = 0; i < 14; i++) {
+      var answer_idx = Math.round(Math.random() * (answer.length - 1))
+      answer_for_choose.push(answer[answer_idx])
+    }
+    var answer_for_choose = answer_for_choose.concat(right_answer)
+
+    console.log(answer_for_choose)
+
+    function shuffle(array) {
+      let length = array.length;
+      while (length) {
+        let position = Math.floor(Math.random() * length--);
+        [array[position], array[length]] = [array[length], array[position]];
+      }
+    }
+
+    shuffle(answer_for_choose)
+
+    console.log(right_answer)
+    console.log(answer_for_choose)
+    console.log(answer)
+
     app.globalData.shitai_je = shitai_je
     app.globalData.shitai_tu = shitai_tu
     app.globalData.shitai_il = shitai_il
@@ -512,10 +545,7 @@ Page({
     app.globalData.shitai_vous = shitai_vous
     app.globalData.shitai_ils = shitai_ils
 
-    console.log(shitai_je)
-    console.log(shitai_tu)
-    console.log(random_shitai_chinois)
-    console.log(this.data.idx_shitai)
+
 
     this.setData({
       mode_je: mode_je,
@@ -526,51 +556,62 @@ Page({
       shitai_nous: shitai_nous,
       shitai_vous: shitai_vous,
       shitai_ils: shitai_ils,
-      answer: answer,
+      answer_for_choose: answer_for_choose,
     })
 
   },
 
-  
-  input_je: function(e) {
-    console.log(e);
+  choosed_answer: function(e) {
+    console.log(e._relatedInfo.anchorTargetText)
+    var current_position = this.data.is_bg_green.indexOf("bg-green")
+    var value_answer = this.data.value_answer
+    value_answer[current_position] = e._relatedInfo.anchorTargetText
+    console.log(current_position)
+    console.log(value_answer)
     this.setData({
-      input_je: e.detail.value.toLowerCase()
+      value_answer: value_answer
+    })
+  },
+
+  input_je: function() {
+    var is_bg_green = ["bg-green", " ", " ", " ", " ", " ", " "]
+    this.setData({
+      is_bg_green: is_bg_green
     })
   },
 
   input_tu: function(e) {
     console.log(e);
     this.setData({
-      input_tu: e.detail.value.toLowerCase()
+      is_bg_green_tu: "bg-green"
     })
   },
 
   input_il: function(e) {
     console.log(e);
     this.setData({
-      input_il: e.detail.value.toLowerCase()
+      is_bg_green_il: "bg-green"
     })
   },
 
   input_nous: function(e) {
     console.log(e);
     this.setData({
-      input_nous: e.detail.value.toLowerCase()
+      is_bg_green_nous: "bg-green"
     })
   },
 
   input_vous: function(e) {
     console.log(e);
     this.setData({
-      input_vous: e.detail.value.toLowerCase()
+      is_bg_green_vous: "bg-green"
     })
   },
 
   input_ils: function(e) {
     console.log(e);
     this.setData({
-      input_ils: e.detail.value.toLowerCase()
+      is_bg_green_ils: "bg-green"
     })
   },
 

@@ -3,7 +3,7 @@
   <view class="cu-bar search bg-white round search-conj">
     <view class='search-form round'>
       <text class="icon-search"></text>
-      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}" confirm-type="input_word_conj" bindinput="input_word_conj" bindblur="bindblur" bindfocus="bindfocus"></input>
+      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}" confirm-type="input_word_conj" bindinput="input_word_conj" bindblur="bindblur" bindfocus="bindfocus" cursor="{{cursor}}"></input>
     </view>
     <view class='action'>
       <button class='cu-btn bg-blue shadow-blur round' bindtap="search">搜索</button>

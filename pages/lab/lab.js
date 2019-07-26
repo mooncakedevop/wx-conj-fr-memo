@@ -6,7 +6,8 @@ const avoir_etre = require('../../data/avoir_etre.js')
 Page({
   data: {
     focus: true,
-    disable_btn:true,
+    disable_btn: true,
+    cursor: null,
     input_word_conj: "",
     idx_shitai: null,
     shitai_chinois: null,
@@ -31,22 +32,24 @@ Page({
     console.log(e.currentTarget.id);
     var input_word_conj = this.data.input_word_conj;
     var input_word_conj = input_word_conj.concat(e.currentTarget.id)
+    var cursor = 100;
 
     console.log(input_word_conj);
 
     this.setData({
       input_word_conj: input_word_conj,
       focus: true,
+      cursor: cursor
     })
   },
 
-  bindblur: function (){
+  bindblur: function() {
     this.setData({
       disable_btn: false,
     })
   },
 
-  bindfocus: function () {
+  bindfocus: function() {
     this.setData({
       disable_btn: true,
     })
@@ -830,13 +833,13 @@ Page({
 
   },
 
-  intro: function () {
+  intro: function() {
     wx.switchTab({
       url: '../index/index',
     })
   },
 
-  training: function () {
+  training: function() {
     wx.switchTab({
       url: '../carte/milestone',
     })

@@ -27,97 +27,97 @@ Page({
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 15 //指定时态序号
+    app.globalData.shitai_no = 13 //指定时态序号
   },
 
   zcs_present: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 3 //指定时态序号
+    app.globalData.shitai_no = 1 //指定时态序号
   },
 
   zcs_passecomposee: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 2 //指定时态序号
+    app.globalData.shitai_no = 0 //指定时态序号
   },
 
   zcs_imparfait: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 4 //指定时态序号
+    app.globalData.shitai_no = 2 //指定时态序号
   },
 
   zcs_plusqueparfait: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 5 //指定时态序号
+    app.globalData.shitai_no = 3 //指定时态序号
   },
 
   zcs_passesimple: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 6 //指定时态序号
+    app.globalData.shitai_no = 4 //指定时态序号
   },
 
   zcs_passeanterieur: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 7 //指定时态序号
+    app.globalData.shitai_no = 5 //指定时态序号
   },
 
   zcs_futur: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 8 //指定时态序号
+    app.globalData.shitai_no = 6 //指定时态序号
   },
 
   zcs_futuranterieur: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 9 //指定时态序号
+    app.globalData.shitai_no = 7 //指定时态序号
   },
 
   tjs_present: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 10 //指定时态序号
+    app.globalData.shitai_no = 8 //指定时态序号
   },
 
   tjs_passe: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 11 //指定时态序号
+    app.globalData.shitai_no = 9 //指定时态序号
   },
   xns_present: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 12 //指定时态序号
+    app.globalData.shitai_no = 10 //指定时态序号
   },
 
   xns_passe: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 13 //指定时态序号
+    app.globalData.shitai_no = 11 //指定时态序号
   },
 
   imperatif: function() {
     wx.redirectTo({
       url: 'question',
     })
-    app.globalData.shitai_no = 14 //指定时态序号
+    app.globalData.shitai_no = 12 //指定时态序号
   },
 
   allcards: function(){

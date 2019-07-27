@@ -7,19 +7,18 @@
   </view>
   <view class='padding bg-white bg-white-last'>
     <view class='text-sm'>法语动词变位记忆小助手</view>
-    <view class='text-sm'>v1.4.1 (2019.6.30)</view>
+    <view class='text-sm'>v2.0.0 (2019.7.27)</view>
     <view class='text-sm'>by bu要搞事情</view>
-    <view class='text-sm'>个人主页：https://uniquelab.cn</view>
     <view class='text-sm'>微信公众号：一个实验室</view>
-    <view class="text-sm">2019.3</view>
-    <view class="text-sm">Fait à Saint Nazaire, France</view>
+    <view class="text-sm">SINCE 2019.3</view>
+    <view class="text-sm">Fait à Saint Nazaire & Paris, France</view>
     <view class="text-sm">动词变位数据库 verbiste v0.1.45</view>
     <view class="text-sm">使用了ColorUI</view>
     <view class="text-sm">https://uniquelab.cn/conj-helper</view>
 
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="copy">点击复制网址</button>
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy">点击复制网址</button>
       </view>
     </view>
   </view>
@@ -34,43 +33,24 @@
     <view class='text-sm'>小程序中没有特别制作返回按钮，若要返回上一个页面，请将手指放在屏幕左侧边缘向右滑动，即可回到上一个页面。</view>
   </view>
 
-  <view class="cu-bar bg-cyan light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-cyan'></text>默写练习
-    </view>
-  </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='text-sm text-sm-left'>1.1 输入答案，点击“检查”。</view>
-    <view class='text-sm text-sm-left'>1.2 结果将会显示在右侧，答对会显示绿色对勾，打错会显示红色感叹号。</view>
-    <view class='text-sm text-sm-left'>1.3 单词和时态随机出现，单词和时态出现的范围是您在设置页面的设置。</view>
-    <view class='text-sm text-sm-left'>1.4 若全部答对，则会跳至下一个随机单词及其时态。</view>
-    <view class='text-sm text-sm-left'>1.5 点击“提示”将会显示当前单词的答案，若单词对您来说太简单或者太难，则可以选择跳过。</view>
-    <view class='text-sm text-sm-left'>1.6 输入答案时，请输入完整、严格使用法语特殊字符。例如avoir的第一人称直陈式现在时变位，应当填写“ai”；例如être的第一人称直陈式复合过去时，应当填写“ai été”。</view>
-  </view>
-
-  <view class="cu-bar bg-green light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-green'></text>常用动词变位查询
-    </view>
-  </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='text-sm text-sm-left'>2.1 输入对应的动词，会显示对应的变位。</view>
-    <view class='text-sm text-sm-left'>2.2 输入动词时，不区分大小写、特殊字符。例如搜索être的动词变位，可以填写“etre”、可以填写“être”、也可以填写“Etre”。</view>
-    <view class='text-sm text-sm-left'>2.3 搜索框下方列出了最常用的法语动词，点击可以直接查询。</view>
-    <view class='text-sm text-sm-left'>2.4 本小程序使用了verbiste的动词和变位数据。</view>
-    <view class='text-sm text-sm-left'>2.5 现已更新至7016个法语动词查询。</view>
-  </view>
-
   <view class="cu-bar bg-blue light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-blue'></text>设置
+      <text class='icon-title text-red'></text>更新详情
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
-    <view class='text-sm text-sm-left'>3.1 在设置页面，您可以自定义单词和时态，点击右侧开关即可。设置实时生效。</view>
-    <view class='text-sm text-sm-left'>3.2 本小程序暂不获取用户任何数据。设置仅存在于本地。</view>
-    <view class='text-sm text-sm-left'>3.3 默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时。</view>
-    <view class='text-sm text-sm-left'>3.4 进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先过去时、直陈式先将来时。</view>
-    <view class='text-sm text-sm-left'>3.5 非常用时态包括了直陈式 简单过去时。</view>
+    <view class='text-sm'>v2.0.0 （2019.07.27）</view>
+    <view class='text-sm'>1. 默写练习改为选择练习，加快学习节奏。</view>
+    <view class='text-sm'>2. 将所有词库移至云端，极大地减少了小程序的体积。</view>
+    <view class='text-sm'>3. 支持动词变位反查。</view>
+    <view class='text-sm'>4. 增加法语特殊字符软键盘（仅在软键盘收起时有效，正查仍不受大小写和特殊字符影响）。</view>
+    <view class='text-sm'>5. 删除和修改了帮助页面的内容。</view>
+    <view class='text-sm'>6. 增加了赞赏页面，感谢大家的支持。</view>
+    <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-2-0-0</view>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy">点击复制网址</button>
+      </view>
+    </view>
   </view>
 </view>

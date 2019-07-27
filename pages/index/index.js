@@ -715,7 +715,7 @@ Page({
         title: '答对了！',
         image: '/style/dianzan.png',
         icon: 'sucess',
-        duration: 3000,
+        duration: 2000,
         mask: true,
       })
 
@@ -725,10 +725,13 @@ Page({
         value_answer: [" ", " ", " ", " ", " ", " "],
       })
 
-      if (getCurrentPages().length != 0) {
-        //刷新当前页面的数据
-        getCurrentPages()[getCurrentPages().length - 1].onLoad()
-      }
+      setTimeout(function () {
+        if (getCurrentPages().length != 0) {
+          //刷新当前页面的数据
+          getCurrentPages()[getCurrentPages().length - 1].onLoad()
+        }
+      }, 2000)
+
     }
   },
 
@@ -736,7 +739,7 @@ Page({
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
-      content: this.data.right_answer[0] + '\r\n' + this.data.right_answer[1] + '\r\n' + this.data.right_answer[2] +'\r\n' + this.data.right_answer[3] + '\r\n' + this.data.right_answer[4] + '\r\n' + this.data.right_answer[5],
+      content: '根据单词和语式时态选择合适的动词变位'+'\r\n' + this.data.right_answer[0] + '\r\n' + this.data.right_answer[1] + '\r\n' + this.data.right_answer[2] +'\r\n' + this.data.right_answer[3] + '\r\n' + this.data.right_answer[4] + '\r\n' + this.data.right_answer[5],
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')

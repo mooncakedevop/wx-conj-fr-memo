@@ -8,9 +8,9 @@
   <view class='padding bg-white bg-white-last'>
     <view class='text-sm'>法语动词变位记忆小助手</view>
     <view class='text-sm'>v2.0.0 (2019.7.27)</view>
+    <view class="text-sm">SINCE 2019.3</view>
     <view class='text-sm'>by bu要搞事情</view>
     <view class='text-sm'>微信公众号：一个实验室</view>
-    <view class="text-sm">SINCE 2019.3</view>
     <view class="text-sm">Fait à Saint Nazaire & Paris, France</view>
     <view class="text-sm">动词变位数据库 verbiste v0.1.45</view>
     <view class="text-sm">使用了ColorUI</view>
@@ -35,7 +35,7 @@
 
   <view class="cu-bar bg-blue light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-red'></text>更新详情
+      <text class='icon-title text-blue'></text>更新详情
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
@@ -49,7 +49,7 @@
     <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-2-0-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow sm' bindtap="copy">点击复制网址</button>
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
       </view>
     </view>
   </view>

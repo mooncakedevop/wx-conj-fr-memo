@@ -21,7 +21,7 @@
     <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-2-0-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow sm' bindtap="copy">点击复制网址</button>
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
       </view>
     </view>
   </view>
@@ -39,7 +39,7 @@
       </view>
       <view class="cu-bar btn-group">
         <button class='cu-btn bg-red round shadow' bindtap="like_me">✨赞赏支持我</button>
-        <button class='cu-btn lines-blue round shadow' bindtap="copy">😻我的主页</button>
+        <button class='cu-btn lines-blue round shadow' bindtap="copy">😻小程序主页</button>
       </view>
     </view>
   </view>

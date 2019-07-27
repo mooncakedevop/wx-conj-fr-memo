@@ -364,7 +364,7 @@ Page({
   copy: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://uniquelab.cn/about",
+      data: "https://uniquelab.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',

@@ -30,7 +30,7 @@
           <view class="text-sl">
             <text class='icon-write'></text>
           </view>
-          <view class="text-sm">默写练习</view>
+          <view class="text-sm">强化练习</view>
         </view>
       </view>
       <view class='padding-sm'>
@@ -38,16 +38,16 @@
           <view class="text-sl">
             <text class='icon-settings'></text>
           </view>
-          <view class="text-sm">设置</view>
+          <view class="text-sm">个性化</view>
         </view>
       </view>
     </view>
     <view class=' text-sm margin-text'>
-      <text class='text-grey'>✔ 7000+法语动词变位查询\n</text>
-      <text class='text-grey'>✔ 常用法语动词变位默写\n</text>
-      <text class='text-grey'>✔ 初中高级法语学习者覆盖\n</text>
+      <text class='text-grey'>✔ 7000+法语动词变位正查反查\n</text>
+      <text class='text-grey'>✔ 常用法语动词变位强化练习\n</text>
       <text class='text-grey'>✔ 自由选择动词和时态范围\n</text>
-      <text class='text-xs'>v1.4.2（2019.7）\n</text>
+      <text class='text-grey'>✔ 同步进度和设置\n</text>
+      <text class='text-xs'>v2.0.0（2019.7）\n</text>
     </view>
   </view>
 </view>

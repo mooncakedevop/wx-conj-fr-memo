@@ -59,6 +59,12 @@ Page({
     })
   },
 
+  backto: function () {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
   liju: function() {
     wx.showModal({
       title: '提示',

@@ -122,6 +122,7 @@ Page({
     })
   },
 
+
   exp: function () {
     var consult_data = app.globalData.consult_data;
 
@@ -527,6 +528,12 @@ Page({
     var shitai_vous = shitai_vous.concat([''])
     var shitai_ils = shitai_ils.concat([''])
 
+    app.globalData.shitai_je = shitai_je
+    app.globalData.shitai_tu = shitai_tu
+    app.globalData.shitai_il = shitai_il
+    app.globalData.shitai_nous = shitai_nous
+    app.globalData.shitai_vous = shitai_vous
+    app.globalData.shitai_ils = shitai_ils
 
     // 答案选项的处理
     var idx_shitai = this.data.idx_shitai

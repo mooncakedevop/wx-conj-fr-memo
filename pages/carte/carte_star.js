@@ -132,6 +132,36 @@ Page({
     })
   },
 
+  onQuery2: function (search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function (res) {
+        console.log(res.data)
+        app.globalData.consult_data_js = res.data;
+        wx.setStorageSync('consult_data_js', res.data);
+        wx.navigateTo({
+          url: '../lab/result/result',
+        })
+      }
+    })
+  },
+
+  word_detail: function () {
+    this.onQuery2(app.globalData.search_word);
+    wx.showToast({
+      title: '查询中',
+      image: '/style/paper-plane.png',
+      icon: 'sucess',
+      duration: 1500,
+      mask: true,
+    })
+  },
 
   onShareAppMessage: function (res) {
     return {

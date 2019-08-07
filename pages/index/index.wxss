@@ -1,8 +1,8 @@
 
 
 .title_css{
-  padding-top: 10vh;
-  padding-bottom: 5vh
+  padding-top: 8vh;
+  padding-bottom: 3vh
 }
 
 .page__hd{
@@ -18,4 +18,8 @@
 .padding-tag-hc{
   margin-top: 1vh;
   margin-bottom: 1vh;
+}
+
+.text-white{
+    padding-bottom: 1vh;
 }

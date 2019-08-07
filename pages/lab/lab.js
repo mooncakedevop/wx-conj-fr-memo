@@ -382,10 +382,10 @@ Page({
       success: function(res) {
         console.log(res.data)
         app.globalData.consult_data = res.data;
-        var consult_data = res.data
         wx.setStorageSync('consult_data', res.data);
-        that.onQuery2(consult_data[0].ow)
+        that.onQuery2(res.data[0].ow)
         that.exp();
+        
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据
           getCurrentPages()[getCurrentPages().length - 1].onLoad()

@@ -16,7 +16,7 @@ Page({
     learn_js_cn: [],
     learn_js_fr: [],
     learn_word_all: [],
-    learn_lj:[]
+    learn_lj: []
   },
 
   onLoad: function() {
@@ -30,11 +30,12 @@ Page({
     learn_lj_fr = learn_lj_fr.split(";");
     learn_lj_cn = learn_lj_cn.split(";");
 
- var learn_lj = [];
+    var learn_lj = [];
     for (var i = 0; i < learn_lj_fr.length; i++) {
       learn_lj.push(learn_lj_fr[i])
       learn_lj.push(learn_lj_cn[i])
     }
+    learn_lj = learn_lj.join("\r\n")
 
     console.log(learn_lj)
 
@@ -55,6 +56,18 @@ Page({
       show_conj_ils: app.globalData.shitai_ils,
       ow: app.globalData.ow,
       tag_classic: app.globalData.tag_classic,
+    })
+  },
+
+  liju: function() {
+    wx.showModal({
+      title: '提示',
+      content: this.data.learn_lj,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
     })
   },
 

@@ -138,6 +138,26 @@ Page({
     })
   },
 
+  onQuery2: function(search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function(res) {
+        console.log(res.data)
+        app.globalData.consult_data_js = res.data;
+        wx.setStorageSync('consult_data_js', res.data);
+        wx.navigateTo({
+          url: '../lab/result/result',
+        })
+      }
+    })
+  },
+
   exp: function() {
 
     var consult_data = app.globalData.consult_data;
@@ -185,6 +205,13 @@ Page({
     var shitai_vous = [verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s]
     var shitai_ils = [verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s]
 
+    var shitai_je_y = [mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1] //拼接开始
+    var shitai_tu_y = ['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1]
+    var shitai_il_y = ['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1]
+    var shitai_nous_y = ['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s]
+    var shitai_vous_y = ['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s]
+    var shitai_ils_y = ['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s]
+
     console.log(verbe_auxiliaire_je)
     console.log(verbe_auxiliaire_tu)
     console.log(shitai_il)
@@ -219,6 +246,13 @@ Page({
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
+
     console.log(shitai_je)
     console.log(shitai_tu)
     console.log(shitai_il)
@@ -249,6 +283,13 @@ Page({
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
+
     //直陈式愈过去时 复合时态
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
       var verbe_auxiliaire_je = avoir_etre.avoirEtre[1].indi_imp1 //etre的位置
@@ -278,6 +319,13 @@ Page({
     var shitai_vous = shitai_vous.concat([verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
+
 
     //直陈式简单过去时 简单时态
     var first_caracter = consult_data[0].sw.substr(0, 1)
@@ -304,6 +352,13 @@ Page({
     var shitai_nous = shitai_nous.concat([root_nous])
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
+
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
 
 
     //直陈式先过去时 复合时态
@@ -335,6 +390,13 @@ Page({
     var shitai_vous = shitai_vous.concat([verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
+
     //直陈式简单将来时 简单时态
     var first_caracter = consult_data[0].sw.substr(0, 1)
     if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
@@ -361,6 +423,12 @@ Page({
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
 
     //直陈式先将来时 复合时态
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
@@ -391,6 +459,12 @@ Page({
     var shitai_vous = shitai_vous.concat([verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
     //条件式现在时 简单时态
     var first_caracter = consult_data[0].sw.substr(0, 1)
@@ -419,6 +493,12 @@ Page({
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
 
     //条件式过去时 复合时态
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
@@ -449,6 +529,12 @@ Page({
     var shitai_vous = shitai_vous.concat([verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
     //虚拟式现在时 简单时态
     var first_caracter = consult_data[0].sw.substr(0, 1)
@@ -477,6 +563,12 @@ Page({
     var shitai_vous = shitai_vous.concat([root_vous])
     var shitai_ils = shitai_ils.concat([root_ils])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + root_je]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + root_il])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + root_ils])
 
     //虚拟式过去时 复合时态
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
@@ -507,11 +599,53 @@ Page({
     var shitai_vous = shitai_vous.concat([verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
     var shitai_ils = shitai_ils.concat([verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
+    var shitai_je_y = shitai_je_y.concat([mode_je + ' ' + verbe_auxiliaire_je + ' ' + consult_data[0].past_part1]) //拼接开始
+    var shitai_tu_y = shitai_tu_y.concat(['Tu' + ' ' + verbe_auxiliaire_tu + ' ' + consult_data[0].past_part1])
+    var shitai_il_y = shitai_il_y.concat(['Il' + ' ' + verbe_auxiliaire_il + ' ' + consult_data[0].past_part1])
+    var shitai_nous_y = shitai_nous_y.concat(['Nous' + ' ' + verbe_auxiliaire_nous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_vous_y = shitai_vous_y.concat(['Vous' + ' ' + verbe_auxiliaire_vous + ' ' + consult_data[0].past_part1 + mode_s])
+    var shitai_ils_y = shitai_ils_y.concat(['Ils' + ' ' + verbe_auxiliaire_ils + ' ' + consult_data[0].past_part1 + mode_s])
 
     console.log(shitai_je)
     console.log(shitai_tu)
     console.log(random_shitai_chinois)
     console.log(this.data.idx_shitai)
+
+    //新增
+    //命令式 简单时态
+    var first_caracter = consult_data[0].sw.substr(0, 1)
+    if (first_caracter == 'a' || first_caracter == 'e' || first_caracter == 'i' || first_caracter == 'o' || first_caracter == 'u' || consult_data[0].wn == 'aspirate-h') {
+      var mode_je = 'J\''
+    } else {
+      var mode_je = 'Je'
+    }
+
+    var root_tu = consult_data[0].imp_pre1
+    var root_nous = consult_data[0].imp_pre2
+    var root_vous = consult_data[0].imp_pre3
+
+    var shitai_je_y = shitai_je_y.concat(['第一人称木有'])
+    var shitai_tu_y = shitai_tu_y.concat(['(Tu)' + ' ' + root_tu])
+    var shitai_il_y = shitai_il_y.concat(['第三人称木有'])
+    var shitai_nous_y = shitai_nous_y.concat(['(Nous)' + ' ' + root_nous])
+    var shitai_vous_y = shitai_vous_y.concat(['(Vous)' + ' ' + root_vous])
+    var shitai_ils_y = shitai_ils_y.concat(['第三人称复数木有'])
+
+    //现在分词 和 过去分词
+    var past_participle_root = consult_data[0].past_part1
+    var present_participle_root = consult_data[0].pre_part
+
+    if (present_participle_root == '-') {
+      var shitai_je_y = shitai_je_y.concat(['现在分词' + ' ' + '不存在']) //拼接开始)
+    } else {
+      var shitai_je_y = shitai_je_y.concat(['现在分词' + ' ' + present_participle_root]) //拼接开始
+    }
+
+    var shitai_tu_y = shitai_tu_y.concat(['过去分词（单数阳性）' + ' ' + past_participle_root])
+    var shitai_il_y = shitai_il_y.concat([''])
+    var shitai_nous_y = shitai_nous_y.concat([''])
+    var shitai_vous_y = shitai_vous_y.concat([''])
+    var shitai_ils_y = shitai_ils_y.concat([''])
 
 
     // 答案选项的处理
@@ -549,12 +683,12 @@ Page({
     console.log(answer_for_choose)
     console.log(answer)
 
-    app.globalData.shitai_je = shitai_je
-    app.globalData.shitai_tu = shitai_tu
-    app.globalData.shitai_il = shitai_il
-    app.globalData.shitai_nous = shitai_nous
-    app.globalData.shitai_vous = shitai_vous
-    app.globalData.shitai_ils = shitai_ils
+    app.globalData.shitai_je = shitai_je_y
+    app.globalData.shitai_tu = shitai_tu_y
+    app.globalData.shitai_il = shitai_il_y
+    app.globalData.shitai_nous = shitai_nous_y
+    app.globalData.shitai_vous = shitai_vous_y
+    app.globalData.shitai_ils = shitai_ils_y
 
 
 
@@ -724,7 +858,7 @@ Page({
         value_answer: [" ", " ", " ", " ", " ", " "],
       })
 
-      setTimeout(function () {
+      setTimeout(function() {
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据
           getCurrentPages()[getCurrentPages().length - 1].onLoad()
@@ -734,11 +868,22 @@ Page({
     }
   },
 
+  word_detail: function() {
+    this.onQuery2(this.data.content);
+    wx.showToast({
+      title: '查询中',
+      image: '/style/paper-plane.png',
+      icon: 'sucess',
+      duration: 1500,
+      mask: true,
+    })
+  },
+
   hint: function() {
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
-      content: '根据单词和语式时态选择合适的动词变位'+'\r\n' + this.data.right_answer[0] + '\r\n' + this.data.right_answer[1] + '\r\n' + this.data.right_answer[2] +'\r\n' + this.data.right_answer[3] + '\r\n' + this.data.right_answer[4] + '\r\n' + this.data.right_answer[5],
+      content: '根据单词和语式时态选择合适的动词变位' + '\r\n' + this.data.right_answer[0] + '\r\n' + this.data.right_answer[1] + '\r\n' + this.data.right_answer[2] + '\r\n' + this.data.right_answer[3] + '\r\n' + this.data.right_answer[4] + '\r\n' + this.data.right_answer[5],
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')

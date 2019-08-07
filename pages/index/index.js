@@ -115,7 +115,6 @@ Page({
 
   },
 
-
   search: function() {
     var search_word = this.data.content;
     this.onQuery(search_word);

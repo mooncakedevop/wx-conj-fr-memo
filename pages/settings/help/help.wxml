@@ -7,7 +7,6 @@
   </view>
   <view class='padding bg-white bg-white-last'>
     <view class='text-sm'>法语动词变位记忆小助手</view>
-    <view class='text-sm'>v2.0.0 (2019.7.27)</view>
     <view class="text-sm">SINCE 2019.3</view>
     <view class='text-sm'>by bu要搞事情</view>
     <view class='text-sm'>微信公众号：一个实验室</view>
@@ -39,6 +38,17 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
+      <view class='text-sm'>v2.1.0（2019.08.07）</view>
+    <view class='text-sm'>1. 小程序在7000动词查询页面增加了法汉双解的单词释义和例句。</view>
+    <view class='text-sm'>2. 分别在“分类记忆”的结果页以及“强化练习”页面增加直达动词详情页的按钮。</view>
+    <view class='text-sm'>3. 为实现第2点，对相关页面做了些调整。</view>
+    <view class='text-sm'>4. 其他一些细节的改进。</view>
+    <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-2-1-0</view>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
+      </view>
+    </view>
     <view class='text-sm'>v2.0.0 （2019.07.27）</view>
     <view class='text-sm'>1. 默写练习改为选择练习，加快学习节奏。</view>
     <view class='text-sm'>2. 将所有词库移至云端，极大地减少了小程序的体积。</view>

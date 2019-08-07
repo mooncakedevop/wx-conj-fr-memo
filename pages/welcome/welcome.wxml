@@ -6,16 +6,14 @@
     </view>
 
     <view class='grid col-2 padding-sm bg-btn-conj'>
-
       <view class='padding-sm'>
-        <view class='bg-cyan round padding radius text-center shadow' bindtap="training">
+        <view class='bg-purple round padding radius text-center shadow' bindtap="intro">
           <view class="text-sl">
-            <text class='icon-text'></text>
+            <text class='icon-write'></text>
           </view>
-          <view class="text-sm">典型动词训练营</view>
+          <view class="text-sm">强化练习</view>
         </view>
       </view>
-
       <view class='padding-sm'>
         <view class='bg-blue round padding radius text-center shadow' bindtap="searcher">
           <view class="text-sl">
@@ -24,13 +22,12 @@
           <view class="text-sm">7000动词查询</view>
         </view>
       </view>
-
       <view class='padding-sm'>
-        <view class='bg-purple round padding radius text-center shadow' bindtap="intro">
+        <view class='bg-cyan round padding radius text-center shadow' bindtap="training">
           <view class="text-sl">
-            <text class='icon-write'></text>
+            <text class='icon-text'></text>
           </view>
-          <view class="text-sm">强化练习</view>
+          <view class="text-sm">典型动词训练营</view>
         </view>
       </view>
       <view class='padding-sm'>
@@ -47,7 +44,8 @@
       <text class='text-grey'>✔ 常用法语动词变位强化练习\n</text>
       <text class='text-grey'>✔ 自由选择动词和时态范围\n</text>
       <text class='text-grey'>✔ 同步进度和设置\n</text>
-      <text class='text-xs'>v2.0.0（2019.7）\n</text>
+      <text class='text-grey'>✔ 法汉双解和例句\n</text>
+      <text class='text-xs'>🎈v2.1.0（2019.8）\n</text>
     </view>
   </view>
 </view>

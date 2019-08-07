@@ -67,7 +67,7 @@ Page({
 
   liju: function() {
     wx.showModal({
-      title: '提示',
+      title: '双语例句',
       content: this.data.learn_lj,
       success(res) {
         if (res.confirm) {

@@ -8,10 +8,8 @@
   <view class="text-white">{{shitai_chinois}}</view>
     <view class="text-sm">  </view>
   <view class='cu-tag bg-mauve light round sm shadow' bindtap="word_detail">单词双解和例句</view>
-  <view class='cu-tag bg-red light round sm shadow' bindtap="hint">
-    <text class='icon-question'></text>提示</view>
-  <view class='cu-tag bg-blue light round sm shadow' bindtap="next_conj">
-    <text class='icon-right'></text>跳过</view>
+  <view class='cu-tag bg-red light round sm shadow' bindtap="hint">提示❓</view>
+  <view class='cu-tag bg-blue light round sm shadow' bindtap="next_conj">跳过➡</view>
   <view class="text-white "></view>
 </view>
 

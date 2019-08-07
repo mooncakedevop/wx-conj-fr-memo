@@ -62,8 +62,9 @@ Page({
     })
     console.log(input_word_conj);
 
+    this.onQuery2(input_word_conj);
     this.onQuery(input_word_conj);
-
+    
     wx.showToast({
       title: '查询中',
       image: '/style/paper-plane.png',
@@ -85,8 +86,8 @@ Page({
       })
       return;
     }
+    this.onQuery2(search_word);
     this.onQuery(search_word);
-
     wx.showToast({
       title: '查询中',
       image: '/style/paper-plane.png',
@@ -393,6 +394,23 @@ Page({
           getCurrentPages()[getCurrentPages().length - 1].onLoad()
         }
 
+      }
+    })
+  },
+
+  onQuery2: function (search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function (res) {
+        console.log(res.data)
+        app.globalData.consult_data_js = res.data;
+        wx.setStorageSync('consult_data_js', res.data);
       }
     })
   },

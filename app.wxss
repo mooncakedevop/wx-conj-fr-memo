@@ -56,6 +56,11 @@ page {
   padding-bottom: 1px;
 }
 
+.bold{
+  font-weight:bold;
+  padding-bottom: 1px;
+}
+
 .cu-bar{
 border-top-left-radius:4vw;
 border-top-right-radius:4vw;

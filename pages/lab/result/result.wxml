@@ -10,6 +10,8 @@
   <view class="text-xs italic">{{learn_cx}}</view>
   <view class="text-white bold">{{learn_js_cn}}</view>
   <view class="text-xs italic">{{learn_js_fr}}</view>
+
+  <view class='cu-tag bg-blue light round sm shadow' bindtap="backto">⬅返回</view>
   <view class='cu-tag bg-red light round sm shadow' bindtap="liju">显示例句</view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top">

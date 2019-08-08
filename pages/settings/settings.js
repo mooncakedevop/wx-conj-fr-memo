@@ -361,6 +361,52 @@ Page({
     })
   },
 
+  copy: function() {
+    var self = this;
+    wx.setClipboardData({
+      data: "https://uniquelab.cn/conj-helper",
+      success: function(res) {
+        wx.showModal({
+          title: '提示',
+          content: '✨复制成功✨请粘贴到浏览器访问',
+          success: function(res) {
+            if (res.confirm) {
+              console.log('确定')
+            } else if (res.cancel) {
+              console.log('取消')
+            }
+          }
+        })
+      }
+    })
+  },
+
+  copy_current: function () {
+    var self = this;
+    wx.setClipboardData({
+      data: "https://uniquelab.cn/conj-helper-2-1-0",
+      success: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '✨复制成功✨请粘贴到浏览器访问',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('确定')
+            } else if (res.cancel) {
+              console.log('取消')
+            }
+          }
+        })
+      }
+    })
+  },
+
+  like_me: function() {
+    wx.previewImage({
+      urls: ['cloud://conj-helper-96fe10.636f-conj-helper-96fe10/likeme.jpg'],
+    });
+  },
+
   PickerChange(e) { //用来选时间
     console.log(e);
     var index = e.detail.value;

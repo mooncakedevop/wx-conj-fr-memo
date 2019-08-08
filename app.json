@@ -21,7 +21,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "默写练习",
+        "text": "强化练习",
         "iconPath": "style/draw.png",
         "selectedIconPath": "style/draw.png"
       },

@@ -11,8 +11,17 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last' hidden="{{hidden_or_not}}">
-    <view class='text-sm'>v1.4.1 （2019.6.30）</view>
-    <view class='text-sm'>1.修复了当动词的典型动词的词尾的文本在原动词中出现一次以上时，原动词的词根缺少对应文本的情况。此修复了约100个以上的动词。（感谢这位用户：Marsha）具体内容请参见 https://uniquelab.cn/conj-helper-1-4-1</view>
+    <view class='text-sm'>v2.1.0（2019.08.07）</view>
+    <view class='text-sm'>1. 小程序在7000动词查询页面增加了法汉双解的单词释义和例句。</view>
+    <view class='text-sm'>2. 分别在“分类记忆”的结果页以及“强化练习”页面增加直达动词详情页的按钮。</view>
+    <view class='text-sm'>3. 为实现第2点，对相关页面做了些调整。</view>
+    <view class='text-sm'>4. 其他一些细节的改进。</view>
+    <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-2-1-0</view>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
+      </view>
+    </view>
   </view>
 
   <view class="cu-bar bg-mauve light solid-bottom margin-top">
@@ -21,14 +30,14 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
-    <view class='text-sm'>如果您觉得本小程序有用的话</view>
-    <view class='text-sm'>点击右上角☝的三个点➡转发</view>
-    <view class='text-sm'>分享给小伙伴哟</view>
-    <view class='text-sm'>或者添加到“我的小程序”</view>
     <view class='box'>
       <view class="cu-bar btn-group">
         <button class='cu-btn bg-red round shadow' bindtap="help">📄使用帮助</button>
         <button class='cu-btn lines-blue round shadow' open-type="feedback">❌报错和建议</button>
+      </view>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨赞赏支持我</button>
+        <button class='cu-btn lines-blue round shadow' bindtap="copy">😻小程序主页</button>
       </view>
     </view>
   </view>
@@ -39,10 +48,9 @@
     </view>
   </view>
 
-
   <view class='padding bg-white bg-white-last'>
     <!-- 用户 openid style="background-image: url({{avatarUrl}})" -->
-    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-red round shadow"  bindtap="onGetOpenid">{{tongbu}}</button>
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-red round shadow" bindtap="onGetOpenid">{{tongbu}}</button>
     <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后您的所有设置和卡片将会和云端自动同步。</view>
     <view class="cu-form-group margin-top">
       <view class='title'>时间选择</view>
@@ -111,9 +119,9 @@
       <switch checked="{{isChecked4}}" bindchange="inusuel_shitai" />
     </view>
     <view class='text-left text-xs text-grey padding'>默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时；</view>
-    <view class='text-left text-xs text-grey padding'>进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先过去时、直陈式先将来时；</view>
+    <view class='text-left text-xs text-grey padding'>进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先将来时；</view>
     <view class='text-left text-xs text-grey padding'>高手时态包括了条件式现在时、条件式过去时、虚拟式现在时、虚拟式过去时；</view>
-    <view class='text-left text-xs text-grey padding'>非常用时态包括了直陈式 简单过去时。</view>
+    <view class='text-left text-xs text-grey padding'>非常用时态包括了直陈式简单过去时、直陈式先过去时。</view>
   </view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top">

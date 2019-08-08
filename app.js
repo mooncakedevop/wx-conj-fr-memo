@@ -14,6 +14,7 @@ App({
     userInfo: null,
     ow: null,
     consult_data: null,
+    consult_data_js: null,
 
     newer: null,
     version: null,

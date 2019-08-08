@@ -29,4 +29,8 @@
   padding-top: 3vh;
 }
 
+.italic{
+  padding-bottom: 1vh;
+}
+
 

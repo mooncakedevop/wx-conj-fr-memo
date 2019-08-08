@@ -13,20 +13,20 @@
 
   <view class='box'>
     <view class="cu-bar btn-group-nm btn-conj">
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="â" disabled = "{{disable_btn}}">â</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="é" disabled = "{{disable_btn}}">é</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="è" disabled = "{{disable_btn}}">è</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ê" disabled = "{{disable_btn}}">ê</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="î" disabled = "{{disable_btn}}">î</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ï" disabled = "{{disable_btn}}">ï</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ô" disabled = "{{disable_btn}}">ô</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="û" disabled = "{{disable_btn}}">û</button>
-      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ç" disabled = "{{disable_btn}}">ç</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="â" disabled="{{disable_btn}}">â</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="é" disabled="{{disable_btn}}">é</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="è" disabled="{{disable_btn}}">è</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ê" disabled="{{disable_btn}}">ê</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="î" disabled="{{disable_btn}}">î</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ï" disabled="{{disable_btn}}">ï</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ô" disabled="{{disable_btn}}">ô</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="û" disabled="{{disable_btn}}">û</button>
+      <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ç" disabled="{{disable_btn}}">ç</button>
     </view>
 
     <view class="cu-bar btn-group btn-conj">
       <button class="cu-btn lines-white round shadow-blur lg" bindtap="training">📚分类记忆</button>
-      <button class="cu-btn lines-white round shadow-blur lg" bindtap="intro">📝默写练习</button>
+      <button class="cu-btn lines-white round shadow-blur lg" bindtap="intro">📝强化练习</button>
     </view>
 
     <view class="cu-bar btn-group btn-conj">

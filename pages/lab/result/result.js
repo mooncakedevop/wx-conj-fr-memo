@@ -11,9 +11,42 @@ Page({
     ow: [],
     tag_classic: true,
     tag_debutant: true,
+
+    learn_cx: [],
+    learn_js_cn: [],
+    learn_js_fr: [],
+    learn_word_all: [],
+    learn_lj: []
   },
 
   onLoad: function() {
+    var consult_data_js = app.globalData.consult_data_js
+    var learn_cx = consult_data_js[0].w_cx;
+    var learn_js_cn = consult_data_js[0].w_js_cn;
+    var learn_js_fr = consult_data_js[0].w_js_fr;
+    var learn_lj_cn = consult_data_js[0].w_lj_cn;
+    var learn_lj_fr = consult_data_js[0].w_lj_fr;
+    var learn_word_all = consult_data_js[0].word;
+    learn_lj_fr = learn_lj_fr.split(";");
+    learn_lj_cn = learn_lj_cn.split(";");
+
+    var learn_lj = [];
+    for (var i = 0; i < learn_lj_fr.length; i++) {
+      learn_lj.push(learn_lj_fr[i])
+      learn_lj.push(learn_lj_cn[i])
+    }
+    learn_lj = learn_lj.join("\r\n")
+
+    console.log(learn_lj)
+
+    this.setData({
+      learn_cx: learn_cx,
+      learn_js_cn: learn_js_cn,
+      learn_js_fr: learn_js_fr,
+      learn_word_all: learn_word_all,
+      learn_lj: learn_lj
+    })
+
     this.setData({
       show_conj_je: app.globalData.shitai_je,
       show_conj_tu: app.globalData.shitai_tu,
@@ -26,20 +59,38 @@ Page({
     })
   },
 
-  onShareAppMessage: function (res) {
+  backto: function () {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
+  liju: function() {
+    wx.showModal({
+      title: '双语例句',
+      content: this.data.learn_lj,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    })
+  },
+
+  onShareAppMessage: function(res) {
     return {
       title: '法语动词变位查询利器！快来看看吧😁',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

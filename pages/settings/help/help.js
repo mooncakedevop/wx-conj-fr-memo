@@ -59,6 +59,26 @@ Component({
       })
     },
 
+    copy_current: function () {
+      var self = this;
+      wx.setClipboardData({
+        data: "https://uniquelab.cn/conj-helper-2-0-0",
+        success: function (res) {
+          wx.showModal({
+            title: '提示',
+            content: '✨复制成功✨请粘贴到浏览器访问',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('确定')
+              } else if (res.cancel) {
+                console.log('取消')
+              }
+            }
+          })
+        }
+      })
+    },
+
   }
 
 

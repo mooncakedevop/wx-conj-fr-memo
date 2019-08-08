@@ -1,10 +1,18 @@
 <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
 
   <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
-    <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_debutant}}">基础动词</view>
-    
+  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_debutant}}">基础动词</view>
+
   <view class="text-sl">{{ow}}</view>
   <view class="text-white">{{shitai_chinois}}</view>
+
+  <view class="text-white bold">{{learn_word_all}}</view>
+  <view class="text-xs italic">{{learn_cx}}</view>
+  <view class="text-white bold">{{learn_js_cn}}</view>
+  <view class="text-xs italic">{{learn_js_fr}}</view>
+
+  <view class='cu-tag bg-blue light round sm shadow' bindtap="backto">⬅返回</view>
+  <view class='cu-tag bg-red light round sm shadow' bindtap="liju">显示例句</view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>

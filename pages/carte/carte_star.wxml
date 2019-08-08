@@ -17,6 +17,7 @@
     <view class='padding bg-white'>
       <view class="text-sl">{{search_word}}</view>
       <view class='text-center italic'>{{shitai_chinois}}</view>
+      <view class='cu-tag bg-mauve round sm shadow' bindtap="word_detail">单词双解和例句</view>
     </view>
 
     <view class='padding bg-white dash-conj padding-conj bg-white-last'>

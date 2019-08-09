@@ -15,8 +15,13 @@
   margin-bottom: 20vh;
 }
 
+.bg-btn-vob{
+  margin-top: 0vh;
+  margin-bottom: -3vh
+}
+
 .bg-btn-conj{
-  margin-top: 7vh;
+  margin-top: 0vh;
   margin-bottom: 2vh
 }
 

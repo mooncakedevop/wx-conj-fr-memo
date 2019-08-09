@@ -1,6 +1,6 @@
 <view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
 
-  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+  <view class="padding radius text-center shadow-blur title_css">
 
     <view class="cu-bar bg-blue light margin-top">
       <view class="flex padding justify-between">
@@ -32,14 +32,13 @@
       <view class='text-center'>{{learn_lj_cn}}</view>
       <view class='text-center'>{{learn_lj_fr}}</view>
     </view>
-
-    <view class='box'>
-      <view class="cu-bar btn-group bg-btn-conj-1">
-        <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😭</button>
-        <button class='cu-btn light bg-red round shadow lg' bindtap="justSoSo">😪</button>
-        <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌</button>
-      </view>
+  </view>
+  <view class='box'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😭</button>
+      <button class='cu-btn light bg-red round shadow lg' bindtap="justSoSo">😪</button>
+      <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌</button>
     </view>
   </view>
-
 </view>
+

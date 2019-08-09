@@ -14,8 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.globalData.newer = wx.getStorageSync('newer')
-    app.globalData.version = wx.getStorageSync('version')
+
 
     if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
       wx.setStorageSync('book_id', 0) //写下用户的第一个数据

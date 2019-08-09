@@ -40,6 +40,8 @@ Page({
       learn_word_no: learn_word_no
     })
 
+    this.onQuery(learn_word);
+
   },
 
 
@@ -72,7 +74,7 @@ Page({
 
     const _ = db.command
     db.collection('vocab_dic_larousse_20190807').where(_.or([{
-      ow: search_word
+      w_s: search_word
     }])).get({
       success: function (res) {
         console.log(res.data)

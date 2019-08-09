@@ -1,4 +1,4 @@
-<view class='bg-white padding radius text-center shadow title_css'>
+<view class='page  bg-white padding radius text-center shadow title_css'>
 
   <view class='flex-sub text-center'>
     <view class="margin-avatar">
@@ -7,11 +7,11 @@
 
     <view class='grid col-1 padding-sm bg-btn-vob'>
       <view class='padding-sm'>
-        <view class='bg-gradual-red round padding radius text-center shadow' bindtap="intro">
+        <view class='bg-gradual-red round padding radius text-center shadow' bindtap="vocab_index">
           <view class="text-sl">
-            <text class='icon-write'></text>
+            <text class='icon-vipcard'></text>
           </view>
-          <view class="text-sm">强化练习</view>
+          <view class="text-sm">法语背单词</view>
         </view>
       </view>
     </view>

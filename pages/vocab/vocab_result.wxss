@@ -1,0 +1,43 @@
+.title_css {
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__hd {
+  padding-top: 200px;
+  padding-bottom: 10px;
+}
+
+.bg-btn-conj-1 {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+}
+
+.bg-btn-conj-2 {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  padding-top: 0vh;
+}
+
+.margin-top {
+  margin-top: 5vh;
+}
+
+.padding-conj {
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}

@@ -23,59 +23,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.book_id == 0) {
-      var verb_7300_fr = word_frequence;
-    } else if (app.globalData.book_id == 1) {
-      var verb_7300_fr = word_frequence;
-    } else if (app.globalData.book_id == 2) {
-      var verb_7300_fr = word_frequence;
-    } else if (app.globalData.book_id == 3) {
-      var verb_7300_fr = word_frequence;
-    }
-
     var learn_word = app.globalData.learn_word;
-    this.onQuery(learn_word);
-
+    var consult_data = app.globalData.consult_data;
+    var learn_cx = consult_data[0].w_cx;
+    var learn_js_cn = consult_data[0].w_js_cn;
+    var learn_js_fr = consult_data[0].w_js_fr;
+    var learn_lj_cn = consult_data[0].w_lj_cn;
+    var learn_lj_fr = consult_data[0].w_lj_fr;
+    var learn_word_all = consult_data[0].word;
+    var learn_word_no = consult_data[0].w_no;
 
     this.setData({
       learn_word: learn_word,
+      learn_cx: learn_cx,
+      learn_js_cn: learn_js_cn,
+      learn_js_fr: learn_js_fr,
+      learn_lj_cn: learn_lj_cn,
+      learn_lj_fr: learn_lj_fr,
+      learn_word_all: learn_word_all,
+      learn_word_no: learn_word_no,
     })
 
-  },
-
-  onQuery: function (search_word) {
-    var that = this
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-
-    const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
-      w_s: search_word
-    }])).get({
-      success: function (res) {
-        console.log(res.data)
-        app.globalData.consult_data = res.data;
-        wx.setStorageSync('consult_data', res.data);
-        var consult_data = app.globalData.consult_data;
-        var learn_cx = consult_data[0].w_cx;
-        var learn_js_cn = consult_data[0].w_js_cn;
-        var learn_js_fr = consult_data[0].w_js_fr;
-        var learn_lj_cn = consult_data[0].w_lj_cn;
-        var learn_lj_fr = consult_data[0].w_lj_fr;
-        var learn_word_all = consult_data[0].word;
-        var learn_word_no = consult_data[0].w_no;
-
-        that.setData({
-          learn_cx: learn_cx,
-          learn_js_cn: learn_js_cn,
-          learn_js_fr: learn_js_fr,
-          learn_lj_cn: learn_lj_cn,
-          learn_lj_fr: learn_lj_fr,
-          learn_word_all: learn_word_all,
-          learn_word_no: learn_word_no,
-        })
-      }
-    })
   },
 
   /**

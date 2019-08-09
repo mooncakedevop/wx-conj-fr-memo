@@ -1,36 +1,20 @@
 .title_css {
-  padding-top: 20vh;
-  padding-bottom: 10vh;
+  padding-top: 10vh;
+  padding-bottom: 50vh;
 }
 
 .page {
-  height: 100vh;
   width: 100vw;
 }
 
-.page__title {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.page__hd {
-  padding-top: 200px;
-  padding-bottom: 10px;
-}
-
-.bg-btn-conj-1 {
-  margin-left: 3vw;
-  margin-right: 3vw;
+.box{
+  padding-left: 3vw;
+  padding-right: 3vw;
   padding-bottom: 5vh;
   padding-top: 5vh;
-}
-
-.bg-btn-conj-2 {
-  margin-left: 3vw;
-  margin-right: 3vw;
-  padding-right: 10vw;
-  padding-left: 10vw;
-  padding-top: 0vh;
+  position:fixed;
+  width:100%;
+  bottom:0;
 }
 
 .margin-top {

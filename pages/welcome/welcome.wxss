@@ -1,13 +1,13 @@
 
 .page{
-  overflow: hidden;
+  height: 100vh;
 }
 
 
 .margin-avatar{
-  padding-top: 12vh;
-  margin-left: 32vw;
-  margin-right: 32vw;
+  padding-top: 10vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
 }
 
 .margin-title{
@@ -17,7 +17,7 @@
 
 .bg-btn-vob{
   margin-top: 0vh;
-  margin-bottom: -3vh
+  margin-bottom: -2vh
 }
 
 .bg-btn-conj{
@@ -26,8 +26,8 @@
 }
 
 .margin-text{
-  margin-top: 7vh;
-  margin-bottom: 20vh
+  margin-top: 0vh;
+  margin-bottom: 3vh
 }
 
 .radius{

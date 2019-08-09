@@ -66,6 +66,12 @@ Page({
 
   },
 
+  vocab_index: function () {
+    wx.switchTab({
+      url: '../vocab/vocab_index',
+    })
+  },
+
   intro: function() {
     wx.switchTab({
       url: '../index/index',

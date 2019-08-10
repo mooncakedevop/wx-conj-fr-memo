@@ -5,7 +5,7 @@
 
     <view class="cu-bar bg-blue light solid-bottom margin-top" bindtap='result'>
       <view class='action italic'>
-        <text class='text-center italic'></text>Carte No.{{carte_number}}
+        <text class='text-center italic'></text>Carte No.{{learn_word_no}}
       </view>
     </view>
     <view class='padding bg-white' bindtap='result'>
@@ -14,8 +14,8 @@
     </view>
 
 
-    <view class='padding bg-white bg-white-last dash-conj'>
-      <view class='text-center'>{{learn_example}}</view>
+    <view class='padding bg-white bg-white-last dash-conj' bindtap='hint'>
+      <text class='text-center'>{{learn_lj}}</text>
     </view>
 
   </view>

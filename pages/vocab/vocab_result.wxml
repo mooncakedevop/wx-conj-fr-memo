@@ -4,7 +4,7 @@
 
     <view class="cu-bar bg-blue light margin-top">
       <view class="flex padding justify-between">
-        <text class='text-center italic'>Carte No.{{carte_number}}</text>
+        <text class='text-center italic'>Carte No.{{learn_word_no}}</text>
       </view>
 
       <view class="flex padding justify-between">
@@ -15,12 +15,10 @@
 
     <view class='padding bg-white'>
       <view class="text-sl">{{learn_word}}</view>
-      <view class="text-center">{{learn_word_no}}</view>
     </view>
 
     <view class='padding bg-white dash-conj padding-conj'>
-      <view class='text-center'>{{learn_word_all}}</view>
-      <view class='text-center'>{{learn_cx}}</view>
+      <text class='text-center'>{{learn_word_cx}}</text>
     </view>
 
     <view class='padding bg-white dash-conj padding-conj'>
@@ -29,8 +27,7 @@
     </view>
 
     <view class='padding bg-white bg-white-last dash-conj padding-conj'>
-      <view class='text-center'>{{learn_lj_cn}}</view>
-      <view class='text-center'>{{learn_lj_fr}}</view>
+      <text class='text-center'>{{learn_lj}}</text>
     </view>
   </view>
   <view class='box'>

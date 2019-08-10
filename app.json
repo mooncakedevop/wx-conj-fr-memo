@@ -4,6 +4,8 @@
     "pages/index/index",
     "pages/lab/lab",
     "pages/settings/settings",
+    "pages/settings/settings_vocab",
+    "pages/settings/settings_conj",
     "pages/lab/result/result",
     "pages/carte/carte",
     "pages/carte/question",

@@ -69,16 +69,117 @@ Page({
     })
   },
 
-  close_it: function() {
-    wx.setStorageSync("hidden_or_not", true)
-
-    if (getCurrentPages().length != 0) {
-      //刷新当前页面的数据
-      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+  extra_words: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1 = true;
+      wx.setStorageSync('isChecked1', true)
+    } else {
+      app.globalData.isChecked1 = false;
+      wx.setStorageSync('isChecked1', false)
     }
+    this.successToast();
+    this.onUpdate();
   },
 
-  successToast: function() {
+  words_selected: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1_selected = true;
+      wx.setStorageSync('isChecked1_selected', true)
+    } else {
+      app.globalData.isChecked1_selected = false;
+      wx.setStorageSync('isChecked1_selected', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  words_50: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1_50 = true;
+      wx.setStorageSync('isChecked1_50', true)
+    } else {
+      app.globalData.isChecked1_50 = false;
+      wx.setStorageSync('isChecked1_50', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  words_100: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1_100 = true;
+      wx.setStorageSync('isChecked1_100', true)
+    } else {
+      app.globalData.isChecked1_100 = false;
+      wx.setStorageSync('isChecked1_100', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  words_230: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1_230 = true;
+      wx.setStorageSync('isChecked1_230', true)
+    } else {
+      app.globalData.isChecked1_230 = false;
+      wx.setStorageSync('isChecked1_230', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  advanced_shitai: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.advanced_shitai = [4, 5, 7, 9];
+      app.globalData.isChecked2 = true;
+      wx.setStorageSync('isChecked2', true)
+    } else {
+      app.globalData.advanced_shitai = [];
+      app.globalData.isChecked2 = false;
+      wx.setStorageSync('isChecked2', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  extra_shitai: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.extra_shitai = [10, 11, 12, 13];
+      app.globalData.isChecked3 = true;
+      wx.setStorageSync('isChecked3', true)
+    } else {
+      app.globalData.extra_shitai = [];
+      app.globalData.isChecked3 = false;
+      wx.setStorageSync('isChecked3', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  inusuel_shitai: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.inusuel_shitai = [6];
+      app.globalData.isChecked4 = true;
+      wx.setStorageSync('isChecked4', true)
+    } else {
+      app.globalData.inusuel_shitai = [];
+      app.globalData.isChecked4 = false;
+      wx.setStorageSync('isChecked4', false)
+    }
+    this.successToast();
+    this.onUpdate();
+  },
+
+  successToast: function () {
     wx.showToast({
       title: '设置已保存',
       icon: 'sucess',
@@ -87,7 +188,7 @@ Page({
     })
   },
 
-  onGetUserInfo: function(e) {
+  onGetUserInfo: function (e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
@@ -97,7 +198,7 @@ Page({
     }
   },
 
-  onGetOpenid: function() {
+  onGetOpenid: function () {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -114,7 +215,7 @@ Page({
     this.onQuery();
   },
 
-  onAdd: function() {
+  onAdd: function () {
     const db = wx.cloud.database()
     db.collection('user_setting').add({
       data: {
@@ -150,14 +251,14 @@ Page({
     })
   },
 
-  onQuery: function() {
+  onQuery: function () {
     var that = this
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     db.collection('user_setting').where({
       _openid: app.globalData.openid
     }).get({
-      success: function(res) {
+      success: function (res) {
         console.log(res.data)
         if (res.data.length === 0) {
           that.onAdd()
@@ -204,7 +305,7 @@ Page({
     })
   },
 
-  onUpdate: function() {
+  onUpdate: function () {
     const db = wx.cloud.database()
     db.collection('user_setting').doc().update({
       data: {
@@ -231,110 +332,49 @@ Page({
       },
       fail: err => {
         icon: 'none',
-        console.error('[数据库] [更新记录] 失败：', err)
+          console.error('[数据库] [更新记录] 失败：', err)
       }
     })
   },
+ 
+  PickerChange(e) { //用来选时间
+    console.log(e);
+    var index = e.detail.value;
+    var index = parseInt(index)
+    var time_count = picker[index]
+    var time_count = parseInt(time_count)
+    console.log(index);
+    console.log(time_count);
 
+    app.globalData.time_count = time_count;
+    wx.setStorageSync('time_count', time_count)
 
-  help: function() {
-    wx.navigateTo({
-      url: 'help/help',
+    this.onUpdate();
+    this.setData({
+      index: e.detail.value
     })
   },
 
-  about: function() {
-    wx.navigateTo({
-      url: 'help/more',
+  settings: function () {
+    wx.navigateBack({
+      delta: 1
     })
   },
 
-  copy: function() {
-    var self = this;
-    wx.setClipboardData({
-      data: "https://uniquelab.cn/conj-helper",
-      success: function(res) {
-        wx.showModal({
-          title: '提示',
-          content: '✨复制成功✨请粘贴到浏览器访问',
-          success: function(res) {
-            if (res.confirm) {
-              console.log('确定')
-            } else if (res.cancel) {
-              console.log('取消')
-            }
-          }
-        })
-      }
-    })
-  },
-
-  settings_vocab: function () {
-    wx.navigateTo({
-      url: 'settings_vocab',
-    })
-  },
-
-  settings_conj: function () {
-    wx.navigateTo({
-      url: 'settings_conj',
-    })
-  },
-
-  copy_current: function () {
-    var self = this;
-    wx.setClipboardData({
-      data: "https://uniquelab.cn/conj-helper-2-1-0",
-      success: function (res) {
-        wx.showModal({
-          title: '提示',
-          content: '✨复制成功✨请粘贴到浏览器访问',
-          success: function (res) {
-            if (res.confirm) {
-              console.log('确定')
-            } else if (res.cancel) {
-              console.log('取消')
-            }
-          }
-        })
-      }
-    })
-  },
-
-  like_me: function() {
-    wx.previewImage({
-      urls: ['cloud://conj-helper-96fe10.636f-conj-helper-96fe10/likeme.jpg'],
-    });
-  },
-
-  hard_choice: function() {
-    wx.navigateToMiniProgram({
-      appId: 'wx4b37e8a18be82a4d',
-      path: 'pages/index1/index1',
-      extraData: {
-        foo: 'bar'
-      },
-      envVersion: 'develop',
-      success(res) {
-        // 打开成功
-      }
-    })
-  },
-
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: '搞定法语动词变位就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function(shareTickets) {
+      success: function (shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function(res) {
+      complete: function (res) {
         // 不管成功失败都会执行
       }
     }

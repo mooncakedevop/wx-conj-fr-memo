@@ -1,3 +1,7 @@
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
 
 .page{
   overflow: hidden;
@@ -9,7 +13,7 @@
 }
 
 .margin-text{
-  margin-top: 10vh;
+  margin-top: 3vh;
   margin-bottom: 2vh;
 }
 

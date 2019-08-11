@@ -69,7 +69,7 @@ Page({
 
 
   retour: function() {
-    wx.switchTab({
+    wx.redirectTo({
       url: 'milestone',
     })
     console.log("retour")

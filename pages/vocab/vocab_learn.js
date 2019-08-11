@@ -12,19 +12,41 @@ Page({
   },
 
   onLoad: function(options) {
+    var repeat_date = new Date();
+    var year = repeat_date.getFullYear();
+    var month = repeat_date.getMonth()+1;
+    var day = repeat_date.getDate();
+    repeat_date = year.toString() +'/'+ month.toString() +'/'+ day.toString()
+    console.log(new Date('2019-08-11'.replace(/-/g, "/")).getTime())
+    repeat_date = new Date(repeat_date).getTime()
 
-    if (app.globalData.book_id == 0) {
+    if (app.globalData.freq[0] == true) {
       var verb_7300_fr = word_frequence;
-    } else if (app.globalData.book_id == 1) {
+      var learn_word_new_today = [];
+      for (var i = 0; i < app.globalData.freq_number; i++) {
+        var learn_no = Math.floor(Math.random() * (1500 - 0 + 1) + 0);
+        var learn_word = verb_7300_fr.verb_7300_fr[learn_no].word;
+        var learn_word_new = {
+          learn_word: learn_word,
+          date: repeat_date,
+          level: 0
+        };
+        learn_word_new_today.push(learn_word_new)
+      }
+
+      console.log(learn_word_new_today)
+    } else if (app.globalData.freq[1] == true) {
       var verb_7300_fr = word_frequence;
+      var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
+      console.log(learn_no)
+    } else if (app.globalData.freq[2] == true) {
+      var verb_7300_fr = word_frequence;
+      var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
+      console.log(learn_no)
     }
 
-
-
-    var idx = verb_7300_fr.verb_7300_fr.length //对应范围的单词序号，每本词汇书一个js文件
-    console.log(idx)
-    var learn_no = (Math.floor(Math.random() * idx)) //从单词总数中抽取号码
-
+    //  var idx = verb_7300_fr.verb_7300_fr.length //对应范围的单词序号，每本词汇书一个js文件
+    //var learn_no = (Math.floor(Math.random() * idx)) //从单词总数中抽取号码
 
     var learn_word = verb_7300_fr.verb_7300_fr[learn_no].word;
     var learn_word_no = verb_7300_fr.verb_7300_fr[learn_no].w_no;
@@ -49,6 +71,13 @@ Page({
     })
   },
 
+  todate: function() {
+
+  },
+
+  fromdate: function() {
+
+  },
 
   onReady: function() {
 
@@ -85,12 +114,11 @@ Page({
         console.log(res.data)
         app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
-
       }
     })
   },
 
-  hint: function () {
+  hint: function() {
     var learn_lj_fr = app.globalData.consult_data[0].w_lj_fr;
     learn_lj_fr = learn_lj_fr.split(";");
     var learn_lj = [];

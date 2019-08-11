@@ -1,68 +1,107 @@
-// pages/index/index.js
 const app = getApp()
+const db = wx.cloud.database() //初始化数据库
+const verb = db.collection('vocab_dic_larousse_20190807')
+const word_frequence = require('../../data/word_frequence.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     book_id: null,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    app.globalData.word_frequence_1500 = wx.getStorageSync('word_frequence_1500')
+    app.globalData.word_frequence_3000 = wx.getStorageSync('word_frequence_3000')
+    app.globalData.word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
 
-
-    if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
-      wx.setStorageSync('book_id', 0) //写下用户的第一个数据
-      wx.setStorageSync('newer', true)
-      wx.setStorageSync('version', "v1.0.0")   //写入新版本的版本号
-      wx.setStorageSync("hidden_or_not", false)
-      wx.setStorageSync("tongbu", "⛅点击进行同步")
+    if (app.globalData.word_frequence_1500 == ''){
+      this.new_user_data()
     }
 
-    if (app.globalData.version != "v1.0.0") { //如果只是新版本的数据没有
-      wx.setStorageSync('version', "v1.0.0")   //写入新版本的版本号
-      wx.setStorageSync("hidden_or_not", false)
-      wx.setStorageSync("tongbu", "⛅点击进行同步")
-    }
+  },
 
-    app.globalData.book_id = wx.getStorageSync('book_id')
+  new_user_data: function () {
+    var repeat_date = new Date();
+    var year = repeat_date.getFullYear();
+    var month = repeat_date.getMonth() + 1;
+    var day = repeat_date.getDate();
+    repeat_date = year.toString() + '/' + month.toString() + '/' + day.toString()
+    console.log(new Date('2019-08-11'.replace(/-/g, "/")).getTime())
+    repeat_date = new Date(repeat_date).getTime()
 
+      var verb_7300_fr = word_frequence;
+      var word_frequence_1500 = [];
+      for (var i = 0; i < 1500; i++) {
+        var learn_word = verb_7300_fr.verb_7300_fr[i].word;
+        var learn_word_new = {
+          learn_word: learn_word,
+          date: repeat_date,
+          level: 0
+        };
+        word_frequence_1500.push(learn_word_new)
+      }
+      app.globalData.word_frequence_1500 = word_frequence_1500
+      wx.setStorageSync('word_frequence_1500', word_frequence_1500)
+      console.log(word_frequence_1500)
+ 
+      var word_frequence_3000 = [];
+      for (var i = 1501; i < 3000; i++) {
+        var learn_word = verb_7300_fr.verb_7300_fr[i].word;
+        var learn_word_new = {
+          learn_word: learn_word,
+          date: repeat_date,
+          level: 0
+        };
+        word_frequence_3000.push(learn_word_new)
+      }
+      app.globalData.word_frequence_3000 = word_frequence_3000
+      wx.setStorageSync('word_frequence_3000', word_frequence_3000)
+      console.log(word_frequence_3000)
+
+      var word_frequence_5000 = [];
+      for (var i = 3001; i < 5000; i++) {
+        var learn_word = verb_7300_fr.verb_7300_fr[i].word;
+        var learn_word_new = {
+          learn_word: learn_word,
+          date: repeat_date,
+          level: 0
+        };
+        word_frequence_5000.push(learn_word_new)
+      }
+      app.globalData.word_frequence_5000 = word_frequence_5000
+    wx.setStorageSync('word_frequence_5000', word_frequence_5000)
+      console.log(word_frequence_5000)
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
-  start: function () {
+  start: function() {
     wx.navigateTo({
       url: '../vocab/vocab_learn',
     })
@@ -71,7 +110,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

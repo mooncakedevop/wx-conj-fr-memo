@@ -31,15 +31,15 @@
   <view class='padding bg-white bg-white-last'>
     <view class="cu-form-group margin-top">
       <view class='title'>基础（共1500词）</view>
-      <switch checked="{{isChecked1_50}}" bindchange="freq_1500" />
+      <switch checked="{{freq_1500}}" bindchange="freq_1500" />
     </view>
     <view class="cu-form-group margin-top">
       <view class='title'>有点水平（共1500词）</view>
-      <switch checked="{{isChecked1_100}}" bindchange="freq_3000" />
+      <switch checked="{{freq_3000}}" bindchange="freq_3000" />
     </view>
     <view class="cu-form-group margin-top">
       <view class='title'>厉害（共2000词）</view>
-      <switch checked="{{isChecked1_230}}" bindchange="freq_5000" />
+      <switch checked="{{freq_5000}}" bindchange="freq_5000" />
     </view>
     <view class='text-left text-xs text-grey padding'>5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）</view>
   </view>

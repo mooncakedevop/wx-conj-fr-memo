@@ -97,7 +97,7 @@ Page({
     }
   },
 
-  onGetOpenid: function() {
+  onGetOpenid_download: function() {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -114,24 +114,47 @@ Page({
     this.onQuery();
   },
 
+  onGetOpenid_upload: function () {
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid
+        wx.setStorageSync('openid', res.result.openid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
+    this.onUpdate();
+  },
+
+
   onAdd: function() {
     const db = wx.cloud.database()
     db.collection('user_setting').add({
       data: {
-        carte_arrey: app.globalData.carte_arrey,
-        newer: app.globalData.newer,
-        version: app.globalData.version,
-        likeandsave: app.globalData.likeandsave,
-        time_count: app.globalData.time_count,
-        hidden_or_not: app.globalData.hidden_or_not,
-        isChecked1: app.globalData.isChecked1,
-        isChecked1_selected: app.globalData.isChecked1_selected,
-        isChecked1_50: app.globalData.isChecked1_50,
-        isChecked1_100: app.globalData.isChecked1_100,
-        isChecked1_230: app.globalData.isChecked1_230,
-        isChecked2: app.globalData.isChecked2,
-        isChecked3: app.globalData.isChecked3,
-        isChecked4: app.globalData.isChecked4,
+        carte_arrey: wx.getStorageSync('carte_arrey'),
+        newer: wx.getStorageSync('newer'),
+        version: wx.getStorageSync('version'),
+        likeandsave: wx.getStorageSync('likeandsave'),
+        time_count: wx.getStorageSync('time_count'),
+        hidden_or_not: wx.getStorageSync('hidden_or_not'),
+        isChecked1: wx.getStorageSync('isChecked1'),
+        isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
+        isChecked1_50: wx.getStorageSync('isChecked1_50'),
+        isChecked1_100: wx.getStorageSync('isChecked1_100'),
+        isChecked1_230: wx.getStorageSync('isChecked1_230'),
+        isChecked2: wx.getStorageSync('isChecked2'),
+        isChecked3: wx.getStorageSync('isChecked3'),
+        isChecked4: wx.getStorageSync('isChecked4'),
+        freq: wx.getStorageSync('freq'),
+        freq_number: wx.getStorageSync('freq_number'),
+        word_frequence_1500: wx.getStorageSync('word_frequence_1500'),
+        word_frequence_3000: wx.getStorageSync('word_frequence_3000'),
+        word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
@@ -208,20 +231,25 @@ Page({
     const db = wx.cloud.database()
     db.collection('user_setting').doc().update({
       data: {
-        carte_arrey: app.globalData.carte_arrey,
-        newer: app.globalData.newer,
-        version: app.globalData.version,
-        likeandsave: app.globalData.likeandsave,
-        time_count: app.globalData.time_count,
-        hidden_or_not: app.globalData.hidden_or_not,
-        isChecked1: app.globalData.isChecked1,
-        isChecked1_selected: app.globalData.isChecked1_selected,
-        isChecked1_50: app.globalData.isChecked1_50,
-        isChecked1_100: app.globalData.isChecked1_100,
-        isChecked1_230: app.globalData.isChecked1_230,
-        isChecked2: app.globalData.isChecked2,
-        isChecked3: app.globalData.isChecked3,
-        isChecked4: app.globalData.isChecked4,
+        carte_arrey: wx.getStorageSync('carte_arrey'),
+        newer: wx.getStorageSync('newer'),
+        version: wx.getStorageSync('version'),
+        likeandsave: wx.getStorageSync('likeandsave'),
+        time_count: wx.getStorageSync('time_count'),
+        hidden_or_not: wx.getStorageSync('hidden_or_not'),
+        isChecked1: wx.getStorageSync('isChecked1'),
+        isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
+        isChecked1_50: wx.getStorageSync('isChecked1_50'),
+        isChecked1_100: wx.getStorageSync('isChecked1_100'),
+        isChecked1_230: wx.getStorageSync('isChecked1_230'),
+        isChecked2: wx.getStorageSync('isChecked2'),
+        isChecked3: wx.getStorageSync('isChecked3'),
+        isChecked4: wx.getStorageSync('isChecked4'),
+        freq: wx.getStorageSync('freq'),
+        freq_number: wx.getStorageSync('freq_number'),
+        word_frequence_1500: wx.getStorageSync('word_frequence_1500'),
+        word_frequence_3000: wx.getStorageSync('word_frequence_3000'),
+        word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
       },
       success: res => {
         wx.showToast({

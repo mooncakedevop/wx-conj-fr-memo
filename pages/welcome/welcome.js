@@ -91,7 +91,7 @@ Page({
   },
 
   training: function() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../carte/milestone',
     })
   },

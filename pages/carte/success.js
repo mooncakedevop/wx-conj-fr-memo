@@ -17,7 +17,7 @@ Page({
 
 
   retour_accuill: function() {
-    wx.switchTab({
+    wx.redirectTo({
       url: 'milestone',
     })
   },

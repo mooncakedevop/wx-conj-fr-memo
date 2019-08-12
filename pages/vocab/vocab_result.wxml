@@ -1,0 +1,41 @@
+<view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="padding radius text-center shadow-blur title_css">
+
+    <view class="cu-bar bg-blue light margin-top">
+      <view class="flex padding justify-between">
+        <text class='text-center italic'>Carte No.{{learn_word_no}}</text>
+      </view>
+
+      <view class="flex padding justify-between">
+        <view class='icon-favorfill {{change_color}}' bindtap='like_save' id='{{carte_number}}'></view>
+      </view>
+
+    </view>
+
+    <view class='padding bg-white'>
+      <view class="text-sl">{{learn_word}}</view>
+    </view>
+
+    <view class='padding bg-white dash-conj padding-conj'>
+      <text class='text-center'>{{learn_word_cx}}</text>
+    </view>
+
+    <view class='padding bg-white dash-conj padding-conj'>
+      <view class='text-center'>{{learn_js_cn}}</view>
+      <view class='text-center'>{{learn_js_fr}}</view>
+    </view>
+
+    <view class='padding bg-white bg-white-last dash-conj padding-conj'>
+      <text class='text-center'>{{learn_lj}}</text>
+    </view>
+  </view>
+  <view class='box'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😭</button>
+      <button class='cu-btn light bg-red round shadow lg' bindtap="justSoSo">😪</button>
+      <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌</button>
+    </view>
+  </view>
+</view>
+

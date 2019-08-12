@@ -1,0 +1,28 @@
+.title_css {
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.text-sm {
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh;
+}
+
+.text-sm-left {
+  text-align: left;
+}
+
+.bg-btn-conj {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}

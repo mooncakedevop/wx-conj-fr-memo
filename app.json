@@ -4,6 +4,8 @@
     "pages/index/index",
     "pages/lab/lab",
     "pages/settings/settings",
+    "pages/settings/settings_vocab",
+    "pages/settings/settings_conj",
     "pages/lab/result/result",
     "pages/carte/carte",
     "pages/carte/question",
@@ -12,7 +14,11 @@
     "pages/carte/question_star",
     "pages/carte/carte_star",
     "pages/carte/success",
-    "pages/carte/test"
+    "pages/carte/test",
+    "pages/vocab/vocab_index",
+    "pages/vocab/vocab_learn",
+    "pages/vocab/vocab_list",
+    "pages/vocab/vocab_result"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",
@@ -20,8 +26,14 @@
     "borderStyle": "white",
     "list": [
       {
+        "pagePath": "pages/vocab/vocab_index",
+        "text": "背单词",
+        "iconPath": "style/folder.png",
+        "selectedIconPath": "style/folder.png"
+      },
+      {
         "pagePath": "pages/index/index",
-        "text": "强化练习",
+        "text": "变位练习",
         "iconPath": "style/draw.png",
         "selectedIconPath": "style/draw.png"
       },
@@ -30,12 +42,6 @@
         "text": "7000动词查询",
         "iconPath": "style/search.png",
         "selectedIconPath": "style/search.png"
-      },
-      {
-        "pagePath": "pages/carte/milestone",
-        "text": "分类记忆",
-        "iconPath": "style/folder.png",
-        "selectedIconPath": "style/folder.png"
       },
       {
         "pagePath": "pages/settings/settings",

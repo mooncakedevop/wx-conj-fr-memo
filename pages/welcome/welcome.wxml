@@ -1,8 +1,19 @@
-<view class='bg-white padding radius text-center shadow title_css'>
+<view class='page  bg-white padding radius text-center shadow title_css'>
 
   <view class='flex-sub text-center'>
     <view class="margin-avatar">
       <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+    </view>
+
+    <view class='grid col-1 padding-sm bg-btn-vob'>
+      <view class='padding-sm'>
+        <view class='bg-gradual-red round padding radius text-center shadow' bindtap="vocab_index">
+          <view class="text-sl">
+            <text class='icon-vipcard'></text>
+          </view>
+          <view class="text-sm">法语背单词</view>
+        </view>
+      </view>
     </view>
 
     <view class='grid col-2 padding-sm bg-btn-conj'>
@@ -45,7 +56,7 @@
       <text class='text-grey'>✔ 自由选择动词和时态范围\n</text>
       <text class='text-grey'>✔ 同步进度和设置\n</text>
       <text class='text-grey'>✔ 法汉双解和例句\n</text>
-      <text class='text-xs'>🎈v2.1.0（2019.8）\n</text>
+      <text class='text-xs'>🎈v3.0.0（2019.8）\n</text>
     </view>
   </view>
 </view>

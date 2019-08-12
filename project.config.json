@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -89,6 +89,13 @@
 					"id": -1,
 					"name": "test",
 					"pathName": "pages/carte/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "vocab_result",
+					"pathName": "pages/vocab/vocab_result",
 					"scene": null
 				}
 			]

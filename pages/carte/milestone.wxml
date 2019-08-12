@@ -1,4 +1,11 @@
 <view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+
+  <view class='box'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-blue light round shadow' bindtap="settings">返回上一页</button>
+    </view>
+  </view>
+  
   <view class=' text-sm margin-text'>
     <text class='text-white'>您一共学习了{{zhangwo}}张卡片\n</text>
     <text class='text-white'>还有{{xin}}张卡片您没有看过\n</text>

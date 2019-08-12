@@ -1,11 +1,15 @@
 .title_css {
-  padding-top: 10vh;
-  padding-bottom: 60vh;
+  padding-top: 30vh;
+  padding-bottom: 45vh;
 }
 
 .page__title {
   font-size: 20px;
   font-weight: 400;
+}
+
+.page {
+  width: 100vw;
 }
 
 .page__hd {
@@ -14,17 +18,12 @@
 }
 
 .bg-btn-conj {
-  margin-left: 3vh;
-  margin-right: 3vh;
-  padding-bottom: 25vh;
-  padding-top: 10vh;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  padding-bottom: 18vh;
+  padding-top: 18vh;
 }
 
 .margin-top {
   margin-top: 5vh;
-}
-
-.padding-conj {
-  padding-bottom: 3vh;
-  padding-top: 3vh;
 }

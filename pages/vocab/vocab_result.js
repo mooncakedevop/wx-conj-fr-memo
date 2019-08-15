@@ -2,6 +2,7 @@ const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
+const date_review = new Array('0', '1', '3', '5', '7', '14','30','60')
 
 Page({
 
@@ -112,28 +113,28 @@ Page({
 
 
   JNSP: function() {
+
+  },
+
+  JNSP: function () {
+    //等级将为0，日期不变
     wx.redirectTo({
-      url: 'vocab_learn',
+      url: '../index/index',
     })
   },
 
   justSoSo: function() {
-    wx.redirectTo({
+  //等级保持不变，日期不变
+      wx.redirectTo({
       url: 'vocab_learn',
     })
   },
 
   bien_enregistre: function() {
+    //等级加1，日期根据实际情况加
     wx.redirectTo({
       url: 'vocab_learn',
     })
-  },
-
-  retour: function() {
-    wx.redirectTo({
-      url: '../index/index',
-    })
-    console.log("retour")
   },
 
   /**

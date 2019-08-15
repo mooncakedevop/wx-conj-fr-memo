@@ -12,44 +12,16 @@ Page({
   },
 
   onLoad: function(options) {
-    var repeat_date = new Date();
-    var year = repeat_date.getFullYear();
-    var month = repeat_date.getMonth()+1;
-    var day = repeat_date.getDate();
-    repeat_date = year.toString() +'/'+ month.toString() +'/'+ day.toString()
-    console.log(new Date('2019-08-11'.replace(/-/g, "/")).getTime())
-    repeat_date = new Date(repeat_date).getTime()
 
-    if (app.globalData.freq[0] == true) {
-      var verb_7300_fr = word_frequence;
-      var learn_word_new_today = [];
-      for (var i = 0; i < app.globalData.freq_number; i++) {
-        var learn_no = Math.floor(Math.random() * (1500 - 0 + 1) + 0);
-        var learn_word = verb_7300_fr.verb_7300_fr[learn_no].word;
-        var learn_word_new = {
-          learn_word: learn_word,
-          date: repeat_date,
-          level: 0
-        };
-        learn_word_new_today.push(learn_word_new)
-      }
+    var learn_word_today = wx.getStorageSync('learn_word_today')
+    var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
+    var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
+    var learn_no = (Math.floor(Math.random() * (idx - 2 + 1) + 1)) //从单词总数中抽取号码
+    
+    console.log(learn_no)
 
-      console.log(learn_word_new_today)
-    } else if (app.globalData.freq[1] == true) {
-      var verb_7300_fr = word_frequence;
-      var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
-      console.log(learn_no)
-    } else if (app.globalData.freq[2] == true) {
-      var verb_7300_fr = word_frequence;
-      var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
-      console.log(learn_no)
-    }
 
-    //  var idx = verb_7300_fr.verb_7300_fr.length //对应范围的单词序号，每本词汇书一个js文件
-    //var learn_no = (Math.floor(Math.random() * idx)) //从单词总数中抽取号码
-
-    var learn_word = verb_7300_fr.verb_7300_fr[learn_no].word;
-    var learn_word_no = verb_7300_fr.verb_7300_fr[learn_no].w_no;
+    var learn_word = learn_word_today[learn_no];
     var learn_lj = '点击查看例句提示'
 
     app.globalData.learn_word = learn_word
@@ -58,13 +30,14 @@ Page({
 
     this.setData({
       learn_word: learn_word,
-      learn_word_no: learn_word_no,
       learn_lj: learn_lj
     })
 
+
     this.onQuery(learn_word);
+
     wx.showToast({
-      title: '加载中🤷‍',
+      title: '',
       icon: 'none',
       duration: 1500,
       mask: true,
@@ -87,16 +60,10 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function() {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function() {
 
   },

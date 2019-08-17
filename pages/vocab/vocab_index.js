@@ -17,6 +17,10 @@ Page({
       this.new_user_data()
     }
 
+    if (learn_word_today.length == 1) {
+      this.success();
+    }
+
     var repeat_date = new Date();
     var year = repeat_date.getFullYear();
     var month = repeat_date.getMonth() + 1;
@@ -27,30 +31,34 @@ Page({
     console.log(repeat_date)
 
     //如果第一个字符的日期不是当天的，生成新词
-    if (app.globalData.learn_word_new_today[0] != repeat_date) {
+    var learn_word_new_today = app.globalData.learn_word_new_today
+    var learn_word_new_today_no = app.globalData.learn_word_new_today_no
+    if (learn_word_new_today[0] != repeat_date) {
       if (app.globalData.freq[0] == true) {
         var learn_word_new_today = [repeat_date];
         var learn_word_new_today_no = [];
         var i = 0;
+        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
         while (i < app.globalData.freq_number) {
           var learn_no = Math.floor(Math.random() * (1500 - 0 + 1) + 0);
-          var word_frequence_5000 = app.globalData.word_frequence_5000
           if (word_frequence_5000[learn_no].level == 0) {
             learn_word_new_today.push(word_frequence_5000[learn_no].learn_word)
             learn_word_new_today_no.push(learn_no)
-            i++;
             word_frequence_5000[learn_no].date = repeat_date;
             console.log(word_frequence_5000[learn_no])
+            i++;
           }
         }
         app.globalData.learn_word_new_today = learn_word_new_today
         app.globalData.learn_word_new_today_no = learn_word_new_today_no
+
+        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
         wx.setStorageSync('learn_word_new_today', learn_word_new_today)
         wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
 
         console.log(learn_word_new_today)
         console.log(learn_word_new_today_no)
-
+        console.log(word_frequence_5000)
       } else if (app.globalData.freq[1] == true) {
         var verb_7300_fr = word_frequence;
         var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
@@ -79,8 +87,6 @@ Page({
 
     wx.setStorageSync('learn_word_today', learn_word_today)
     wx.setStorageSync('learn_word_today_no', learn_word_today_no)
-
-
 
   },
 
@@ -127,6 +133,12 @@ Page({
    */
   onUnload: function() {
 
+  },
+
+  success: function() {
+    wx.redirectTo({
+      url: '../vocab/vocab_success',
+    })
   },
 
   start: function() {

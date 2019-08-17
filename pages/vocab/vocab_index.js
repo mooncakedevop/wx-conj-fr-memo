@@ -12,6 +12,7 @@ Page({
     app.globalData.word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
     app.globalData.learn_word_new_today = wx.getStorageSync('learn_word_new_today')
     app.globalData.learn_word_new_today_no = wx.getStorageSync('learn_word_new_today_no')
+    var learn_word_today = wx.getStorageSync('learn_word_today')
 
     if (app.globalData.word_frequence_5000 == '') {
       this.new_user_data()

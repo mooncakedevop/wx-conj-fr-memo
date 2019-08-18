@@ -1,10 +1,9 @@
 .title_css {
   padding-top: 15vh;
-  padding-bottom: 5vh;
+  padding-bottom: 2vh;
 }
 
 .page {
-  height: 100vh;
   width: 100vw;
 }
 
@@ -23,6 +22,15 @@
 }
 
 .bg-btn-conj {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 6vh;
+  margin-bottom: 2vh;
+}
+
+.padding-tag-hc{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.bg-answer-hc{
+    margin-bottom: 30vh;
 }

@@ -17,9 +17,10 @@ Page({
     var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
     var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
     var learn_no = (Math.floor(Math.random() * (idx - 2 + 1) + 1)) //从单词总数中抽取号码
-    
-    console.log(learn_no)
 
+    if (learn_word_today.length == 1) {
+      this.success();
+    }
 
     var learn_word = learn_word_today[learn_no];
     var learn_lj = '点击查看例句提示'
@@ -33,7 +34,6 @@ Page({
       learn_lj: learn_lj
     })
 
-
     this.onQuery(learn_word);
 
     wx.showToast({
@@ -41,6 +41,12 @@ Page({
       icon: 'none',
       duration: 1500,
       mask: true,
+    })
+  },
+
+  success: function() {
+    wx.redirectTo({
+      url: '../vocab/vocab_success',
     })
   },
 

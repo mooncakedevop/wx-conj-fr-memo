@@ -1,33 +1,20 @@
 <view class="page bg-white" xmlns:wx="http://www.w3.org/1999/xhtml">
 
-
-  <view class="bg-white light padding text-center title_css">
-
-    <view class="text-center italic">Une puissance réelle électrique de service PXX d’un appareil XX se calcule à partir de l’expression suivante.
-    </view>
-    <view class="text-sm text-gray italic">根据以下表达式计算设备XX的实际电力服务功率PXX。
-    </view>
-    <view class="text-white "></view>
-  </view>
-
-
-
-
-  <view class="padding radius text-center shadow-blur">
+  <view class="padding radius text-center shadow-blur title_css">
     <view class='cu-bar padding bg-gradual-red bg-white-last'>
       <view class='flex-sub text-center'>
         <view class='grid col-2 padding-lg'>
-          <view class='text-sm'>坚持的天数
-            <view class="text-sl">5</view>
+          <view class='text-sm'>今天要学习
+            <view class="text-sl">{{main_today_all}}</view>
           </view>
-          <view class='text-sm'>今天的新词
-            <view class="text-sl">23</view>
+          <view class='text-sm'>学习过的单词
+            <view class="text-sl">{{main_already_word}}</view>
           </view>
-          <view class='text-sm'>今天的待复习
-            <view class="text-sl">7</view>
+          <view class='text-sm'>今日新词
+            <view class="text-sl">{{main_new_word}}</view>
           </view>
-          <view class='text-sm'>学会的单词
-            <view class="text-sl">213</view>
+          <view class='text-sm'>今日待复习
+            <view class="text-sl">{{main_review_word}}</view>
           </view>
         </view>
       </view>
@@ -35,6 +22,12 @@
 
     <view class="cu-bar btn-group  bg-btn-conj">
       <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
+    </view>
+
+    <view class="bg-white text-center light padding">
+      <view class="padding bg-answer-hc">
+        <view class='cu-tag bg-green round shadow padding-tag-hc lg' wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
+      </view>
     </view>
   </view>
 </view>

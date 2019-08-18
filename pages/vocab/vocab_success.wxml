@@ -1,0 +1,32 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+
+    <view class="cu-bar bg-blue light solid-bottom margin-top">
+      <view class="flex padding justify-between">
+
+        <text class='text-center'>👍<text class='text-center italic'> Félicitation</text></text>
+      </view>
+    </view>
+
+    <view class='padding bg-white bg-white-last'>
+      <view class='flex-sub text-center'>
+        <view class='text-xsl padding'>
+          <text class=' icon-roundcheckfill text-green'></text>
+        </view>
+        <view class='text-sm'>今天的学习任务已经完成了🐱‍</view>
+        <view class='padding text-sm'>明天再来吧❤</view>
+        <view class='text-sm'>（不来的话越欠越多哦...）</view>
+        <view class='text-sm'>也可以去设置改变背词数（第二天生效）</view>
+      </view>
+    </view>
+
+
+    <view class='box'>
+      <view class="cu-bar btn-group bg-btn-conj">
+        <button class='cu-btn light bg-red round shadow lg' bindtap="retour_accuill">😆 返回主页</button>
+      </view>
+    </view>
+  </view>
+
+</view>

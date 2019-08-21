@@ -61,13 +61,55 @@ Page({
         console.log(learn_word_new_today_no)
         console.log(word_frequence_5000)
       } else if (app.globalData.freq[1] == true) {
-        var verb_7300_fr = word_frequence;
-        var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
-        console.log(learn_no)
+        var learn_word_new_today = [repeat_date];
+        var learn_word_new_today_no = [];
+        var i = 0;
+        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
+        while (i < app.globalData.freq_number) {
+          var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
+          if (word_frequence_5000[learn_no].level == 0) {
+            learn_word_new_today.push(word_frequence_5000[learn_no].learn_word)
+            learn_word_new_today_no.push(learn_no)
+            word_frequence_5000[learn_no].date = repeat_date;
+            console.log(word_frequence_5000[learn_no])
+            i++;
+          }
+        }
+        app.globalData.learn_word_new_today = learn_word_new_today
+        app.globalData.learn_word_new_today_no = learn_word_new_today_no
+
+        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
+        wx.setStorageSync('learn_word_new_today', learn_word_new_today)
+        wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
+
+        console.log(learn_word_new_today)
+        console.log(learn_word_new_today_no)
+        console.log(word_frequence_5000)
       } else if (app.globalData.freq[2] == true) {
-        var verb_7300_fr = word_frequence;
-        var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
-        console.log(learn_no)
+        var learn_word_new_today = [repeat_date];
+        var learn_word_new_today_no = [];
+        var i = 0;
+        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
+        while (i < app.globalData.freq_number) {
+          var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
+          if (word_frequence_5000[learn_no].level == 0) {
+            learn_word_new_today.push(word_frequence_5000[learn_no].learn_word)
+            learn_word_new_today_no.push(learn_no)
+            word_frequence_5000[learn_no].date = repeat_date;
+            console.log(word_frequence_5000[learn_no])
+            i++;
+          }
+        }
+        app.globalData.learn_word_new_today = learn_word_new_today
+        app.globalData.learn_word_new_today_no = learn_word_new_today_no
+
+        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
+        wx.setStorageSync('learn_word_new_today', learn_word_new_today)
+        wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
+
+        console.log(learn_word_new_today)
+        console.log(learn_word_new_today_no)
+        console.log(word_frequence_5000)
       }
     }
 
@@ -79,7 +121,14 @@ Page({
     var already_word = []
     var today_all = []
     var review_word = []
+
     for (var i = 0; i < 5000; i++) {
+      if (word_frequence_5000[i].date < repeat_date && word_frequence_5000[i].level == 0) {
+        word_frequence_5000[i].date = 9999999999999
+      }
+      if (word_frequence_5000[i].date < repeat_date) {
+        word_frequence_5000[i].date = repeat_date
+      }
       if (word_frequence_5000[i].date == repeat_date && word_frequence_5000[i].level != 0) {
         review_word.push(word_frequence_5000[i].learn_word)
         console.log(word_frequence_5000[i].learn_word)
@@ -105,7 +154,7 @@ Page({
     var main_review_word = review_word.length
     var main_new_word = today_all.length - review_word.length
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
-    learn_word_new_today.splice(0,1)
+    learn_word_new_today.splice(0, 1)
 
     this.setData({
       main_today_all: main_today_all,
@@ -125,7 +174,7 @@ Page({
       var learn_word = verb_7300_fr.verb_7300_fr[i].word;
       var learn_word_new = {
         learn_word: learn_word,
-        date: 1000000000000,
+        date: 9999999999999,
         level: 0
       };
       word_frequence_5000.push(learn_word_new)

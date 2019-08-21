@@ -21,10 +21,6 @@
   text-align: left;
 }
 
-.bg-btn-conj {
-  margin-top: 6vh;
-  margin-bottom: 2vh;
-}
 
 .padding-tag-hc{
   margin-top: 1vh;
@@ -32,5 +28,9 @@
 }
 
 .bg-answer-hc{
-    margin-bottom: 30vh;
+    margin-bottom: 1vh;
+}
+
+.text-gap{
+  margin-bottom: 1vh;
 }

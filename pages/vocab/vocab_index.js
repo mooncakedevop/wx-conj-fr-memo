@@ -221,6 +221,12 @@ Page({
     })
   },
 
+  setting: function () {
+    wx.navigateTo({
+      url: '../settings/settings_vocab',
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */

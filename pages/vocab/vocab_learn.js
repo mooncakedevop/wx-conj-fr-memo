@@ -9,10 +9,11 @@ Page({
     learn_word: null,
     learn_example: null,
     learn_lj: null,
+    learn_level: null,
   },
 
   onLoad: function(options) {
-
+    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
     var learn_word_today = wx.getStorageSync('learn_word_today')
     var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
     var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
@@ -23,15 +24,20 @@ Page({
     }
 
     var learn_word = learn_word_today[learn_no];
+    var learn_word_no = learn_word_today_no[learn_no];
+    var learn_level = word_frequence_5000[learn_word_no].level;
     var learn_lj = '点击查看例句提示'
 
     app.globalData.learn_word = learn_word
 
     console.log(app.globalData.learn_word)
+    console.log(learn_level)
+    console.log(learn_word_no)
 
     this.setData({
       learn_word: learn_word,
-      learn_lj: learn_lj
+      learn_lj: learn_lj,
+      learn_level: learn_level
     })
 
     this.onQuery(learn_word);

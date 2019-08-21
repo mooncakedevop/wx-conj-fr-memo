@@ -23,7 +23,7 @@ Page({
       wx.setStorageSync("hidden_or_not", false)
       wx.setStorageSync("tongbu", "⛅点击进行同步")
       wx.setStorageSync('freq', [true, false, false])
-      wx.setStorageSync('freq_number', "10")
+      wx.setStorageSync('freq_number', "30")
     }
 
     if (app.globalData.version != "v3.0.0") { //如果只是新版本的数据没有
@@ -31,7 +31,7 @@ Page({
       wx.setStorageSync("hidden_or_not", false)
       wx.setStorageSync("tongbu", "⛅点击进行同步")
       wx.setStorageSync('freq', [true, false, false])
-      wx.setStorageSync('freq_number', "10")
+      wx.setStorageSync('freq_number', "30")
     } 
 
     app.globalData.isChecked1 = wx.getStorageSync('isChecked1')

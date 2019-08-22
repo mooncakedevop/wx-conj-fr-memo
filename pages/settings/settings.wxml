@@ -17,7 +17,7 @@
     <view class='text-sm'>3. 修改了云同步方式。</view>
     <view class='text-sm'>4. 修改了部分界面。</view>
     <view class='text-sm'>5. 修复了强化练习时态设置的错误。</view>
-    <view class='text-sm'>6. 修改了小程序的名称：法语记忆|背单词动词变位小助手</view>
+    <view class='text-sm'>6. 修改了小程序的名称：法语记忆 学背单词动词变位</view>
     <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-3-0-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
@@ -28,7 +28,7 @@
 
   <view class="cu-bar bg-mauve light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-mauve'></text>关于法语动词变位记忆小助手
+      <text class='icon-title text-mauve'></text>关于法语记忆：学背单词动词变位
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
@@ -41,7 +41,8 @@
         <button class='cu-btn bg-red round shadow' bindtap="like_me">✨赞赏支持我</button>
         <button class='cu-btn lines-blue round shadow' bindtap="copy">😻小程序主页</button>
       </view>
-          <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击报错和建议进行反馈，反馈时注明具体单词方便改正哦。</view>
+      <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击报错和建议进行反馈，反馈时注明具体单词方便改正哦。</view>
+      <view class='text-left text-xs text-grey padding'>小程序原名：法语动词变位记忆小助手</view>
     </view>
   </view>
 

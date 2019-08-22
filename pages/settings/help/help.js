@@ -62,7 +62,7 @@ Component({
     copy_current: function () {
       var self = this;
       wx.setClipboardData({
-        data: "https://uniquelab.cn/conj-helper-2-0-0",
+        data: "https://uniquelab.cn/conj-helper-3-0-0",
         success: function (res) {
           wx.showModal({
             title: '提示',

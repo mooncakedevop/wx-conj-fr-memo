@@ -69,7 +69,7 @@ Page({
     })
   },
 
-  extra_words: function (e) {
+  extra_words: function(e) {
     var that = this;
     if (e.detail.value == true) {
       app.globalData.isChecked1 = true;
@@ -82,7 +82,7 @@ Page({
     this.onUpdate();
   },
 
-  words_selected: function (e) {
+  words_selected: function(e) {
     var that = this;
     if (e.detail.value == true) {
       app.globalData.isChecked1_selected = true;
@@ -95,7 +95,7 @@ Page({
     this.onUpdate();
   },
 
-  words_50: function (e) {
+  words_50: function(e) {
     var that = this;
     if (e.detail.value == true) {
       app.globalData.isChecked1_50 = true;
@@ -108,7 +108,7 @@ Page({
     this.onUpdate();
   },
 
-  words_100: function (e) {
+  words_100: function(e) {
     var that = this;
     if (e.detail.value == true) {
       app.globalData.isChecked1_100 = true;
@@ -121,7 +121,7 @@ Page({
     this.onUpdate();
   },
 
-  words_230: function (e) {
+  words_230: function(e) {
     var that = this;
     if (e.detail.value == true) {
       app.globalData.isChecked1_230 = true;
@@ -134,10 +134,10 @@ Page({
     this.onUpdate();
   },
 
-  advanced_shitai: function (e) {
+  advanced_shitai: function(e) {
     var that = this;
     if (e.detail.value == true) {
-      app.globalData.advanced_shitai = [4, 5, 7, 9];
+      app.globalData.advanced_shitai = [2, 7, 3];
       app.globalData.isChecked2 = true;
       wx.setStorageSync('isChecked2', true)
     } else {
@@ -149,10 +149,10 @@ Page({
     this.onUpdate();
   },
 
-  extra_shitai: function (e) {
+  extra_shitai: function(e) {
     var that = this;
     if (e.detail.value == true) {
-      app.globalData.extra_shitai = [10, 11, 12, 13];
+      app.globalData.extra_shitai = [10, 11, 8, 9];
       app.globalData.isChecked3 = true;
       wx.setStorageSync('isChecked3', true)
     } else {
@@ -164,10 +164,10 @@ Page({
     this.onUpdate();
   },
 
-  inusuel_shitai: function (e) {
+  inusuel_shitai: function(e) {
     var that = this;
     if (e.detail.value == true) {
-      app.globalData.inusuel_shitai = [6];
+      app.globalData.inusuel_shitai = [4, 5];
       app.globalData.isChecked4 = true;
       wx.setStorageSync('isChecked4', true)
     } else {
@@ -179,7 +179,7 @@ Page({
     this.onUpdate();
   },
 
-  successToast: function () {
+  successToast: function() {
     wx.showToast({
       title: '设置已保存',
       icon: 'sucess',
@@ -188,7 +188,7 @@ Page({
     })
   },
 
-  onGetUserInfo: function (e) {
+  onGetUserInfo: function(e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
@@ -198,7 +198,7 @@ Page({
     }
   },
 
-  onGetOpenid: function () {
+  onGetOpenid: function() {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -215,7 +215,7 @@ Page({
     this.onQuery();
   },
 
-  onAdd: function () {
+  onAdd: function() {
     const db = wx.cloud.database()
     db.collection('user_setting').add({
       data: {
@@ -251,14 +251,14 @@ Page({
     })
   },
 
-  onQuery: function () {
+  onQuery: function() {
     var that = this
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     db.collection('user_setting').where({
       _openid: app.globalData.openid
     }).get({
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
         if (res.data.length === 0) {
           that.onAdd()
@@ -305,7 +305,7 @@ Page({
     })
   },
 
-  onUpdate: function () {
+  onUpdate: function() {
     const db = wx.cloud.database()
     db.collection('user_setting').doc().update({
       data: {
@@ -332,11 +332,11 @@ Page({
       },
       fail: err => {
         icon: 'none',
-          console.error('[数据库] [更新记录] 失败：', err)
+        console.error('[数据库] [更新记录] 失败：', err)
       }
     })
   },
- 
+
   PickerChange(e) { //用来选时间
     console.log(e);
     var index = e.detail.value;
@@ -355,26 +355,26 @@ Page({
     })
   },
 
-  settings: function () {
+  settings: function() {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '搞定法语动词变位就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

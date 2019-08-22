@@ -138,6 +138,11 @@ Page({
       duration: 1000,
       mask: true,
     })
+
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
 
   onGetUserInfo: function(e) {

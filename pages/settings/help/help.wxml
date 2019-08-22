@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
-    <view class='text-sm'>法语记忆|背单词动词变位小助手</view>
+    <view class='text-sm'>法语记忆 学背单词动词变位</view>
     <view class='text-sm'>原名：法语动词变位记忆小助手</view>
     <view class="text-sm">SINCE 2019.3</view>
     <view class='text-sm'>by bu要搞事情</view>
@@ -45,7 +45,7 @@
     <view class='text-sm'>3. 修改了云同步方式。</view>
     <view class='text-sm'>4. 修改了部分界面。</view>
     <view class='text-sm'>5. 修复了强化练习时态设置的错误。</view>
-    <view class='text-sm'>6. 修改了小程序的名称：法语记忆|背单词动词变位小助手</view>
+    <view class='text-sm'>6. 修改了小程序的名称：法语记忆 学背单词动词变位</view>
     <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-3-0-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">

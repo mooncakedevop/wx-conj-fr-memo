@@ -23,7 +23,6 @@ Page({
    */
   onLoad: function(options) {
     var freq = app.globalData.freq
-
     this.setData({
       freq_number: app.globalData.freq_number,
       freq_1500: freq[0],
@@ -39,13 +38,11 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
 
     } else {
-      app.globalData.isChecked1 = [false, true, false];
+      app.globalData.freq = [false, true, false];
       wx.setStorageSync('freq', app.globalData.freq)
     }
-    this.new_user_data();
     this.successToast();
     this.onUpdate();
-
   },
 
   freq_3000: function(e) {
@@ -54,10 +51,9 @@ Page({
       app.globalData.freq = [false, true, false];
       wx.setStorageSync('freq', app.globalData.freq)
     } else {
-      app.globalData.isChecked1 = [false, false, true];
+      app.globalData.freq = [false, false, true];
       wx.setStorageSync('freq', app.globalData.freq)
     }
-    this.new_user_data();
     this.successToast();
     this.onUpdate();
   },
@@ -68,14 +64,12 @@ Page({
       app.globalData.freq = [false, false, true];
       wx.setStorageSync('freq', app.globalData.freq)
     } else {
-      app.globalData.isChecked1 = [true, false, false];
+      app.globalData.freq = [true, false, false];
       wx.setStorageSync('freq', app.globalData.freq)
     }
-    this.new_user_data();
     this.successToast();
     this.onUpdate();
   },
-
 
   new_user_data: function(options) {
     var repeat_date = new Date();
@@ -144,6 +138,11 @@ Page({
       duration: 1000,
       mask: true,
     })
+
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
 
   onGetUserInfo: function(e) {

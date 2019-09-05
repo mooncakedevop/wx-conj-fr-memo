@@ -1,6 +1,10 @@
-<view class="page bg-white" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="cu-bar btn-group  title_css">
+      <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
+    </view>
 
-  <view class="padding radius text-center shadow-blur title_css">
+
+  <view class="padding radius text-center shadow-blur ">
     <view class='cu-bar padding bg-gradual-red bg-white-last'>
       <view class='flex-sub text-center'>
         <view class='grid col-2 padding-lg'>
@@ -17,16 +21,18 @@
             <view class="text-sl">{{main_review_word}}</view>
           </view>
         </view>
+            <view class="cu-bar btn-group">
+      <button class='cu-btn lines-white shadow sm round' bindtap="setting">背单词设置</button>
+    </view>
       </view>
     </view>
 
-    <view class="cu-bar btn-group  bg-btn-conj">
-      <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
-    </view>
 
-    <view class="bg-white text-center light padding">
+    <view class=" text-center light padding">
       <view class="padding bg-answer-hc">
-        <view class='cu-tag bg-green round shadow padding-tag-hc lg' wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
+        <view class='text-lg text-gap'>今日新词</view>
+        <view class='text-sm text-gap italic'>Les nouveaux mots d'aujourd'hui</view>
+        <view class='cu-tag line-red round shadow padding-tag-hc lg' wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
       </view>
     </view>
   </view>

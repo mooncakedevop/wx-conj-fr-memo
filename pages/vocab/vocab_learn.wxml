@@ -4,7 +4,7 @@
 
     <view class="cu-bar bg-blue light solid-bottom margin-top" bindtap='result'>
       <view class='action italic'>
-        <text class='text-center italic'></text>Carte No.{{learn_word_no}}
+        <text class='text-center italic'></text>单词等级：{{learn_level}}
       </view>
     </view>
     

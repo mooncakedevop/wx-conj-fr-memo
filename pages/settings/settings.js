@@ -111,10 +111,22 @@ Page({
         console.error('[云函数] [login] 调用失败', err)
       }
     })
-    this.onQuery();
+    var that = this
+    wx.showModal({
+      title: '注意',
+      content: '点击“确定”将会下载云端数据，云端数据将会覆盖本地。使用场景：恢复记录',
+      success(res) {
+        if (res.confirm) {
+          that.onQuery();
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
   },
 
-  onGetOpenid_upload: function () {
+  onGetOpenid_upload: function() {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -128,7 +140,19 @@ Page({
         console.error('[云函数] [login] 调用失败', err)
       }
     })
-    this.onUpdate();
+    var that = this
+    wx.showModal({
+      title: '注意',
+      content: '点击“确定”将会上传本地数据，本地数据将会覆盖云端。使用场景：备份记录',
+      success(res) {
+        if (res.confirm) {
+          that.onUpdate();
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
   },
 
 
@@ -150,10 +174,9 @@ Page({
         isChecked2: wx.getStorageSync('isChecked2'),
         isChecked3: wx.getStorageSync('isChecked3'),
         isChecked4: wx.getStorageSync('isChecked4'),
+
         freq: wx.getStorageSync('freq'),
         freq_number: wx.getStorageSync('freq_number'),
-        word_frequence_1500: wx.getStorageSync('word_frequence_1500'),
-        word_frequence_3000: wx.getStorageSync('word_frequence_3000'),
         word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
       },
       success: res => {
@@ -199,6 +222,10 @@ Page({
           wx.setStorageSync('isChecked3', res.data[0].isChecked3);
           wx.setStorageSync('isChecked4', res.data[0].isChecked4);
 
+          wx.setStorageSync('freq', res.data[0].freq);
+          wx.setStorageSync('freq_number', res.data[0].freq_number);
+          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
+
           app.globalData.carte_arrey = res.data[0].carte_arrey;
           app.globalData.newer = res.data[0].newer;
           app.globalData.likeandsave = res.data[0].likeandsave;
@@ -212,6 +239,10 @@ Page({
           app.globalData.isChecked2 = res.data[0].isChecked2;
           app.globalData.isChecked3 = res.data[0].isChecked3;
           app.globalData.isChecked4 = res.data[0].isChecked4;
+
+          app.globalData.freq = res.data[0].freq;
+          app.globalData.freq_number = res.data[0].freq_number;
+          app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
 
           if (getCurrentPages().length != 0) {
             //刷新当前页面的数据
@@ -228,38 +259,49 @@ Page({
   },
 
   onUpdate: function() {
+    var that = this
     const db = wx.cloud.database()
-    db.collection('user_setting').doc().update({
-      data: {
-        carte_arrey: wx.getStorageSync('carte_arrey'),
-        newer: wx.getStorageSync('newer'),
-        version: wx.getStorageSync('version'),
-        likeandsave: wx.getStorageSync('likeandsave'),
-        time_count: wx.getStorageSync('time_count'),
-        hidden_or_not: wx.getStorageSync('hidden_or_not'),
-        isChecked1: wx.getStorageSync('isChecked1'),
-        isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
-        isChecked1_50: wx.getStorageSync('isChecked1_50'),
-        isChecked1_100: wx.getStorageSync('isChecked1_100'),
-        isChecked1_230: wx.getStorageSync('isChecked1_230'),
-        isChecked2: wx.getStorageSync('isChecked2'),
-        isChecked3: wx.getStorageSync('isChecked3'),
-        isChecked4: wx.getStorageSync('isChecked4'),
-        freq: wx.getStorageSync('freq'),
-        freq_number: wx.getStorageSync('freq_number'),
-        word_frequence_1500: wx.getStorageSync('word_frequence_1500'),
-        word_frequence_3000: wx.getStorageSync('word_frequence_3000'),
-        word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
-      },
-      success: res => {
-        wx.showToast({
-          title: '添加记录成功',
-        })
-        console.log('[数据库] [更新记录] 成功，记录 _id: ', res._id)
-      },
-      fail: err => {
-        icon: 'none',
-        console.error('[数据库] [更新记录] 失败：', err)
+    db.collection('user_setting').where({
+      _openid: app.globalData.openid
+    }).get({
+      success: function(res) {
+        console.log(res.data)
+        if (res.data.length === 0) {
+          that.onAdd()
+        } else {
+          db.collection('user_setting').doc().update({
+            data: {
+              carte_arrey: wx.getStorageSync('carte_arrey'),
+              newer: wx.getStorageSync('newer'),
+              version: wx.getStorageSync('version'),
+              likeandsave: wx.getStorageSync('likeandsave'),
+              time_count: wx.getStorageSync('time_count'),
+              hidden_or_not: wx.getStorageSync('hidden_or_not'),
+              isChecked1: wx.getStorageSync('isChecked1'),
+              isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
+              isChecked1_50: wx.getStorageSync('isChecked1_50'),
+              isChecked1_100: wx.getStorageSync('isChecked1_100'),
+              isChecked1_230: wx.getStorageSync('isChecked1_230'),
+              isChecked2: wx.getStorageSync('isChecked2'),
+              isChecked3: wx.getStorageSync('isChecked3'),
+              isChecked4: wx.getStorageSync('isChecked4'),
+
+              freq: wx.getStorageSync('freq'),
+              freq_number: wx.getStorageSync('freq_number'),
+              word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
+            },
+            success: res => {
+              wx.showToast({
+                title: '添加记录成功',
+              })
+              console.log('[数据库] [更新记录] 成功，记录 _id: ', res._id)
+            },
+            fail: err => {
+              icon: 'none',
+              console.error('[数据库] [更新记录] 失败：', err)
+            }
+          })
+        }
       }
     })
   },
@@ -297,27 +339,27 @@ Page({
     })
   },
 
-  settings_vocab: function () {
+  settings_vocab: function() {
     wx.navigateTo({
       url: 'settings_vocab',
     })
   },
 
-  settings_conj: function () {
+  settings_conj: function() {
     wx.navigateTo({
       url: 'settings_conj',
     })
   },
 
-  copy_current: function () {
+  copy_current: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://uniquelab.cn/conj-helper-2-1-0",
-      success: function (res) {
+      data: "https://uniquelab.cn/conj-helper-3-0-0",
+      success: function(res) {
         wx.showModal({
           title: '提示',
           content: '✨复制成功✨请粘贴到浏览器访问',
-          success: function (res) {
+          success: function(res) {
             if (res.confirm) {
               console.log('确定')
             } else if (res.cancel) {

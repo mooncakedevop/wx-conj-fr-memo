@@ -118,13 +118,26 @@ Page({
 
   JNSP: function() {
     //等级将为0，日期不变
+    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
+    var learn_word_today = wx.getStorageSync('learn_word_today');
+    var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
+
+    var learn_word = app.globalData.learn_word;
+    var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
+    word_frequence_5000[word_no].level = 0
+
+    wx.setStorageSync("word_frequence_5000", word_frequence_5000)
+
+    this.renew()
     wx.redirectTo({
-      url: '../index/index',
+      url: 'vocab_learn',
     })
   },
 
   justSoSo: function() {
     //等级保持不变，日期不变
+
+    this.renew()
     wx.redirectTo({
       url: 'vocab_learn',
     })
@@ -138,9 +151,12 @@ Page({
 
     var learn_word = app.globalData.learn_word;
     var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
-    word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400 * date_review[word_frequence_5000[word_no].level] //时间加指定
-
+    if (word_frequence_5000[word_no].level = 7) {
+      word_frequence_5000[word_no].date = 9000000000000
+    } else {
+      word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
+      word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400 * date_review[word_frequence_5000[word_no].level] //时间加指定
+    }
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 
     this.renew()

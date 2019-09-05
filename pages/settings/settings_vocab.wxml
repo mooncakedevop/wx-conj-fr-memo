@@ -20,7 +20,7 @@
         </view>
       </picker>
     </view>
-    <view class='text-left text-xs text-grey padding'>设置每天遇见新单词的个数。单位：个。默认10个。</view>
+    <view class='text-left text-xs text-grey padding'>设置每天遇见新单词的个数。单位：个。默认30个。设置修改将在第二天生效。</view>
   </view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
@@ -41,12 +41,12 @@
       <view class='title'>厉害（共2000词）</view>
       <switch checked="{{freq_5000}}" bindchange="freq_5000" />
     </view>
-    <view class='text-left text-xs text-grey padding'>5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）</view>
+    <view class='text-left text-xs text-grey padding'>5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）。设置修改将在第二天生效。</view>
   </view>
 
   <view class="cu-bar bg-mauve light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-mauve'></text>词书B：7000个TEF、TCF必备单词
+      <text class='icon-title text-mauve'></text>词书B：未完成
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
@@ -62,7 +62,7 @@
       <view class='title'>厉害（未完成🤷‍）</view>
       <switch checked="{{isChecked1_230}}" bindchange="tef_5000" />
     </view>
-    <view class='text-left text-xs text-grey padding'>7000个TEF、TCF必备词汇列表还没有搞定🤷‍</view>
+    <view class='text-left text-xs text-grey padding'>词书B词汇列表还没有搞定🤷‍</view>
   </view>
 
 </view>

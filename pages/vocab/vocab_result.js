@@ -196,7 +196,22 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    return {
+      title: '搞定法语背单词就靠它了！😱',
+      path: 'pages/welcome/welcome',
+      imageUrl: '',
+      success: function (shareTickets) {
+        console.info(shareTickets + '成功');
+        // 转发成功
+      },
+      fail: function (res) {
+        console.log(res + '失败');
+        // 转发失败
+      },
+      complete: function (res) {
+        // 不管成功失败都会执行
+      }
+    }
   }
 })

@@ -269,38 +269,12 @@ Page({
         if (res.data.length === 0) {
           that.onAdd()
         } else {
-          db.collection('user_setting').doc().update({
-            data: {
-              carte_arrey: wx.getStorageSync('carte_arrey'),
-              newer: wx.getStorageSync('newer'),
-              version: wx.getStorageSync('version'),
-              likeandsave: wx.getStorageSync('likeandsave'),
-              time_count: wx.getStorageSync('time_count'),
-              hidden_or_not: wx.getStorageSync('hidden_or_not'),
-              isChecked1: wx.getStorageSync('isChecked1'),
-              isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
-              isChecked1_50: wx.getStorageSync('isChecked1_50'),
-              isChecked1_100: wx.getStorageSync('isChecked1_100'),
-              isChecked1_230: wx.getStorageSync('isChecked1_230'),
-              isChecked2: wx.getStorageSync('isChecked2'),
-              isChecked3: wx.getStorageSync('isChecked3'),
-              isChecked4: wx.getStorageSync('isChecked4'),
-
-              freq: wx.getStorageSync('freq'),
-              freq_number: wx.getStorageSync('freq_number'),
-              word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
-            },
-            success: res => {
-              wx.showToast({
-                title: '添加记录成功',
-              })
-              console.log('[数据库] [更新记录] 成功，记录 _id: ', res._id)
-            },
-            fail: err => {
-              icon: 'none',
-              console.error('[数据库] [更新记录] 失败：', err)
+          db.collection('user_setting').doc(res.data[0]._id).remove({
+            success: function (res) {
+              console.log(res.data)
             }
           })
+          that.onAdd()
         }
       }
     })

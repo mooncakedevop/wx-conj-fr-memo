@@ -17,14 +17,19 @@ Page({
     var learn_word_today = wx.getStorageSync('learn_word_today')
     var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
     var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
+
+    console.log(learn_word_today)
+    console.log(learn_word_today_no)
+
     var learn_no = (Math.floor(Math.random() * (idx - 2 + 1) + 1)) //从单词总数中抽取号码
+    console.log(learn_no)
 
     if (learn_word_today.length == 1) {
       this.success();
     }
 
     var learn_word = learn_word_today[learn_no];
-    var learn_word_no = learn_word_today_no[learn_no];
+    var learn_word_no = learn_word_today_no[learn_no-1];
     var learn_level = word_frequence_5000[learn_word_no].level;
     var learn_lj = '点击查看例句提示'
 
@@ -43,7 +48,7 @@ Page({
     this.onQuery(learn_word);
 
     wx.showToast({
-      title: '',
+      title: 'Chargement😍',
       icon: 'none',
       duration: 1500,
       mask: true,
@@ -127,20 +132,20 @@ Page({
     })
   },
 
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '搞定法语背单词就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

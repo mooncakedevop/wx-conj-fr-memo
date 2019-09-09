@@ -39,6 +39,19 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
+
+    <view class='text-sm'>v3.0.1（2019.09.09）</view>
+    <view class='text-sm'>1. 修复了分享错误的问题。</view>
+    <view class='text-sm'>2. 修复了同步的问题。</view>
+    <view class='text-sm'>3. 修复了背单词界面会显示为null无法跳转的问题。</view>
+    <view class='text-sm'>4. 修改了部分界面。</view>
+    <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-3-0-1</view>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
+      </view>
+    </view>
+
     <view class='text-sm'>v3.0.0（2019.08.22）</view>
     <view class='text-sm'>1. 增加了“法语背单词”功能，目前的词库为“法语5000词频”，涵盖大部分常用法语单词。</view>
     <view class='text-sm'>2. 修改了设置页面，“法语背单词”和“法语动词变位”分开设置。</view>

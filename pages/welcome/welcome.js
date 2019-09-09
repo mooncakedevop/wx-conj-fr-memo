@@ -104,7 +104,7 @@ Page({
 
   onShareAppMessage: function(res) {
     return {
-      title: '搞定法语动词变位就靠它了！😱',
+      title: '搞定法语记忆很轻松😘戳这里',
       path: 'pages/welcome/welcome',
       imageUrl: '',
       success: function(shareTickets) {

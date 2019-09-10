@@ -30,6 +30,7 @@ Page({
     console.log(new Date('2019-08-11'.replace(/-/g, "/")).getTime())
     repeat_date = new Date(repeat_date).getTime()
     console.log(repeat_date)
+    console.log(app.globalData.freq)
 
     //如果第一个字符的日期不是当天的，生成新词
     var learn_word_new_today = app.globalData.learn_word_new_today
@@ -142,8 +143,11 @@ Page({
         today_all.push(word_frequence_5000[i].learn_word)
       }
     }
+    console.log(learn_word_new_today)
     console.log(learn_word_today)
     console.log(learn_word_today_no)
+    console.log(review_word)
+    console.log(today_all)
 
     wx.setStorageSync('learn_word_today', learn_word_today)
     wx.setStorageSync('learn_word_today_no', learn_word_today_no)

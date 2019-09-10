@@ -151,11 +151,11 @@ Page({
 
     var learn_word = app.globalData.learn_word;
     var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    if (word_frequence_5000[word_no].level = 7) {
+    if (word_frequence_5000[word_no].level == 7) {
       word_frequence_5000[word_no].date = 9000000000000
     } else {
       word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
-      word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400 * date_review[word_frequence_5000[word_no].level] //时间加指定
+      word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400000 * date_review[word_frequence_5000[word_no].level] //时间加指定
     }
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 

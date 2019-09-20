@@ -1,0 +1,32 @@
+<view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
+
+  <view class='box'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+    </view>
+  </view>
+  
+  <view class="cu-bar bg-blue light margin-top">
+    <view class="flex padding justify-between">
+      <text class='text-center italic'>CARTE {{learn_word_no}}</text>
+    </view>
+  </view>
+
+  <view class='padding bg-white'>
+    <view class="text-sl">{{learn_word}}</view>
+  </view>
+
+  <view class='padding bg-white dash-conj padding-conj'>
+    <text class='text-center'>{{learn_word_cx}}</text>
+  </view>
+
+  <view class='padding bg-white dash-conj padding-conj'>
+    <view class='text-center'>{{learn_js_cn}}</view>
+    <view class='text-center'>{{learn_js_fr}}</view>
+  </view>
+
+  <view class='padding bg-white bg-white-last dash-conj padding-conj'>
+    <text class='text-center'>{{learn_lj}}</text>
+  </view>
+
+</view>

@@ -12,26 +12,23 @@ Page({
   onLoad: function() {
     app.globalData.newer = wx.getStorageSync('newer')
     app.globalData.version = wx.getStorageSync('version')
+    console.log(app.globalData.version)
 
     if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
       wx.setStorageSync('isChecked1_50', true) //写下用户的第一个数据
       wx.setStorageSync('carte_arrey', [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474]) //写下用户的第一个数据
       wx.setStorageSync('newer', true)
-      wx.setStorageSync('version', "v3.0.0") //写入新版本的版本号
+      wx.setStorageSync('version', "v3.1.0") //写入新版本的版本号
       wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
       wx.setStorageSync('time_count', 10)
       wx.setStorageSync("hidden_or_not", false)
-      wx.setStorageSync("tongbu", "⛅点击进行同步")
       wx.setStorageSync('freq', [true, false, false])
       wx.setStorageSync('freq_number', "30")
     }
 
-    if (app.globalData.version != "v3.0.0") { //如果只是新版本的数据没有
-      wx.setStorageSync('version', "v3.0.0") //写入新版本的版本
+    if (app.globalData.version != "v3.1.0") { //如果只是新版本的数据没有
+      wx.setStorageSync('version', "v3.1.0") //写入新版本的版本
       wx.setStorageSync("hidden_or_not", false)
-      wx.setStorageSync("tongbu", "⛅点击进行同步")
-      wx.setStorageSync('freq', [true, false, false])
-      wx.setStorageSync('freq_number', "30")
     }
 
     app.globalData.isChecked1 = wx.getStorageSync('isChecked1')

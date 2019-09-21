@@ -187,7 +187,7 @@ Page({
     wx.setStorageSync('word_frequence_5000', word_frequence_5000)
     console.log(word_frequence_5000)
   },
-
+  //增加点击即查询
   choosed_answer: function(e) {
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
     learn_word_new_today.splice(0, 1);
@@ -258,6 +258,26 @@ Page({
   setting: function() {
     wx.navigateTo({
       url: '../settings/settings_vocab',
+    })
+  },
+
+  like_me: function () {
+    var self = this;
+    wx.setClipboardData({
+      data: "hxdred",
+      success: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '✨复制成功✨请粘贴到微信搜一搜',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('确定')
+            } else if (res.cancel) {
+              console.log('取消')
+            }
+          }
+        })
+      }
     })
   },
 

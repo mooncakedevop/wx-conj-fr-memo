@@ -11,12 +11,44 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last' hidden="{{hidden_or_not}}">
-    <view class='text-sm'>v3.0.2（2019.09.10）</view>
-    <view class='text-sm'>1. 修复单词等级错误的问题。</view>
-    <view class='text-sm'>具体内容请参见 https://uniquelab.cn/conj-helper-3-0-1-2</view>
+    <view class='text-sm'>v3.1.0（2019.09.21）</view>
+    <view class='text-sm'>1. 新增背单词概览页面“今日新词”跳转，点击即可跳转查看对应单词的释义和例句。</view>
+    <view class='text-sm'>2. 改进了一些页面。</view>
+    <view class='text-sm'>3. 调整了一些页面。</view>
+    <view class='text-sm'>具体内容请参见 https://hxd.red/conj-helper-3-1-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow sm' bindtap="copy_current">点击复制网址</button>
+        <button class='cu-btn bg-red round shadow sm' bindtap="like_me">或查看微信公众号</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar bg-mauve light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-mauve'></text>感觉还不错？或者想吐槽？
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last'>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨微信公众号</button>
+      </view>
+      <view class='text-left text-xs text-grey padding'>点击上方按钮关注微信公众号：bu要搞事情的实验室（微信号：hxdred）。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧关注投票吧😏</view>
+    </view>
+  </view>
+
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-red'></text>设置
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last'>
+    <view class='box'>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-red round shadow' bindtap="settings_vocab">背单词设置</button>
+      </view>
+      <view class="cu-bar btn-group">
+        <button class='cu-btn bg-blue round shadow' bindtap="settings_conj">动词变位设置</button>
       </view>
     </view>
   </view>
@@ -29,32 +61,11 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="help">📄使用帮助</button>
-        <button class='cu-btn lines-blue round shadow' open-type="feedback">❌报错和建议</button>
+        <button class='cu-btn lines-blue round shadow' bindtap="help">📄关于</button>
+        <button class='cu-btn bg-red round shadow' open-type="feedback">❌报错和建议</button>
       </view>
-      <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨赞赏支持我</button>
-        <button class='cu-btn lines-blue round shadow' bindtap="copy">😻小程序主页</button>
-      </view>
-      <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击报错和建议进行反馈，反馈时注明具体单词方便改正哦。</view>
+      <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击“报错和建议”进行反馈，反馈时注明具体单词方便改正哦。</view>
       <view class='text-left text-xs text-grey padding'>小程序原名：法语动词变位记忆小助手</view>
-    </view>
-  </view>
-
-  <view class="cu-bar bg-red light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-red'></text>设置
-    </view>
-  </view>
-
-  <view class='padding bg-white bg-white-last'>
-    <view class='box'>
-      <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="settings_vocab">背单词设置</button>
-      </view>
-      <view class="cu-bar btn-group">
-        <button class='cu-btn bg-blue round shadow' bindtap="settings_conj">动词变位设置</button>
-      </view>
     </view>
   </view>
 

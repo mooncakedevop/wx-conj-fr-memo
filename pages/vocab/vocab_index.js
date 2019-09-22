@@ -187,6 +187,36 @@ Page({
     wx.setStorageSync('word_frequence_5000', word_frequence_5000)
     console.log(word_frequence_5000)
   },
+  //增加点击即查询
+  choosed_answer: function(e) {
+    var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
+    learn_word_new_today.splice(0, 1);
+    var choosed_answer = learn_word_new_today[e.target.id];
+    console.log(e.target.id);
+    this.onQuery(choosed_answer);
+  },
+
+  onQuery: function(search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function(res) {
+        console.log(res.data)
+        app.globalData.consult_data = res.data;
+        wx.setStorageSync('consult_data', res.data);
+        that.vocab_index_result();
+      }
+    })
+  },
+
+  vocab_index_result: function() {
+    wx.navigateTo({
+      url: 'vocab_index_result',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -225,26 +255,46 @@ Page({
     })
   },
 
-  setting: function () {
+  setting: function() {
     wx.navigateTo({
       url: '../settings/settings_vocab',
     })
   },
 
-  onShareAppMessage: function (res) {
+  like_me: function () {
+    var self = this;
+    wx.setClipboardData({
+      data: "hxdred",
+      success: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '✨复制成功✨请粘贴到微信搜一搜',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('确定')
+            } else if (res.cancel) {
+              console.log('取消')
+            }
+          }
+        })
+      }
+    })
+  },
+
+  onShareAppMessage: function(res) {
     return {
       title: '搞定法语背单词就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

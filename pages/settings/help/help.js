@@ -39,35 +39,15 @@ Component({
     },
 
 
-    copy: function() {
-      var self = this;
-      wx.setClipboardData({
-        data: "https://uniquelab.cn/conj-helper",
-        success: function(res) {
-          wx.showModal({
-            title: '提示',
-            content: '✨复制成功✨请粘贴到浏览器访问',
-            success: function(res) {
-              if (res.confirm) {
-                console.log('确定')
-              } else if (res.cancel) {
-                console.log('取消')
-              }
-            }
-          })
-        }
-      })
-    },
-
     copy_current: function() {
       var self = this;
       wx.setClipboardData({
-        data: "https://uniquelab.cn/conj-helper-3-0-1-2",
-        success: function(res) {
+        data: "hxdred",
+        success: function (res) {
           wx.showModal({
             title: '提示',
-            content: '✨复制成功✨请粘贴到浏览器访问',
-            success: function(res) {
+            content: '✨复制成功✨请粘贴到微信搜一搜',
+            success: function (res) {
               if (res.confirm) {
                 console.log('确定')
               } else if (res.cancel) {

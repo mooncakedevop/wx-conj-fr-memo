@@ -1,6 +1,7 @@
 
-.page{
+.page {
   width: 100%;
+  overflow: hidden;
 }
 
 .margin-avatar{
@@ -26,7 +27,7 @@
 
 .margin-text{
   margin-top: 0vh;
-  margin-bottom: 15vh
+  margin-bottom: 20vh;
 }
 
 .radius{

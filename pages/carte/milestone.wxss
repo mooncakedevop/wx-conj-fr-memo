@@ -3,7 +3,8 @@
   padding-bottom: 5vh;
 }
 
-.page{
+.page {
+  width: 100%;
   overflow: hidden;
 }
 

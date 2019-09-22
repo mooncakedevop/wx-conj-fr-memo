@@ -16,3 +16,8 @@ padding-bottom: 0.3vh;
 .text-sm-left{
   text-align: left;
 }
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}

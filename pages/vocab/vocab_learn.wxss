@@ -9,7 +9,8 @@
 }
 
 .page {
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .page__hd {

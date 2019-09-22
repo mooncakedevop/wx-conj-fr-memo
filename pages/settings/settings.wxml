@@ -11,11 +11,11 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last' hidden="{{hidden_or_not}}">
-    <view class='text-sm'>v3.1.0（2019.09.21）</view>
-    <view class='text-sm'>1. 新增背单词概览页面“今日新词”跳转，点击即可跳转查看对应单词的释义和例句。</view>
-    <view class='text-sm'>2. 改进了一些页面。</view>
-    <view class='text-sm'>3. 调整了一些页面。</view>
-    <view class='text-sm'>具体内容请参见 https://hxd.red/conj-helper-3-1-0</view>
+    <view class='text-sm bold'>v3.1.0（2019.09.21）</view>
+    <view class='text-xs'>1. 新增背单词概览页面“今日新词”跳转，点击即可跳转查看对应单词的释义和例句。</view>
+    <view class='text-xs'>2. 改进了一些页面。</view>
+    <view class='text-xs'>3. 调整了一些页面。</view>
+    <view class='text-xs'>具体内容请参见 https://hxd.red/conj-helper-3-1-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
         <button class='cu-btn bg-red round shadow sm' bindtap="like_me">或查看微信公众号</button>

@@ -1,4 +1,4 @@
-<view class="bg-gradual-blue padding radius text-center shadow-blur title_css">
+<view class="page bg-gradual-blue padding radius text-center shadow-blur title_css">
   <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
   <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
   <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>

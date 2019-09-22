@@ -28,3 +28,8 @@
   padding-bottom: 3vh;
   padding-top: 3vh;
 }
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}

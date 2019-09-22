@@ -6,3 +6,8 @@
 .text-xs{
   padding-bottom: 1vh;
 }
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}

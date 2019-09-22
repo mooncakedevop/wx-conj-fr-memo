@@ -1,4 +1,4 @@
-<view class='bg-gradual-blue padding radius text-center shadow-blur title_css'>
+<view class='bg-gradual-blue padding radius text-center shadow-blur page title_css'>
 
   <view class="cu-bar search bg-white round search-conj">
     <view class='search-form round'>

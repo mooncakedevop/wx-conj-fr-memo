@@ -4,7 +4,8 @@
 }
 
 .page {
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .page__title {
@@ -21,16 +22,15 @@
   text-align: left;
 }
 
-
-.padding-tag-hc{
+.padding-tag-hc {
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
-.bg-answer-hc{
-    margin-bottom: 1vh;
+.bg-answer-hc {
+  margin-bottom: 1vh;
 }
 
-.text-gap{
+.text-gap {
   margin-bottom: 1vh;
 }

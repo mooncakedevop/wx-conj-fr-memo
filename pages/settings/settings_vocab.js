@@ -42,7 +42,6 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
-    this.onUpdate();
   },
 
   freq_3000: function(e) {
@@ -55,7 +54,6 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
-    this.onUpdate();
   },
 
   freq_5000: function(e) {
@@ -68,7 +66,6 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
-    this.onUpdate();
   },
 
   new_user_data: function(options) {

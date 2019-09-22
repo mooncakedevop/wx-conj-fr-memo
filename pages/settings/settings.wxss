@@ -1,5 +1,6 @@
-page {
+.page {
   width: 100%;
+  overflow: hidden;
 }
 
 .text-sm {

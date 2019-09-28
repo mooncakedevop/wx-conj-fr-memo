@@ -264,11 +264,11 @@ Page({
   like_me: function () {
     var self = this;
     wx.setClipboardData({
-      data: "hxdred",
+      data: "https://hxd.red/conj-helper",
       success: function (res) {
         wx.showModal({
           title: '提示',
-          content: '✨复制成功✨请粘贴到微信搜一搜',
+          content: '✨复制成功✨请粘贴到浏览器访问',
           success: function (res) {
             if (res.confirm) {
               console.log('确定')

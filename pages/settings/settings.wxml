@@ -18,7 +18,7 @@
     <view class='text-xs'>具体内容请参见 https://hxd.red/conj-helper-3-1-0</view>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow sm' bindtap="like_me">或查看微信公众号</button>
+        <button class='cu-btn bg-red round shadow sm' bindtap="like_me">点击复制并访问</button>
       </view>
     </view>
   </view>
@@ -31,9 +31,9 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨微信公众号</button>
+        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨小程序主页</button>
       </view>
-      <view class='text-left text-xs text-grey padding'>点击上方按钮关注微信公众号：bu要搞事情的实验室（微信号：hxdred）。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧关注投票吧😏</view>
+      <view class='text-left text-xs text-grey padding'>点击上方按钮复制小程序主页网址。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧投票吧😏</view>
     </view>
   </view>
 

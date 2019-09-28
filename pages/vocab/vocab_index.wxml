@@ -37,7 +37,7 @@
     </view>
 
     <view class="cu-bar btn-group">
-      <button class='cu-btn bg-red round shadow sm' bindtap="like_me">🎠点击关注我的公众号</button>
+      <button class='cu-btn bg-red round shadow sm' bindtap="like_me">🎠点击访问小程序主页</button>
     </view>
 
   </view>

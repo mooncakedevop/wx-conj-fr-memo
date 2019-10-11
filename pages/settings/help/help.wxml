@@ -1,5 +1,5 @@
 <view class="bg-gradual-blue padding radius text-center shadow-blur page title_css">
-
+   <official-account></official-account>
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
       <text class='icon-title text-red'></text>关于

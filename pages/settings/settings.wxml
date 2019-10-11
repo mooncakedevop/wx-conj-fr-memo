@@ -23,7 +23,7 @@
     </view>
   </view>
 
-  <view class="cu-bar bg-mauve light solid-bottom margin-top">
+    <view class="cu-bar bg-mauve light solid-bottom margin-top">
     <view class='action'>
       <text class='icon-title text-mauve'></text>感觉还不错？或者想吐槽？
     </view>
@@ -31,11 +31,13 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group">
-        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨小程序主页</button>
+        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨不淡定的实验室</button>
       </view>
-      <view class='text-left text-xs text-grey padding'>点击上方按钮复制小程序主页网址。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧投票吧😏</view>
+   <official-account></official-account>
+      <view class='text-left text-xs text-grey padding'>点击上方按钮关注微信公众号。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧投票吧😏</view>
     </view>
   </view>
+
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>

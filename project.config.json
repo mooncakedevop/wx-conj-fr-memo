@@ -51,6 +51,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 7,
 			"list": [
@@ -107,7 +111,15 @@
 					"id": -1,
 					"name": "vocab_result",
 					"pathName": "pages/vocab/vocab_result",
+					"query": "",
 					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/welcome/welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
+					"scene": 1011
 				}
 			]
 		}

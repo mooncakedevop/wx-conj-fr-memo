@@ -3,7 +3,6 @@
     <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
   </view>
 
-
   <view class="padding radius text-center shadow-blur ">
     <view class='cu-bar padding bg-gradual-red bg-white-last'>
       <view class='flex-sub text-center'>
@@ -29,6 +28,7 @@
 
 
     <view class=" text-center light padding">
+    <official-account></official-account>
       <view class="padding bg-answer-hc">
         <view class='text-lg text-gap'>今日新词</view>
         <view class='text-sm text-gap italic'>Les nouveaux mots d'aujourd'hui</view>
@@ -37,7 +37,7 @@
     </view>
 
     <view class="cu-bar btn-group">
-      <button class='cu-btn bg-red round shadow sm' bindtap="like_me">🎠点击访问小程序主页</button>
+      <button class='cu-btn bg-red round shadow sm' bindtap="like_me">🎠不淡定的实验室</button>
     </view>
 
   </view>

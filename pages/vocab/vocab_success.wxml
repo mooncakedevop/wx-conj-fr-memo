@@ -20,7 +20,7 @@
         <view class='text-sm'>也可以去设置改变背词数（第二天生效）</view>
       </view>
     </view>
-
+   <official-account></official-account>
 
     <view class='box'>
       <view class="cu-bar btn-group bg-btn-conj">

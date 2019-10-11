@@ -1,5 +1,4 @@
 <view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
-
   <view class='box'>
     <view class="cu-bar btn-group">
       <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>

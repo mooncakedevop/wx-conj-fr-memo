@@ -58,5 +58,7 @@
       <text class='text-grey'>✔ 法汉双解和例句\n</text>
     </view>
 
+    <official-account></official-account>
+
   </view>
 </view>

@@ -23,3 +23,7 @@
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
+
+.text-xs-pos{
+  margin-top: 1vh;
+}

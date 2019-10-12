@@ -24,6 +24,8 @@ Page({
     index: null,
     picker: ['5', '10', '20', '30', '45', '60'],
     hidden_or_not: null,
+
+    msg: null,
   },
 
   onLoad() {
@@ -52,6 +54,8 @@ Page({
         }
       }
     })
+
+    this.onQuery_msg();
 
     this.setData({
       isChecked1: app.globalData.isChecked1,
@@ -274,7 +278,7 @@ Page({
           that.onAdd()
         } else {
           db.collection('user_setting').doc(res.data[0]._id).remove({
-            success: function (res) {
+            success: function(res) {
               console.log(res.data)
             }
           })
@@ -353,11 +357,11 @@ Page({
     var self = this;
     wx.setClipboardData({
       data: "hxdred",
-      success: function (res) {
+      success: function(res) {
         wx.showModal({
           title: '提示',
           content: '✨复制成功✨请粘贴在微信搜索框搜索公众号',
-          success: function (res) {
+          success: function(res) {
             if (res.confirm) {
               console.log('确定')
             } else if (res.cancel) {
@@ -379,6 +383,21 @@ Page({
       envVersion: 'develop',
       success(res) {
         // 打开成功
+      }
+    })
+  },
+
+  onQuery_msg: function(search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('setting_msg').get({
+      success: function(res) {
+        console.log(res.data)
+        app.globalData.msg_data = res.data;
+        that.setData({
+          msg: res.data[0].msg,
+        })
       }
     })
   },

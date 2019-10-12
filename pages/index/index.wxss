@@ -5,7 +5,7 @@
 
 .title_css{
   padding-top: 8vh;
-  padding-bottom: 3vh
+  padding-bottom: 1vh
 }
 
 .page__hd{
@@ -15,7 +15,7 @@
 
 .box{
   bottom: 0rem;
-  padding: 2vh
+  padding: 1vh
 }
 
 .padding-tag-hc{
@@ -25,4 +25,10 @@
 
 .text-white{
     padding-bottom: 1vh;
+}
+
+.cu-btn{
+   margin-top: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }

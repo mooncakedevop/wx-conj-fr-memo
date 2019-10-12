@@ -50,6 +50,7 @@ App({
     idx_carte_number: 0,
 
     openid: null,
+    msg:null,
 
   }
 })

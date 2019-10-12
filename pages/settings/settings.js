@@ -1,4 +1,4 @@
-// pages/settings/settings.js
+
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const settings = db.collection('user_setting')

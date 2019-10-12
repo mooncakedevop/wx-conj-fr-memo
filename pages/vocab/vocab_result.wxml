@@ -10,6 +10,7 @@
 
     <view class='padding bg-white'>
       <view class="text-sl">{{learn_word}}</view>
+      <view class='cu-btn sm bg-mauve round sm shadow' bindtap="trop_facile">标记为太简单</view>
     </view>
 
     <view class='padding bg-white dash-conj padding-conj'>
@@ -33,4 +34,3 @@
     </view>
   </view>
 </view>
-

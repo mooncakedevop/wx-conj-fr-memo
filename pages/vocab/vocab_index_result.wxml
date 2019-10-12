@@ -4,7 +4,7 @@
       <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
     </view>
   </view>
-  
+
   <view class="cu-bar bg-blue light margin-top">
     <view class="flex padding justify-between">
       <text class='text-center italic'>CARTE {{learn_word_no}}</text>

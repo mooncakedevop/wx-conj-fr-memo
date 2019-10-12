@@ -1,12 +1,11 @@
- <view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
   <view class=" padding radius text-center shadow-blur title_css">
-
     <view class="cu-bar bg-blue light solid-bottom margin-top" bindtap='result'>
       <view class='action italic'>
         <text class='text-center italic'></text>单词等级：{{learn_level}}
       </view>
     </view>
-    
+
     <view class='padding bg-white' bindtap='result'>
       <view class="text-sl">{{learn_word}}</view>
       <view class='text-sm text-gray italic'>点击单词查看答案</view>

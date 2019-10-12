@@ -37,7 +37,7 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-red round shadow' bindtap="like_me ">✨不淡定的实验室</button>
+        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨不淡定的实验室</button>
       </view>
       <official-account></official-account>
       <view class='text-left text-xs text-grey padding'>点击上方按钮关注微信公众号。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧投票吧😏</view>
@@ -53,10 +53,10 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-red round shadow' bindtap="settings_vocab ">背单词设置</button>
+        <button class='cu-btn bg-red round shadow' bindtap="settings_vocab">背单词设置</button>
       </view>
       <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-blue round shadow' bindtap="settings_conj ">动词变位设置</button>
+        <button class='cu-btn bg-blue round shadow' bindtap="settings_conj">动词变位设置</button>
       </view>
     </view>
   </view>
@@ -69,35 +69,35 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group ">
-        <button class='cu-btn lines-blue round shadow' bindtap="help ">📄关于</button>
-        <button class='cu-btn bg-red round shadow' open-type="feedback ">❌报错和建议</button>
+        <button class='cu-btn lines-blue round shadow' bindtap="help">📄关于</button>
+        <button class='cu-btn bg-red round shadow' open-type="feedback">❌报错和建议</button>
       </view>
       <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击“报错和建议”进行反馈，反馈时注明具体单词方便改正哦。</view>
       <view class='text-left text-xs text-grey padding'>小程序原名：法语动词变位记忆小助手</view>
     </view>
   </view>
 
-  <view class="cu-bar bg-grey light solid-bottom margin-top ">
+  <view class="cu-bar bg-grey light solid-bottom margin-top">
     <view class='action'>
       <text class='icon-title text-grey'></text>同步设置
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
-    <!-- 用户 openid style="background-image: url({{avatarUrl}}) " -->
+    <!-- 用户 openid style="background-image: url({{avatarUrl}})" -->
     <view class='box'>
-      <view class="cu-bar btn-group ">
-        <button open-type="getUserInfo " bindgetuserinfo="onGetUserInfo " class="cu-btn lines-red round shadow " bindtap="onGetOpenid_upload ">⬆本地上传</button>
+      <view class="cu-bar btn-group">
+        <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-red round shadow" bindtap="onGetOpenid_upload">⬆本地上传</button>
       </view>
     </view>
     <view class='box'>
-      <view class="cu-bar btn-group ">
-        <button open-type="getUserInfo " bindgetuserinfo="onGetUserInfo " class="cu-btn lines-blue round shadow " bindtap="onGetOpenid_download ">⬇云端下载</button>
+      <view class="cu-bar btn-group">
+        <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-blue round shadow" bindtap="onGetOpenid_download">⬇云端下载</button>
       </view>
     </view>
     <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后可以同步。“本地上传”将覆盖云端数据；“云端下载”将覆盖本地数据</view>
   </view>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top ">
+  <view class="cu-bar bg-red light solid-bottom margin-top">
     <view class='action'>
       <text class='icon-title text-red'></text>小程序推荐
     </view>
@@ -105,7 +105,7 @@
   <view class='padding bg-white bg-white-last'>
     <view class='box'>
       <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-red round shadow' bindtap="hard_choice ">艰难的选择</button>
+        <button class='cu-btn bg-red round shadow' bindtap="hard_choice">艰难的选择</button>
       </view>
     </view>
   </view>

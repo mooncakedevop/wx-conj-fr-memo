@@ -151,7 +151,7 @@ Page({
 
     wx.setStorageSync('learn_word_today', learn_word_today)
     wx.setStorageSync('learn_word_today_no', learn_word_today_no)
-
+    wx.setStorageSync('word_frequence_5000', word_frequence_5000)
 
     var main_today_all = today_all.length
     var main_already_word = already_word.length

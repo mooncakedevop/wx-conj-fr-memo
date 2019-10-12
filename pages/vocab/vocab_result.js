@@ -229,6 +229,8 @@ Page({
       }
     }
 
+    console.log(learn_word_today)
+
     wx.setStorageSync("learn_word_today", learn_word_today)
     wx.setStorageSync("learn_word_today_no", learn_word_today_no)
   },

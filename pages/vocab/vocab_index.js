@@ -40,7 +40,7 @@ Page({
         var learn_word_new_today = [repeat_date];
         var learn_word_new_today_no = [];
         var i = 0;
-        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
+        var word_frequence_5000 = app.globalData.word_frequence_5000
         while (i < app.globalData.freq_number) {
           var learn_no = Math.floor(Math.random() * (1500 - 0 + 1) + 0);
           if (word_frequence_5000[learn_no].level == 0) {
@@ -54,7 +54,6 @@ Page({
         app.globalData.learn_word_new_today = learn_word_new_today
         app.globalData.learn_word_new_today_no = learn_word_new_today_no
 
-        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
         wx.setStorageSync('learn_word_new_today', learn_word_new_today)
         wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
 
@@ -65,7 +64,7 @@ Page({
         var learn_word_new_today = [repeat_date];
         var learn_word_new_today_no = [];
         var i = 0;
-        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
+        var word_frequence_5000 = app.globalData.word_frequence_5000
         while (i < app.globalData.freq_number) {
           var learn_no = Math.floor(Math.random() * (3000 - 1501 + 1) + 1501);
           if (word_frequence_5000[learn_no].level == 0) {
@@ -79,7 +78,6 @@ Page({
         app.globalData.learn_word_new_today = learn_word_new_today
         app.globalData.learn_word_new_today_no = learn_word_new_today_no
 
-        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
         wx.setStorageSync('learn_word_new_today', learn_word_new_today)
         wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
 
@@ -90,7 +88,7 @@ Page({
         var learn_word_new_today = [repeat_date];
         var learn_word_new_today_no = [];
         var i = 0;
-        var word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
+        var word_frequence_5000 = app.globalData.word_frequence_5000
         while (i < app.globalData.freq_number) {
           var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
           if (word_frequence_5000[learn_no].level == 0) {
@@ -104,7 +102,6 @@ Page({
         app.globalData.learn_word_new_today = learn_word_new_today
         app.globalData.learn_word_new_today_no = learn_word_new_today_no
 
-        wx.setStorageSync('word_frequence_5000', word_frequence_5000)
         wx.setStorageSync('learn_word_new_today', learn_word_new_today)
         wx.setStorageSync('learn_word_new_today_no', learn_word_new_today_no)
 

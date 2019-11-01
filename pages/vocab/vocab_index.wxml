@@ -1,4 +1,8 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="margin-avatar">
+    <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+  </view>
   <view class="cu-bar btn-group  title_css">
     <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
   </view>
@@ -20,15 +24,17 @@
             <view class="text-sl">{{main_review_word}}</view>
           </view>
         </view>
+
         <view class="cu-bar btn-group">
-          <button class='cu-btn lines-white shadow sm round' bindtap="setting">背单词设置</button>
+          <button class='cu-btn lines-white shadow sm round' bindtap="setting">个性化设置</button>
         </view>
+
       </view>
     </view>
 
 
     <view class=" text-center light padding">
-    <official-account></official-account>
+      <official-account></official-account>
       <view class="padding bg-answer-hc">
         <view class='text-lg text-gap'>今日新词</view>
         <view class='text-sm text-gap italic'>Les nouveaux mots d'aujourd'hui</view>

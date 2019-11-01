@@ -253,8 +253,8 @@ Page({
   },
 
   setting: function() {
-    wx.navigateTo({
-      url: '../settings/settings_vocab',
+    wx.switchTab({
+      url: '../settings/settings',
     })
   },
 

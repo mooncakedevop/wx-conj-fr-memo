@@ -29,51 +29,57 @@
     <view class='text-left text-xs'>{{msg[6]}}</view>
   </view>
 
-  <view class="cu-bar bg-mauve light solid-bottom margin-top ">
-    <view class='action'>
-      <text class='icon-title text-mauve'></text>感觉还不错？或者想吐槽？
-    </view>
-  </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='box'>
-      <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-red round shadow' bindtap="like_me">✨不淡定的实验室</button>
-      </view>
-      <official-account></official-account>
-      <view class='text-left text-xs text-grey padding'>点击上方按钮关注微信公众号。小程序后续怎么改、增加什么功能、还想要什么样的“法语学习利器”由你决定😎赶紧投票吧😏</view>
-    </view>
-  </view>
-
-
   <view class="cu-bar bg-red light solid-bottom margin-top ">
     <view class='action'>
-      <text class='icon-title text-red'></text>设置
+      <text class='icon-title text-red'></text>个性化
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='box'>
-      <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-red round shadow' bindtap="settings_vocab">背单词设置</button>
+  <view class="cu-list menu">
+    <view class="cu-item arrow">
+      <view class="content text-left">
+        <text class="cuIcon-emojiflashfill text-pink"></text>
+        <text class="text-grey">🍞 获取记忆面包</text>
       </view>
-      <view class="cu-bar btn-group ">
-        <button class='cu-btn bg-blue round shadow' bindtap="settings_conj">动词变位设置</button>
+      <view class="action">
+        <text class="text-grey text-sm">66 个 🍞</text>
       </view>
     </view>
-  </view>
-
-  <view class="cu-bar bg-mauve light solid-bottom margin-top ">
-    <view class='action'>
-      <text class='icon-title text-mauve'></text>关于法语记忆：学背单词动词变位
+    <view class="cu-item arrow">
+      <navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
+        <text class="text-grey ">🔮 背单词设置</text>
+      </navigator>
     </view>
-  </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='box'>
-      <view class="cu-bar btn-group ">
-        <button class='cu-btn lines-blue round shadow' bindtap="help">📄关于</button>
-        <button class='cu-btn bg-red round shadow' open-type="feedback">❌报错和建议</button>
+    <view class="cu-item arrow">
+      <navigator class="content text-left" hover-class="none" url="../settings/settings_conj" open-type="navigate">
+        <text class="text-grey ">📚 动词变位设置</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey left">📨 报错与建议</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey left">📡 联系客服</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content text-left">
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="text-grey">🔬 不淡定的实验室</text>
       </view>
-      <view class='text-left text-xs text-grey padding'>若使用过程中，有疑问、bug、错误、显示为null的情况、改进意见，欢迎点击“报错和建议”进行反馈，反馈时注明具体单词方便改正哦。</view>
-      <view class='text-left text-xs text-grey padding'>小程序原名：法语动词变位记忆小助手</view>
+      <view class="action">
+        <view class="cu-tag round bg-orange light">MAKER</view>
+        <view class="cu-tag round bg-olive light">GEEK</view>
+      </view>
+    </view>
+    <view class="cu-item arrow bg-white-last">
+      <navigator class="content text-left" hover-class="none" url="../settings/help/help" open-type="navigate">
+        <text class="text-grey ">👦 关于</text>
+      </navigator>
     </view>
   </view>
 

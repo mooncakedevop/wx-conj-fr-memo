@@ -1,6 +1,12 @@
 .title_css {
-  padding-top: 15vh;
+  padding-top: 3vh;
   padding-bottom: 2vh;
+}
+
+.margin-avatar{
+  padding-top: 15vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
 }
 
 .page {

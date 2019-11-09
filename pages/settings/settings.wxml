@@ -35,13 +35,13 @@
     </view>
   </view>
   <view class="cu-list menu">
-    <view class="cu-item arrow">
+    <view class="cu-item arrow" bindtap="zhuye">
       <view class="content text-left">
         <text class="cuIcon-emojiflashfill text-pink"></text>
-        <text class="text-grey">🍞 获取记忆面包</text>
+        <text class="text-grey">🎈 小程序主页</text>
       </view>
       <view class="action">
-        <text class="text-grey text-sm">66 个 🍞</text>
+        <text class="text-grey text-sm">https://hxd.red/</text>
       </view>
     </view>
     <view class="cu-item arrow">
@@ -66,7 +66,7 @@
         <text class="text-grey left">📡 联系客服</text>
       </button>
     </view>
-    <view class="cu-item arrow">
+    <view class="cu-item arrow"  bindtap="gongzhonghao">
       <view class="content text-left">
         <text class="cuIcon-tagfill text-red"></text>
         <text class="text-grey">🔬 不淡定的实验室</text>

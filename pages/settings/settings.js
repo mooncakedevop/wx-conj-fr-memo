@@ -333,10 +333,10 @@ Page({
     })
   },
 
-  copy_current: function() {
+  zhuye: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://hxd.red/conj-helper-3-1-0",
+      data: "https://hxd.red/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',
@@ -353,7 +353,7 @@ Page({
     })
   },
 
-  like_me: function() {
+  gongzhonghao: function() {
     var self = this;
     wx.setClipboardData({
       data: "hxdred",

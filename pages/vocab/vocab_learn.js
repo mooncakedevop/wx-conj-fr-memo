@@ -45,6 +45,7 @@ Page({
       learn_level: learn_level
     })
 
+    wx.setStorageSync("consult_data", null) //将consult_data重置后再去查询，避免显示上一次的数据
     this.onQuery(learn_word);
 
     wx.showToast({
@@ -86,51 +87,71 @@ Page({
   },
 
   onQuery: function(search_word) {
+
     var that = this
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
-
     const _ = db.command
     db.collection('vocab_dic_larousse_20190807').where(_.or([{
       w_s: search_word
     }])).get({
       success: function(res) {
         console.log(res.data)
-        app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
       }
     })
   },
 
   hint: function() {
-    var learn_lj_fr = app.globalData.consult_data[0].w_lj_fr;
-    learn_lj_fr = learn_lj_fr.split(";");
-    var learn_lj = [];
-    if (learn_lj_fr == '') {
-      learn_lj.push("暂无例句")
-    } else {
-      for (var i = 0; i < learn_lj_fr.length; i++) {
-        var learn_objet = {
-          list: " ",
-          fr: " "
-        };
-        learn_objet.list = i + 1
-        learn_objet.fr = learn_lj_fr[i]
-        learn_lj.push(learn_objet)
-      }
-    }
+    var consult_data = wx.getStorageSync('consult_data')
 
-    console.log(learn_lj)
-    this.setData({
-      learn_lj: learn_lj
-    })
+
+    if (consult_data != null) {
+      var learn_lj_fr = consult_data[0].w_lj_fr;
+      learn_lj_fr = learn_lj_fr.split(";");
+      var learn_lj = [];
+      if (learn_lj_fr == '') {
+        learn_lj.push("暂无例句")
+      } else {
+        for (var i = 0; i < learn_lj_fr.length; i++) {
+          var learn_objet = {
+            list: " ",
+            fr: " "
+          };
+          learn_objet.list = i + 1
+          learn_objet.fr = learn_lj_fr[i]
+          learn_lj.push(learn_objet)
+        }
+      }
+      console.log(learn_lj)
+      this.setData({
+        learn_lj: learn_lj
+      })
+    } else {
+      wx.showToast({
+        title: '请检查网络或稍等😥',
+        icon: 'none',
+        duration: 1000,
+        mask: true,
+      })
+    }
   },
 
 
   result: function() {
-    wx.redirectTo({
-      url: '../vocab/vocab_result',
-    })
+    var consult_data = wx.getStorageSync('consult_data')
+    if (consult_data != null) {
+      wx.redirectTo({
+        url: '../vocab/vocab_result',
+      })
+    } else {
+      wx.showToast({
+        title: '请检查网络或稍等😥',
+        icon: 'none',
+        duration: 1000,
+        mask: true,
+      })
+    }
   },
 
   onShareAppMessage: function(res) {

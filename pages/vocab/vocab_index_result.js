@@ -30,7 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var consult_data = app.globalData.consult_data;
+    var consult_data = wx.getStorageSync('consult_data');
+    console.log(consult_data)
     var learn_word = consult_data[0].w_s;
     var learn_cx = consult_data[0].w_cx;
     var learn_js_cn = consult_data[0].w_js_cn;
@@ -40,46 +41,57 @@ Page({
     var learn_word_all = consult_data[0].word;
     var learn_word_no = consult_data[0].w_no;
 
-    learn_word_all = learn_word_all.split(";");
     learn_cx = learn_cx.split(";");
-    var learn_word_cx = [];
-    for (var i = 0; i < learn_word_all.length; i++) {
-      learn_word_cx.push(i + 1)
-      learn_word_cx.push(". ")
-      learn_word_cx.push(learn_word_all[i])
-      learn_word_cx.push(learn_cx[i])
-      learn_word_cx.push("\r\n")
-    }
-    learn_word_cx = learn_word_cx.join(" ")
-    console.log(learn_word_cx)
-
-    learn_lj_fr = learn_lj_fr.split(";");
+    learn_js_cn = learn_js_cn.split(";");
+    learn_js_fr = learn_js_fr.split(";");
     learn_lj_cn = learn_lj_cn.split(";");
-    var learn_lj = [];
-    if (learn_lj_fr == '') {
-      learn_lj.push("暂无例句")
-    } else {
-      for (var i = 0; i < learn_lj_fr.length; i++) {
-        learn_lj.push(i + 1)
-        learn_lj.push(". ")
-        learn_lj.push(learn_lj_fr[i])
-        learn_lj.push(learn_lj_cn[i])
-        learn_lj.push("\r\n")
-      }
-      learn_lj = learn_lj.join(" ")
-      console.log(learn_lj)
+    learn_lj_fr = learn_lj_fr.split(";");
+    learn_word_all = learn_word_all.split(";");
+
+    var learn_word_cx = []  //第二格
+    for (var i = 0; i < learn_word_all.length; i++) {
+      var learn_word_cx_objet = {
+        list: " ",
+        word: " ",
+        cx: " "
+      };
+      learn_word_cx_objet.list = i + 1
+      learn_word_cx_objet.word = learn_word_all[i]
+      learn_word_cx_objet.cx = learn_cx[i]
+      learn_word_cx.push(learn_word_cx_objet)
+    }
+
+    var learn_js = []  //第三格
+    for (var i = 0; i < learn_js_cn.length; i++) {
+      var learn_js_objet = {
+        list: " ",
+        js_cn: " ",
+        js_fr: " "
+      };
+      learn_js_objet.list = i + 1
+      learn_js_objet.js_cn = learn_js_cn[i]
+      learn_js_objet.js_fr = learn_js_fr[i]
+      learn_js.push(learn_js_objet)
+    }
+
+    var learn_lj = []  //第四格
+    for (var i = 0; i < learn_lj_cn.length; i++) {
+      var learn_lj_objet = {
+        list: " ",
+        lj_cn: " ",
+        lj_fr: " "
+      };
+      learn_lj_objet.list = i + 1
+      learn_lj_objet.lj_cn = learn_lj_cn[i]
+      learn_lj_objet.lj_fr = learn_lj_fr[i]
+      learn_lj.push(learn_lj_objet)
     }
 
     this.setData({
-      learn_word_cx: learn_word_cx,
-      learn_lj: learn_lj,
       learn_word: learn_word,
-      learn_cx: learn_cx,
-      learn_js_cn: learn_js_cn,
-      learn_js_fr: learn_js_fr,
-      learn_lj_cn: learn_lj_cn,
-      learn_lj_fr: learn_lj_fr,
-      learn_word_all: learn_word_all,
+      learn_word_cx: learn_word_cx,
+      learn_js: learn_js,
+      learn_lj: learn_lj,
       learn_word_no: learn_word_no,
     })
 

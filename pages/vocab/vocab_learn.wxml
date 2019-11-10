@@ -15,9 +15,8 @@
       <view class='text-center' wx:if="{{learn_lj == '点击查看例句提示'}}"> 点击查看例句提示 </view>
       <view class='text-center' wx:if="{{learn_lj == '暂无例句'}}"> 暂无例句 </view>
       <view class='text-left' wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
-        <text class='text-list'> {{learn_lj[idx].list}}.</text>
+        <text class='text-cn'> {{learn_lj[idx].list}}.</text>
         <text class='text-fr'> {{learn_lj[idx].fr}}</text>
-        <view class="divLine"></view>
       </view>
     </view>
 

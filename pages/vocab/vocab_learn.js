@@ -29,7 +29,7 @@ Page({
     }
 
     var learn_word = learn_word_today[learn_no];
-    var learn_word_no = learn_word_today_no[learn_no-1];
+    var learn_word_no = learn_word_today_no[learn_no - 1];
     var learn_level = word_frequence_5000[learn_word_no].level;
     var learn_lj = '点击查看例句提示'
 
@@ -110,13 +110,14 @@ Page({
       learn_lj.push("暂无例句")
     } else {
       for (var i = 0; i < learn_lj_fr.length; i++) {
-        learn_lj.push(i + 1)
-        learn_lj.push(". ")
-        learn_lj.push(learn_lj_fr[i])
-        learn_lj.push("\r\n")
+        var learn_objet = {
+          list: " ",
+          fr: " "
+        };
+        learn_objet.list = i + 1
+        learn_objet.fr = learn_lj_fr[i]
+        learn_lj.push(learn_objet)
       }
-      learn_lj = learn_lj.join(" ")
-      console.log(learn_lj)
     }
 
     console.log(learn_lj)

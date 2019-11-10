@@ -28,3 +28,19 @@
 .margin-top {
   margin-top: 5vh;
 }
+
+.text-left{
+  text-align: left; 
+  font-weight: normal;
+  line-height: 140%;
+  margin-left: 3vh;
+  margin-right: 0vh;
+}
+
+.text-fr{
+  text-align: left; 
+  font-weight: 700;
+  line-height: 140%;
+  margin-left: 1vh;
+  margin-right: 3vh;
+}

@@ -57,7 +57,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -121,6 +121,19 @@
 					"pathName": "pages/welcome/welcome",
 					"query": "",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/vocab/vocab_learn",
+					"pathName": "pages/vocab/vocab_learn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vocab/vocab_learn",
+					"pathName": "pages/vocab/vocab_learn",
+					"scene": null
 				}
 			]
 		}

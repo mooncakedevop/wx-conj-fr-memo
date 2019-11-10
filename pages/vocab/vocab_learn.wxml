@@ -1,8 +1,8 @@
 <view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
-  <view class=" padding radius text-center shadow-blur title_css">
+  <view class="padding text-center radius shadow-blur title_css">
     <view class="cu-bar bg-blue light solid-bottom margin-top" bindtap='result'>
       <view class='action italic'>
-        <text class='text-center italic'></text>单词等级：{{learn_level}}
+        <view class='text-center italic'></view>单词等级：{{learn_level}}
       </view>
     </view>
 
@@ -12,7 +12,10 @@
     </view>
 
     <view class='padding bg-white bg-white-last dash-conj' bindtap='hint'>
-      <text class='text-center'>{{learn_lj}}</text>
+      <view class='text-center' wx:if="{{learn_lj == '点击查看例句提示'}}"> 点击查看例句提示 </view>
+      <view class='text-center' wx:if="{{learn_lj == '暂无例句'}}"> 暂无例句 </view>
+      <view class='text-left' wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key > {{learn_lj[idx].list}}. <text class='text-fr'> {{learn_lj[idx].fr}}</text>
+      </view>
     </view>
 
   </view>

@@ -3,6 +3,8 @@ const db = wx.cloud.database() //初始化数据库
 const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
 const date_review = new Array(0, 1, 3, 5, 7, 14, 30, 60)
+// 在页面中定义插屏广告
+let interstitialAd = null
 
 Page({
 
@@ -99,6 +101,15 @@ Page({
 
     wx.setStorageSync("consult_data", null)
 
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
   },
 
   /**
@@ -181,6 +192,12 @@ Page({
   },
 
   trop_facile: function() {
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
     var that = this
     wx.showModal({
       title: '提示',

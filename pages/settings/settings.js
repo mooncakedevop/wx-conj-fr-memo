@@ -1,8 +1,9 @@
-
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const settings = db.collection('user_setting')
 const picker = new Array('5', '10', '20', '30', '45', '60')
+// 在页面中定义插屏广告
+let interstitialAd = null
 
 Page({
 
@@ -71,6 +72,16 @@ Page({
       avatarUrl: avatarUrl,
       tongbu: tongbu,
     })
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
   },
 
   close_it: function() {
@@ -122,6 +133,11 @@ Page({
       success(res) {
         if (res.confirm) {
           that.onQuery();
+          if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+              console.error(err)
+            })
+          }
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -151,6 +167,11 @@ Page({
       success(res) {
         if (res.confirm) {
           that.onUpdate();
+          if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+              console.error(err)
+            })
+          }
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -351,6 +372,12 @@ Page({
         })
       }
     })
+
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   gongzhonghao: function() {
@@ -371,6 +398,12 @@ Page({
         })
       }
     })
+
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   hard_choice: function() {

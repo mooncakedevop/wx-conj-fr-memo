@@ -3,6 +3,9 @@ const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const settings = db.collection('user_setting')
 const picker = new Array('5', '10', '20', '30', '45', '60')
+// 在页面中定义插屏广告
+let interstitialAd = null
+
 
 Page({
 
@@ -67,6 +70,16 @@ Page({
       avatarUrl: avatarUrl,
       tongbu: tongbu,
     })
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
   },
 
   extra_words: function(e) {
@@ -80,6 +93,11 @@ Page({
     }
     this.successToast();
     this.onUpdate();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   words_selected: function(e) {
@@ -93,6 +111,11 @@ Page({
     }
     this.successToast();
     this.onUpdate();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   words_50: function(e) {
@@ -106,6 +129,11 @@ Page({
     }
     this.successToast();
     this.onUpdate();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   words_100: function(e) {
@@ -119,6 +147,11 @@ Page({
     }
     this.successToast();
     this.onUpdate();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   words_230: function(e) {
@@ -132,6 +165,11 @@ Page({
     }
     this.successToast();
     this.onUpdate();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   advanced_shitai: function(e) {

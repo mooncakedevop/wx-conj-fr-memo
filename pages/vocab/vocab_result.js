@@ -26,6 +26,15 @@ Page({
     var learn_word = app.globalData.learn_word;
     var consult_data = wx.getStorageSync('consult_data');
     console.log(consult_data)
+
+    if (consult_data == "kong") {
+      wx.showModal({
+        title: '当前单词未收录😥请反馈',
+        content: '未收录单词为：' + '\r\n' + app.globalData.learn_word + '\r\n' + '请点击“确认”后继续。' + '\r\n' + '您可以在“个性化”页面中进行反馈，感谢支持。🤣',
+      })
+      this.bien_enregistre()
+    }
+
     var learn_cx = consult_data[0].w_cx;
     var learn_js_cn = consult_data[0].w_js_cn;
     var learn_js_fr = consult_data[0].w_js_fr;
@@ -41,7 +50,7 @@ Page({
     learn_lj_fr = learn_lj_fr.split(";");
     learn_word_all = learn_word_all.split(";");
 
-    var learn_word_cx = []  //第二格
+    var learn_word_cx = [] //第二格
     for (var i = 0; i < learn_word_all.length; i++) {
       var learn_word_cx_objet = {
         list: " ",
@@ -54,7 +63,7 @@ Page({
       learn_word_cx.push(learn_word_cx_objet)
     }
 
-    var learn_js = []  //第三格
+    var learn_js = [] //第三格
     for (var i = 0; i < learn_js_cn.length; i++) {
       var learn_js_objet = {
         list: " ",
@@ -67,7 +76,7 @@ Page({
       learn_js.push(learn_js_objet)
     }
 
-    var learn_lj = []  //第四格
+    var learn_lj = [] //第四格
     for (var i = 0; i < learn_lj_cn.length; i++) {
       var learn_lj_objet = {
         list: " ",
@@ -176,7 +185,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '😕“标记为简单”在此版本中无法撤销，确定标记？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           //等级加1，日期根据实际情况加
           var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
@@ -203,7 +212,7 @@ Page({
             mask: true,
           })
 
-          setTimeout(function () {
+          setTimeout(function() {
             wx.redirectTo({
               url: 'vocab_learn',
             })

@@ -97,15 +97,23 @@ Page({
     }])).get({
       success: function(res) {
         console.log(res.data)
-        wx.setStorageSync('consult_data', res.data);
+        var consult_data = res.data;
+        if (consult_data.length == 0){
+          consult_data = "kong";
+        }
+        console.log(consult_data)
+        wx.setStorageSync('consult_data', consult_data);
       }
     })
   },
 
   hint: function() {
     var consult_data = wx.getStorageSync('consult_data')
-
-
+    if (consult_data == "kong"){
+      wx.redirectTo({
+        url: '../vocab/vocab_result',
+      })
+    }
     if (consult_data != null) {
       var learn_lj_fr = consult_data[0].w_lj_fr;
       learn_lj_fr = learn_lj_fr.split(";");
@@ -135,11 +143,19 @@ Page({
         mask: true,
       })
     }
+
   },
 
 
   result: function() {
     var consult_data = wx.getStorageSync('consult_data')
+
+    if (consult_data == "kong") {
+      wx.redirectTo({
+        url: '../vocab/vocab_result',
+      })
+    }
+
     if (consult_data != null) {
       wx.redirectTo({
         url: '../vocab/vocab_result',
@@ -152,6 +168,7 @@ Page({
         mask: true,
       })
     }
+
   },
 
   onShareAppMessage: function(res) {

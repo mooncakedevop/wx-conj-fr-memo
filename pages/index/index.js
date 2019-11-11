@@ -3,6 +3,8 @@ const db = wx.cloud.database() //初始化数据库
 const verb = db.collection('conj_all_20190722')
 const avoir_etre = require('../../data/avoir_etre.js')
 const word_test = require('../../data/pour_word_test.js')
+// 在页面中定义插屏广告
+let interstitialAd = null
 
 Page({
   data: {
@@ -113,6 +115,15 @@ Page({
     console.log(idx_shitai)
     this.search()
 
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
   },
 
   search: function() {
@@ -880,6 +891,12 @@ Page({
   },
 
   hint: function() {
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
@@ -893,6 +910,12 @@ Page({
   },
 
   next_conj: function() {
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
     this.setData({
       iconType: [" ", " ", " ", " ", " ", " "],
       iconColor: [" ", " ", " ", " ", " ", " "],

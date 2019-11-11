@@ -4,6 +4,8 @@ const settings = db.collection('user_setting')
 const picker = ['10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60']
 const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
+// 在页面中定义插屏广告
+let interstitialAd = null
 
 Page({
 
@@ -29,6 +31,17 @@ Page({
       freq_3000: freq[1],
       freq_5000: freq[2],
     })
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
   },
 
   freq_1500: function(e) {
@@ -42,6 +55,11 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   freq_3000: function(e) {
@@ -54,6 +72,11 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   freq_5000: function(e) {
@@ -66,6 +89,11 @@ Page({
       wx.setStorageSync('freq', app.globalData.freq)
     }
     this.successToast();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   new_user_data: function(options) {
@@ -123,6 +151,11 @@ Page({
   },
 
   settings: function() {
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
     wx.navigateBack({
       delta: 1
     })
@@ -319,20 +352,20 @@ Page({
 
   },
 
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '搞定法语背单词就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

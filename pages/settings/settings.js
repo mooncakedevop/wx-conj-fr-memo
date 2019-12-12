@@ -8,15 +8,6 @@ let interstitialAd = null
 Page({
 
   data: {
-    isChecked1: app.globalData.isChecked1,
-    isChecked1_50: app.globalData.isChecked1_50,
-    isChecked1_100: app.globalData.isChecked1_100,
-    isChecked1_230: app.globalData.isChecked1_230,
-    isChecked2: app.globalData.isChecked2, //进阶时态
-    isChecked3: app.globalData.isChecked3, //高手时态
-    isChecked4: app.globalData.isChecked4, //不常用时态
-    tongbu: "⛅点击进行同步",
-    avatarUrl: "user-unlogin.png",
     userInfo: {},
     logged: false,
     takeSession: false,
@@ -30,47 +21,10 @@ Page({
   },
 
   onLoad() {
-    var avatarUrl = "user-unlogin.png"
-    var hidden_or_not = wx.getStorageSync("hidden_or_not")
-    var tongbu = wx.getStorageSync("tongbu")
-
-    if (tongbu == "") {
-      tongbu = "⛅点击进行同步"
-    }
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              console.log(res.userInfo)
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo,
-                nickName: res.userInfo.nickName
-              })
-            }
-          })
-        }
-      }
-    })
-
     this.onQuery_msg();
 
     this.setData({
-      isChecked1: app.globalData.isChecked1,
-      isChecked1_selected: app.globalData.isChecked1_selected,
-      isChecked1_50: app.globalData.isChecked1_50,
-      isChecked1_100: app.globalData.isChecked1_100,
-      isChecked1_230: app.globalData.isChecked1_230,
-      isChecked2: app.globalData.isChecked2, //进阶时态
-      isChecked3: app.globalData.isChecked3, //高手时态
-      isChecked4: app.globalData.isChecked4, //不常用时态
 
-      hidden_or_not: hidden_or_not,
-      avatarUrl: avatarUrl,
-      tongbu: tongbu,
     })
 
     // 在页面onLoad回调事件中创建插屏广告实例
@@ -85,7 +39,7 @@ Page({
   },
 
   close_it: function() {
-    wx.setStorageSync("hidden_or_not", true)
+    // wx.setStorageSync("hidden_or_not", true)
 
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据
@@ -143,7 +97,6 @@ Page({
         }
       }
     })
-
   },
 
   onGetOpenid_upload: function() {
@@ -186,22 +139,6 @@ Page({
     db.collection('user_setting').add({
       data: {
         carte_arrey: wx.getStorageSync('carte_arrey'),
-        newer: wx.getStorageSync('newer'),
-        version: wx.getStorageSync('version'),
-        likeandsave: wx.getStorageSync('likeandsave'),
-        time_count: wx.getStorageSync('time_count'),
-        hidden_or_not: wx.getStorageSync('hidden_or_not'),
-        isChecked1: wx.getStorageSync('isChecked1'),
-        isChecked1_selected: wx.getStorageSync('isChecked1_selected'),
-        isChecked1_50: wx.getStorageSync('isChecked1_50'),
-        isChecked1_100: wx.getStorageSync('isChecked1_100'),
-        isChecked1_230: wx.getStorageSync('isChecked1_230'),
-        isChecked2: wx.getStorageSync('isChecked2'),
-        isChecked3: wx.getStorageSync('isChecked3'),
-        isChecked4: wx.getStorageSync('isChecked4'),
-
-        freq: wx.getStorageSync('freq'),
-        freq_number: wx.getStorageSync('freq_number'),
         word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
       },
       success: res => {
@@ -234,51 +171,16 @@ Page({
           that.onAdd()
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
-          wx.setStorageSync('newer', res.data[0].newer);
-          wx.setStorageSync('likeandsave', res.data[0].likeandsave);
-          wx.setStorageSync('time_count', res.data[0].time_count);
-          wx.setStorageSync('hidden_or_not', res.data[0].hidden_or_not);
-          wx.setStorageSync('isChecked1', res.data[0].isChecked1);
-          wx.setStorageSync('isChecked1_selected', res.data[0].isChecked1_selected);
-          wx.setStorageSync('isChecked1_50', res.data[0].isChecked1_50);
-          wx.setStorageSync('isChecked1_100', res.data[0].isChecked1_100);
-          wx.setStorageSync('isChecked1_230', res.data[0].isChecked1_230);
-          wx.setStorageSync('isChecked2', res.data[0].isChecked2);
-          wx.setStorageSync('isChecked3', res.data[0].isChecked3);
-          wx.setStorageSync('isChecked4', res.data[0].isChecked4);
-
-          wx.setStorageSync('freq', res.data[0].freq);
-          wx.setStorageSync('freq_number', res.data[0].freq_number);
           wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
 
           app.globalData.carte_arrey = res.data[0].carte_arrey;
-          app.globalData.newer = res.data[0].newer;
-          app.globalData.likeandsave = res.data[0].likeandsave;
-          app.globalData.time_count = res.data[0].time_count;
-          app.globalData.hidden_or_not = res.data[0].hidden_or_not;
-          app.globalData.isChecked1 = res.data[0].isChecked1;
-          app.globalData.isChecked1_selected = res.data[0].isChecked1_selected;
-          app.globalData.isChecked1_50 = res.data[0].isChecked1_50;
-          app.globalData.isChecked1_100 = res.data[0].isChecked1_100;
-          app.globalData.isChecked1_230 = res.data[0].isChecked1_230;
-          app.globalData.isChecked2 = res.data[0].isChecked2;
-          app.globalData.isChecked3 = res.data[0].isChecked3;
-          app.globalData.isChecked4 = res.data[0].isChecked4;
-
-          app.globalData.freq = res.data[0].freq;
-          app.globalData.freq_number = res.data[0].freq_number;
           app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
 
           if (getCurrentPages().length != 0) {
             //刷新当前页面的数据
             getCurrentPages()[getCurrentPages().length - 1].onLoad()
           }
-
-          that.setData({
-            tongbu: "💯已自动同步"
-          })
-          wx.setStorageSync('tongbu', "💯已自动同步");
-
+          
           wx.showToast({
             title: '同步成功',
           })
@@ -308,7 +210,6 @@ Page({
       }
     })
   },
-
 
   help: function() {
     wx.navigateTo({
@@ -418,6 +319,19 @@ Page({
         // 打开成功
       }
     })
+  },
+
+  dark_mode: function (e) {
+    var that = this;
+    if (e.detail.value == true) {
+      app.globalData.isChecked1_50 = true;
+      wx.setStorageSync('isChecked1_50', true)
+    } else {
+      app.globalData.isChecked1_50 = false;
+      wx.setStorageSync('isChecked1_50', false)
+    }
+    this.successToast();
+    this.onUpdate();
   },
 
   onQuery_msg: function(search_word) {

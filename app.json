@@ -6,7 +6,6 @@
     "pages/settings/settings",
     "pages/settings/settings_vocab",
     "pages/settings/settings_conj",
-    "pages/settings/settings_memory_key",
     "pages/lab/result/result",
     "pages/carte/carte",
     "pages/carte/question",

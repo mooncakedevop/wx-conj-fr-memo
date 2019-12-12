@@ -44,9 +44,13 @@
         <text class="text-grey text-sm">https://hxd.red/</text>
       </view>
     </view>
+    <view class="cu-item">
+      <text class="text-grey ">🌆 黑夜模式</text>
+      <switch checked="{{dark_mode_on}}" bindchange="dark_mode" />
+    </view>
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
-        <text class="text-grey ">🔮 背单词设置</text>
+        <text class="text-grey">🔮 背单词设置</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
@@ -66,7 +70,7 @@
         <text class="text-grey left">📡 联系客服</text>
       </button>
     </view>
-    <view class="cu-item arrow"  bindtap="gongzhonghao">
+    <view class="cu-item arrow" bindtap="gongzhonghao">
       <view class="content text-left">
         <text class="cuIcon-tagfill text-red"></text>
         <text class="text-grey">🔬 不淡定的实验室</text>

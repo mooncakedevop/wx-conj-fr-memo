@@ -1,6 +1,6 @@
 <view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top action" hidden="true">
+  <view class="cu-bar bg-red light solid-bottom margin-top action {{}}" hidden="true">
     <view class="flex padding justify-between">
       <text class='text-red'></text>更新说明（点击右侧关闭）
     </view>
@@ -9,10 +9,6 @@
         <view class="icon-close text-red"></view>
       </button>
     </view>
-  </view>
-  <view class='padding bg-white bg-white-last' hidden="true">
-    <view class='text-sm bold'>v3.1.0（2019.09.21）</view>
-    <view class='text-xs'>1. 新增背单词概览页面“今日新词”跳转，点击即可跳转查看对应单词的释义和例句。</view>
   </view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top ">
@@ -29,7 +25,7 @@
     <view class='text-left text-xs'>{{msg[6]}}</view>
   </view>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top ">
+  <view class="cu-bar bg-red light solid-bottom margin-top {{dark_mode==true?'bg-blue':''}}">
     <view class='action'>
       <text class='icon-title text-red'></text>个性化
     </view>
@@ -45,8 +41,8 @@
       </view>
     </view>
     <view class="cu-item">
-      <text class="text-grey ">🌆 黑夜模式</text>
-      <switch checked="{{dark_mode_on}}" bindchange="dark_mode" />
+      <text class="text-grey ">🌜 黑夜模式</text>
+      <switch checked="{{dark_mode}}" bindchange="dark_mode" />
     </view>
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">

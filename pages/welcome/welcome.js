@@ -1,6 +1,5 @@
 const app = getApp()
 
-
 Page({
   data: {
     true_or_false: true,
@@ -10,40 +9,75 @@ Page({
   },
 
   onLoad: function() {
-    app.globalData.newer = wx.getStorageSync('newer')
-    app.globalData.version = wx.getStorageSync('version')
-    console.log(app.globalData.version)
+    var version = wx.getStorageSync('version')
 
-    if (app.globalData.newer == '' && app.globalData.version == '') { //如果没有任何数据，那就代表是新用户
-      wx.setStorageSync('isChecked1_50', true) //写下用户的第一个数据
-      wx.setStorageSync('carte_arrey', [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474]) //写下用户的第一个数据
-      wx.setStorageSync('newer', true)
-      wx.setStorageSync('version', "v3.1.0") //写入新版本的版本号
-      wx.setStorageSync('likeandsave', []) //写下用户的第一个数据
-      wx.setStorageSync('time_count', 10)
-      wx.setStorageSync("hidden_or_not", false)
-      wx.setStorageSync('freq', [true, false, false])
-      wx.setStorageSync('freq_number', "30")
+    if (version == '') { //如果没有任何数据，那就代表是新用户
+      wx.setStorageSync('carte_arrey', [{
+        "carte_arrey": [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474],
+        "likeandsave": [424]
+      }])
+      wx.setStorageSync('version', [{
+        "version": "v3.3.0"
+      }])
+      wx.setStorageSync('settings_new', [{
+        "dark_mode": false,
+        "freq_number": 30,
+        "freq": [true, false, false],
+        "time_count": 10,
+        "conj_type": [true, false, false, false, false],
+        "time_type": [true, true, false]
+      }])
     }
 
-    if (app.globalData.version != "v3.1.0") { //如果只是新版本的数据没有
-      wx.setStorageSync('version', "v3.1.0") //写入新版本的版本
-      wx.setStorageSync("hidden_or_not", false)
+    if (version[0].version != "v3.3.0" && version != "v3.3.0") { //如果只是新版本的数据没有
+      wx.setStorageSync('carte_arrey', [{
+        "carte_arrey": [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474],
+        "likeandsave": [424]
+      }])
+      wx.setStorageSync('version', [{
+        "version": "v3.3.0"
+      }]) //写入新版本的版本号
+      wx.setStorageSync('settings_new', [{
+        "dark_mode": false,
+        "freq_number": 30,
+        "freq": [true, false, false],
+        "time_count": 10,
+        "conj_type": [true, false, false, false, false],
+        "time_type": [true, true, false]
+      }])
+
+      var settings_new = wx.getStorageSync('settings_new')
+      var carte_arrey = wx.getStorageSync('carte_arrey')
+
+      settings_new[0].freq_number = wx.getStorageSync('freq_number')
+      settings_new[0].freq = wx.getStorageSync('freq')
+      settings_new[0].time_count = wx.getStorageSync('time_count')
+      settings_new[0].freq = wx.getStorageSync('freq')
+      carte_arrey[0].likeandsave = wx.getStorageSync('likeandsave')
+
+      wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('carte_arrey', carte_arrey)
+
+      wx.removeStorageSync('isChecked1')
+      wx.removeStorageSync('isChecked1_selected')
+      wx.removeStorageSync('isChecked1_50')
+      wx.removeStorageSync('isChecked1_100')
+      wx.removeStorageSync('isChecked1_230')
+      wx.removeStorageSync('isChecked2')
+      wx.removeStorageSync('isChecked3')
+      wx.removeStorageSync('isChecked4')
+      wx.removeStorageSync('likeandsave')
+      wx.removeStorageSync('time_count')
+      wx.removeStorageSync('freq')
+      wx.removeStorageSync('freq_number')
+      wx.removeStorageSync('newer')
+
+      console.log(wx.getStorageSync('version'))
+      console.log(wx.getStorageSync('settings_new'))
+      console.log(wx.getStorageSync('carte_arrey'))
     }
 
     app.globalData.isChecked1 = wx.getStorageSync('isChecked1')
-    app.globalData.isChecked1_selected = wx.getStorageSync('isChecked1_selected')
-    app.globalData.isChecked1_50 = wx.getStorageSync('isChecked1_50')
-    app.globalData.isChecked1_100 = wx.getStorageSync('isChecked1_100')
-    app.globalData.isChecked1_230 = wx.getStorageSync('isChecked1_230')
-    app.globalData.isChecked2 = wx.getStorageSync('isChecked2')
-    app.globalData.isChecked3 = wx.getStorageSync('isChecked3')
-    app.globalData.isChecked4 = wx.getStorageSync('isChecked4')
-    app.globalData.carte_arrey = wx.getStorageSync('carte_arrey')
-    app.globalData.likeandsave = wx.getStorageSync('likeandsave')
-    app.globalData.time_count = wx.getStorageSync('time_count')
-    app.globalData.freq = wx.getStorageSync('freq')
-    app.globalData.freq_number = wx.getStorageSync('freq_number')
 
     if (app.globalData.isChecked2 == true) {
       app.globalData.advanced_shitai = [2, 3, 7];

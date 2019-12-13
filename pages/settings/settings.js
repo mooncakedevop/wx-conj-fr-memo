@@ -18,7 +18,7 @@ Page({
     hidden_or_not: null,
 
     msg: null,
-    dark_mode:null,
+    dark_mode: null,
   },
 
   onLoad() {
@@ -97,6 +97,9 @@ Page({
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+      },
+      fail: err => {
+        console.error('download失败：', err)
       }
     })
   },
@@ -122,6 +125,7 @@ Page({
       success(res) {
         if (res.confirm) {
           that.onUpdate();
+          console.log('用户点击确定')
           if (interstitialAd) {
             interstitialAd.show().catch((err) => {
               console.error(err)
@@ -130,6 +134,9 @@ Page({
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+      },
+      fail: err => {
+        console.error('upload失败：', err)
       }
     })
 
@@ -142,6 +149,7 @@ Page({
       data: {
         carte_arrey: wx.getStorageSync('carte_arrey'),
         word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
+        settings_new: wx.getStorageSync('settings_new'),
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
@@ -151,10 +159,6 @@ Page({
         console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
       },
       fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '新增记录失败'
-        })
         console.error('[数据库] [新增记录] 失败：', err)
       }
     })
@@ -174,9 +178,11 @@ Page({
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
           wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
+          wx.setStorageSync('settings_new', res.data[0].settings_new);
 
           app.globalData.carte_arrey = res.data[0].carte_arrey;
           app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
+          app.globalData.settings_new = res.data[0].settings_new;
 
           if (getCurrentPages().length != 0) {
             //刷新当前页面的数据
@@ -187,6 +193,9 @@ Page({
             title: '同步成功',
           })
         }
+      },
+      fail: err => {
+        console.error('onquery失败：', err)
       }
     })
   },
@@ -209,6 +218,9 @@ Page({
           })
           that.onAdd()
         }
+      },
+      fail: err => {
+        console.error('onupdate失败：', err)
       }
     })
   },
@@ -323,7 +335,7 @@ Page({
     })
   },
 
-  dark_mode: function (e) {
+  dark_mode: function(e) {
     var settings_new = wx.getStorageSync('settings_new')
     if (e.detail.value == true) {
       settings_new[0].dark_mode = true;

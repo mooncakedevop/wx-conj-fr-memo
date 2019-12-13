@@ -18,13 +18,15 @@ Page({
     hidden_or_not: null,
 
     msg: null,
+    dark_mode:null,
   },
 
   onLoad() {
+    var settings_new = wx.getStorageSync('settings_new')
     this.onQuery_msg();
 
     this.setData({
-
+      dark_mode: settings_new[0].dark_mode,
     })
 
     // 在页面onLoad回调事件中创建插屏广告实例
@@ -180,7 +182,7 @@ Page({
             //刷新当前页面的数据
             getCurrentPages()[getCurrentPages().length - 1].onLoad()
           }
-          
+
           wx.showToast({
             title: '同步成功',
           })
@@ -322,16 +324,24 @@ Page({
   },
 
   dark_mode: function (e) {
-    var that = this;
+    var settings_new = wx.getStorageSync('settings_new')
     if (e.detail.value == true) {
-      app.globalData.isChecked1_50 = true;
-      wx.setStorageSync('isChecked1_50', true)
+      settings_new[0].dark_mode = true;
+      wx.setStorageSync('settings_new', settings_new)
     } else {
-      app.globalData.isChecked1_50 = false;
-      wx.setStorageSync('isChecked1_50', false)
+      settings_new[0].dark_mode = false;
+      wx.setStorageSync('settings_new', settings_new)
     }
+
+    this.setData({
+      dark_mode: settings_new[0].dark_mode,
+    })
     this.successToast();
-    this.onUpdate();
+
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
 
   onQuery_msg: function(search_word) {
@@ -367,6 +377,4 @@ Page({
       }
     }
   }
-
-
 })

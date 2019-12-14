@@ -16,14 +16,14 @@
 
   <view class='padding bg-white bg-white-last'>
     <view class="cu-form-group margin-top">
-      <view class='title'>时间选择</view>
+      <view class='title'>时间选择{{time_count}}秒</view>
       <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
         <view class="picker">
-          {{index?picker[index]:'单位：秒'}}
+          {{index?picker[index]:'🕓'}}
         </view>
       </picker>
     </view>
-    <view class='text-left text-xs text-grey padding'>更改“分类记忆→倒计时”的时间。单位：秒。默认10秒。</view>
+    <view class='text-left text-xs text-grey padding'>当前选择的时间为{{time_count}}秒。更改“分类记忆→倒计时”的时间。单位：秒。默认10秒。</view>
   </view>
 
 

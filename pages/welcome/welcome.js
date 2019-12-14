@@ -24,8 +24,8 @@ Page({
         "freq_number": 30,
         "freq": [true, false, false],
         "time_count": 10,
-        "conj_type": [true, false, false, false, false],
-        "time_type": [true, true, false]
+        "conj_type": [false, false, true, false, false],
+        "time_type": [false, false, false]
       }])
     }
 
@@ -42,8 +42,8 @@ Page({
         "freq_number": 30,
         "freq": [true, false, false],
         "time_count": 10,
-        "conj_type": [true, false, false, false, false],
-        "time_type": [true, true, false]
+        "conj_type": [false, false, true, false, false],
+        "time_type": [false, false, false]
       }])
 
       var settings_new = wx.getStorageSync('settings_new')
@@ -77,21 +77,32 @@ Page({
       console.log(wx.getStorageSync('carte_arrey'))
     }
 
-    app.globalData.isChecked1 = wx.getStorageSync('isChecked1')
+    var settings_new = wx.getStorageSync('settings_new')
 
-    if (app.globalData.isChecked2 == true) {
+    app.globalData.isChecked1 = settings_new[0].conj_type[0]
+    app.globalData.isChecked1_selected = settings_new[0].conj_type[1]
+    app.globalData.isChecked1_50 = settings_new[0].conj_type[2]
+    app.globalData.isChecked1_100 = settings_new[0].conj_type[3]
+    app.globalData.isChecked1_230 = settings_new[0].conj_type[4]
+
+    app.globalData.isChecked2 = settings_new[0].time_type[0]
+    app.globalData.isChecked3 = settings_new[0].time_type[1]
+    app.globalData.isChecked4 = settings_new[0].time_type[2]
+
+
+    if (settings_new[0].time_type[0] == true) {
       app.globalData.advanced_shitai = [2, 3, 7];
     } else {
       app.globalData.advanced_shitai = [];
     }
 
-    if (app.globalData.isChecked3 == true) {
+    if (settings_new[0].time_type[1] == true) {
       app.globalData.extra_shitai = [8, 9, 10, 11];
     } else {
       app.globalData.extra_shitai = [];
     }
 
-    if (app.globalData.isChecked4 == true) {
+    if (settings_new[0].time_type[2] == true) {
       app.globalData.inusuel_shitai = [4, 5];
     } else {
       app.globalData.inusuel_shitai = [];

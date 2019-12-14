@@ -53,10 +53,9 @@ Page({
     console.log(app.globalData.isChecked1_100)
     console.log(app.globalData.isChecked1_230)
 
-    if (app.globalData.isChecked1 == '') {
+  //  if (app.globalData.isChecked1 == '') {
       var word_test_50 = word_test.pourEtudier50
-    }
-
+  //  }
 
     if (app.globalData.isChecked1 == true) { //典型词 不重要
       var word_test_classic = word_test.pourEtudierClassic
@@ -93,7 +92,6 @@ Page({
     var idx = (Math.floor(Math.random() * idx)) //从单词总数中抽取号码
     console.log(idx)
     var word_test_final = word_test_final[idx]
-
 
     var mot_test = word_test_final["mot_test"]
     var chinois = word_test_final["chinois"]

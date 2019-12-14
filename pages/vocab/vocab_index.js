@@ -196,6 +196,39 @@ Page({
     this.onQuery(choosed_answer);
   },
 
+  onQuery_get_today_all_words: function() {
+    var learn_word_today = wx.getStorageSync('learn_word_today')
+
+    var that = this
+    var learn_word_today_detail = []
+    var i = 1
+
+    function get_words() {
+      const db = wx.cloud.database()
+      const _ = db.command
+      setTimeout(function() {
+        db.collection('vocab_dic_larousse_20190807').where(_.or([{
+          w_s: learn_word_today[i]
+        }])).get({
+          success: function(res) {
+            learn_word_today_detail.push(res.data)
+            console.log(learn_word_today_detail)
+          },
+          fail: function(res) {
+            console.log(res)
+          }
+        })
+        i++;
+        if (i <= learn_word_today.length) {
+          get_words();
+        }
+      }, 1000)
+    }
+    get_words();
+    wx.setStorageSync('learn_word_today_detail', learn_word_today_detail);
+
+  },
+
   onQuery: function(search_word) {
     var that = this
     const db = wx.cloud.database()
@@ -251,7 +284,7 @@ Page({
 
   start: function() {
     wx.navigateTo({
-      url: '../vocab/vocab_learn',
+      url: 'vocab_learn',
     })
   },
 
@@ -261,15 +294,15 @@ Page({
     })
   },
 
-  like_me: function () {
+  like_me: function() {
     var self = this;
     wx.setClipboardData({
       data: "hxdred",
-      success: function (res) {
+      success: function(res) {
         wx.showModal({
           title: '提示',
           content: '✨复制成功✨请粘贴在微信搜索框搜索公众号',
-          success: function (res) {
+          success: function(res) {
             if (res.confirm) {
               console.log('确定')
             } else if (res.cancel) {

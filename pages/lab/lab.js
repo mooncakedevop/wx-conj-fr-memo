@@ -383,9 +383,8 @@ Page({
         console.log(res.data)
         app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
-        that.onQuery2(res.data[0].ow)
         that.exp();
-        
+        that.wait();
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据
           getCurrentPages()[getCurrentPages().length - 1].onLoad()
@@ -395,23 +394,6 @@ Page({
     })
   },
 
-  onQuery2: function (search_word) {
-    var that = this
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-
-    const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
-      w_s: search_word
-    }])).get({
-      success: function (res) {
-        console.log(res.data)
-        app.globalData.consult_data_js = res.data;
-        wx.setStorageSync('consult_data_js', res.data);
-        that.wait();
-      }
-    })
-  },
 
   exp: function() {
 

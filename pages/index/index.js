@@ -53,9 +53,9 @@ Page({
     console.log(app.globalData.isChecked1_100)
     console.log(app.globalData.isChecked1_230)
 
-  //  if (app.globalData.isChecked1 == '') {
-      var word_test_50 = word_test.pourEtudier50
-  //  }
+    //  if (app.globalData.isChecked1 == '') {
+    var word_test_50 = word_test.pourEtudier50
+    //  }
 
     if (app.globalData.isChecked1 == true) { //典型词 不重要
       var word_test_classic = word_test.pourEtudierClassic
@@ -143,26 +143,6 @@ Page({
         app.globalData.consult_data = res.data;
         wx.setStorageSync('consult_data', res.data);
         that.exp();
-      }
-    })
-  },
-
-  onQuery2: function(search_word) {
-    var that = this
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-
-    const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
-      w_s: search_word
-    }])).get({
-      success: function(res) {
-        console.log(res.data)
-        app.globalData.consult_data_js = res.data;
-        wx.setStorageSync('consult_data_js', res.data);
-        wx.navigateTo({
-          url: '../lab/result/result',
-        })
       }
     })
   },
@@ -699,8 +679,6 @@ Page({
     app.globalData.shitai_vous = shitai_vous_y
     app.globalData.shitai_ils = shitai_ils_y
 
-
-
     this.setData({
       mode_je: mode_je,
       shitai_chinois: random_shitai_chinois[this.data.idx_shitai],
@@ -878,7 +856,10 @@ Page({
   },
 
   word_detail: function() {
-    this.onQuery2(this.data.content);
+    app.globalData.ow = this.data.content;
+    wx.navigateTo({
+      url: '../lab/result/result',
+    })
     wx.showToast({
       title: '查询中',
       image: '/style/paper-plane.png',

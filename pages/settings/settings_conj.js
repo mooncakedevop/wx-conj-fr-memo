@@ -55,9 +55,9 @@ Page({
       interstitialAd = wx.createInterstitialAd({
         adUnitId: 'adunit-e563df22798519aa'
       })
-      interstitialAd.onLoad(() => {})
-      interstitialAd.onError((err) => {})
-      interstitialAd.onClose(() => {})
+      interstitialAd.onLoad(() => { })
+      interstitialAd.onError((err) => { })
+      interstitialAd.onClose(() => { })
     }
   },
 

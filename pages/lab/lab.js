@@ -438,8 +438,7 @@ Page({
       return;
     }
 
-    //复合过去时 复合时态
-
+    //复合过去时 复合时态                                                                                                                            
     if (consult_data[0].wn == 'etre') { //判断助动词是否为etre
       var verbe_auxiliaire_je = avoir_etre.avoirEtre[1].indi_pre1 //etre的位置
       var verbe_auxiliaire_tu = avoir_etre.avoirEtre[1].indi_pre2

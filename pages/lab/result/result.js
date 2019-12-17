@@ -59,20 +59,27 @@ Page({
     })
   },
 
-  backto: function () {
+  backto: function() {
     wx.navigateBack({
       delta: 1
     })
   },
 
   liju: function() {
-    wx.showModal({
-      title: '双语例句',
-      content: this.data.learn_lj,
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
+    var search_word = app.globalData.ow;
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function(res) {
+        console.log(res.data)
+        app.globalData.consult_data = res.data;
+        wx.setStorageSync('consult_data', res.data);
+        wx.navigateTo({
+          url: '../../vocab/vocab_index_result',
+        })
       }
     })
   },

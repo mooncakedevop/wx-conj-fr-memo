@@ -1,90 +1,96 @@
-<view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
-
+<view class="padding radius text-center shadow-blur title_css page  {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
   <view class='box'>
     <view class="cu-bar btn-group">
       <button class='cu-btn bg-blue light round shadow' bindtap="settings">返回上一页</button>
     </view>
   </view>
 
-   <official-account></official-account>
+  <official-account></official-account>
 
-  <view class="cu-bar bg-grey light solid-bottom margin-top">
+  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-grey light'}}">
     <view class='action'>
-      <text class='icon-title text-grey'></text>时间设置
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>时间设置
+    </view>
+  </view>
+  <view class="cu-list menu bg-white-last {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="content">
+        <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">时间选择</view>
+      </view>
+      <view class="action">
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <button class="cu-btn round bg-green shadow">
+            <text class="cuIcon-upload"></text>{{time_count}}秒
+          </button>
+        </picker>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class='text-left text-xs text-grey'>当前选择的时间为{{time_count}}秒。更改“分类记忆→倒计时”的时间。单位：秒。默认10秒。</view>
     </view>
   </view>
 
-  <view class='padding bg-white bg-white-last'>
-    <view class="cu-form-group margin-top">
-      <view class='title'>时间选择{{time_count}}秒</view>
-      <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-        <view class="picker">
-          {{index?picker[index]:'🕓'}}
-        </view>
-      </picker>
-    </view>
-    <view class='text-left text-xs text-grey padding'>当前选择的时间为{{time_count}}秒。更改“分类记忆→倒计时”的时间。单位：秒。默认10秒。</view>
-  </view>
-
-
-  <view class="cu-bar bg-red light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-red'></text>单词设置
+  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class="action">
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-red'}}"></text>单词设置
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-
-    <view class="cu-form-group margin-top">
-      <view class='title'>50基础动词（共50词）</view>
+  <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">50基础动词（共50词）</view>
       <switch checked="{{isChecked1_50}}" bindchange="words_50" />
     </view>
-
-    <view class="cu-form-group margin-top">
-      <view class='title'>100进阶动词（共50词）</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">100进阶动词（共50词）</view>
       <switch checked="{{isChecked1_100}}" bindchange="words_100" />
     </view>
-
-    <view class="cu-form-group margin-top">
-      <view class='title'>230高手动词（共130词）</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">230高手动词（共130词）</view>
       <switch checked="{{isChecked1_230}}" bindchange="words_230" />
     </view>
-
-    <view class="cu-form-group margin-top">
-      <view class='title'>典型精选</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">典型精选</view>
       <switch checked="{{isChecked1_selected}}" bindchange="words_selected" />
     </view>
-
-    <view class="cu-form-group margin-top">
-      <view class='title'>典型动词（不建议勾选）</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">典型动词（不建议勾选）</view>
       <switch checked="{{isChecked1}}" bindchange="extra_words" />
     </view>
-
-    <view class='text-left text-xs text-grey padding'>请选择对应的背词范围。各选项动词不重叠。典型动词（不建议勾选）有许多非常用动词，故不建议勾选。</view>
-  </view>
-
-
-  <view class="cu-bar bg-blue light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-blue'></text>时态设置
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">请选择对应的背词范围。各选项动词不重叠。典型动词（不建议勾选）有许多非常用动词，故不建议勾选。</view>
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class="cu-form-group margin-top">
-      <view class='title'>进阶时态</view>
+
+
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
+    <view class='action'>
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-blue'}}"></text>时态设置
+    </view>
+  </view>
+  <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">(无需选择)默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时；</view>
+    </view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">进阶时态</view>
       <switch checked="{{isChecked2}}" bindchange="advanced_shitai" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>高手时态</view>
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先将来时；</view>
+    </view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">高手时态</view>
       <switch checked="{{isChecked3}}" bindchange="extra_shitai" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>不常用时态</view>
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">高手时态包括了条件式现在时、条件式过去时、虚拟式现在时、虚拟式过去时；</view>
+    </view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">不常用时态</view>
       <switch checked="{{isChecked4}}" bindchange="inusuel_shitai" />
     </view>
-    <view class='text-left text-xs text-grey padding'>默认的常用时态包括了直陈式复合过去时、直陈式现在时、直陈式简单将来时；</view>
-    <view class='text-left text-xs text-grey padding'>进阶时态包括了直陈式未完成过去时、直陈式愈过去时、直陈式先将来时；</view>
-    <view class='text-left text-xs text-grey padding'>高手时态包括了条件式现在时、条件式过去时、虚拟式现在时、虚拟式过去时；</view>
-    <view class='text-left text-xs text-grey padding'>非常用时态包括了直陈式简单过去时、直陈式先过去时。</view>
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">非常用时态包括了直陈式简单过去时、直陈式先过去时。</view>
+    </view>
   </view>
-
 </view>

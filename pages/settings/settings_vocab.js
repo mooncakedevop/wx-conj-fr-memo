@@ -18,6 +18,7 @@ Page({
     freq_3000: null,
     freq_5000: null,
     picker: ['10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60'],
+    dark_mode: null,
   },
 
   /**
@@ -33,6 +34,7 @@ Page({
 
     this.setData({
       freq_number: app.globalData.freq_number,
+      dark_mode: settings_new[0].dark_mode,
       freq_1500: freq[0],
       freq_3000: freq[1],
       freq_5000: freq[2],

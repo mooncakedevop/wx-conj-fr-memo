@@ -6,6 +6,7 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
+        env: "conj-helper-96fe10",
       })
     }
 
@@ -50,7 +51,7 @@ App({
     idx_carte_number: 0,
 
     openid: null,
-    msg:null,
+    msg: null,
 
   }
 })

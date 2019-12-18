@@ -5,7 +5,8 @@ Page({
     true_or_false: true,
     isChecked1: true,
     isChecked2: false,
-    welcome_botton: '轻触继续学习'
+    welcome_botton: '轻触继续学习',
+    dark_mode: null,
   },
 
   onLoad: function() {
@@ -89,6 +90,7 @@ Page({
     app.globalData.isChecked3 = settings_new[0].time_type[1]
     app.globalData.isChecked4 = settings_new[0].time_type[2]
 
+    app.globalData.dark_mode = settings_new[0].dark_mode
 
     if (settings_new[0].time_type[0] == true) {
       app.globalData.advanced_shitai = [2, 3, 7];
@@ -109,7 +111,7 @@ Page({
     }
 
     this.setData({
-      true_or_false: false
+      dark_mode: app.globalData.dark_mode,
     })
 
   },

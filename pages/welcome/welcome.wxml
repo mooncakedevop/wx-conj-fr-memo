@@ -1,39 +1,39 @@
-<view class='page  bg-white padding radius text-center shadow title_css'>
+<view class="page  padding radius text-center shadow title_css {{dark_mode==true?'blk-bg-black':'bg-white'}}">
 
-  <view class='flex-sub text-center'>
+  <view class="flex-sub text-center">
     <view class="margin-avatar">
-      <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+      <image src="/data/conj_trans.png" class="png" mode="widthFix"></image>
     </view>
 
-    <view class='grid col-1 padding-sm bg-btn-conj'>
-      <view class='padding-sm'>
-        <view class='bg-gradual-red round padding radius text-center shadow' bindtap="vocab_index">
+    <view class="grid col-1 padding-sm bg-btn-conj">
+      <view class="padding-sm">
+        <view class="bg-gradual-red round padding radius text-center shadow" bindtap="vocab_index">
           <view class="text-sm">📼 法语背单词</view>
         </view>
       </view>
-      <view class='padding-sm'>
-        <view class='bg-purple round padding radius text-center shadow' bindtap="intro">
+      <view class="padding-sm">
+        <view class="bg-purple round padding radius text-center shadow" bindtap="intro">
           <view class="text-sm">🚀 动词变位练习</view>
         </view>
       </view>
-      <view class='padding-sm'>
-        <view class='bg-blue round padding radius text-center shadow' bindtap="searcher">
+      <view class="padding-sm">
+        <view class="bg-blue round padding radius text-center shadow" bindtap="searcher">
           <view class="text-sm">🔎 7000动词变位查询</view>
         </view>
       </view>
-      <view class='padding-sm'>
-        <view class='bg-mauve round padding radius text-center shadow' bindtap="settings">
+      <view class="padding-sm">
+        <view class="bg-mauve round padding radius text-center shadow" bindtap="settings">
           <view class="text-sm">😆 个性化</view>
         </view>
       </view>
     </view>
     
-    <view class=' text-sm margin-text'>
-      <text class='text-grey'>✔ 法语背单词（频率最高5000词）\n</text>
-      <text class='text-grey'>✔ 7000+法语动词变位正查反查\n</text>
-      <text class='text-grey'>✔ 常用法语动词变位强化练习\n</text>
-      <text class='text-grey'>✔ 自由选择动词和时态范围\n</text>
-      <text class='text-grey'>✔ 法汉双解和例句\n</text>
+    <view class=" text-sm margin-text">
+      <text class="text-grey">✔ 法语背单词（频率最高5000词）\n</text>
+      <text class="text-grey">✔ 7000+法语动词变位正查反查\n</text>
+      <text class="text-grey">✔ 常用法语动词变位强化练习\n</text>
+      <text class="text-grey">✔ 自由选择动词和时态范围\n</text>
+      <text class="text-grey">✔ 法汉双解和例句\n</text>
     </view>
 
     <official-account></official-account>

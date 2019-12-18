@@ -1,22 +1,22 @@
-<view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
   <view class="padding text-center radius shadow-blur title_css">
-    <view class="cu-bar bg-blue light solid-bottom margin-top" bindtap='result'>
-      <view class='action italic'>
-        <view class='text-center italic'></view>单词等级：{{learn_level}}
+    <view class="cu-bar light solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-blue'}}" bindtap='result'>
+      <view class="action italic">
+        <view class="text-center italic"></view>单词等级：{{learn_level}}
       </view>
     </view>
 
-    <view class='padding bg-white' bindtap='result'>
+    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}" bindtap="result">
       <view class="text-sl">{{learn_word}}</view>
-      <view class='text-sm text-gray italic'>点击单词查看答案</view>
+      <view class="text-sm text-gray italic">点击单词查看答案</view>
     </view>
 
-    <view class='padding bg-white bg-white-last dash-conj' bindtap='hint'>
-      <view class='text-center' wx:if="{{learn_lj == '点击查看例句提示'}}"> 点击查看例句提示 </view>
-      <view class='text-center' wx:if="{{learn_lj == '暂无例句'}}"> 暂无例句 </view>
-      <view class='text-left' wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
-        <text class='text-cn'> {{learn_lj[idx].list}}.</text>
-        <text class='text-fr'> {{learn_lj[idx].fr}}</text>
+    <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}" bindtap="hint">
+      <view class="text-center" wx:if="{{learn_lj == '点击查看例句提示'}}"> 点击查看例句提示 </view>
+      <view class="text-center" wx:if="{{learn_lj == '暂无例句'}}"> 暂无例句 </view>
+      <view class="text-left" wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
+        <text class="text-cn"> {{learn_lj[idx].list}}.</text>
+        <text class="text-fr"> {{learn_lj[idx].fr}}</text>
       </view>
     </view>
 

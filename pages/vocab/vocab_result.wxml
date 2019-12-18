@@ -1,53 +1,53 @@
-<view class="page bg-gradual-blue" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
 
   <view class="padding radius text-center shadow-blur title_css">
 
-    <view class="cu-bar bg-blue light margin-top">
+    <view class="cu-bar margin-top {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
       <view class="flex padding justify-between">
-        <text class='text-center italic'>CARTE {{learn_word_no}}</text>
+        <text class="text-center italic">CARTE {{learn_word_no}}</text>
       </view>
     </view>
 
-    <view class='padding bg-white'>
+    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
       <view class="text-sl">{{learn_word}}</view>
-      <view class='cu-btn sm bg-mauve round sm shadow' bindtap="trop_facile">标记为太简单</view>
+      <view class="cu-btn sm bg-mauve round sm shadow" bindtap="trop_facile">标记为太简单</view>
     </view>
 
 
-    <view class='padding bg-white dash-conj padding-conj'>
-      <view class='text-center' wx:if="{{learn_word_cx == '暂无例句'}}"> 暂无例句 </view>
-      <view class='text-left' wx:if="{{learn_word_cx != '点击查看例句提示' && learn_js != '暂无例句'}}" wx:for="{{learn_word_cx}}" wx:for-index="idx" wx:key>
-        <text class='text-cn'> {{learn_word_cx[idx].list}}.</text>
-        <text class='text-fr'> {{learn_word_cx[idx].word}}</text>
-        <text class='text-cn'> {{learn_word_cx[idx].cx}}</text>
+    <view class="padding padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}">
+      <view class="text-center" wx:if="{{learn_word_cx == '暂无例句'}}"> 暂无例句 </view>
+      <view class="text-left" wx:if="{{learn_word_cx != '点击查看例句提示' && learn_js != '暂无例句'}}" wx:for="{{learn_word_cx}}" wx:for-index="idx" wx:key>
+        <text class="text-cn"> {{learn_word_cx[idx].list}}.</text>
+        <text class="text-fr"> {{learn_word_cx[idx].word}}</text>
+        <text class="text-cn"> {{learn_word_cx[idx].cx}}</text>
       </view>
     </view>
 
-    <view class='padding bg-white dash-conj padding-conj'>
-      <view class='text-center' wx:if="{{learn_js[0].js_cn == ''}}"> 暂无 </view>
-      <view class='text-left' wx:if="{{learn_js != '点击查看例句提示' && learn_js != '暂无例句'}}" wx:for="{{learn_js}}" wx:for-index="idx" wx:key>
-        <text class='text-cn' wx:if="{{learn_js[0].js_cn != ''}}"> {{learn_js[idx].list}}.</text>
-        <text class='text-fr'> {{learn_js[idx].js_fr}}</text>
-        <text class='text-cn'> {{learn_js[idx].js_cn}}</text>
+    <view class="padding padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}">
+      <view class="text-center" wx:if="{{learn_js[0].js_cn == ''}}"> 暂无 </view>
+      <view class="text-left" wx:if="{{learn_js != '点击查看例句提示' && learn_js != '暂无例句'}}" wx:for="{{learn_js}}" wx:for-index="idx" wx:key>
+        <text class="text-cn" wx:if="{{learn_js[0].js_cn != ''}}"> {{learn_js[idx].list}}.</text>
+        <text class="text-fr"> {{learn_js[idx].js_fr}}</text>
+        <text class="text-cn"> {{learn_js[idx].js_cn}}</text>
       </view>
     </view>
 
-    <view class='padding bg-white bg-white-last dash-conj padding-conj'>
-      <view class='text-center' wx:if="{{learn_lj[0].lj_cn == ''}}"> 暂无例句 </view>
-      <view class='text-left' wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
-        <text class='text-cn' wx:if="{{learn_lj[0].lj_cn != ''}}"> {{learn_lj[idx].list}}.</text>
-        <text class='text-fr'> {{learn_lj[idx].lj_fr}}</text>
-        <text class='text-cn'> {{learn_lj[idx].lj_cn}}</text>
+    <view class="padding bg-white-last padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}">
+      <view class="text-center" wx:if="{{learn_lj[0].lj_cn == ''}}"> 暂无例句 </view>
+      <view class="text-left" wx:if="{{learn_lj != '点击查看例句提示' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
+        <text class="text-cn" wx:if="{{learn_lj[0].lj_cn != ''}}"> {{learn_lj[idx].list}}.</text>
+        <text class="text-fr"> {{learn_lj[idx].lj_fr}}</text>
+        <text class="text-cn"> {{learn_lj[idx].lj_cn}}</text>
       </view>
     </view>
 
 
   </view>
-  <view class='box'>
+  <view class="box">
     <view class="cu-bar btn-group">
-      <button class='cu-btn light bg-red round shadow lg' bindtap="JNSP">😭</button>
-      <button class='cu-btn light bg-red round shadow lg' bindtap="justSoSo">😪</button>
-      <button class='cu-btn light bg-blue round shadow lg' bindtap="bien_enregistre">👌</button>
+      <button class="cu-btn light bg-red round shadow lg" bindtap="JNSP">😭</button>
+      <button class="cu-btn light bg-red round shadow lg" bindtap="justSoSo">😪</button>
+      <button class="cu-btn light bg-blue round shadow lg" bindtap="bien_enregistre">👌</button>
     </view>
   </view>
 </view>

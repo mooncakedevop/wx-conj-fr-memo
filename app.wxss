@@ -1,6 +1,44 @@
 @import 'colorui/icon.wxss';
 @import 'colorui/main.wxss';
 
+.blk-bg-black {
+  background-color: #000;
+  color: #666;
+}
+
+.blk-bg-grey3 {
+  background-color: #1c1c1e;
+  color: rgb(255, 255, 255);
+}
+
+.blk-bg-grey2 {
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+}
+
+.blk-bg-grey1 {
+  background-color: #9a999e;
+  color: #666;
+}
+
+.blk-text-white {
+  color: #f8f8f8;
+}
+
+.blk-text-grey1 {
+  color: #9a999e;
+}
+
+.cu-list.menu-dark>.cu-item {
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+  min-height: 100rpx;
+  background-color: #1c1c1e;
+  justify-content: space-between;
+  align-items: center;
+}
+
 page {
   background-color: #f8f8f8;
   font-size: 16px;
@@ -46,29 +84,29 @@ page {
   font-size: 15px;
 }
 
-.dash-conj{
-  border-style:dashed none none none;
-  border-color:aqua;
+.dash-conj {
+  border-style: dashed none none none;
+  border-color: aqua;
 }
 
-.italic{
-  font-style:italic;
+.italic {
+  font-style: italic;
   padding-bottom: 1px;
 }
 
-.bold{
-  font-weight:bold;
+.bold {
+  font-weight: bold;
   padding-bottom: 1px;
 }
 
-.cu-bar{
-border-top-left-radius:4vw;
-border-top-right-radius:4vw;
+.cu-bar {
+  border-top-left-radius: 4vw;
+  border-top-right-radius: 4vw;
 }
 
-.bg-white-last{
-border-bottom-left-radius:4vw;
-border-bottom-right-radius:4vw;
+.bg-white-last {
+  border-bottom-left-radius: 4vw;
+  border-bottom-right-radius: 4vw;
 }
 
 .text-list {
@@ -89,7 +127,7 @@ border-bottom-right-radius:4vw;
   line-height: 140%;
   margin-left: 1vh;
   font-size: medium;
-  font-style:italic;
+  font-style: italic;
 }
 
 .divLine {

@@ -21,6 +21,7 @@ Page({
     index: null,
     time_count: null,
     picker: ['5', '10', '20', '30', '45', '60'],
+    dark_mode: null,
   },
 
   onLoad() {
@@ -37,6 +38,10 @@ Page({
     app.globalData.isChecked4 = settings_new[0].time_type[2]
 
     app.globalData.time_count = settings_new[0].time_count
+
+    this.setData({
+      dark_mode: settings_new[0].dark_mode,
+    })
 
     this.setData({
       isChecked1: app.globalData.isChecked1,

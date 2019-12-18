@@ -1,4 +1,4 @@
-<view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
+<view class="padding radius text-center shadow-blur title_css page  {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
   <view class='box'>
     <view class="cu-bar btn-group">
       <button class='cu-btn bg-blue light round shadow' bindtap="settings">返回上一页</button>
@@ -7,64 +7,72 @@
 
   <official-account></official-account>
 
-  <view class="cu-bar bg-grey light solid-bottom margin-top">
+  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-grey light'}}">
     <view class='action'>
-      <text class='icon-title text-grey'></text>背词设置
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>背词设置
+    </view>
+  </view>
+  <view class="cu-list menu bg-white-last {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="content">
+        <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">每天新词</view>
+      </view>
+      <view class="action">
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <button class="cu-btn round bg-green shadow">
+            <text class="cuIcon-upload"></text>{{freq_number}}个
+          </button>
+        </picker>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class='text-left text-xs text-grey'>设置每天遇见新单词的个数。现设置为{{freq_number}}个。默认30个。设置修改将在第二天生效。</view>
     </view>
   </view>
 
-  <view class='padding bg-white bg-white-last'>
-    <view class="cu-form-group margin-top">
-      <view class='title'>每天新词{{freq_number}}个</view>
-      <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-        <view class="picker">
-          {{index?picker[index]:'📚'}}
-        </view>
-      </picker>
-    </view>
-    <view class='text-left text-xs text-grey padding'>设置每天遇见新单词的个数。现设置为{{freq_number}}个。默认30个。设置修改将在第二天生效。</view>
-  </view>
-
-  <view class="cu-bar bg-red light solid-bottom margin-top">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
     <view class='action'>
-      <text class='icon-title text-red'></text>词书A：5000高频法语单词
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-red'}}"></text>词书A：5000高频法语单词
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class="cu-form-group margin-top">
-      <view class='title'>基础（共1500词）</view>
+  <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">基础（共1500词）</view>
       <switch checked="{{freq_1500}}" bindchange="freq_1500" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>有点水平（共1500词）</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">有点水平（共1500词）</view>
       <switch checked="{{freq_3000}}" bindchange="freq_3000" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>厉害（共2000词）</view>
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">厉害（共2000词）</view>
       <switch checked="{{freq_5000}}" bindchange="freq_5000" />
     </view>
-    <view class='text-left text-xs text-grey padding'>5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）。设置修改将在第二天生效。</view>
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）。设置修改将在第二天生效。</view>
+    </view>
   </view>
 
-  <view class="cu-bar bg-mauve light solid-bottom margin-top">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
     <view class='action'>
-      <text class='icon-title text-mauve'></text>词书B：未完成
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-blue'}}"></text>词书B：未完成
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class="cu-form-group margin-top">
-      <view class='title'>基础（未完成🤷‍）</view>
-      <switch checked="{{isChecked1_50}}" bindchange="tef_1500" />
+  <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">基础（未完成🤷‍）</view>
+      <switch checked="{{tef_1500}}" bindchange="tef_1500" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>有点水平（未完成🤷‍）</view>
-      <switch checked="{{isChecked1_100}}" bindchange="tef_3000" />
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">有点水平（未完成🤷‍）</view>
+      <switch checked="{{tef_3000}}" bindchange="tef_3000" />
     </view>
-    <view class="cu-form-group margin-top">
-      <view class='title'>厉害（未完成🤷‍）</view>
-      <switch checked="{{isChecked1_230}}" bindchange="tef_5000" />
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">厉害（未完成🤷‍）</view>
+      <switch checked="{{tef_5000}}" bindchange="tef_5000" />
     </view>
-    <view class='text-left text-xs text-grey padding'>词书B词汇列表还没有搞定🤷‍</view>
+    <view class="cu-item">
+      <view class="text-left text-xs text-grey">词书B词汇列表还没有搞定🤷‍</view>
+    </view>
   </view>
-
 </view>

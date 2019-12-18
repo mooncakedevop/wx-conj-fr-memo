@@ -1,75 +1,64 @@
-<view class='bg-gradual-blue padding radius text-center shadow-blur title_css page'>
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
 
-  <view class="cu-bar bg-red light solid-bottom margin-top action {{}}" hidden="true">
-    <view class="flex padding justify-between">
-      <text class='text-red'></text>更新说明（点击右侧关闭）
-    </view>
-    <view class="flex padding justify-between">
-      <button class="cu-btn lines-red round shadow sm" bindtap="close_it">
-        <view class="icon-close text-red"></view>
-      </button>
-    </view>
-  </view>
-
-  <view class="cu-bar bg-red light solid-bottom margin-top ">
+  <view class="cu-bar solid-bottom margin-top light {{dark_mode==true?'blk-bg-grey2':'bg-red'}}">
     <view class='action'>
-      <text class='icon-title text-red'></text>{{msg[0]}}
+      <text class="icon-title text-sm {{dark_mode==true?'blk-text-white':'text-red'}}"></text>{{msg[0]}}
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
-    <view class='text-xs-pos text-xs bold'>{{msg[1]}}</view>
-    <view class='text-left text-xs'>{{msg[2]}}</view>
-    <view class='text-xs-pos text-xs bold'>{{msg[3]}}</view>
-    <view class='text-left text-xs'>{{msg[4]}}</view>
-    <view class='text-xs-pos text-xs bold'>{{msg[5]}}</view>
-    <view class='text-left text-xs'>{{msg[6]}}</view>
+  <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+    <view class="text-xs-pos text-xs bold {{dark_mode==true?'blk-text-white':''}}">{{msg[1]}}</view>
+    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[2]}}</view>
+    <view class="text-xs-pos text-xs bold">{{msg[3]}}</view>
+    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[4]}}</view>
+    <view class="text-xs-pos text-xs bold">{{msg[5]}}</view>
+    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[6]}}</view>
   </view>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top {{dark_mode==true?'bg-blue':''}}">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
     <view class='action'>
-      <text class='icon-title text-red'></text>个性化
+      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>个性化
     </view>
   </view>
-  <view class="cu-list menu">
+  <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
     <view class="cu-item arrow" bindtap="zhuye">
       <view class="content text-left">
         <text class="cuIcon-emojiflashfill text-pink"></text>
-        <text class="text-grey">🎈 小程序主页</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🎈 小程序主页</text>
       </view>
       <view class="action">
         <text class="text-grey text-sm">https://hxd.red/</text>
       </view>
     </view>
     <view class="cu-item">
-      <text class="text-grey ">🌜 黑夜模式</text>
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🌜 黑夜模式</text>
       <switch checked="{{dark_mode}}" bindchange="dark_mode" />
     </view>
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
-        <text class="text-grey">🔮 背单词设置</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔮 背单词设置</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_conj" open-type="navigate">
-        <text class="text-grey ">📚 动词变位设置</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">📚 动词变位设置</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
         <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey left">📨 报错与建议</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}} left">📨 报错与建议</text>
       </button>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="contact">
         <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey left">📡 联系客服</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}} left">📡 联系客服</text>
       </button>
     </view>
     <view class="cu-item arrow" bindtap="gongzhonghao">
       <view class="content text-left">
         <text class="cuIcon-tagfill text-red"></text>
-        <text class="text-grey">🔬 不淡定的实验室</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔬 不淡定的实验室</text>
       </view>
       <view class="action">
         <view class="cu-tag round bg-orange light">MAKER</view>
@@ -78,17 +67,17 @@
     </view>
     <view class="cu-item arrow bg-white-last">
       <navigator class="content text-left" hover-class="none" url="../settings/help/help" open-type="navigate">
-        <text class="text-grey ">👦 关于</text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">👦 关于</text>
       </navigator>
     </view>
   </view>
 
-  <view class="cu-bar bg-grey light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-grey'></text>同步设置
+  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-grey light'}}">
+    <view class="action">
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>同步设置
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
+  <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
     <!-- 用户 openid style="background-image: url({{avatarUrl}})" -->
     <view class='box'>
       <view class="cu-bar btn-group">
@@ -103,12 +92,12 @@
     <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后可以同步。“本地上传”将覆盖云端数据；“云端下载”将覆盖本地数据</view>
   </view>
 
-  <view class="cu-bar bg-red light solid-bottom margin-top">
-    <view class='action'>
-      <text class='icon-title text-red'></text>小程序推荐
+  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class="action">
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-red'}}"></text>小程序推荐
     </view>
   </view>
-  <view class='padding bg-white bg-white-last'>
+  <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
     <view class='box'>
       <view class="cu-bar btn-group ">
         <button class='cu-btn bg-red round shadow' bindtap="hard_choice">艰难的选择</button>

@@ -173,8 +173,26 @@ Page({
     }).get({
       success: function(res) {
         console.log(res.data)
+        console.log(res.data.length)
+        console.log(res.data[0].settings_new)
         if (res.data.length === 0) {
           that.onAdd()
+
+          wx.showToast({
+            title: '同步成功',
+          })
+        } else if (res.data.length != 0 && res.data[0].settings_new === undefined) {
+          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
+          app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
+
+          if (getCurrentPages().length != 0) {
+            //刷新当前页面的数据
+            getCurrentPages()[getCurrentPages().length - 1].onLoad()
+          }
+
+          wx.showToast({
+            title: '同步成功',
+          })
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
           wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
@@ -193,6 +211,7 @@ Page({
             title: '同步成功',
           })
         }
+
       },
       fail: err => {
         console.error('onquery失败：', err)

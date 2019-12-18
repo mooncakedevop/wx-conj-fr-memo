@@ -10,6 +10,7 @@ Page({
     learn_example: null,
     learn_lj: null,
     learn_level: null,
+    dark_mode: null,
   },
 
   onLoad: function(options) {
@@ -42,7 +43,8 @@ Page({
     this.setData({
       learn_word: learn_word,
       learn_lj: learn_lj,
-      learn_level: learn_level
+      learn_level: learn_level,
+      dark_mode: app.globalData.dark_mode,
     })
 
     wx.setStorageSync("consult_data", null) //将consult_data重置后再去查询，避免显示上一次的数据

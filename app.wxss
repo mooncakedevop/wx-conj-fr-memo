@@ -1,6 +1,11 @@
 @import 'colorui/icon.wxss';
 @import 'colorui/main.wxss';
 
+.blk-dash-conj {
+  border-style: dashed none none none;
+  border-color:  #666;
+}
+
 .blk-bg-black {
   background-color: #000;
   color: #666;
@@ -8,17 +13,17 @@
 
 .blk-bg-grey3 {
   background-color: #1c1c1e;
-  color: rgb(255, 255, 255);
+  color: rgb(220, 220, 220);
 }
 
 .blk-bg-grey2 {
   background-color: rgb(51, 51, 51);
-  color: rgb(255, 255, 255);
+  color: rgb(220, 220, 220);
 }
 
 .blk-bg-grey1 {
   background-color: #9a999e;
-  color: #666;
+  color: rgb(220, 220, 220);
 }
 
 .blk-text-white {

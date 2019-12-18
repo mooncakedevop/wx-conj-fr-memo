@@ -1,20 +1,20 @@
-<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page {{dark_mode==true?'blk-bg-black':'bg-white'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
 
   <view class="margin-avatar">
-    <image src='/data/conj_trans.png' class='png' mode='widthFix'></image>
+    <image src="/data/conj_trans.png" class="png" mode="widthFix"></image>
   </view>
   <view class="cu-bar btn-group  title_css">
-    <button class='cu-btn bg-red round shadow lg' bindtap="start">开始学习</button>
+    <button class="cu-btn bg-red round shadow lg" bindtap="start">开始学习</button>
   </view>
 
   <view class="padding radius text-center shadow-blur ">
-    <view class='cu-bar padding bg-gradual-red bg-white-last'>
-      <view class='flex-sub text-center'>
-        <view class='grid col-2 padding-lg'>
-          <view class='text-sm'>今天要学习
+    <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-gradual-red'}}">
+      <view class="flex-sub text-center">
+        <view class="grid col-2 padding-lg">
+          <view class="text-sm">今天要学习
             <view class="text-sl">{{main_today_all}}</view>
           </view>
-          <view class='text-sm'>学习过的单词
+          <view class="text-sm">学习过的单词
             <view class="text-sl">{{main_already_word}}</view>
           </view>
           <view class='text-sm'>今日新词
@@ -26,7 +26,7 @@
         </view>
 
         <view class="cu-bar btn-group">
-          <button class='cu-btn lines-white shadow sm round' bindtap="setting">个性化设置</button>
+          <button class="cu-btn shadow sm round {{dark_mode==true?'lines-red':'lines-white'}}" bindtap="setting">个性化设置</button>
         </view>
 
       </view>
@@ -36,14 +36,14 @@
     <view class=" text-center light padding">
       <official-account></official-account>
       <view class="padding bg-answer-hc">
-        <view class='text-lg text-gap'>今日新词</view>
-        <view class='text-sm text-gap italic'>Les nouveaux mots d'aujourd'hui</view>
-        <view class='cu-tag line-red round shadow padding-tag-hc lg' wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
+        <view class="text-lg text-gap {{dark_mode==true?'blk-text-white':'lines-red'}}">今日新词</view>
+        <view class="text-sm text-gap italic {{dark_mode==true?'blk-text-grey':'lines-red'}}">Les nouveaux mots d'aujourd'hui</view>
+        <view class="cu-tag round shadow padding-tag-hc lg {{dark_mode==true?'blk-bg-grey2':'lines-red'}}" wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
       </view>
     </view>
 
     <view class="cu-bar btn-group">
-      <button class='cu-btn bg-red round shadow sm' bindtap="like_me">🎠不淡定的实验室</button>
+      <button class="cu-btn bg-red round shadow sm" bindtap="like_me">🎠不淡定的实验室</button>
     </view>
 
   </view>

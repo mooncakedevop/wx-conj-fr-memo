@@ -24,6 +24,7 @@ Page({
     learn_word_no: null,
     learn_word_cx: null,
     learn_lj: null,
+    dark_mode: null,
   },
 
   /**
@@ -93,6 +94,7 @@ Page({
       learn_js: learn_js,
       learn_lj: learn_lj,
       learn_word_no: learn_word_no,
+      dark_mode: app.globalData.dark_mode,
     })
 
 

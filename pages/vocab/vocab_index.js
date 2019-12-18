@@ -10,6 +10,7 @@ Page({
     main_new_word: null,
     main_review_word: null,
     learn_word_new_today: [],
+    dark_mode: null,
   },
 
   onLoad: function(options) {
@@ -166,8 +167,8 @@ Page({
       main_new_word: main_new_word,
       main_review_word: main_review_word,
       learn_word_new_today: learn_word_new_today,
+      dark_mode: app.globalData.dark_mode,
     })
-
 
   },
 

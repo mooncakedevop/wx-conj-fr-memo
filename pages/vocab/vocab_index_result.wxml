@@ -7,7 +7,7 @@
 
   <view class="cu-bar margin-top {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
     <view class="flex padding justify-between">
-      <text class='text-center italic'>CARTE {{learn_word_no}}</text>
+      <text class='text-center italic'>今日新词</text>
     </view>
   </view>
 

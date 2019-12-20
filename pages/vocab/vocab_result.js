@@ -16,92 +16,65 @@ Page({
     learn_word_cx: null,
     learn_word_all: null,
     learn_word_no: null,
-    learn_word_cx: null,
     learn_lj: null,
     learn_js: null,
     dark_mode: null,
+
+    learn_word: null,
+    learn_example: null,
+    learn_level: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var learn_word = app.globalData.learn_word;
-    var consult_data = wx.getStorageSync('consult_data');
-    console.log(consult_data)
+    wx.setStorageSync("consult_data", null)
+    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
+    var learn_word_today = wx.getStorageSync('learn_word_today')
+    var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
+    var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
+    
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
 
-    if (consult_data == "kong") {
-      wx.showModal({
-        title: '当前单词未收录😥请反馈',
-        content: '未收录单词为：' + '\r\n' + app.globalData.learn_word + '\r\n' + '请点击“确认”后继续。' + '\r\n' + '您可以在“个性化”页面中进行反馈，感谢支持。🤣',
-      })
-      this.bien_enregistre()
+    console.log(learn_word_today)
+    console.log(learn_word_today_no)
+
+    var learn_no = (Math.floor(Math.random() * (idx - 2 + 1) + 1)) //从单词总数中抽取号码
+    console.log(learn_no)
+
+    if (learn_word_today.length == 1) {
+      this.success();
     }
 
-    var learn_cx = consult_data[0].w_cx;
-    var learn_js_cn = consult_data[0].w_js_cn;
-    var learn_js_fr = consult_data[0].w_js_fr;
-    var learn_lj_cn = consult_data[0].w_lj_cn;
-    var learn_lj_fr = consult_data[0].w_lj_fr;
-    var learn_word_all = consult_data[0].word;
-    var learn_word_no = consult_data[0].w_no;
+    var learn_word = learn_word_today[learn_no];
+    var learn_word_no = learn_word_today_no[learn_no - 1];
+    var learn_level = word_frequence_5000[learn_word_no].level;
 
-    learn_cx = learn_cx.split(";");
-    learn_js_cn = learn_js_cn.split(";");
-    learn_js_fr = learn_js_fr.split(";");
-    learn_lj_cn = learn_lj_cn.split(";");
-    learn_lj_fr = learn_lj_fr.split(";");
-    learn_word_all = learn_word_all.split(";");
+    var learn_js = '点击查看法汉双解提示'
+    var learn_lj = '点击查看例句提示'
 
-    var learn_word_cx = [] //第二格
-    for (var i = 0; i < learn_word_all.length; i++) {
-      var learn_word_cx_objet = {
-        list: " ",
-        word: " ",
-        cx: " "
-      };
-      learn_word_cx_objet.list = i + 1
-      learn_word_cx_objet.word = learn_word_all[i]
-      learn_word_cx_objet.cx = learn_cx[i]
-      learn_word_cx.push(learn_word_cx_objet)
-    }
+    app.globalData.learn_word = learn_word
 
-    var learn_js = [] //第三格
-    for (var i = 0; i < learn_js_cn.length; i++) {
-      var learn_js_objet = {
-        list: " ",
-        js_cn: " ",
-        js_fr: " "
-      };
-      learn_js_objet.list = i + 1
-      learn_js_objet.js_cn = learn_js_cn[i]
-      learn_js_objet.js_fr = learn_js_fr[i]
-      learn_js.push(learn_js_objet)
-    }
+    console.log(app.globalData.learn_word)
+    console.log(learn_level)
+    console.log(learn_word_no)
 
-    var learn_lj = [] //第四格
-    for (var i = 0; i < learn_lj_cn.length; i++) {
-      var learn_lj_objet = {
-        list: " ",
-        lj_cn: " ",
-        lj_fr: " "
-      };
-      learn_lj_objet.list = i + 1
-      learn_lj_objet.lj_cn = learn_lj_cn[i]
-      learn_lj_objet.lj_fr = learn_lj_fr[i]
-      learn_lj.push(learn_lj_objet)
-    }
+    this.onQuery(learn_word);
+
+    wx.showToast({
+      title: 'Chargement😍',
+      icon: 'none',
+      duration: 1500,
+      mask: true,
+    })
 
     this.setData({
       learn_word: learn_word,
-      learn_word_cx: learn_word_cx,
-      learn_js: learn_js,
-      learn_lj: learn_lj,
-      learn_word_no: learn_word_no,
-      dark_mode: app.globalData.dark_mode,
+      learn_level: learn_level,
+      dark_mode: dark_mode,
     })
-
-    wx.setStorageSync("consult_data", null)
 
     // 在页面onLoad回调事件中创建插屏广告实例
     if (wx.createInterstitialAd) {
@@ -114,32 +87,73 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
+  onQuery: function(search_word) {
+    var that = this;
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: search_word
+    }])).get({
+      success: function(res) {
+        console.log(res.data)
+        var consult_data = res.data;
+
+        if (consult_data.length == 0) {
+          consult_data = "kong";
+          wx.showModal({
+            title: '当前单词未收录😥请反馈',
+            content: '未收录单词为：' + '\r\n' + app.globalData.learn_word + '\r\n' + '请点击“确认”后继续。' + '\r\n' + '您可以在“个性化”页面中进行反馈，感谢支持。🤣',
+          })
+          this.bien_enregistre()
+        }
+
+        var learn_cx = consult_data[0].w_cx;
+        var learn_word_all = consult_data[0].word;
+
+        learn_cx = learn_cx.split(";");
+        learn_word_all = learn_word_all.split(";");
+
+        console.log(consult_data[0].w_cx) 
+        console.log(learn_word_all) 
+        var learn_word_cx = [] //第0格
+        for (var i = 0; i < learn_word_all.length; i++) {
+          var learn_word_cx_objet = {
+            list: " ",
+            word: " ",
+            cx: " "
+          };
+          learn_word_cx_objet.list = i + 1
+          learn_word_cx_objet.word = learn_word_all[i]
+          learn_word_cx_objet.cx = learn_cx[i]
+          learn_word_cx.push(learn_word_cx_objet)
+        }
+
+        console.log(learn_word_cx)
+
+        app.globalData.learn_word_cx = learn_word_cx;
+
+        var learn_js = "点击查看解释";
+        var learn_lj = "点击查看双语例句";
+
+        that.setData({
+          learn_word_cx: learn_word_cx,
+          learn_js: learn_js,
+          learn_lj: learn_lj,
+        })
+
+        console.log(consult_data)
+        app.globalData.consult_data = consult_data;
+        wx.setStorageSync('consult_data', res.data);
+      }
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
+  success: function () {
+    wx.redirectTo({
+      url: '../vocab/vocab_success',
+    })
   },
 
   JNSP: function() {
@@ -155,18 +169,20 @@ Page({
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 
     this.renew()
-    wx.redirectTo({
-      url: 'vocab_learn',
-    })
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
+
   },
 
   justSoSo: function() {
     //等级保持不变，日期不变
-
     this.renew()
-    wx.redirectTo({
-      url: 'vocab_learn',
-    })
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
 
   bien_enregistre: function() {
@@ -186,11 +202,11 @@ Page({
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 
     this.renew()
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
 
-
-    wx.redirectTo({
-      url: 'vocab_learn',
-    })
   },
 
   trop_facile: function() {
@@ -232,9 +248,7 @@ Page({
           })
 
           setTimeout(function() {
-            wx.redirectTo({
-              url: 'vocab_learn',
-            })
+
           }, 1500);
           console.log('确定')
         } else if (res.cancel) {
@@ -271,6 +285,67 @@ Page({
     wx.setStorageSync("consult_data", null)
     wx.setStorageSync("learn_word_today", learn_word_today)
     wx.setStorageSync("learn_word_today_no", learn_word_today_no)
+  },
+
+  hint_lj: function() {
+    var consult_data = wx.getStorageSync('consult_data');
+    var learn_lj_cn = consult_data[0].w_lj_cn;
+    var learn_lj_fr = consult_data[0].w_lj_fr;
+    var learn_word_all = consult_data[0].word;
+
+    learn_lj_cn = learn_lj_cn.split(";");
+    learn_lj_fr = learn_lj_fr.split(";");
+    learn_word_all = learn_word_all.split(";");
+
+    var learn_lj = [] //第2格
+    for (var i = 0; i < learn_lj_cn.length; i++) {
+      var learn_lj_objet = {
+        list: " ",
+        lj_cn: " ",
+        lj_fr: " "
+      };
+      learn_lj_objet.list = i + 1
+      learn_lj_objet.lj_cn = learn_lj_cn[i]
+      learn_lj_objet.lj_fr = learn_lj_fr[i]
+      learn_lj.push(learn_lj_objet)
+    }
+
+    app.globalData.learn_lj = learn_lj;
+    console.log(learn_lj)
+
+    this.setData({
+      learn_lj: learn_lj,
+    })
+  },
+
+  hint_js: function() {
+    var consult_data = wx.getStorageSync('consult_data');
+    var learn_js_cn = consult_data[0].w_js_cn;
+    var learn_js_fr = consult_data[0].w_js_fr;
+    var learn_word_all = consult_data[0].word;
+
+    learn_js_cn = learn_js_cn.split(";");
+    learn_js_fr = learn_js_fr.split(";");
+    learn_word_all = learn_word_all.split(";");
+
+    var learn_js = [] //第1格
+    for (var i = 0; i < learn_js_cn.length; i++) {
+      var learn_js_objet = {
+        list: " ",
+        js_cn: " ",
+        js_fr: " "
+      };
+      learn_js_objet.list = i + 1
+      learn_js_objet.js_cn = learn_js_cn[i]
+      learn_js_objet.js_fr = learn_js_fr[i]
+      learn_js.push(learn_js_objet)
+    }
+
+    app.globalData.learn_js = learn_js;
+
+    this.setData({
+      learn_js: learn_js,
+    })
   },
 
   /**

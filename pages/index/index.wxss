@@ -3,32 +3,36 @@
   overflow: hidden;
 }
 
-.title_css{
+.title_css {
   padding-top: 8vh;
-  padding-bottom: 1vh
+  padding-bottom: 1vh;
 }
 
-.page__hd{
+.page__hd {
   padding-top: 20vh;
   padding-bottom: 20vh;
 }
 
-.box{
+.box {
   bottom: 0rem;
-  padding: 1vh
+  padding: 1vh;
 }
 
-.padding-tag-hc{
+.padding-tag-hc {
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
-.text-white{
-    padding-bottom: 1vh;
+.text-white {
+  padding-bottom: 1vh;
 }
 
-.cu-btn{
-   margin-top: 1vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
+.cu-btn {
+  margin-top: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.bg-answer-hc {
+  padding-bottom: 30vh;
 }

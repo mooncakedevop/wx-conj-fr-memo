@@ -21,6 +21,7 @@ Page({
     var settings_new = wx.getStorageSync('settings_new')
     app.globalData.freq = settings_new[0].freq
     app.globalData.freq_number = settings_new[0].freq_number
+    var dark_mode = settings_new[0].dark_mode;
 
     if (app.globalData.word_frequence_5000 == '') {
       this.new_user_data()
@@ -167,7 +168,7 @@ Page({
       main_new_word: main_new_word,
       main_review_word: main_review_word,
       learn_word_new_today: learn_word_new_today,
-      dark_mode: app.globalData.dark_mode,
+      dark_mode: dark_mode,
     })
 
   },
@@ -285,7 +286,7 @@ Page({
 
   start: function() {
     wx.navigateTo({
-      url: 'vocab_learn',
+      url: 'vocab_result',
     })
   },
 

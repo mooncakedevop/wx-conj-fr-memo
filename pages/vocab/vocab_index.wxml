@@ -8,7 +8,7 @@
   </view>
 
   <view class="padding radius text-center shadow-blur ">
-    <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-gradual-red'}}">
+    <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
       <view class="flex-sub text-center">
         <view class="grid col-2 padding-lg">
           <view class="text-sm">今天要学习

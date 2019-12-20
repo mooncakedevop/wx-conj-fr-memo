@@ -90,7 +90,7 @@ Page({
     app.globalData.isChecked3 = settings_new[0].time_type[1]
     app.globalData.isChecked4 = settings_new[0].time_type[2]
 
-    app.globalData.dark_mode = settings_new[0].dark_mode
+    var dark_mode = settings_new[0].dark_mode
 
     if (settings_new[0].time_type[0] == true) {
       app.globalData.advanced_shitai = [2, 3, 7];
@@ -111,7 +111,7 @@ Page({
     }
 
     this.setData({
-      dark_mode: app.globalData.dark_mode,
+      dark_mode: dark_mode,
     })
 
   },

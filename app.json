@@ -16,8 +16,6 @@
     "pages/carte/success",
     "pages/carte/test",
     "pages/vocab/vocab_index",
-    "pages/vocab/vocab_learn",
-    "pages/vocab/vocab_list",
     "pages/vocab/vocab_result",
     "pages/vocab/vocab_success"
   ],

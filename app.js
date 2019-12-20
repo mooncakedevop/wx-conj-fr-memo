@@ -10,6 +10,8 @@ App({
       })
     }
 
+    this.getSkin();
+
   },
   globalData: {
     userInfo: null,
@@ -53,5 +55,34 @@ App({
     openid: null,
     msg: null,
 
-  }
+  },
+
+  getSkin: function() {
+    var that = this
+    var settings_new = wx.getStorageSync('settings_new');
+    that.globalData.dark_mode = settings_new[0].dark_mode;
+    console.log(that.globalData.dark_mode);
+  },
+
+  //导航栏标题背景
+  setNavBarBg: function() {
+    var that = this
+    if (that.globalData.dark_mode == false) {
+      that.setSkinNormalTitle()
+    } else {
+      that.setSkinBlackTitle()
+    }
+  },
+  setSkinBlackTitle: function() {
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#2e3136',
+    })
+  },
+  setSkinNormalTitle: function() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
+    })
+  },
 })

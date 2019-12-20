@@ -34,10 +34,14 @@ Page({
     tag_100: true,
     tag_230: true,
 
-    mode_je: 'Je'
+    mode_je: 'Je',
+    dark_mode: null,
   },
 
   onLoad: function() {
+
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
 
     wx.showToast({
       title: '加载中',
@@ -109,6 +113,7 @@ Page({
       content: mot_test, //最终单词
       idx_shitai: idx_shitai, //最终时态
       is_bg_green: is_bg_green,
+      dark_mode: dark_mode,
     })
     console.log(idx_shitai)
     this.search()
@@ -122,6 +127,14 @@ Page({
       interstitialAd.onError((err) => {})
       interstitialAd.onClose(() => {})
     }
+  },
+
+  onShow: function(){
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
+    this.setData({
+      dark_mode: dark_mode,
+    })
   },
 
   search: function() {

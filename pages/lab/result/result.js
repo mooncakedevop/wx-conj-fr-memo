@@ -11,9 +11,13 @@ Page({
     ow: [],
     tag_classic: true,
     tag_debutant: true,
+    dark_mode: null,
   },
 
   onLoad: function() {
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
+
     this.setData({
       show_conj_je: app.globalData.shitai_je,
       show_conj_tu: app.globalData.shitai_tu,
@@ -23,6 +27,7 @@ Page({
       show_conj_ils: app.globalData.shitai_ils,
       ow: app.globalData.ow,
       tag_classic: app.globalData.tag_classic,
+      dark_mode: dark_mode,
     })
   },
 

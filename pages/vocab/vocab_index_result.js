@@ -31,6 +31,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
+    
     var consult_data = wx.getStorageSync('consult_data');
     console.log(consult_data)
     var learn_word = consult_data[0].w_s;
@@ -94,7 +97,7 @@ Page({
       learn_js: learn_js,
       learn_lj: learn_lj,
       learn_word_no: learn_word_no,
-      dark_mode: app.globalData.dark_mode,
+      dark_mode: dark_mode,
     })
 
 

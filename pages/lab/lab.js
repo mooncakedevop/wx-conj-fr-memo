@@ -17,6 +17,25 @@ Page({
     shitai_nous: [],
     shitai_vous: [],
     shitai_ils: [],
+    dark_mode: null,
+  },
+
+  onLoad: function() {
+
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
+
+    this.setData({
+      dark_mode: dark_mode,
+    })
+  },
+
+  onShow: function () {
+    var settings_new = wx.getStorageSync('settings_new');
+    var dark_mode = settings_new[0].dark_mode;
+    this.setData({
+      dark_mode: dark_mode,
+    })
   },
 
   input_word_conj: function(e) {
@@ -62,7 +81,7 @@ Page({
     })
     console.log(input_word_conj);
     this.onQuery(input_word_conj);
-    
+
     wx.showToast({
       title: '查询中',
       image: '/style/paper-plane.png',

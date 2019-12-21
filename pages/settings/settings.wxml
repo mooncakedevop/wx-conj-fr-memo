@@ -77,7 +77,7 @@
       <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>同步设置
     </view>
   </view>
-  <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+  <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
     <!-- 用户 openid style="background-image: url({{avatarUrl}})" -->
     <view class='box'>
       <view class="cu-bar btn-group">

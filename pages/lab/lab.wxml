@@ -25,8 +25,7 @@
     </view>
 
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn round shadow-blur lg lines-white" bindtap="training">📚分类记忆</button>
-      <button class="cu-btn round shadow-blur lg lines-white" bindtap="intro">📝强化练习</button>
+      <button class="cu-btn round shadow-blur lg lines-white" bindtap="intro">📝动词变位练习</button>
     </view>
 
     <view class="cu-bar btn-group btn-conj">

@@ -169,20 +169,11 @@ Page({
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 
     this.renew()
-    if (getCurrentPages().length != 0) {
-      //刷新当前页面的数据
-      getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    }
-
   },
 
   justSoSo: function() {
     //等级保持不变，日期不变
     this.renew()
-    if (getCurrentPages().length != 0) {
-      //刷新当前页面的数据
-      getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    }
   },
 
   bien_enregistre: function() {
@@ -202,11 +193,6 @@ Page({
     wx.setStorageSync("word_frequence_5000", word_frequence_5000)
 
     this.renew()
-    if (getCurrentPages().length != 0) {
-      //刷新当前页面的数据
-      getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    }
-
   },
 
   trop_facile: function() {
@@ -229,6 +215,8 @@ Page({
 
           var learn_word = app.globalData.learn_word;
           var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
+          console.log(word_no)
+          console.log(learn_word)
           if (word_frequence_5000[word_no].level == 7) {
             word_frequence_5000[word_no].date = 9000000000000
           } else {
@@ -285,6 +273,11 @@ Page({
     wx.setStorageSync("consult_data", null)
     wx.setStorageSync("learn_word_today", learn_word_today)
     wx.setStorageSync("learn_word_today_no", learn_word_today_no)
+
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
 
   hint_lj: function() {

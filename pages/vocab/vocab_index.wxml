@@ -34,11 +34,10 @@
 
 
     <view class=" text-center light padding">
-      <official-account></official-account>
       <view class="padding bg-answer-hc">
-        <view class="text-lg text-gap {{dark_mode==true?'blk-text-white':'lines-red'}}">今日新词</view>
-        <view class="text-sm text-gap italic {{dark_mode==true?'blk-text-grey':'lines-red'}}">Les nouveaux mots d'aujourd'hui</view>
-        <view class="cu-tag round shadow padding-tag-hc lg {{dark_mode==true?'blk-bg-grey2':'lines-red'}}" wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
+        <view class="text-lg text-gap {{dark_mode==true?'blk-text-white':''}}">今日新词</view>
+        <view class="text-sm text-gap italic {{dark_mode==true?'blk-text-grey':''}}">Les nouveaux mots d'aujourd'hui</view>
+        <view class="cu-tag round shadow padding-tag-hc lg {{dark_mode==true?'blk-bg-grey2':'line-red'}}" wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
       </view>
     </view>
 

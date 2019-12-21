@@ -4,8 +4,8 @@
 }
 
 .title_css {
-  padding-top: 8vh;
-  padding-bottom: 1vh;
+  padding-top: 10vh;
+  padding-bottom: 2vh;
 }
 
 .page__hd {
@@ -24,7 +24,7 @@
 }
 
 .text-white {
-  padding-bottom: 1vh;
+  padding-bottom: 2vh;
 }
 
 .cu-btn {
@@ -34,5 +34,5 @@
 }
 
 .bg-answer-hc {
-  padding-bottom: 30vh;
+  padding-bottom: 10vh;
 }

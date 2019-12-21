@@ -5,8 +5,6 @@
     </view>
   </view>
 
-  <official-account></official-account>
-
   <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-grey light'}}">
     <view class='action'>
       <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>背词设置

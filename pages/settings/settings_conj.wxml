@@ -5,31 +5,6 @@
     </view>
   </view>
 
-  <official-account></official-account>
-
-  <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-grey light'}}">
-    <view class='action'>
-      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-grey'}}"></text>时间设置
-    </view>
-  </view>
-  <view class="cu-list menu bg-white-last {{dark_mode==true?'menu-dark':''}}">
-    <view class="cu-item">
-      <view class="content">
-        <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">时间选择</view>
-      </view>
-      <view class="action">
-        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
-          <button class="cu-btn round bg-green shadow">
-            <text class="cuIcon-upload"></text>{{time_count}}秒
-          </button>
-        </picker>
-      </view>
-    </view>
-    <view class="cu-item">
-      <view class='text-left text-xs text-grey'>当前选择的时间为{{time_count}}秒。更改“分类记忆→倒计时”的时间。单位：秒。默认10秒。</view>
-    </view>
-  </view>
-
   <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
     <view class="action">
       <text class="icon-title {{dark_mode==true?'blk-text-white':'text-red'}}"></text>单词设置

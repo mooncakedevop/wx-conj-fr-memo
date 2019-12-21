@@ -52,7 +52,5 @@
 
 
 <view class="padding bg-answer-hc {{dark_mode==true?'blk-bg-black':''}}">
-  <view class="cu-tag round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
+  <view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
 </view>
-
-<official-account></official-account>

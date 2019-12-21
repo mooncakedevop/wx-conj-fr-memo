@@ -5,18 +5,18 @@
 }
 
 .margin-avatar{
-  padding-top: 12vh;
+  padding-top: 10vh;
   margin-left: 20vw;
   margin-right: 20vw;
 }
 
 .margin-title{
   margin-top: 0vh;
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
 }
 
 .bg-btn-conj{
-  margin-top: 5vh;
+  margin-top: 0vh;
   margin-bottom: 5vh
 }
 

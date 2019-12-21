@@ -2,7 +2,7 @@
 
   <view class="flex-sub text-center">
     <view class="margin-avatar">
-      <image src="/data/conj_trans.png" class="png" mode="widthFix"></image>
+      <image src="{{dark_mode==true?'/data/conj_black.png':'/data/conj_trans.png'}}" class="png" mode="widthFix"></image>
     </view>
 
     <view class="grid col-1 padding-sm bg-btn-conj">

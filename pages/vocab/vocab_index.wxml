@@ -1,7 +1,7 @@
 <view class="page {{dark_mode==true?'blk-bg-black':'bg-white'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
 
   <view class="margin-avatar">
-    <image src="/data/conj_trans.png" class="png" mode="widthFix"></image>
+    <image src="{{dark_mode==true?'/data/conj_black.png':'/data/conj_trans.png'}}" class="png" mode="widthFix"></image>
   </view>
   <view class="cu-bar btn-group  title_css">
     <button class="cu-btn bg-red round shadow lg" bindtap="start">开始学习</button>

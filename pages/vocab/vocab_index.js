@@ -22,6 +22,30 @@ Page({
     app.globalData.freq = settings_new[0].freq
     app.globalData.freq_number = settings_new[0].freq_number
     var dark_mode = settings_new[0].dark_mode;
+    var word_frequence_5000 = app.globalData.word_frequence_5000
+
+    if (word_frequence_5000.length == 5000) {
+      var delete_word = ['visée', 'yougoslave', 'hé', "d'après", 'ouais', 'capitale', 'prostitué', "d'ailleurs", 'hum', 'vendu', 'uranium', 'félicitation', "d'accord", 'ex', 'médias', 'ben', 'vingt-quatre', 'mark', "d'autant", 'chiite', 'syrien', 'appliqué', 'tandis', "d'abord", 'centrale', 'publique', 'vingt-cinq', 'eh', 'venu']
+      var add_word = ['média', 'félicitations']
+      for (var i = 0; i < delete_word.length; i++) {
+        for (var j = 0; j < word_frequence_5000.length; j++) {
+          if (word_frequence_5000[j].learn_word == delete_word[i]) {
+            word_frequence_5000.splice(j, 1)
+          }
+        }
+      }
+      for (var i = 0; i < add_word.length; i++) {
+        var add_word = add_word[i]
+        var add_word = {
+          add_word: add_word,
+          date: 9999999999999,
+          level: 0
+        };
+        word_frequence_5000.push(add_word)
+      }
+      app.globalData.word_frequence_5000 = word_frequence_5000
+      wx.setStorageSync('word_frequence_5000', word_frequence_5000)
+    }
 
     if (app.globalData.word_frequence_5000 == '') {
       this.new_user_data()
@@ -95,7 +119,7 @@ Page({
         var i = 0;
         var word_frequence_5000 = app.globalData.word_frequence_5000
         while (i < app.globalData.freq_number) {
-          var learn_no = Math.floor(Math.random() * (5000 - 3001 + 1) + 3001);
+          var learn_no = Math.floor(Math.random() * (4972 - 3001 + 1) + 3001);
           if (word_frequence_5000[learn_no].level == 0) {
             learn_word_new_today.push(word_frequence_5000[learn_no].learn_word)
             learn_word_new_today_no.push(learn_no)
@@ -125,7 +149,7 @@ Page({
     var today_all = []
     var review_word = []
 
-    for (var i = 0; i < 5000; i++) {
+    for (var i = 0; i < 4972; i++) {
       if (word_frequence_5000[i].date < repeat_date && word_frequence_5000[i].level == 0) {
         word_frequence_5000[i].date = 9999999999999
       }
@@ -152,6 +176,8 @@ Page({
     console.log(today_all)
 
     wx.setStorageSync('learn_word_today', learn_word_today)
+    wx.setStorageSync('review_word', review_word)
+    wx.setStorageSync('already_word', already_word)
     wx.setStorageSync('learn_word_today_no', learn_word_today_no)
     wx.setStorageSync('word_frequence_5000', word_frequence_5000)
 
@@ -176,7 +202,7 @@ Page({
   new_user_data: function() {
     var verb_7300_fr = word_frequence;
     var word_frequence_5000 = [];
-    for (var i = 0; i < 5000; i++) {
+    for (var i = 0; i < 4972; i++) {
       var learn_word = verb_7300_fr.verb_7300_fr[i].word;
       var learn_word_new = {
         learn_word: learn_word,
@@ -287,6 +313,12 @@ Page({
   start: function() {
     wx.navigateTo({
       url: 'vocab_result',
+    })
+  },
+
+  analyse: function() {
+    wx.navigateTo({
+      url: 'vocab_analyse',
     })
   },
 

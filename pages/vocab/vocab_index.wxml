@@ -27,8 +27,8 @@
 
         <view class="cu-bar btn-group">
           <button class="cu-btn shadow sm round {{dark_mode==true?'lines-red':'lines-white'}}" bindtap="setting">个性化设置</button>
+          <button class="cu-btn shadow sm round {{dark_mode==true?'lines-red':'lines-white'}}" bindtap="analyse">统计</button>
         </view>
-
       </view>
     </view>
 

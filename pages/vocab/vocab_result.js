@@ -247,7 +247,6 @@ Page({
 
   },
 
-
   renew: function() {
     var repeat_date = new Date();
     var year = repeat_date.getFullYear();
@@ -261,7 +260,7 @@ Page({
     console.log(repeat_date)
     var learn_word_today = [repeat_date];
     var learn_word_today_no = [];
-    for (var i = 0; i < 5000; i++) {
+    for (var i = 0; i < 4972; i++) {
       if (word_frequence_5000[i].date == repeat_date) {
         learn_word_today.push(word_frequence_5000[i].learn_word)
         learn_word_today_no.push(i)

@@ -1,48 +1,65 @@
 <view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 1}}">
+  <view class="cu-bar btn-group">
+    <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+  </view>
   <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
     <view class='action'>
       <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>今日新词
     </view>
   </view>
   <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
-    <view class="cu-item text-left" wx:for="{{learn_word_new_today}}" wx:for-index="idx" wx:key>
+    <view class="cu-item text-left arrow" wx:for="{{learn_word_new_today}}" wx:for-index="idx" wx:key wx:key id="{{idx}}" bindtap="choosed_answer">
       <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{learn_word_new_today[idx]}}</text>
     </view>
-    <view class="cu-item arrow bg-white-last">
-        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{learn_word_new_today.length}}词</text>
+    <view class="cu-item bg-white-last">
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{learn_word_new_today.length}}词</text>
     </view>
   </view>
 </view>
 
-
 <view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 2}}">
-  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+  <view class="cu-bar btn-group">
+    <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+  </view>
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-yellow light'}}">
     <view class='action'>
-      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>今日待复习
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-yellow'}}"></text>今日待复习
     </view>
   </view>
   <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
-    <view class="cu-item text-left" wx:for="{{review_word}}" wx:for-index="idx" wx:key>
+    <view class="cu-item text-left arrow" wx:for="{{review_word}}" wx:for-index="idx" wx:key id="{{idx}}" bindtap="choosed_answer_1">
       <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{review_word[idx]}}</text>
     </view>
-    <view class="cu-item arrow bg-white-last">
-        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{review_word.length}}词</text>
+    <view class="cu-item bg-white-last">
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{review_word.length}}词</text>
     </view>
   </view>
 </view>
 
 <view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 3}}">
-  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+  <view class="cu-bar btn-group">
+    <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+  </view>
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-green light'}}">
     <view class='action'>
-      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>已学习过
+      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-green'}}"></text>已学习过
     </view>
   </view>
   <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
-    <view class="cu-item text-left" wx:for="{{already_word}}" wx:for-index="idx" wx:key>
+    <view class="cu-item text-left arrow" wx:for="{{already_word}}" wx:for-index="idx" wx:key id="{{idx}}" bindtap="choosed_answer_2">
       <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{already_word[idx]}}</text>
     </view>
-    <view class="cu-item arrow bg-white-last">
-        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{already_word.length}}词</text>
+    <view class="cu-item bg-white-last">
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{already_word.length}}词</text>
     </view>
+  </view>
+</view>
+
+
+<view class="box">
+  <view class="cu-bar btn-group">
+    <button class="cu-btn light bg-red round shadow lg" bindtap="learn_word_new_today">新词</button>
+    <button class="cu-btn light bg-yellow round shadow lg" bindtap="review_word">待复习</button>
+    <button class="cu-btn light bg-green round shadow lg" bindtap="already_word">已学习</button>
   </view>
 </view>

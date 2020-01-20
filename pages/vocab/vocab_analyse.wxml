@@ -1,0 +1,48 @@
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 1}}">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class='action'>
+      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>今日新词
+    </view>
+  </view>
+  <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item text-left" wx:for="{{learn_word_new_today}}" wx:for-index="idx" wx:key>
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{learn_word_new_today[idx]}}</text>
+    </view>
+    <view class="cu-item arrow bg-white-last">
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{learn_word_new_today.length}}词</text>
+    </view>
+  </view>
+</view>
+
+
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 2}}">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class='action'>
+      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>今日待复习
+    </view>
+  </view>
+  <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item text-left" wx:for="{{review_word}}" wx:for-index="idx" wx:key>
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{review_word[idx]}}</text>
+    </view>
+    <view class="cu-item arrow bg-white-last">
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{review_word.length}}词</text>
+    </view>
+  </view>
+</view>
+
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 3}}">
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class='action'>
+      <text class="icon-title  {{dark_mode==true?'blk-text-white':'text-red'}}"></text>已学习过
+    </view>
+  </view>
+  <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item text-left" wx:for="{{already_word}}" wx:for-index="idx" wx:key>
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">{{already_word[idx]}}</text>
+    </view>
+    <view class="cu-item arrow bg-white-last">
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">共计{{already_word.length}}词</text>
+    </view>
+  </view>
+</view>

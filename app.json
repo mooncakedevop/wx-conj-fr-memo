@@ -17,7 +17,8 @@
     "pages/carte/test",
     "pages/vocab/vocab_index",
     "pages/vocab/vocab_result",
-    "pages/vocab/vocab_success"
+    "pages/vocab/vocab_success",
+    "pages/vocab/vocab_analyse"
   ],
   "tabBar": {
     "backgroundColor": "#F7F7FA",

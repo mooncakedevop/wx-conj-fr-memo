@@ -3,11 +3,8 @@
   <view class="margin-avatar">
     <image src="{{dark_mode==true?'/data/conj_black.png':'/data/conj_trans.png'}}" class="png" mode="widthFix"></image>
   </view>
-  <view class="cu-bar btn-group  title_css">
-    <button class="cu-btn bg-red round shadow lg" bindtap="start">开始学习</button>
-  </view>
 
-  <view class="padding radius text-center shadow-blur ">
+  <view class="padding radius text-center shadow-blur">
     <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
       <view class="flex-sub text-center">
         <view class="grid col-2 padding-lg">
@@ -24,26 +21,12 @@
             <view class="text-sl">{{main_review_word}}</view>
           </view>
         </view>
-
-        <view class="cu-bar btn-group">
-          <button class="cu-btn shadow sm round {{dark_mode==true?'lines-red':'lines-white'}}" bindtap="setting">个性化设置</button>
-          <button class="cu-btn shadow sm round {{dark_mode==true?'lines-red':'lines-white'}}" bindtap="analyse">统计</button>
-        </view>
       </view>
     </view>
-
-
-    <view class=" text-center light padding">
-      <view class="padding bg-answer-hc">
-        <view class="text-lg text-gap {{dark_mode==true?'blk-text-white':''}}">今日新词</view>
-        <view class="text-sm text-gap italic {{dark_mode==true?'blk-text-grey':''}}">Les nouveaux mots d'aujourd'hui</view>
-        <view class="cu-tag round shadow padding-tag-hc lg {{dark_mode==true?'blk-bg-grey2':'line-red'}}" wx:for="{{learn_word_new_today}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_new_today[j]}}</view>
-      </view>
-    </view>
-
-    <view class="cu-bar btn-group">
-      <button class="cu-btn bg-red round shadow sm" bindtap="like_me">🎠不淡定的实验室</button>
-    </view>
-
   </view>
+</view>
+
+<view class="box flex">
+    <button class="flex-sub cu-btn shadow round {{dark_mode==true?'lines-red':'lines-red'}} lg" bindtap="analyse">单词列表</button>
+    <button class="flex-twice cu-btn bg-red round shadow lg" bindtap="start">开始学习</button>
 </view>

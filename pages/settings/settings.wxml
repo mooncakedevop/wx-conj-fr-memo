@@ -20,13 +20,14 @@
     </view>
   </view>
   <view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
-    <view class="cu-item arrow" bindtap="zhuye">
+    <view class="cu-item arrow" bindtap="gongzhonghao">
       <view class="content text-left">
-        <text class="cuIcon-emojiflashfill text-pink"></text>
-        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🎈 小程序主页</text>
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔬 不淡定的实验室</text>
       </view>
       <view class="action">
-        <text class="text-grey text-sm">https://hxd.red/</text>
+        <view class="cu-tag round bg-olive light">微信公众号</view>
+        <view class="cu-tag round bg-red light">关注我</view>
       </view>
     </view>
     <view class="cu-item">
@@ -55,14 +56,13 @@
         <text class="{{dark_mode==true?'blk-text-white':'text-grey'}} left">📡 联系客服</text>
       </button>
     </view>
-    <view class="cu-item arrow" bindtap="gongzhonghao">
+    <view class="cu-item arrow" bindtap="zhuye">
       <view class="content text-left">
-        <text class="cuIcon-tagfill text-red"></text>
-        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔬 不淡定的实验室</text>
+        <text class="cuIcon-emojiflashfill text-pink"></text>
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🎈 小程序主页</text>
       </view>
       <view class="action">
-        <view class="cu-tag round bg-orange light">MAKER</view>
-        <view class="cu-tag round bg-olive light">GEEK</view>
+        <view class="cu-tag round bg-red light">https://hxd.red/</view>
       </view>
     </view>
     <view class="cu-item arrow bg-white-last">

@@ -34,7 +34,7 @@ Page({
     var learn_word_today = wx.getStorageSync('learn_word_today')
     var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
     var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
-    
+
     var settings_new = wx.getStorageSync('settings_new');
     var dark_mode = settings_new[0].dark_mode;
 
@@ -114,8 +114,8 @@ Page({
         learn_cx = learn_cx.split(";");
         learn_word_all = learn_word_all.split(";");
 
-        console.log(consult_data[0].w_cx) 
-        console.log(learn_word_all) 
+        console.log(consult_data[0].w_cx)
+        console.log(learn_word_all)
         var learn_word_cx = [] //第0格
         for (var i = 0; i < learn_word_all.length; i++) {
           var learn_word_cx_objet = {
@@ -150,7 +150,7 @@ Page({
 
   },
 
-  success: function () {
+  success: function() {
     wx.redirectTo({
       url: '../vocab/vocab_success',
     })
@@ -272,6 +272,7 @@ Page({
     wx.setStorageSync("consult_data", null)
     wx.setStorageSync("learn_word_today", learn_word_today)
     wx.setStorageSync("learn_word_today_no", learn_word_today_no)
+    app.globalData.vocal = null;
 
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据
@@ -338,6 +339,37 @@ Page({
     this.setData({
       learn_js: learn_js,
     })
+  },
+
+  real_vocal: function() {
+    if (app.globalData.vocal == null) {
+
+      wx.showToast({
+        title: '等一下下🛸',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+      })
+
+      var learn_word = app.globalData.learn_word;
+      const audio = wx.createInnerAudioContext()
+      wx.cloud.downloadFile({
+        fileID: "cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/vocale/pronunciation_fr_" + learn_word + ".mp3", // 文件 ID
+        success: res => {
+          // 返回临时文件路径
+          app.globalData.vocal = res.tempFilePath
+          console.log(res.tempFilePath)
+          audio.src = app.globalData.vocal
+          audio.play()
+        },
+        fail: console.error
+      })
+    } else {
+      const audio = wx.createInnerAudioContext()
+      audio.src = app.globalData.vocal
+      audio.play()
+    }
+
   },
 
   /**

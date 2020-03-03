@@ -55,6 +55,8 @@ App({
     openid: null,
     msg: null,
 
+    vocal: null,
+
   },
 
   getSkin: function() {

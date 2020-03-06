@@ -27,6 +27,7 @@
 </view>
 
 <view class="box flex">
-    <button class="flex-sub cu-btn shadow round {{dark_mode==true?'lines-red':'lines-red'}} lg" bindtap="analyse">单词列表</button>
-    <button class="flex-twice cu-btn bg-red round shadow lg" bindtap="start">开始学习</button>
+    <button class="flex-sub cu-btn shadow round {{dark_mode==true?'lines-red':'lines-red'}} lg" bindtap="analyse">单词表</button>
+    <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="start">认单词</button>
+    <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="start_reverse">默单词</button>
 </view>

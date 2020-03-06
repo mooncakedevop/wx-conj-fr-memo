@@ -1,0 +1,55 @@
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 50vh;
+}
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.box-2 {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.cu-bar .search-form input {
+  font-size: 30rpx;
+}
+
+.cu-bar.btn-group-nm {
+  justify-content: space-around;
+}
+
+.cu-bar.btn-group-nm button {
+  padding: 40rpx 1rpx;
+}
+
+.cu-bar.btn-group-nm button {
+  flex: 1;
+  margin: 0 10rpx;
+  max-width: 100%;
+}
+
+.cu-btn {
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.margin-top {
+  margin-top: 5vh;
+}
+
+.padding-conj {
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}
+
+.bg-mauve {
+  margin-top: 1vh;
+}

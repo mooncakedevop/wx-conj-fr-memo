@@ -9,31 +9,14 @@
       </view>
     </view>
 
-    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}} search-conj">
-      <view class="text-sm">在下方输入单词</view>
-      
-      <view class="cu-bar search bg-white round">
-        <view class='search-form round'>
-          <input type="text" placeholder="（严格区分大小写、特殊符号）" value='{{input_word}}' focus="{{focus}}" confirm-type="input_word" bindinput="input_word" bindblur="bindblur" bindfocus="bindfocus" cursor="{{cursor}}"></input>
-        </view>
-        <button class='cu-btn bg-blue shadow-blur round' bindtap="search">检查</button>
-      </view>
+    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+      <text wx:for="{{learn_word_dash}}" wx:for-index="idx" wx:key>
+        <text class="text-sl">{{learn_word_dash[idx]}}</text>
+      </text>
+    </view>
 
-      <view class='box'>
-        <view class="cu-bar btn-group-nm btn-conj">
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="â" disabled="{{disable_btn}}">â</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="é" disabled="{{disable_btn}}">é</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="è" disabled="{{disable_btn}}">è</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ê" disabled="{{disable_btn}}">ê</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="î" disabled="{{disable_btn}}">î</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ï" disabled="{{disable_btn}}">ï</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ô" disabled="{{disable_btn}}">ô</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="û" disabled="{{disable_btn}}">û</button>
-          <button class="cu-btn bg-white round shadow-blur" bindtap="special_fr" id="ç" disabled="{{disable_btn}}">ç</button>
-        </view>
-      </view>
-
-
+    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+      <view class="cu-btn sm round shadow {{dark_mode==true?'lines-white':'lines-mauve'}}" bindtap="hint_learn_word">提示</view>
       <view class="cu-btn sm round shadow {{dark_mode==true?'lines-white':'lines-mauve'}}" bindtap="trop_facile">标记为太简单</view>
       <view class="cu-btn sm bg-red round shadow" bindtap="real_vocal">真人发音</view>
     </view>
@@ -55,7 +38,7 @@
       </view>
     </view>
 
-    <view class="padding bg-white-last padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}" bindtap="hint_lj">
+    <view class="padding padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}" bindtap="hint_lj">
       <view class="text-center" wx:if="{{learn_lj == '点击查看双语例句'}}"> 点击查看双语例句 </view>
       <view class="text-center" wx:if="{{learn_lj[0].lj_cn == ''}}"> 暂无例句 </view>
       <view class="text-left" wx:if="{{learn_lj != '点击查看双语例句' && learn_lj != '暂无例句'}}" wx:for="{{learn_lj}}" wx:for-index="idx" wx:key>
@@ -65,10 +48,13 @@
       </view>
     </view>
 
+    <view class="padding bg-answer-hc bg-white-last padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}">
+      <view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{learn_word_separer}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_separer[j]}}</view>
+    </view>
+
   </view>
-
-
 </view>
+
 <view class="box-2">
   <view class="cu-bar btn-group">
     <button class="cu-btn light bg-red round shadow lg" bindtap="verifier">下一个</button>

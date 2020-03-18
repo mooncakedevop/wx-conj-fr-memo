@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.box-2 {
+.box {
   padding-left: 3vw;
   padding-right: 3vw;
   padding-bottom: 5vh;
@@ -18,27 +18,10 @@
   bottom: 0;
 }
 
-.cu-bar .search-form input {
-  font-size: 30rpx;
-}
-
-.cu-bar.btn-group-nm {
-  justify-content: space-around;
-}
-
-.cu-bar.btn-group-nm button {
-  padding: 40rpx 1rpx;
-}
-
-.cu-bar.btn-group-nm button {
-  flex: 1;
-  margin: 0 10rpx;
-  max-width: 100%;
-}
-
 .cu-btn {
   margin-left: 1vw;
   margin-right: 1vw;
+  margin-top: 2vh;
 }
 
 .margin-top {

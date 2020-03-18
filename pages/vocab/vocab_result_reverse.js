@@ -26,12 +26,14 @@ Page({
     learn_word: null,
     learn_example: null,
     learn_level: null,
+    learn_word_dash:[],
+    learn_word_separer: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setStorageSync("consult_data", null)
     var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
     var learn_word_today = wx.getStorageSync('learn_word_today')
@@ -66,6 +68,15 @@ Page({
 
     this.onQuery(learn_word);
 
+    //单词有几个字母就有几根线，并将单词拆散
+    var learn_word_separer = []
+    var learn_word_dash = []
+    for (var i = 0; i < learn_word.length; i++) {
+      learn_word_separer.push(learn_word[i])
+      learn_word_dash.push("- ")
+      console.log(learn_word_separer)
+    }
+
     wx.showToast({
       title: 'Chargement😍',
       icon: 'none',
@@ -75,6 +86,8 @@ Page({
 
     this.setData({
       learn_word: learn_word,
+      learn_word_separer: learn_word_separer,
+      learn_word_dash: learn_word_dash,
       learn_level: learn_level,
       dark_mode: dark_mode,
     })
@@ -84,13 +97,13 @@ Page({
       interstitialAd = wx.createInterstitialAd({
         adUnitId: 'adunit-e563df22798519aa'
       })
-      interstitialAd.onLoad(() => { })
-      interstitialAd.onError((err) => { })
-      interstitialAd.onClose(() => { })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
     }
   },
 
-  input_word: function (e) {
+  input_word: function(e) {
     console.log(e);
     var input_word = e.detail.value.toLowerCase();
     this.setData({
@@ -99,7 +112,7 @@ Page({
     console.log(input_word);
   },
 
-  special_fr: function (e) {
+  special_fr: function(e) {
     console.log(e.currentTarget.id);
     var input_word = this.data.input_word;
     var input_word = input_word.concat(e.currentTarget.id)
@@ -114,19 +127,19 @@ Page({
     })
   },
 
-  bindblur: function () {
+  bindblur: function() {
     this.setData({
       disable_btn: false,
     })
   },
 
-  bindfocus: function () {
+  bindfocus: function() {
     this.setData({
       disable_btn: true,
     })
   },
 
-  search: function () {
+  search: function() {
     var search_word = this.data.input_word;
     if (search_word == app.globalData.learn_word) {
       wx.showToast({
@@ -137,7 +150,7 @@ Page({
         mask: true,
       })
       return;
-    }else{
+    } else {
       wx.showToast({
         title: '答错了',
         image: '/style/paper-plane.png',
@@ -149,7 +162,7 @@ Page({
 
   },
 
-  onQuery: function (search_word) {
+  onQuery: function(search_word) {
     var that = this;
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
@@ -157,7 +170,7 @@ Page({
     db.collection('vocab_dic_larousse_20190807').where(_.or([{
       w_s: search_word
     }])).get({
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
         var consult_data = res.data;
 
@@ -234,13 +247,13 @@ Page({
 
 
 
-  success: function () {
+  success: function() {
     wx.redirectTo({
       url: '../vocab/vocab_success',
     })
   },
 
-  JNSP: function () {
+  JNSP: function() {
     //等级将为0，日期不变
     var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
     var learn_word_today = wx.getStorageSync('learn_word_today');
@@ -255,12 +268,12 @@ Page({
     this.renew()
   },
 
-  justSoSo: function () {
+  justSoSo: function() {
     //等级保持不变，日期不变
     this.renew()
   },
 
-  bien_enregistre: function () {
+  bien_enregistre: function() {
     //等级加1，日期根据实际情况加
     var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
     var learn_word_today = wx.getStorageSync('learn_word_today');
@@ -279,7 +292,7 @@ Page({
     this.renew()
   },
 
-  trop_facile: function () {
+  trop_facile: function() {
     // 在适合的场景显示插屏广告
     if (interstitialAd) {
       interstitialAd.show().catch((err) => {
@@ -290,7 +303,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '😕“标记为简单”在此版本中无法撤销，确定标记？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           //等级加1，日期根据实际情况加
           var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
@@ -319,7 +332,7 @@ Page({
             mask: true,
           })
 
-          setTimeout(function () {
+          setTimeout(function() {
 
           }, 1500);
           console.log('确定')
@@ -331,7 +344,7 @@ Page({
 
   },
 
-  renew: function () {
+  renew: function() {
     var repeat_date = new Date();
     var year = repeat_date.getFullYear();
     var month = repeat_date.getMonth() + 1;
@@ -364,7 +377,7 @@ Page({
     }
   },
 
-  hint_lj: function () {
+  hint_lj: function() {
     var consult_data = wx.getStorageSync('consult_data');
     var learn_lj_cn = consult_data[0].w_lj_cn;
     var learn_lj_fr = consult_data[0].w_lj_fr;
@@ -396,7 +409,7 @@ Page({
   },
 
 
-  real_vocal: function () {
+  real_vocal: function() {
     if (app.globalData.vocal == null) {
 
       wx.showToast({
@@ -430,20 +443,20 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '搞定法语背单词就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function (shareTickets) {
+      success: function(shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function (res) {
+      complete: function(res) {
         // 不管成功失败都会执行
       }
     }

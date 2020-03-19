@@ -479,7 +479,7 @@ Page({
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
-      content: '根据释义或者例句判断单词' + '\r\n' + '选择正确的字母将其正确拼写' + '\r\n' + app.globalData.learn_word,
+      content: '根据释义或者例句判断单词' + '\r\n' + '选择正确的字母将其正确拼写' + '\r\n' + '只有拼写正确才能使用“下一个”' + '\r\n' + app.globalData.learn_word,
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
@@ -495,6 +495,12 @@ Page({
     }
     this.setData({
       learn_word_dash: learn_word_dash,
+    })
+  },
+
+  vocab_index: function() {
+    wx.navigateBack({
+      delta: 1
     })
   },
   /**

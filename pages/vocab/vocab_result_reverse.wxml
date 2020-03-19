@@ -1,7 +1,9 @@
 <!--pages/vocab/vocab_result_reverse.wxml-->
 <view class="page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
-
   <view class="padding radius text-center shadow-blur title_css">
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+    </view>
 
     <view class="cu-bar margin-top {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
       <view class="flex padding justify-between">
@@ -10,12 +12,12 @@
     </view>
 
     <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
-      <text wx:for="{{learn_word_dash}}" wx:for-index="idx" wx:key>
+      <view>
+        <text wx:for="{{learn_word_dash}}" wx:for-index="idx" wx:key>
         <text class="text-sl">{{learn_word_dash[idx]}}</text>
-      </text>
-    </view>
+        </text>
+      </view>
 
-    <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
       <view class="cu-btn sm bg-mauve round shadow" bindtap="hint_learn_word">提示</view>
       <view class="cu-btn sm round shadow {{dark_mode==true?'lines-white':'lines-mauve'}}" bindtap="trop_facile">标记为太简单</view>
       <view class="cu-btn sm bg-red round shadow" bindtap="real_vocal">真人发音</view>

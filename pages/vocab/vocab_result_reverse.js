@@ -415,6 +415,16 @@ Page({
     for (var i = 0; i < learn_word_dash.length; i++) {
       if (learn_word_dash[i] == "- ") {
         learn_word_dash[i] = learn_word_separer[e.target.id]
+        if (learn_word_dash.join("") == app.globalData.learn_word) {
+          wx.showToast({
+            title: '答对了🎉',
+            image: '/style/paper-plane.png',
+            icon: 'sucess',
+            duration: 2000,
+            mask: true,
+          })
+          this.hint_lj()
+        }
         break
       }
     }
@@ -431,13 +441,6 @@ Page({
     console.log(app.globalData.learn_word)
     var learn_word_dash = app.globalData.learn_word_dash.join("")
     if (learn_word_dash == app.globalData.learn_word) {
-      wx.showToast({
-        title: '答对了🎉',
-        image: '/style/paper-plane.png',
-        icon: 'sucess',
-        duration: 1000,
-        mask: true,
-      })
       //等级加1，日期根据实际情况加
       var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
       var learn_word_today = wx.getStorageSync('learn_word_today');
@@ -476,7 +479,7 @@ Page({
     console.log(this.data.shitai_je)
     wx.showModal({
       title: '提示',
-      content: app.globalData.learn_word,
+      content: '根据释义或者例句判断单词' + '\r\n' + '选择正确的字母将其正确拼写' + '\r\n' + app.globalData.learn_word,
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
@@ -485,7 +488,7 @@ Page({
     })
   },
 
-  delete_word : function() {
+  delete_word: function() {
     var learn_word_dash = app.globalData.learn_word_dash
     for (var i = 0; i < learn_word_dash.length; i++) {
       learn_word_dash[i] = "- "
@@ -494,7 +497,6 @@ Page({
       learn_word_dash: learn_word_dash,
     })
   },
-
   /**
    * 用户点击右上角分享
    */

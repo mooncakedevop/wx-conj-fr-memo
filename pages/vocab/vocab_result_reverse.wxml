@@ -16,7 +16,7 @@
     </view>
 
     <view class="padding {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
-      <view class="cu-btn sm round shadow {{dark_mode==true?'lines-white':'lines-mauve'}}" bindtap="hint_learn_word">提示</view>
+      <view class="cu-btn sm bg-mauve round shadow" bindtap="hint_learn_word">提示</view>
       <view class="cu-btn sm round shadow {{dark_mode==true?'lines-white':'lines-mauve'}}" bindtap="trop_facile">标记为太简单</view>
       <view class="cu-btn sm bg-red round shadow" bindtap="real_vocal">真人发音</view>
     </view>
@@ -51,11 +51,10 @@
     <view class="padding bg-answer-hc bg-white-last padding-conj {{dark_mode==true?'blk-bg-grey3 blk-dash-conj':'bg-white dash-conj'}}">
       <view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{learn_word_separer}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{learn_word_separer[j]}}</view>
     </view>
-
   </view>
 </view>
 
 <view class="box flex">
-  <button class="flex-twice cu-btn shadow round lg" bindtap="verifier">下一个</button>
+  <button class="flex-twice cu-btn {{dark_mode==false?'bg-red light':'lines-white'}} shadow round lg" bindtap="verifier">下一个</button>
   <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="delete_word">清除</button>
 </view>

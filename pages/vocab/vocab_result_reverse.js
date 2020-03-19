@@ -26,7 +26,7 @@ Page({
     learn_word: null,
     learn_example: null,
     learn_level: null,
-    learn_word_dash:[],
+    learn_word_dash: [],
     learn_word_separer: [],
   },
 
@@ -60,8 +60,6 @@ Page({
     var learn_js = '点击查看法汉双解提示'
     var learn_lj = '点击查看例句提示'
 
-    app.globalData.learn_word = learn_word
-
     console.log(app.globalData.learn_word)
     console.log(learn_level)
     console.log(learn_word_no)
@@ -76,6 +74,19 @@ Page({
       learn_word_dash.push("- ")
       console.log(learn_word_separer)
     }
+
+    function shuffle(array) {
+      let length = array.length;
+      while (length) {
+        let position = Math.floor(Math.random() * length--);
+        [array[position], array[length]] = [array[length], array[position]];
+      }
+    }
+
+    shuffle(learn_word_separer)
+    app.globalData.learn_word_dash = learn_word_dash
+    app.globalData.learn_word = learn_word
+    app.globalData.learn_word_separer = learn_word_separer
 
     wx.showToast({
       title: 'Chargement😍',
@@ -159,7 +170,6 @@ Page({
         mask: true,
       })
     }
-
   },
 
   onQuery: function(search_word) {
@@ -242,54 +252,12 @@ Page({
         wx.setStorageSync('consult_data', res.data);
       }
     })
-
   },
-
-
 
   success: function() {
     wx.redirectTo({
       url: '../vocab/vocab_success',
     })
-  },
-
-  JNSP: function() {
-    //等级将为0，日期不变
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = wx.getStorageSync('learn_word_today');
-    var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
-
-    var learn_word = app.globalData.learn_word;
-    var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    word_frequence_5000[word_no].level = 0
-
-    wx.setStorageSync("word_frequence_5000", word_frequence_5000)
-
-    this.renew()
-  },
-
-  justSoSo: function() {
-    //等级保持不变，日期不变
-    this.renew()
-  },
-
-  bien_enregistre: function() {
-    //等级加1，日期根据实际情况加
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = wx.getStorageSync('learn_word_today');
-    var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
-
-    var learn_word = app.globalData.learn_word;
-    var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    if (word_frequence_5000[word_no].level == 7) {
-      word_frequence_5000[word_no].date = 9000000000000
-    } else {
-      word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
-      word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400000 * date_review[word_frequence_5000[word_no].level] //时间加指定
-    }
-    wx.setStorageSync("word_frequence_5000", word_frequence_5000)
-
-    this.renew()
   },
 
   trop_facile: function() {
@@ -408,7 +376,6 @@ Page({
     })
   },
 
-
   real_vocal: function() {
     if (app.globalData.vocal == null) {
 
@@ -438,6 +405,94 @@ Page({
       audio.play()
     }
 
+  },
+
+  choosed_answer: function(e) {
+    var learn_word_dash = app.globalData.learn_word_dash
+    var learn_word = app.globalData.learn_word
+    var learn_word_separer = app.globalData.learn_word_separer
+    console.log(e.target.id)
+    for (var i = 0; i < learn_word_dash.length; i++) {
+      if (learn_word_dash[i] == "- ") {
+        learn_word_dash[i] = learn_word_separer[e.target.id]
+        break
+      }
+    }
+
+    this.setData({
+      learn_word_dash: learn_word_dash,
+    })
+
+    app.globalData.learn_word_dash = learn_word_dash
+  },
+
+  verifier: function() {
+    console.log(app.globalData.learn_word_dash)
+    console.log(app.globalData.learn_word)
+    var learn_word_dash = app.globalData.learn_word_dash.join("")
+    if (learn_word_dash == app.globalData.learn_word) {
+      wx.showToast({
+        title: '答对了🎉',
+        image: '/style/paper-plane.png',
+        icon: 'sucess',
+        duration: 1000,
+        mask: true,
+      })
+      //等级加1，日期根据实际情况加
+      var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
+      var learn_word_today = wx.getStorageSync('learn_word_today');
+      var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
+
+      var learn_word = app.globalData.learn_word;
+      var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
+      if (word_frequence_5000[word_no].level == 7) {
+        word_frequence_5000[word_no].date = 9000000000000
+      } else {
+        word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
+        word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400000 * date_review[word_frequence_5000[word_no].level] //时间加指定
+      }
+      wx.setStorageSync("word_frequence_5000", word_frequence_5000)
+
+      this.renew()
+    } else {
+      wx.showToast({
+        title: '答错了😥',
+        image: '/style/paper-plane.png',
+        icon: 'sucess',
+        duration: 1000,
+        mask: true,
+      })
+      return;
+    }
+  },
+
+  hint_learn_word: function() {
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
+    console.log(this.data.shitai_je)
+    wx.showModal({
+      title: '提示',
+      content: app.globalData.learn_word,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    })
+  },
+
+  delete_word : function() {
+    var learn_word_dash = app.globalData.learn_word_dash
+    for (var i = 0; i < learn_word_dash.length; i++) {
+      learn_word_dash[i] = "- "
+    }
+    this.setData({
+      learn_word_dash: learn_word_dash,
+    })
   },
 
   /**

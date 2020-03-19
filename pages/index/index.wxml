@@ -50,7 +50,6 @@
   <icon type="{{iconType[5]}}" size="23" color="{{iconColor[5]}}"></icon>
 </view>
 
-
 <view class="padding bg-answer-hc {{dark_mode==true?'blk-bg-black':''}}">
   <view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
 </view>

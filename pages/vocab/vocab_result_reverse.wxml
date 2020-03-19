@@ -55,8 +55,7 @@
   </view>
 </view>
 
-<view class="box-2">
-  <view class="cu-bar btn-group">
-    <button class="cu-btn light bg-red round shadow lg" bindtap="verifier">下一个</button>
-  </view>
+<view class="box flex">
+  <button class="flex-twice cu-btn shadow round lg" bindtap="verifier">下一个</button>
+  <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="delete_word">清除</button>
 </view>

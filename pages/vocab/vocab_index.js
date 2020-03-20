@@ -316,6 +316,12 @@ Page({
     })
   },
 
+  start_reverse: function () {
+    wx.navigateTo({
+      url: 'vocab_result_reverse',
+    })
+  },
+
   analyse: function() {
     wx.navigateTo({
       url: 'vocab_analyse',

@@ -27,13 +27,15 @@
         </view>
       </view>
     </view>
-    
+
     <view class=" text-sm margin-text">
-      <text class="text-grey">✔ 法语背单词（频率最高5000词）\n</text>
+      <text class="text-grey">✔ 完全免费\n</text>
+      <text class="text-grey">✔ 法语背默单词（频率最高5000词）\n</text>
       <text class="text-grey">✔ 7000+法语动词变位正查反查\n</text>
       <text class="text-grey">✔ 常用法语动词变位强化练习\n</text>
       <text class="text-grey">✔ 自由选择动词和时态范围\n</text>
       <text class="text-grey">✔ 法汉双解和例句\n</text>
+      <text class="text-grey">✔ 法语真人发音\n</text>
     </view>
 
     <official-account></official-account>

@@ -1,0 +1,38 @@
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 50vh;
+}
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.box {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 5vh;
+  padding-top: 0vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.cu-btn {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 2vh;
+}
+
+.margin-top {
+  margin-top: 2vh;
+}
+
+.padding-conj {
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}
+
+.bg-mauve {
+  margin-top: 1vh;
+}

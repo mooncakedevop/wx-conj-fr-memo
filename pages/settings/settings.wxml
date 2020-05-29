@@ -62,7 +62,7 @@
         <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🎈 小程序主页</text>
       </view>
       <view class="action">
-        <view class="cu-tag round bg-red light">https://hxd.red/</view>
+        <view class="cu-tag round bg-red light">https://xd.sh.cn/</view>
       </view>
     </view>
     <view class="cu-item arrow bg-white-last">

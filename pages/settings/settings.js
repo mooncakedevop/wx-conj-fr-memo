@@ -259,7 +259,7 @@ Page({
   copy: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://hxd.red/conj-helper",
+      data: "https://xd.sh.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',
@@ -291,7 +291,7 @@ Page({
   zhuye: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://hxd.red/conj-helper",
+      data: "https://xd.sh.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',

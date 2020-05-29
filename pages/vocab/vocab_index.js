@@ -14,10 +14,11 @@ Page({
   },
 
   onLoad: function(options) {
-    app.globalData.word_frequence_5000 = wx.getStorageSync('word_frequence_5000')
-    app.globalData.learn_word_new_today = wx.getStorageSync('learn_word_new_today')
-    app.globalData.learn_word_new_today_no = wx.getStorageSync('learn_word_new_today_no')
-    var learn_word_today = wx.getStorageSync('learn_word_today')
+    app.globalData.word_frequence_5000 = wx.getStorageSync('word_frequence_5000') //标砖词库，新用户为空
+    app.globalData.mots_deja_vu = wx.getStorageSync('mots_deja_vu') //用户词库
+    app.globalData.learn_word_new_today = wx.getStorageSync('learn_word_new_today') //今日新词
+    app.globalData.learn_word_new_today_no = wx.getStorageSync('learn_word_new_today_no') //今日新词的编号
+    var learn_word_today = wx.getStorageSync('learn_word_today') //今天要出现的所有词
     var settings_new = wx.getStorageSync('settings_new')
     app.globalData.freq = settings_new[0].freq
     app.globalData.freq_number = settings_new[0].freq_number
@@ -51,6 +52,7 @@ Page({
       this.new_user_data()
     }
 
+    //这一块不动，生成日期
     var repeat_date = new Date();
     var year = repeat_date.getFullYear();
     var month = repeat_date.getMonth() + 1;
@@ -61,17 +63,35 @@ Page({
     console.log(repeat_date)
     console.log(app.globalData.freq)
 
+    //word_frequence_5000中去除mots_deja_vu
+    var mots_deja_vu = wx.getStorageSync('mots_deja_vu')
+    let word_frequence_5000_word = []
+    let mots_deja_vu_word = []
+    for (let i = 0; i < word_frequence_5000.length;i++){
+      word_frequence_5000_word.push(word_frequence_5000[i].learn_word)
+    }
+    for (let i = 0; i < mots_deja_vu.length; i++) {
+      mots_deja_vu_word.push(mots_deja_vu[i].learn_word)
+    }
+    let a = word_frequence_5000_word
+    let b = mots_deja_vu_word
+    let intersection = a.filter(v => b.includes(v)) 
+    let difference = a.concat(intersection).filter(v => !a.includes(v) || !intersection.includes(v))
+    console.log(difference)   //这里的diffrence就是今天的新词范围。
+
     //如果第一个字符的日期不是当天的，生成新词
     var learn_word_new_today = app.globalData.learn_word_new_today
     var learn_word_new_today_no = app.globalData.learn_word_new_today_no
     if (learn_word_new_today[0] != repeat_date) {
+
+
       if (app.globalData.freq[0] == true) {
         var learn_word_new_today = [repeat_date];
         var learn_word_new_today_no = [];
         var i = 0;
         var word_frequence_5000 = app.globalData.word_frequence_5000
-        while (i < app.globalData.freq_number) {
-          var learn_no = Math.floor(Math.random() * (1500 - 0 + 1) + 0);
+        while (i < app.globalData.freq_number) { //每天背多少词呢？
+          var learn_no = Math.floor(Math.random() * (word_frequence_5000.length - 0 + 1) + 0);
           if (word_frequence_5000[learn_no].level == 0) {
             learn_word_new_today.push(word_frequence_5000[learn_no].learn_word)
             learn_word_new_today_no.push(learn_no)
@@ -149,7 +169,7 @@ Page({
     var today_all = []
     var review_word = []
 
-    for (var i = 0; i < 4972; i++) {
+    for (var i = 0; i < 1500; i++) {
       if (word_frequence_5000[i].date < repeat_date && word_frequence_5000[i].level == 0) {
         word_frequence_5000[i].date = 9999999999999
       }
@@ -199,11 +219,22 @@ Page({
 
   },
 
+  difference: function(a, b) {
+    var result = a.filter(function (v) { return b.indexOf(v) === -1 })
+    return result;
+  },
+
+  intersect: function(a, b) {
+    let set1 = new Set(a),
+      set2 = new Set(b);
+    return [...new Set([...set1].filter(x => set2.has(x)))];
+  },
+
   new_user_data: function() {
     var verb_7300_fr = word_frequence;
     var word_frequence_5000 = [];
-    for (var i = 0; i < 4972; i++) {
-      var learn_word = verb_7300_fr.verb_7300_fr[i].word;
+    for (var i = 0; i < verb_7300_fr.freq_1500.length; i++) {
+      var learn_word = verb_7300_fr.freq_1500[i].word;
       var learn_word_new = {
         learn_word: learn_word,
         date: 9999999999999,
@@ -215,6 +246,7 @@ Page({
     wx.setStorageSync('word_frequence_5000', word_frequence_5000)
     console.log(word_frequence_5000)
   },
+
   //增加点击即查询
   choosed_answer: function(e) {
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
@@ -316,7 +348,7 @@ Page({
     })
   },
 
-  start_reverse: function () {
+  start_reverse: function() {
     wx.navigateTo({
       url: 'vocab_result_reverse',
     })

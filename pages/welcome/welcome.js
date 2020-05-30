@@ -32,6 +32,9 @@ Page({
     }
 
     if (version[0].version != "v3.6.0" && version != "v3.6.0") { //如果只是新版本的数据没有
+      wx.setStorageSync('version', [{
+        "version": "v3.6.0"
+      }])
       var word_frequence_5000_temp = wx.getStorageSync('word_frequence_5000')
       var mots_deja_vu = []
       for (var i = 0; i < word_frequence_5000_temp.length;i++){
@@ -41,7 +44,8 @@ Page({
       }
 
       wx.setStorageSync('mots_deja_vu', mots_deja_vu)
-
+      wx.setStorageSync('old_word_frequence_5000', word_frequence_5000_temp)
+      wx.removeStorageSync('word_frequence_5000')
       console.log(wx.getStorageSync('mots_deja_vu'))
       console.log(wx.getStorageSync('version'))
       console.log(wx.getStorageSync('settings_new'))

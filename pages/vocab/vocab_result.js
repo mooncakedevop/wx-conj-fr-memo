@@ -257,7 +257,6 @@ Page({
     console.log(repeat_date)
 
     var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    console.log(repeat_date)
     var learn_word_today = [repeat_date];
     var learn_word_today_no = [];
     for (var i = 0; i < 4972; i++) {

@@ -197,6 +197,7 @@ Page({
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
           wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
           wx.setStorageSync('settings_new', res.data[0].settings_new);
+          wx.setStorageSync('learn_word_new_today', null);
 
           app.globalData.carte_arrey = res.data[0].carte_arrey;
           app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;

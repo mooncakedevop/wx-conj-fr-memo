@@ -44,6 +44,7 @@ Page({
       }
 
       wx.setStorageSync('mots_deja_vu', mots_deja_vu)
+      wx.setStorageSync('learn_word_new_today', null);
       wx.setStorageSync('old_word_frequence_5000', word_frequence_5000_temp)
       wx.removeStorageSync('word_frequence_5000')
       console.log(wx.getStorageSync('mots_deja_vu'))

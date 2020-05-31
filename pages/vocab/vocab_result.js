@@ -233,22 +233,39 @@ Page({
       success: function(res) {
         if (res.confirm) {
           //等级加1，日期根据实际情况加
-          var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-          var learn_word_today = wx.getStorageSync('learn_word_today');
-          var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
-
           var learn_word = app.globalData.learn_word;
-          var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-          console.log(word_no)
-          console.log(learn_word)
-          if (word_frequence_5000[word_no].level == 7) {
-            word_frequence_5000[word_no].date = 9000000000000
-          } else {
-            word_frequence_5000[word_no].level = 7; //等级变7
-            word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400000 * date_review[word_frequence_5000[word_no].level] //时间加指定
+          var mots_aujourdhui = wx.getStorageSync('mots_aujourdhui')   //今日还剩余全部
+          var mots_deja_vu = wx.getStorageSync('mots_deja_vu')  //只有旧词
+          var mots_aujourdhui_temp = []
+          var mots_deja_vu_temp = []
+          for (let i = 0; i < mots_aujourdhui.length; i++) {
+            mots_aujourdhui_temp.push(mots_aujourdhui[i].learn_word)
           }
-          wx.setStorageSync("word_frequence_5000", word_frequence_5000)
-          wx.setStorageSync("consult_data", null)
+          for (let i = 0; i < mots_deja_vu.length; i++) {
+            mots_deja_vu_temp.push(mots_deja_vu[i].learn_word)
+          }
+          let position_mots_aujourdhui = mots_aujourdhui_temp.indexOf(learn_word)
+          let position_mots_deja_vu = mots_deja_vu_temp.indexOf(learn_word)
+          console.log(mots_aujourdhui_temp.indexOf(learn_word))  //在mots_aujourdhui的位置
+          console.log(mots_deja_vu_temp.indexOf(learn_word)) //在mots_deja_vu位置，没有返回-1
+
+          //如果mots_deja_vu里面有这个词，则删除
+          if (position_mots_deja_vu != -1) {
+            mots_deja_vu.splice(position_mots_deja_vu, 1)
+          }
+
+          if (mots_aujourdhui[position_mots_aujourdhui].level == 7) {
+            mots_aujourdhui[position_mots_aujourdhui].date = 9000000000000
+          } else {
+            mots_aujourdhui[position_mots_aujourdhui].level=7; //等级加一
+            mots_aujourdhui[position_mots_aujourdhui].date = mots_aujourdhui[position_mots_aujourdhui].date + 86400000 * date_review[mots_aujourdhui[position_mots_aujourdhui].level] //时间加指定
+          }
+
+          mots_deja_vu.push(mots_aujourdhui[position_mots_aujourdhui])
+          mots_aujourdhui.splice(mots_aujourdhui_temp.indexOf(learn_word), 1)
+
+          wx.setStorageSync("mots_aujourdhui", mots_aujourdhui)
+          wx.setStorageSync("mots_deja_vu", mots_deja_vu)
 
           that.renew()
 

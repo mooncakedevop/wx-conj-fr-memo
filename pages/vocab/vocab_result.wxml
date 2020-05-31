@@ -44,15 +44,12 @@
         <text class="text-cn"> {{learn_lj[idx].lj_cn}}</text>
       </view>
     </view>
-
   </view>
-
 
 </view>
 <view class="box">
   <view class="cu-bar btn-group">
     <button class="cu-btn light bg-red round shadow lg" bindtap="JNSP">不认识</button>
-    <button class="cu-btn light bg-yellow round shadow lg" bindtap="justSoSo">不确定</button>
     <button class="cu-btn light bg-green round shadow lg" bindtap="bien_enregistre">认识</button>
   </view>
 </view>

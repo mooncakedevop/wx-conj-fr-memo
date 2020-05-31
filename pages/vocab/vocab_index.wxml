@@ -11,7 +11,7 @@
           <view class="text-sm">今天要学习
             <view class="text-sl">{{main_today_all}}</view>
           </view>
-          <view class="text-sm">学习过的单词
+          <view class="text-sm">有印象的单词
             <view class="text-sl">{{main_already_word}}</view>
           </view>
           <view class='text-sm'>今日新词

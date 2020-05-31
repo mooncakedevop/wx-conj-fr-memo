@@ -104,11 +104,11 @@ Page({
     }
 
     let mots_vont_voir = []
-    for (var i = 1; i < learn_word_new_today.length+1; i++) {
+    for (var i = 1; i < learn_word_new_today.length; i++) {
       var learn_word = learn_word_new_today[i];
       var learn_word_new = {
         learn_word: learn_word,
-        date: 9999999999999,
+        date: repeat_date,
         level: 0
       };
       mots_vont_voir.push(learn_word_new)
@@ -120,49 +120,49 @@ Page({
   
     //加上旧词
     var already_word = []
-    var today_all = []
+    var today_all_old = []
     var review_word = []
-    var mots_aujourdhui = mots_deja_vu.concat(mots_vont_voir) //今天所有将出现的词
-    console.log(mots_aujourdhui) //今天的新词，对象数组
 
-    for (var i = 0; i < mots_aujourdhui.length; i++) {
+    for (var i = 0; i < mots_deja_vu.length; i++) {
 
-      //如果小于今天的日期，同时level为0，则日期均为999。此情况不存在。
       //如果小于今天的日期，则把日期设为今天。
-      if (mots_aujourdhui[i].date < repeat_date) {
-        mots_aujourdhui[i].date = repeat_date
+      if (mots_deja_vu[i].date < repeat_date) {
+        mots_deja_vu[i].date = repeat_date
       }
 
-      if (mots_aujourdhui[i].level == 0) {
-        mots_aujourdhui[i].date = repeat_date
+      if (mots_deja_vu[i].level == 0) {
+        mots_deja_vu[i].date = repeat_date
       }
 
       //如果等于今天的日期，同时level不为0。则这些单词是今天需要复习的单词。
-      if (mots_aujourdhui[i].date == repeat_date && mots_aujourdhui[i].level != 0)       {
-        review_word.push(mots_aujourdhui[i].learn_word)
-        console.log(mots_aujourdhui[i].learn_word)
+      if (mots_deja_vu[i].date == repeat_date && mots_deja_vu[i].level != 0)       {
+        review_word.push(mots_deja_vu[i].learn_word)
+        console.log(mots_deja_vu[i])
       }
 
-      if (mots_aujourdhui[i].level != 0) {
-        already_word.push(mots_aujourdhui[i].learn_word)
+      if (mots_deja_vu[i].level != 0) {
+        already_word.push(mots_deja_vu[i].learn_word)
       }
 
-      if (mots_aujourdhui[i].date == repeat_date) {
-        today_all.push(mots_aujourdhui[i].learn_word)
+      if (mots_deja_vu[i].date == repeat_date) {
+        today_all_old.push(mots_deja_vu[i])  //筛选出来要背的旧词
       }
     }
-    console.log(review_word)
-    console.log(today_all)
-    console.log(mots_aujourdhui)
 
+    var mots_aujourdhui = today_all_old.concat(mots_vont_voir) //筛选出来要背的旧词和新词
     wx.setStorageSync('review_word', review_word)
     wx.setStorageSync('already_word', already_word)
     wx.setStorageSync('mots_aujourdhui', mots_aujourdhui)
 
-    var main_today_all = today_all.length
+    var main_today_all = today_all_old.length + mots_vont_voir.length 
     var main_already_word = already_word.length
     var main_review_word = review_word.length
-    var main_new_word = today_all.length - review_word.length
+    var main_new_word = mots_vont_voir.length
+
+    console.log(main_today_all)
+    console.log(main_already_word)
+    console.log(main_review_word)
+    console.log(main_new_word)
 
     this.setData({
       main_today_all: main_today_all,
@@ -188,7 +188,6 @@ Page({
       wx.removeStorageSync('word_frequence_5000')
       console.log(word_frequence_5000)
     }
-
   },
 
   onQuery: function(search_word) {

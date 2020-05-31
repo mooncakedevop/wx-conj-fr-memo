@@ -1,8 +1,9 @@
+//认单词页
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
 const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
-const date_review = new Array(0, 1, 3, 5, 7, 14, 30, 60)
+const date_review = new Array(0, 1, 3, 5, 7, 14, 21, 30)
 // 在页面中定义插屏广告
 let interstitialAd = null
 
@@ -29,29 +30,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.setStorageSync("consult_data", null)
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = wx.getStorageSync('learn_word_today')
-    var learn_word_today_no = wx.getStorageSync('learn_word_today_no')
-    var idx = learn_word_today.length //对应范围的单词序号，每本词汇书一个js文件
+    wx.setStorageSync("consult_data", null)  //清空查询数据
+    var mots_aujourdhui = wx.getStorageSync('mots_aujourdhui')   //单词等级改变，即从中删除，并加入mots_deja_vu
+    var mots_deja_vu = wx.getStorageSync('mots_deja_vu')  //只有非零等级的单词
 
     var settings_new = wx.getStorageSync('settings_new');
     var dark_mode = settings_new[0].dark_mode;
-
-    console.log(learn_word_today)
-    console.log(learn_word_today_no)
-
-    var learn_no = (Math.floor(Math.random() * (idx - 2 + 1) + 1)) //从单词总数中抽取号码
+    var learn_no = Math.floor(Math.random() * mots_aujourdhui.length) 
+    //Math.floor(Math.random()*10);    // 可均衡获取 0 到 9 的随机整数。; 从单词总数中抽取号码
     console.log(learn_no)
 
-    if (learn_word_today.length == 1) {
+    if (mots_aujourdhui.length == 0) {
       this.success();
     }
 
-    var learn_word = learn_word_today[learn_no];
-    var learn_word_no = learn_word_today_no[learn_no - 1];
-    var learn_level = word_frequence_5000[learn_word_no].level;
-
+    var learn_word = mots_aujourdhui[learn_no].learn_word
+    var learn_level = mots_aujourdhui[learn_no].level;
     var learn_js = '点击查看法汉双解提示'
     var learn_lj = '点击查看例句提示'
 
@@ -59,7 +53,6 @@ Page({
 
     console.log(app.globalData.learn_word)
     console.log(learn_level)
-    console.log(learn_word_no)
 
     this.onQuery(learn_word);
 
@@ -158,39 +151,70 @@ Page({
 
   JNSP: function() {
     //等级将为0，日期不变
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = wx.getStorageSync('learn_word_today');
-    var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
-
     var learn_word = app.globalData.learn_word;
-    var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    word_frequence_5000[word_no].level = 0
+    var mots_aujourdhui = wx.getStorageSync('mots_aujourdhui')   //今日还剩余全部
+    var mots_deja_vu = wx.getStorageSync('mots_deja_vu')  //只有旧词
+    var mots_aujourdhui_temp = []
+    var mots_deja_vu_temp = []
+    for (let i = 0; i < mots_aujourdhui.length;i++){
+      mots_aujourdhui_temp.push(mots_aujourdhui[i].learn_word)
+    }
+    for (let i = 0; i < mots_deja_vu.length; i++) {
+      mots_deja_vu_temp.push(mots_deja_vu[i].learn_word)
+    }
 
-    wx.setStorageSync("word_frequence_5000", word_frequence_5000)
+    console.log(mots_aujourdhui_temp.indexOf(learn_word))  //在mots_aujourdhui的位置
+    console.log(mots_deja_vu_temp.indexOf(learn_word)) //在mots_deja_vu位置，没有返回-1
 
-    this.renew()
-  },
+    //如果mots_deja_vu里面有这个词，则将level调至1
+    //如果mots_deja_vu里面没有这个词，什么都不用做，因为level本身就为0
+    if (mots_deja_vu_temp.indexOf(learn_word) != -1) {   
+      mots_deja_vu[mots_deja_vu_temp.indexOf(learn_word)].level = 1
+      mots_aujourdhui[mots_aujourdhui_temp.indexOf(learn_word)].level = 1
+    }
 
-  justSoSo: function() {
-    //等级保持不变，日期不变
+    wx.setStorageSync("mots_aujourdhui", mots_aujourdhui)
+    wx.setStorageSync("mots_deja_vu", mots_deja_vu)
+
     this.renew()
   },
 
   bien_enregistre: function() {
     //等级加1，日期根据实际情况加
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = wx.getStorageSync('learn_word_today');
-    var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
-
     var learn_word = app.globalData.learn_word;
-    var word_no = learn_word_today_no[learn_word_today.indexOf(learn_word) - 1]
-    if (word_frequence_5000[word_no].level == 7) {
-      word_frequence_5000[word_no].date = 9000000000000
-    } else {
-      word_frequence_5000[word_no].level = word_frequence_5000[word_no].level + 1; //等级加一
-      word_frequence_5000[word_no].date = word_frequence_5000[word_no].date + 86400000 * date_review[word_frequence_5000[word_no].level] //时间加指定
+    var mots_aujourdhui = wx.getStorageSync('mots_aujourdhui')   //今日还剩余全部
+    var mots_deja_vu = wx.getStorageSync('mots_deja_vu')  //只有旧词
+    var mots_aujourdhui_temp = []
+    var mots_deja_vu_temp = []
+    for (let i = 0; i < mots_aujourdhui.length; i++) {
+      mots_aujourdhui_temp.push(mots_aujourdhui[i].learn_word)
     }
-    wx.setStorageSync("word_frequence_5000", word_frequence_5000)
+    for (let i = 0; i < mots_deja_vu.length; i++) {
+      mots_deja_vu_temp.push(mots_deja_vu[i].learn_word)
+    }
+
+    let position_mots_aujourdhui = mots_aujourdhui_temp.indexOf(learn_word)
+    let position_mots_deja_vu = mots_deja_vu_temp.indexOf(learn_word)
+    console.log(mots_aujourdhui_temp.indexOf(learn_word))  //在mots_aujourdhui的位置
+    console.log(mots_deja_vu_temp.indexOf(learn_word)) //在mots_deja_vu位置，没有返回-1
+
+    //如果mots_deja_vu里面有这个词，则删除
+    if (position_mots_deja_vu != -1) {
+      mots_deja_vu.splice(position_mots_deja_vu, 1)
+    }
+
+    if (mots_aujourdhui[position_mots_aujourdhui].level == 7) {
+      mots_aujourdhui[position_mots_aujourdhui].date = 9000000000000
+    } else {
+      mots_aujourdhui[position_mots_aujourdhui].level++; //等级加一
+      mots_aujourdhui[position_mots_aujourdhui].date = mots_aujourdhui[position_mots_aujourdhui].date + 86400000 * date_review[mots_aujourdhui[position_mots_aujourdhui].level] //时间加指定
+    }
+
+    mots_deja_vu.push(mots_aujourdhui[position_mots_aujourdhui])
+    mots_aujourdhui.splice(mots_aujourdhui_temp.indexOf(learn_word),1)
+
+    wx.setStorageSync("mots_aujourdhui", mots_aujourdhui)
+    wx.setStorageSync("mots_deja_vu", mots_deja_vu)
 
     this.renew()
   },
@@ -248,29 +272,11 @@ Page({
   },
 
   renew: function() {
-    var repeat_date = new Date();
-    var year = repeat_date.getFullYear();
-    var month = repeat_date.getMonth() + 1;
-    var day = repeat_date.getDate();
-    repeat_date = year.toString() + '/' + month.toString() + '/' + day.toString()
-    repeat_date = new Date(repeat_date).getTime()
-    console.log(repeat_date)
 
-    var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-    var learn_word_today = [repeat_date];
-    var learn_word_today_no = [];
-    for (var i = 0; i < 4972; i++) {
-      if (word_frequence_5000[i].date == repeat_date) {
-        learn_word_today.push(word_frequence_5000[i].learn_word)
-        learn_word_today_no.push(i)
-        console.log(word_frequence_5000[i].learn_word)
-      }
-    }
-
-    console.log(learn_word_today)
+    //console.log(learn_word_today)
     wx.setStorageSync("consult_data", null)
-    wx.setStorageSync("learn_word_today", learn_word_today)
-    wx.setStorageSync("learn_word_today_no", learn_word_today_no)
+    // wx.setStorageSync("learn_word_today", learn_word_today)
+    // wx.setStorageSync("learn_word_today_no", learn_word_today_no)
     app.globalData.vocal = null;
 
     if (getCurrentPages().length != 0) {

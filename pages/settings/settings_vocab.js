@@ -58,6 +58,7 @@ Page({
       app.globalData.freq = [true, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('learn_word_new_today', null);
     } else {
       app.globalData.freq = [false, true, false];
       settings_new[0].freq = app.globalData.freq;
@@ -77,6 +78,7 @@ Page({
       app.globalData.freq = [false, true, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('learn_word_new_today', null);
     } else {
       app.globalData.freq = [false, false, true];
       settings_new[0].freq = app.globalData.freq;
@@ -96,6 +98,7 @@ Page({
       app.globalData.freq = [false, false, true];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('learn_word_new_today', null);
     } else {
       app.globalData.freq = [true, false, false];
       settings_new[0].freq = app.globalData.freq;
@@ -201,6 +204,7 @@ Page({
     app.globalData.freq_number = freq_number;
     settings_new[0].freq_number = freq_number;
     wx.setStorageSync('settings_new', settings_new)
+    wx.setStorageSync('learn_word_new_today', null);
 
     this.setData({
       index: e.detail.value,

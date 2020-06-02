@@ -1,6 +1,6 @@
 .title_css{
   padding-top: 30vh;
-  padding-bottom: 30vh
+  padding-bottom: 50vh
 }
 
 .page__title{

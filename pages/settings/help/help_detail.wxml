@@ -1,0 +1,60 @@
+<view class="bg-gradual-blue padding radius text-center shadow-blur page title_css">
+  <view class='box'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-blue light round shadow' bindtap="backLastPage">返回上一页</button>
+    </view>
+  </view>
+
+  <official-account></official-account>
+  <view class="cu-bar bg-red light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-red'></text>重要提示
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last'>
+    <view class='text-sm text-help'>小程序中没有特别制作返回按钮。若要返回上一个页面，请将手指放在
+      <text class="bold">屏幕左侧边缘向右滑动</text>，即可回到上一个页面。</view>
+  </view>
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>使用帮助
+    </view>
+  </view>
+  <view class='padding bg-white bg-white-last'>
+    <image mode="widthFix bg-image" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_1.jpg" />
+    <view class='text-sm text-help'>
+      <text class="bold">今天要学习：</text>今天会学习到的单词总数，是今日新词和今日待复习的总和。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">今日新词：</text>今天所有的新词。调整词书或者背词数量后，该数值会重置。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">有印象的单词：</text>背过的单词（点击过一次“认识”的单词）。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">今日待复习：</text>今天会复习到的单词数。</view>
+    <view class="dash-conj"></view>
+
+    <image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_2.jpg" />
+    <view class='text-sm text-help'>
+      <text class="bold">单词表：</text>查看新词、待复习、已学习、已掌握的单词列表。点击单词可以查看详情。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">认单词：</text>看法语单词，回忆中文。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">默单词：</text>根据中文提示，默写法语单词（选择字母）。</view>
+    <view class="dash-conj"></view>
+
+    <image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_3.jpg" />
+    <view class='text-sm text-help'>
+      <text class="bold">NIVEAU：</text>每个单词有7个等级。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">标记为太简单：</text>单词等级变为7，在30天后还会出现一次。若再次标记为太简单或者点击认识，则不会再次出现。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">真人发音：</text>第一次点击后可能会等待一些时间，再次点击可以立即发音。</view>
+    <view class="dash-conj"></view>
+
+    <image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_4.jpg" />
+    <view class='text-sm text-help'>
+      <text class="bold">认识：</text>单词等级加一，单词会在等级对应的天数后重新出现。</view>
+    <view class='text-sm text-help'>
+      <text class="bold">不认识：</text>若单词等级为零，等级不变，当天会重新出现；若单词等级不为零，等级变为1，当天会重新出现。</view>
+  </view>
+
+</view>

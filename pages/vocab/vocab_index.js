@@ -245,6 +245,13 @@ Page({
     })
   },
 
+  //帮助
+  help: function () {
+    wx.navigateTo({
+      url: '../settings/help/help_detail',
+    })
+  },
+
   like_me: function() {
     var self = this;
     wx.setClipboardData({

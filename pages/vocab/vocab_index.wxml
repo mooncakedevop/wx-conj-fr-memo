@@ -5,7 +5,7 @@
   </view>
 
   <view class="padding radius text-center shadow-blur">
-    <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
+    <view class="cu-bar padding bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
       <view class="flex-sub text-center">
         <view class="grid col-2 padding-lg">
           <view class="text-sm">今天要学习
@@ -20,6 +20,9 @@
           <view class='text-sm'>今日待复习
             <view class="text-sl">{{main_review_word}}</view>
           </view>
+        </view>
+        <view class="cu-bar btn-group">
+          <button class='cu-btn lines-white shadow sm round' bindtap="help">使用帮助</button>
         </view>
       </view>
     </view>

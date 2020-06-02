@@ -4,7 +4,7 @@
 }
 
 .padding {
-  margin-bottom: 20vh;
+  margin-bottom: 25vh;
 }
 
 .margin-avatar {
@@ -16,6 +16,10 @@
 .page {
   width: 100%;
   overflow: hidden;
+}
+
+.radius{
+  border-radius:2vw;
 }
 
 .text-sm {

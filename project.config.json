@@ -140,6 +140,13 @@
 					"id": -1,
 					"name": "pages/settings/help/help",
 					"pathName": "pages/settings/help/help",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help_detail",
+					"pathName": "pages/settings/help/help_detail",
 					"scene": null
 				}
 			]

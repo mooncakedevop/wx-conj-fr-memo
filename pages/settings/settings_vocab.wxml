@@ -24,7 +24,7 @@
       </view>
     </view>
     <view class="cu-item">
-      <view class='text-left text-xs text-grey'>设置每天遇见新单词的个数。现设置为{{freq_number}}个。默认30个。设置修改将在第二天生效。</view>
+      <view class='text-left text-xs text-grey'>设置每天遇见新单词的个数。现设置为{{freq_number}}个。默认30个。设置修改立即生效，当日新词数重置。</view>
     </view>
   </view>
 
@@ -47,7 +47,7 @@
       <switch checked="{{freq_5000}}" bindchange="freq_5000" />
     </view>
     <view class="cu-item">
-      <view class="text-left text-xs text-grey">5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）。设置修改将在第二天生效。</view>
+      <view class="text-left text-xs text-grey">5000高频法语单词是根据《A Frequency Dictionary of French》进行整理的。这里分为三个等级：分别是“基础”（1500词）、“有点水平”（1500词）、“厉害”（2000词）。设置修改立即生效，当日新词数重置。</view>
     </view>
   </view>
 

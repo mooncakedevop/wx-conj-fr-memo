@@ -21,7 +21,7 @@
 
 .title_css {
   padding-top: 10vh;
-  padding-bottom: 30vh;
+  padding-bottom: 60vh;
 }
 
 .text-xs-pos {

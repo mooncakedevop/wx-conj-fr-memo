@@ -128,6 +128,12 @@
 					"pathName": "pages/settings/help/help_detail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vocab/vocab_analyse",
+					"pathName": "pages/vocab/vocab_analyse",
+					"scene": null
 				}
 			]
 		}

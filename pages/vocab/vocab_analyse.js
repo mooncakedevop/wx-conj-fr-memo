@@ -23,6 +23,25 @@ Page({
     var page_number = 1
     var settings_new = wx.getStorageSync('settings_new')
 
+    console.log(review_word)
+    console.log(already_word)
+
+    if (review_word.length != 0) {
+      this.array_sort(review_word)
+    } else {
+      review_word = ["暂无单词"]
+    }
+    if (already_word.length != 0) {
+      this.array_sort(already_word)
+    } else {
+      already_word = ["暂无单词"]
+    }
+    if (learn_word_new_today.length != 0) {
+      this.array_sort(learn_word_new_today)
+    } else {
+      learn_word_new_today = ["暂无单词"]
+    }
+
     this.setData({
       learn_word_new_today: learn_word_new_today,
       review_word: review_word,
@@ -69,6 +88,21 @@ Page({
     this.setData({
       page_number: page_number
     })
+  },
+
+  array_sort: function(array_sort) {
+    console.log(array_sort)
+    console.log(array_sort[0][0])
+    for (let i = 0; i < array_sort.length - 1; i++) {
+      for (let j = 0; j < array_sort.length - i - 1; j++) {
+        if (array_sort[j][0] > array_sort[j + 1][0]) {
+          let temp = array_sort[j]
+          array_sort[j] = array_sort[j + 1]
+          array_sort[j + 1] = temp
+        }
+      }
+    }
+    return array_sort;
   },
 
   choosed_answer: function(e) {

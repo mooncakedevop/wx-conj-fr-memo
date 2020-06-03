@@ -1,4 +1,5 @@
-<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 1}}">
+
+<view class="padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 1}}">
   <view class="cu-bar btn-group">
     <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
   </view>
@@ -14,7 +15,8 @@
   </view>
 </view>
 
-<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 2}}">
+
+<view class="padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 2}}">
   <view class="cu-bar btn-group">
     <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
   </view>
@@ -30,7 +32,8 @@
   </view>
 </view>
 
-<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 3}}">
+
+<view class="padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}" wx:if="{{page_number == 3}}">
   <view class="cu-bar btn-group">
     <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
   </view>

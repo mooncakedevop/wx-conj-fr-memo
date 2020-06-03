@@ -17,7 +17,11 @@ Page({
    */
   onLoad: function() {
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
-    learn_word_new_today.splice(0, 1)
+    let learn_word_new_today_temp = []
+    learn_word_new_today_temp.push(learn_word_new_today[0])
+
+    // learn_word_new_today.splice(0, 1)
+    console.log(learn_word_new_today.splice(0, 1))
     var review_word = wx.getStorageSync('review_word')
     var already_word = wx.getStorageSync('already_word')
     var page_number = 1
@@ -41,6 +45,13 @@ Page({
     } else {
       learn_word_new_today = ["暂无单词"]
     }
+
+    learn_word_new_today_temp.concat(learn_word_new_today)
+    console.log(learn_word_new_today)
+    console.log(learn_word_new_today_temp)
+    wx.setStorageSync('review_word', review_word)
+    wx.setStorageSync('already_word', already_word)
+    wx.setStorageSync('learn_word_new_today', learn_word_new_today)
 
     this.setData({
       learn_word_new_today: learn_word_new_today,
@@ -107,7 +118,6 @@ Page({
 
   choosed_answer: function(e) {
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
-    learn_word_new_today.splice(0, 1);
     var choosed_answer = learn_word_new_today[e.target.id];
     console.log(e.target.id);
     this.onQuery(choosed_answer);

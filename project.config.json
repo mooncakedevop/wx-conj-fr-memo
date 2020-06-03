@@ -133,6 +133,13 @@
 					"id": -1,
 					"name": "pages/vocab/vocab_analyse",
 					"pathName": "pages/vocab/vocab_analyse",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help",
+					"pathName": "pages/settings/help/help",
 					"scene": null
 				}
 			]

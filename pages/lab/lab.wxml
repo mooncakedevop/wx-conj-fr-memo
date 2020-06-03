@@ -64,7 +64,7 @@
       <button class="cu-btn round shadow-blur lg {{dark_mode==true?'lines-grey':'line-white'}}" bindtap="tenir">Tenir</button>
     </view>
     <view class="cu-bar btn-group btn-conj">
-      <button class="cu-btn round shadow-blur lg {{dark_mode==true?'lines-grey':'line-white'}}" bindtap="laisser">laisser</button>
+      <button class="cu-btn round shadow-blur lg {{dark_mode==true?'lines-grey':'line-white'}}" bindtap="laisser">Laisser</button>
       <button class="cu-btn round shadow-blur lg {{dark_mode==true?'lines-grey':'line-white'}}" bindtap="repondre">Répondre</button>
       <button class="cu-btn round shadow-blur lg {{dark_mode==true?'lines-grey':'line-white'}}" bindtap="penser">Penser</button>
     </view>

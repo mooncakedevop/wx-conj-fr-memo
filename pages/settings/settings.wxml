@@ -6,12 +6,12 @@
     </view>
   </view>
   <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
-    <view class="text-xs-pos text-xs bold {{dark_mode==true?'blk-text-white':''}}">{{msg[1]}}</view>
-    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[2]}}</view>
-    <view class="text-xs-pos text-xs bold">{{msg[3]}}</view>
-    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[4]}}</view>
-    <view class="text-xs-pos text-xs bold">{{msg[5]}}</view>
-    <view class="text-left text-xs {{dark_mode==true?'blk-text-grey1':''}}">{{msg[6]}}</view>
+    <view class="text-xs-pos text-sm bold">{{msg[1]}}</view>
+    <view class="text-left text-xs text-help {{dark_mode==true?'blk-text-grey1':''}}">{{msg[2]}}</view>
+    <view class="text-xs-pos text-sm bold">{{msg[3]}}</view>
+    <view class="text-left text-xs text-help {{dark_mode==true?'blk-text-grey1':''}}">{{msg[4]}}</view>
+    <view class="text-xs-pos text-sm bold">{{msg[5]}}</view>
+    <view class="text-left text-xs text-help {{dark_mode==true?'blk-text-grey1':''}}">{{msg[6]}}</view>
   </view>
 
   <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
@@ -42,6 +42,11 @@
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_conj" open-type="navigate">
         <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">📚 动词变位设置</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content text-left" hover-class="none" url="../settings/help/help_detail" open-type="navigate">
+        <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">❓ 使用帮助</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
@@ -89,7 +94,9 @@
         <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="cu-btn lines-blue round shadow" bindtap="onGetOpenid_download">⬇云端下载</button>
       </view>
     </view>
-    <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后可以同步。“本地上传”将覆盖云端数据；“云端下载”将覆盖本地数据。<text class="bold">谨慎使用本功能。错误操作可能导致背词记录永久消失。</text></view> 
+    <view class='text-left text-xs text-grey padding'>点击上方登陆，登陆之后可以同步。“本地上传”将覆盖云端数据；“云端下载”将覆盖本地数据。
+      <text class="bold">谨慎使用本功能。错误操作可能导致背词记录永久消失。</text>
+    </view>
   </view>
 
   <view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">

@@ -23,6 +23,8 @@ Page({
 
   onLoad() {
     var settings_new = wx.getStorageSync('settings_new')
+    app.globalData.openid = wx.getStorageSync('openid')
+
     this.onQuery_msg();
 
     this.setData({
@@ -179,7 +181,7 @@ Page({
         if (res.data.length === 0) {
           that.onAdd()
           wx.showToast({
-            title: '同步成功',
+            title: '同步成功1',
           })
         } else if (res.data.length != 0 && res.data[0].settings_new === undefined) {
           wx.setStorageSync('mots_deja_vu', res.data[0].mots_deja_vu);
@@ -191,12 +193,13 @@ Page({
           }
 
           wx.showToast({
-            title: '同步成功',
+            title: '同步成功2',
           })
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
           wx.setStorageSync('settings_new', res.data[0].settings_new);
           wx.setStorageSync('mots_deja_vu', res.data[0].mots_deja_vu);
+          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
           app.globalData.mots_deja_vu = res.data[0].mots_deja_vu;
           wx.setStorageSync('learn_word_new_today', null);
 
@@ -210,7 +213,7 @@ Page({
           }
 
           wx.showToast({
-            title: '同步成功',
+            title: '同步成功3',
           })
         }
 
@@ -238,7 +241,7 @@ Page({
             }
           })
           db.collection('mots_deja_vu').doc(res.data[0]._id).remove({
-            success: function (res) {
+            success: function(res) {
               console.log(res.data)
             }
           })
@@ -375,6 +378,32 @@ Page({
       dark_mode: settings_new[0].dark_mode,
     })
     this.successToast();
+
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
+  },
+
+  remind: function(e) {
+    console.log(app.globalData.openid)
+    wx.requestSubscribeMessage({
+      tmplIds: ['rAL1dIT5XEigQKmW14Ulxw24couywZ6su6jNUhdVNn4'],
+      success(res) {
+        console.log(res)
+        if (res.errMsg == "requestSubscribeMessage:ok") {
+          wx.cloud.callFunction({
+            touser: app.globalData.openid,
+            name: "templateMessage",
+            data: {},
+            success:function(res){
+              console.log(res.result)
+            },
+            fail:console.error
+          })
+        }
+      }
+    })
 
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据

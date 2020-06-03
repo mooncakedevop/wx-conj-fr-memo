@@ -34,6 +34,9 @@
       <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🌜 黑夜模式</text>
       <switch checked="{{dark_mode}}" bindchange="dark_mode" />
     </view>
+    <view class="cu-item arrow" bindtap="remind">
+      <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔝 学习提醒</text>
+    </view>
     <view class="cu-item arrow">
       <navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
         <text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔮 背单词设置</text>

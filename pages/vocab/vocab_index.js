@@ -62,6 +62,18 @@ Page({
     wx.setStorageSync('wordlist_full', wordlist_full)
     console.log(wordlist_full)
 
+    //当用户从云端下载旧的数据后、又没有经过首页的情况下，得到mots_deja_vu
+    var word_frequence_5000_temp = wx.getStorageSync('word_frequence_5000') 
+    if (word_frequence_5000_temp.length != 0){
+      var mots_deja_vu = []
+      for (var i = 0; i < word_frequence_5000_temp.length; i++) {
+        if (word_frequence_5000_temp[i].level != 0) {
+          mots_deja_vu.push(word_frequence_5000_temp[i])
+        }
+      }
+      wx.removeStorageSync('word_frequence_5000')
+    }
+
     //wordlist_full中去除mots_deja_vu
     var mots_deja_vu = wx.getStorageSync('mots_deja_vu')
     console.log(mots_deja_vu)

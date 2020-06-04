@@ -394,7 +394,7 @@ Page({
         if (res.errMsg == "requestSubscribeMessage:ok") {
           wx.cloud.callFunction({
             touser: app.globalData.openid,
-            name: "templateMessage",
+            name: "subscribe",
             data: {},
             success:function(res){
               console.log(res.result)

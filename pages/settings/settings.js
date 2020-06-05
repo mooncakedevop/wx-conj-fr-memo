@@ -181,7 +181,7 @@ Page({
         if (res.data.length === 0) {
           that.onAdd()
           wx.showToast({
-            title: '同步成功1',
+            title: '同步成功',
           })
         } else if (res.data.length != 0 && res.data[0].settings_new === undefined) {
           wx.setStorageSync('mots_deja_vu', res.data[0].mots_deja_vu);
@@ -193,7 +193,7 @@ Page({
           }
 
           wx.showToast({
-            title: '同步成功2',
+            title: '同步成功',
           })
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
@@ -213,7 +213,7 @@ Page({
           }
 
           wx.showToast({
-            title: '同步成功3',
+            title: '同步成功',
           })
         }
 
@@ -378,32 +378,6 @@ Page({
       dark_mode: settings_new[0].dark_mode,
     })
     this.successToast();
-
-    if (getCurrentPages().length != 0) {
-      //刷新当前页面的数据
-      getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    }
-  },
-
-  remind: function(e) {
-    console.log(app.globalData.openid)
-    wx.requestSubscribeMessage({
-      tmplIds: ['rAL1dIT5XEigQKmW14Ulxw24couywZ6su6jNUhdVNn4'],
-      success(res) {
-        console.log(res)
-        if (res.errMsg == "requestSubscribeMessage:ok") {
-          wx.cloud.callFunction({
-            touser: app.globalData.openid,
-            name: "subscribe",
-            data: {},
-            success:function(res){
-              console.log(res.result)
-            },
-            fail:console.error
-          })
-        }
-      }
-    })
 
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据

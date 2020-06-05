@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
     } = cloud.getWXContext();
 
     //这一块不动，生成日期，将要提醒的时间
-    var repeat_date = Date.parse(new Date()) + 3600000 //毫秒
+    var repeat_date = Date.parse(new Date()) + 86400000 * 2 //毫秒
     console.log(repeat_date)
 
     const result = await db.collection('subscribeMessages').add({

@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
       try {
         await cloud.openapi.subscribeMessage.send({
           touser: message.touser,
-          page: message.touser,
+          page: message.page,
           data: message.data,
           templateId: message.templateId,
         });

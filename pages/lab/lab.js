@@ -400,15 +400,20 @@ Page({
     ])).get({
       success: function(res) {
         console.log(res.data)
-        app.globalData.consult_data = res.data;
-        wx.setStorageSync('consult_data', res.data);
-        that.exp();
-        that.wait();
+        if(res.data.length == 0){
+          console.log("没有变位，开始查单词")
+          that.onQuery_mot(search_word)
+        }else{
+          app.globalData.consult_data = res.data;
+          wx.setStorageSync('consult_data', res.data);
+          that.exp();
+          that.wait();
+        }
+
         if (getCurrentPages().length != 0) {
           //刷新当前页面的数据
           getCurrentPages()[getCurrentPages().length - 1].onLoad()
         }
-
       }
     })
   },
@@ -864,6 +869,53 @@ Page({
   wait: function() {
     wx.navigateTo({
       url: 'result/result',
+    })
+  },
+
+
+  onQuery_mot: function(search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+      w_s: db.RegExp({
+        regexp: '.*' + search_word,
+        options: 'i',
+      })
+    },
+    {
+      w_js_cn: db.RegExp({
+        regexp: '.*' + search_word,
+        options: 'i',
+      })
+    },
+    {
+      word: db.RegExp({
+        regexp: '.*' + search_word,
+        options: 'i',
+      })
+    }
+  ])).get({
+      success: function(res) {
+        console.log(res.data)
+        wx.setStorageSync('consult_data', res.data);
+        if(res.data.length != 0){
+          that.vocab_index_result();
+        }else{
+          wx.showToast({
+            title: '没有查询结果😕',
+            icon: 'none',
+            duration: 1500,
+            mask: true,
+          })
+        }
+      }
+    })
+  },
+
+  vocab_index_result: function() {
+    wx.navigateTo({
+      url: '../vocab/vocab_index_result',
     })
   },
 

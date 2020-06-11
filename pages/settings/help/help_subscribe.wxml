@@ -17,7 +17,7 @@
 			</view>
 		</view>
 		<view class='text-sm text-help'>
-			点击上方按钮即可创建一次<text class="bold">2天后同一时间</text>的学习提醒。</view>
+			点击上方按钮即可创建一次<text class="bold">2天后同一时间</text>的学习提醒。<text class="bold">多次点击可能会收到过多的垃圾提醒。</text></view>
 	</view>
 
 	<official-account></official-account>

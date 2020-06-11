@@ -157,6 +157,13 @@
 					"id": -1,
 					"name": "pages/settings/help/help_subscribe",
 					"pathName": "pages/settings/help/help_subscribe",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/lab/lab_result",
+					"pathName": "pages/lab/lab_result",
 					"scene": null
 				}
 			]

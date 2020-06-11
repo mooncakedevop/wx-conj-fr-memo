@@ -898,16 +898,22 @@ Page({
   ])).get({
       success: function(res) {
         console.log(res.data)
-        wx.setStorageSync('consult_data', res.data);
-        if(res.data.length != 0){
-          that.vocab_index_result();
-        }else{
+        wx.setStorageSync('consult_data_dic', res.data);
+        if(res.data.length == 0){
           wx.showToast({
             title: '没有查询结果😕',
             icon: 'none',
             duration: 1500,
             mask: true,
           })
+        }
+
+        if(res.data.length == 1){
+          that.vocab_index_result();
+        }
+        
+        if(res.data.length > 1){
+          that.lab_result();
         }
       }
     })
@@ -916,6 +922,12 @@ Page({
   vocab_index_result: function() {
     wx.navigateTo({
       url: '../vocab/vocab_index_result',
+    })
+  },
+
+  lab_result: function() {
+    wx.navigateTo({
+      url: '../lab/lab_result',
     })
   },
 

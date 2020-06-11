@@ -1,0 +1,49 @@
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.text-sm {
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
+}
+
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 60vh;
+}
+
+.text-xs-pos {
+  margin-top: 1vh;
+}
+
+.box {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.list-lab-result {
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-bottom: dashed;
+  border-bottom-color: darkcyan;
+  border-bottom-width: 1px;
+}

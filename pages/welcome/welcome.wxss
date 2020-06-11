@@ -21,9 +21,14 @@
 
 .margin-text{
   margin-top: 0vh;
-  margin-bottom: 20vh;
+  margin-bottom: 15vh;
+  margin-left: 10vw;
 }
 
 .radius{
   border-radius:2vw;
+}
+
+.text-margin{
+  padding-bottom: 3px;
 }

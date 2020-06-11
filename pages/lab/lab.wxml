@@ -3,13 +3,18 @@
   <view class="cu-bar search bg-white round search-conj">
     <view class='search-form round'>
       <text class="icon-search"></text>
-      <input type="text" placeholder="搜索动词（支持动词变位反查）" value='{{input_word_conj}}' focus="{{focus}}" confirm-type="input_word_conj" bindinput="input_word_conj" bindblur="bindblur" bindfocus="bindfocus" cursor="{{cursor}}"></input>
+      <input type="text" placeholder="输入任意内容" value='{{input_word_conj}}' focus="{{focus}}" confirm-type="input_word_conj" bindinput="input_word_conj" bindblur="bindblur" bindfocus="bindfocus" cursor="{{cursor}}"></input>
     </view>
     <view class='action'>
       <button class='cu-btn bg-blue shadow-blur round' bindtap="search">搜索</button>
     </view>
   </view>
 
+   <view class="text-xs text-left text-margin">
+      <view class="text-white">✔ 支持 7000+ 动词变位正查、反查。</view>
+      <view class="text-white">✔ 12000+ 法汉汉法词条，部分支持双解和例句。</view>
+      <view class="text-white">⚠ 查询结果仅供参考。</view>
+    </view>
 
   <view class='box'>
     <view class="cu-bar btn-group-nm btn-conj">

@@ -5,7 +5,7 @@
   </view>
   <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
     <view class='action'>
-      找到下列{{list_number}}种可能：
+      找到下列{{list_number}}种可能，点击查看详情：
     </view>
   </view>
   <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">

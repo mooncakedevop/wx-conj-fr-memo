@@ -39,8 +39,8 @@
 }
 
 .list-lab-result {
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
   padding-left: 1vw;
   padding-right: 1vw;
   border-bottom: dashed;

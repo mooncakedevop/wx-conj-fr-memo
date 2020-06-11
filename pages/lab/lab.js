@@ -877,7 +877,7 @@ Page({
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: db.RegExp({
         regexp: '.*' + search_word,
         options: 'i',
@@ -899,6 +899,7 @@ Page({
       success: function(res) {
         console.log(res.data)
         wx.setStorageSync('consult_data_dic', res.data);
+        wx.setStorageSync('consult_data', res.data);
         if(res.data.length == 0){
           wx.showToast({
             title: '没有查询结果😕',

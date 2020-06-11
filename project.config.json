@@ -5,7 +5,7 @@
 	},
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
+		"es6": true,
 		"enhance": true,
 		"postcss": true,
 		"minified": true,
@@ -22,10 +22,12 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"bundle": true
+		"bundle": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.11.1",
 	"appid": "wx168d50e200bd0513",
 	"projectname": "conj_helper",
 	"debugOptions": {
@@ -35,6 +37,7 @@
 	"cloudfunctionRoot": "cloud-functions/",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -120,6 +123,40 @@
 					"name": "pages/vocab/vocab_learn",
 					"pathName": "pages/vocab/vocab_learn",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help_detail",
+					"pathName": "pages/settings/help/help_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vocab/vocab_analyse",
+					"pathName": "pages/vocab/vocab_analyse",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help",
+					"pathName": "pages/settings/help/help",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help_detail",
+					"pathName": "pages/settings/help/help_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/settings/help/help_subscribe",
+					"pathName": "pages/settings/help/help_subscribe",
 					"scene": null
 				}
 			]

@@ -1,0 +1,37 @@
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
+
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.text-sm {
+  padding-top: 0.3vh;
+  padding-bottom: 0.3vh;
+}
+
+.text-sm-left {
+  text-align: left;
+}
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.text-help {
+  line-height: 180%;
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  text-align: justify;
+}
+
+.dash-conj {
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+}

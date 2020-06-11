@@ -18,7 +18,7 @@ Page({
         "likeandsave": [424]
       }])
       wx.setStorageSync('version', [{
-        "version": "v3.3.0"
+        "version": "v3.6.0"
       }])
       wx.setStorageSync('settings_new', [{
         "dark_mode": false,
@@ -28,51 +28,26 @@ Page({
         "conj_type": [false, false, true, false, false],
         "time_type": [false, false, false]
       }])
+      wx.setStorageSync('mots_deja_vu', [])
     }
 
-    if (version[0].version != "v3.3.0" && version != "v3.3.0") { //如果只是新版本的数据没有
-      wx.setStorageSync('carte_arrey', [{
-        "carte_arrey": [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474],
-        "likeandsave": [424]
-      }])
+    if (version[0].version != "v3.6.0" && version != "v3.6.0") { //如果只是新版本的数据没有
       wx.setStorageSync('version', [{
-        "version": "v3.3.0"
-      }]) //写入新版本的版本号
-      wx.setStorageSync('settings_new', [{
-        "dark_mode": false,
-        "freq_number": 30,
-        "freq": [true, false, false],
-        "time_count": 10,
-        "conj_type": [false, false, true, false, false],
-        "time_type": [false, false, false]
+        "version": "v3.6.0"
       }])
+      var word_frequence_5000_temp = wx.getStorageSync('word_frequence_5000')
+      var mots_deja_vu = []
+      for (var i = 0; i < word_frequence_5000_temp.length;i++){
+        if (word_frequence_5000_temp[i].level != 0){
+          mots_deja_vu.push(word_frequence_5000_temp[i])
+        }
+      }
 
-      var settings_new = wx.getStorageSync('settings_new')
-      var carte_arrey = wx.getStorageSync('carte_arrey')
-
-      settings_new[0].freq_number = wx.getStorageSync('freq_number')
-      settings_new[0].freq = wx.getStorageSync('freq')
-      settings_new[0].time_count = wx.getStorageSync('time_count')
-      settings_new[0].freq = wx.getStorageSync('freq')
-      carte_arrey[0].likeandsave = wx.getStorageSync('likeandsave')
-
-      wx.setStorageSync('settings_new', settings_new)
-      wx.setStorageSync('carte_arrey', carte_arrey)
-
-      wx.removeStorageSync('isChecked1')
-      wx.removeStorageSync('isChecked1_selected')
-      wx.removeStorageSync('isChecked1_50')
-      wx.removeStorageSync('isChecked1_100')
-      wx.removeStorageSync('isChecked1_230')
-      wx.removeStorageSync('isChecked2')
-      wx.removeStorageSync('isChecked3')
-      wx.removeStorageSync('isChecked4')
-      wx.removeStorageSync('likeandsave')
-      wx.removeStorageSync('time_count')
-      wx.removeStorageSync('freq')
-      wx.removeStorageSync('freq_number')
-      wx.removeStorageSync('newer')
-
+      wx.setStorageSync('mots_deja_vu', mots_deja_vu)
+      wx.setStorageSync('learn_word_new_today', null);
+      wx.setStorageSync('old_word_frequence_5000', word_frequence_5000_temp)
+      wx.removeStorageSync('word_frequence_5000')
+      console.log(wx.getStorageSync('mots_deja_vu'))
       console.log(wx.getStorageSync('version'))
       console.log(wx.getStorageSync('settings_new'))
       console.log(wx.getStorageSync('carte_arrey'))

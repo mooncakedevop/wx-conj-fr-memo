@@ -16,12 +16,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
+    //learn_word_new_today：[日期,单词]→[单词]（排序）
+    //learn_word_new_today_temp：[日期]+[单词]（排序）→[日期,单词]（排序）
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
+    let learn_word_new_today_temp = []
+    learn_word_new_today_temp.push(learn_word_new_today[0])
+
     learn_word_new_today.splice(0, 1)
     var review_word = wx.getStorageSync('review_word')
     var already_word = wx.getStorageSync('already_word')
     var page_number = 1
     var settings_new = wx.getStorageSync('settings_new')
+
+    console.log(review_word)
+    console.log(already_word)
+
+    if (review_word.length != 0) {
+      this.array_sort(review_word)
+    } else {
+      review_word = ["暂无单词"]
+    }
+    if (already_word.length != 0) {
+      this.array_sort(already_word)
+    } else {
+      already_word = ["暂无单词"]
+    }
+    if (learn_word_new_today.length != 0) {
+      this.array_sort(learn_word_new_today)
+    } else {
+      learn_word_new_today = ["暂无单词"]
+    }
+
+    wx.setStorageSync('review_word', review_word)
+    wx.setStorageSync('already_word', already_word)
+    learn_word_new_today_temp = learn_word_new_today_temp.concat(learn_word_new_today)
+    wx.setStorageSync('learn_word_new_today', learn_word_new_today_temp)
 
     this.setData({
       learn_word_new_today: learn_word_new_today,
@@ -71,9 +100,24 @@ Page({
     })
   },
 
+  array_sort: function(array_sort) {
+    console.log(array_sort)
+    console.log(array_sort[0][0])
+    for (let i = 0; i < array_sort.length - 1; i++) {
+      for (let j = 0; j < array_sort.length - i - 1; j++) {
+        if (array_sort[j][0] > array_sort[j + 1][0]) {
+          let temp = array_sort[j]
+          array_sort[j] = array_sort[j + 1]
+          array_sort[j + 1] = temp
+        }
+      }
+    }
+    return array_sort;
+  },
+
   choosed_answer: function(e) {
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today')
-    learn_word_new_today.splice(0, 1);
+    learn_word_new_today.splice(0, 1)
     var choosed_answer = learn_word_new_today[e.target.id];
     console.log(e.target.id);
     this.onQuery(choosed_answer);

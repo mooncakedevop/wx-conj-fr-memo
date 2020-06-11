@@ -23,6 +23,8 @@ Page({
 
   onLoad() {
     var settings_new = wx.getStorageSync('settings_new')
+    app.globalData.openid = wx.getStorageSync('openid')
+
     this.onQuery_msg();
 
     this.setData({
@@ -89,6 +91,7 @@ Page({
       success(res) {
         if (res.confirm) {
           that.onQuery();
+          wx.setStorageSync('learn_word_new_today', null);
           if (interstitialAd) {
             interstitialAd.show().catch((err) => {
               console.error(err)
@@ -148,8 +151,8 @@ Page({
     db.collection('user_setting').add({
       data: {
         carte_arrey: wx.getStorageSync('carte_arrey'),
-        word_frequence_5000: wx.getStorageSync('word_frequence_5000'),
         settings_new: wx.getStorageSync('settings_new'),
+        mots_deja_vu: wx.getStorageSync('mots_deja_vu'),
       },
       success: res => {
         // 在返回结果中会包含新创建的记录的 _id
@@ -177,13 +180,12 @@ Page({
         console.log(res.data[0].settings_new)
         if (res.data.length === 0) {
           that.onAdd()
-
           wx.showToast({
             title: '同步成功',
           })
         } else if (res.data.length != 0 && res.data[0].settings_new === undefined) {
-          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
-          app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
+          wx.setStorageSync('mots_deja_vu', res.data[0].mots_deja_vu);
+          app.globalData.mots_deja_vu = res.data[0].mots_deja_vu;
 
           if (getCurrentPages().length != 0) {
             //刷新当前页面的数据
@@ -195,8 +197,11 @@ Page({
           })
         } else {
           wx.setStorageSync('carte_arrey', res.data[0].carte_arrey);
-          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
           wx.setStorageSync('settings_new', res.data[0].settings_new);
+          wx.setStorageSync('mots_deja_vu', res.data[0].mots_deja_vu);
+          wx.setStorageSync('word_frequence_5000', res.data[0].word_frequence_5000);
+          app.globalData.mots_deja_vu = res.data[0].mots_deja_vu;
+          wx.setStorageSync('learn_word_new_today', null);
 
           app.globalData.carte_arrey = res.data[0].carte_arrey;
           app.globalData.word_frequence_5000 = res.data[0].word_frequence_5000;
@@ -235,6 +240,11 @@ Page({
               console.log(res.data)
             }
           })
+          db.collection('mots_deja_vu').doc(res.data[0]._id).remove({
+            success: function(res) {
+              console.log(res.data)
+            }
+          })
           that.onAdd()
         }
       },
@@ -259,7 +269,7 @@ Page({
   copy: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://hxd.red/conj-helper",
+      data: "https://xd.sh.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',
@@ -291,7 +301,7 @@ Page({
   zhuye: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://hxd.red/conj-helper",
+      data: "https://xd.sh.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',

@@ -1,0 +1,53 @@
+<view class="padding radius text-center shadow-blur page title_css {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
+	<view class='box'>
+		<view class="cu-bar btn-group">
+			<button class='cu-btn bg-blue light round shadow' bindtap="backLastPage">返回上一页</button>
+		</view>
+	</view>
+
+	<view class="cu-bar solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+		<view class="action">
+			<text class="icon-title {{dark_mode==true?'blk-text-white':'text-red'}}"></text>订阅消息
+		</view>
+	</view>
+	<view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+		<view class='box'>
+			<view class="cu-bar btn-group">
+				<button class='cu-btn bg-red round shadow' bindtap="remind">学习提醒</button>
+			</view>
+		</view>
+		<view class='text-sm text-help'>
+			点击上方按钮即可创建一次<text class="bold">2天后同一时间</text>的学习提醒。</view>
+	</view>
+
+	<official-account></official-account>
+
+	<view class="cu-bar light solid-bottom margin-top {{dark_mode==true?'blk-bg-grey2':'bg-blue'}}">
+		<view class='action'>
+			<text class='icon-title text-blue'></text>使用帮助
+		</view>
+	</view>
+	<view class="padding bg-white bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+		<view class='text-sm text-help'>
+			<text class="bold">什么是学习提醒？</text></view>
+		<view class='text-sm text-help'>
+			学习提醒使用了微信的订阅通知功能。当允许法语记忆发送一次学习计划提醒之后，您将<text class="bold">在2天之后的同一时间收到一次</text>学习提醒，点击即可进入小程序。</view>
+		<image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_subscribe_0.jpg" />
+		<view class='text-sm text-help'>
+			<text class="bold">有印象的单词：</text>背过的单词（点击过一次“认识”的单词）。</view>
+		<view class='text-sm text-help'>点击允许后，学习计划提醒<text class="bold">能且只能提醒一次</text>。如需要再次提醒，需要再次点击最上方按钮。</view>
+		<view class="dash-conj"></view>
+
+		<view class='text-sm text-help'>学习提醒将会出现在<text class="bold">服务通知</text>中，点击即可进入小程序首页。消息示例如下：</view>
+		<image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_subscribe_1.jpg" />
+		<view class="dash-conj"></view>
+
+		<view class='text-sm text-help'>如果订阅不成功或者是收不到学习计划提醒，可以检查下方两项设置，或者在“服务通知”内取消“拒收”该小程序消息。</view>
+		<image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_subscribe_2.jpg" />
+		<view class='text-sm text-help'>点击消息订阅，勾选“接受订阅消息”：</view>
+		<image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_subscribe_3.jpg" />
+
+    <view class='text-sm text-help'>更多说明请访问：
+      <text class="bold italic">https://xd.sh.cn/conj-helper</text></view>
+	</view>
+</view>

@@ -24,6 +24,16 @@
   padding-bottom: 10vh;
 }
 
-.text-xs-pos{
+.text-xs-pos {
   margin-top: 1vh;
+}
+
+
+.text-help {
+  line-height: 180%;
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+  text-align: justify;
 }

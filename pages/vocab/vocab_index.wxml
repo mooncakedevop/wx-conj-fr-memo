@@ -5,13 +5,13 @@
   </view>
 
   <view class="padding radius text-center shadow-blur">
-    <view class="cu-bar padding  bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
+    <view class="cu-bar padding bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
       <view class="flex-sub text-center">
         <view class="grid col-2 padding-lg">
           <view class="text-sm">今天要学习
             <view class="text-sl">{{main_today_all}}</view>
           </view>
-          <view class="text-sm">学习过的单词
+          <view class="text-sm">有印象的单词
             <view class="text-sl">{{main_already_word}}</view>
           </view>
           <view class='text-sm'>今日新词
@@ -21,6 +21,9 @@
             <view class="text-sl">{{main_review_word}}</view>
           </view>
         </view>
+        <view class="cu-bar btn-group">
+          <button class='cu-btn lines-white shadow sm round' bindtap="help">使用帮助</button>
+        </view>
       </view>
     </view>
   </view>
@@ -29,6 +32,5 @@
 <view class="box flex">
   <button class="flex-sub cu-btn shadow round {{dark_mode==true?'lines-red':'lines-red'}} lg" bindtap="analyse">单词表</button>
   <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="start">认单词</button>
-  <button class="flex-sub cu-btn bg-mauve round shadow lg" bindtap="start_reverse">
-    <view class="cu-tag badge">新 NEW</view>默单词</button>
+  <button class="flex-sub cu-btn bg-mauve round shadow lg" bindtap="start_reverse">默单词</button>
 </view>

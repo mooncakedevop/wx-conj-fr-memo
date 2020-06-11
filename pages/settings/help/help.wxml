@@ -1,18 +1,18 @@
 <view class="bg-gradual-blue padding radius text-center shadow-blur page title_css">
   <official-account></official-account>
-  <view class="cu-bar bg-red light solid-bottom margin-top">
+  <view class="cu-bar bg-blue light solid-bottom margin-top">
     <view class='action'>
-      <text class='icon-title text-red'></text>关于
+      <text class='icon-title text-blue'></text>关于
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
     <view class='text-sm bold'>法语记忆 学背单词动词变位</view>
     <view class='text-sm'>原名：法语动词变位记忆小助手</view>
-    <view class="text-sm">SINCE 2019.3</view>
+    <view class="text-sm">DEPUIS 2019.3</view>
     <view class='text-sm'>微信公众号：不淡定的实验室</view>
-    <view class="text-sm italic">动词变位数据库 verbiste v0.1.45</view>
-    <view class="text-sm italic">使用了ColorUI</view>
-    <view class="text-sm">https://hxd.red/conj-helper</view>
+    <view class="text-sm italic">https://xd.sh.cn/conj-helper</view>
+    <view class="dash-conj"></view>
+    <view class="text-sm italic text-help">“动词变位数据库”来自 verbiste v0.1.45 ；“法汉词典和双语例句库”来自 larousse.fr 拉鲁斯法汉在线词典；“法语真人发音”来自 forvo.com ；使用了 ColorUI 组件库</view>
   </view>
 
   <view class="cu-bar bg-red light solid-bottom margin-top">
@@ -21,6 +21,7 @@
     </view>
   </view>
   <view class='padding bg-white bg-white-last'>
-    <view class='text-sm'>小程序中没有特别制作返回按钮，若要返回上一个页面，请将手指放在屏幕左侧边缘向右滑动，即可回到上一个页面。</view>
+    <view class='text-sm text-help'>小程序中部分页面没有特别制作返回按钮。若要返回上一个页面，请将手指放在
+      <text class="bold">屏幕左侧边缘向右滑动</text>，即可回到上一个页面。</view>
   </view>
 </view>

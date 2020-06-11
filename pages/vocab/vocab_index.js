@@ -1,6 +1,5 @@
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('vocab_dic_larousse_20200119')
 const word_frequence = require('../../data/word_frequence.js')
 
 Page({

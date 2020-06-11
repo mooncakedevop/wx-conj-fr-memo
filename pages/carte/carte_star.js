@@ -1,6 +1,5 @@
 
 const app = getApp()
-const classic = require('../../data/avoir_etre.js')
 const shitai = new Array("直陈式复合过去时", "直陈式现在时", "直陈式未完成过去时", "直陈式愈过去时", "直陈式简单过去时", "直陈式先过去时", "直陈式简单将来时", "直陈式先将来时", "条件式现在时", "条件式过去时", "虚拟式现在时", "虚拟式过去时", "命令式", "现在分词和过去分词")
 Page({
   data: {
@@ -138,7 +137,7 @@ Page({
     // 查询当前用户所有的 counters
 
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: search_word
     }])).get({
       success: function (res) {

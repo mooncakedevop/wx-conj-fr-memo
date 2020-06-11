@@ -139,7 +139,7 @@ Page({
     // 查询当前用户所有的 counters
 
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: search_word
     }])).get({
       success: function (res) {

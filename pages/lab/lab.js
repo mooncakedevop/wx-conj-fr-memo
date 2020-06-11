@@ -1,6 +1,4 @@
 const app = getApp()
-const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('conj_all_20190722')
 const avoir_etre = require('../../data/avoir_etre.js')
 
 Page({

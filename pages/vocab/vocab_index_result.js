@@ -1,12 +1,4 @@
-const app = getApp()
 const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('vocab_dic_larousse_20190807')
-const word_frequence = require('../../data/word_frequence.js')
-const date_review = new Array(0, 1, 3, 5, 7, 14, 30, 60)
-
-var word_frequence_5000 = wx.getStorageSync('word_frequence_5000');
-var learn_word_today = wx.getStorageSync('learn_word_today');
-var learn_word_today_no = wx.getStorageSync('learn_word_today_no');
 
 Page({
 

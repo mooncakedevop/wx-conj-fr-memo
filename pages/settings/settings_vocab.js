@@ -1,8 +1,5 @@
 const app = getApp()
-const db = wx.cloud.database() //初始化数据库
-const settings = db.collection('user_setting')
 const picker = ['10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60']
-const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
 // 在页面中定义插屏广告
 let interstitialAd = null

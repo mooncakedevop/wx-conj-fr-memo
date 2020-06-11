@@ -1,8 +1,6 @@
 //认单词页
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('vocab_dic_larousse_20190807')
-const word_frequence = require('../../data/word_frequence.js')
 const date_review = new Array(0, 1, 3, 5, 7, 14, 21, 30)
 // 在页面中定义插屏广告
 let interstitialAd = null
@@ -85,7 +83,7 @@ Page({
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: search_word
     }])).get({
       success: function(res) {

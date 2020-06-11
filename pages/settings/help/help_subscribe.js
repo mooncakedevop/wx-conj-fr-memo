@@ -69,6 +69,15 @@ Page({
           }).get({
             success: function (res) {
               console.log(res)
+
+              if (res.data.length != 0) {
+                wx.showToast({
+                  title: '您已设置过',
+                  icon: 'none',
+                  duration: 1500
+                })
+              }
+
               if (res.data.length == 0) {
                 wx.cloud.callFunction({
                   touser: app.globalData.openid,
@@ -84,26 +93,13 @@ Page({
                   },
                   fail: console.error
                 })
-              } else {
-                console.log(messages);
-                wx.showToast({
-                  title: '您已设置过',
-                  icon: 'fail',
-                  duration: 1500
-                })
               }
             }
           });
-      
-          if (interstitialAd) {
-            interstitialAd.show().catch((err) => {
-              console.error(err)
-            })
-          }
         } else {
           wx.showToast({
             title: '设置失败',
-            icon: 'fail',
+            icon: 'none',
             duration: 1500
           })
         }

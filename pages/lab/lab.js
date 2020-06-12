@@ -18,7 +18,7 @@ Page({
     dark_mode: null,
   },
 
-  onLoad: function() {
+  onLoad: function () {
 
     var settings_new = wx.getStorageSync('settings_new');
     var dark_mode = settings_new[0].dark_mode;
@@ -36,7 +36,7 @@ Page({
     })
   },
 
-  input_word_conj: function(e) {
+  input_word_conj: function (e) {
     console.log(e);
     var input_word_conj = e.detail.value.toLowerCase();
     this.setData({
@@ -45,7 +45,7 @@ Page({
     console.log(input_word_conj);
   },
 
-  special_fr: function(e) {
+  special_fr: function (e) {
     console.log(e.currentTarget.id);
     var input_word_conj = this.data.input_word_conj;
     var input_word_conj = input_word_conj.concat(e.currentTarget.id)
@@ -60,19 +60,19 @@ Page({
     })
   },
 
-  bindblur: function() {
+  bindblur: function () {
     this.setData({
       disable_btn: false,
     })
   },
 
-  bindfocus: function() {
+  bindfocus: function () {
     this.setData({
       disable_btn: true,
     })
   },
 
-  tap_word: function(tap_word) {
+  tap_word: function (tap_word) {
     var input_word_conj = tap_word;
     this.setData({
       input_word_conj: tap_word
@@ -89,7 +89,7 @@ Page({
     })
   },
 
-  search: function() {
+  search: function () {
     var search_word = this.data.input_word_conj;
     if (search_word == null) {
       wx.showToast({
@@ -111,123 +111,123 @@ Page({
     })
   },
 
-  etre: function() {
+  etre: function () {
     this.tap_word("être");
   },
 
-  avoir: function() {
+  avoir: function () {
     this.tap_word("avoir");
   },
 
-  faire: function() {
+  faire: function () {
     this.tap_word("faire");
   },
 
-  dire: function() {
+  dire: function () {
     this.tap_word("dire");
   },
 
-  pouvoir: function() {
+  pouvoir: function () {
     this.tap_word("pouvoir");
   },
 
-  aller: function() {
+  aller: function () {
     this.tap_word("aller");
   },
 
-  voir: function() {
+  voir: function () {
     this.tap_word("voir");
   },
 
-  savoir: function() {
+  savoir: function () {
     this.tap_word("savoir");
   },
 
-  vouloir: function() {
+  vouloir: function () {
     this.tap_word("vouloir");
   },
 
-  venir: function() {
+  venir: function () {
     this.tap_word("venir");
   },
 
-  falloir: function() {
+  falloir: function () {
     this.tap_word("falloir");
   },
 
-  devoir: function() {
+  devoir: function () {
     this.tap_word("devoir");
   },
 
-  croire: function() {
+  croire: function () {
     this.tap_word("croire");
   },
 
-  trouver: function() {
+  trouver: function () {
     this.tap_word("trouver");
   },
 
-  donner: function() {
+  donner: function () {
     this.tap_word("donner");
   },
 
-  prendre: function() {
+  prendre: function () {
     this.tap_word("prendre");
   },
 
-  parler: function() {
+  parler: function () {
     this.tap_word("parler");
   },
 
-  aimer: function() {
+  aimer: function () {
     this.tap_word("aimer");
   },
 
-  mettre: function() {
+  mettre: function () {
     this.tap_word("mettre");
   },
 
-  tenir: function() {
+  tenir: function () {
     this.tap_word("tenir");
   },
 
-  laisser: function() {
+  laisser: function () {
     this.tap_word("laisser");
   },
 
-  repondre: function() {
+  repondre: function () {
     this.tap_word("répondre");
   },
 
-  penser: function() {
+  penser: function () {
     this.tap_word("penser");
   },
 
-  entendre: function() {
+  entendre: function () {
     this.tap_word("entendre");
   },
 
-  rendre: function() {
+  rendre: function () {
     this.tap_word("rendre");
   },
 
-  connaitre: function() {
+  connaitre: function () {
     this.tap_word("connaître");
   },
 
-  sentir: function() {
+  sentir: function () {
     this.tap_word("sentir");
   },
 
-  ecrire: function() {
+  ecrire: function () {
     this.tap_word("écrire");
   },
 
-  agir: function() {
+  agir: function () {
     this.tap_word("agir");
   },
 
-  onQuery: function(search_word) {
+  onQuery: function (search_word) {
     var that = this
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
@@ -396,12 +396,12 @@ Page({
         subj_im6: search_word
       }
     ])).get({
-      success: function(res) {
+      success: function (res) {
         console.log(res.data)
-        if(res.data.length == 0){
+        if (res.data.length == 0) {
           console.log("没有变位，开始查单词")
           that.onQuery_mot(search_word)
-        }else{
+        } else {
           app.globalData.consult_data = res.data;
           wx.setStorageSync('consult_data', res.data);
           that.exp();
@@ -417,7 +417,7 @@ Page({
   },
 
 
-  exp: function() {
+  exp: function () {
 
     var consult_data = app.globalData.consult_data;
 
@@ -852,53 +852,76 @@ Page({
 
   },
 
-  intro: function() {
+  intro: function () {
     wx.switchTab({
       url: '../index/index',
     })
   },
 
-  training: function() {
+  training: function () {
     wx.navigateTo({
       url: '../carte/milestone',
     })
   },
 
-  wait: function() {
+  wait: function () {
     wx.navigateTo({
       url: 'result/result',
     })
   },
 
 
-  onQuery_mot: function(search_word) {
+  onQuery_mot: function (search_word) {
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
+
+    db.collection('vocab_dic_larousse_20200119').where({
+      w_s: search_word,
+    }).get({
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.length != 0) {
+          wx.setStorageSync('consult_data', res.data);
+          that.vocab_index_result();
+        }
+        console.log(search_word)
+        if (res.data.length == 0) {
+          that.onQuery_mot_all(search_word);
+        }
+      }
+    })
+  },
+
+  onQuery_mot_all: function (search_word) {
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    
     db.collection('vocab_dic_larousse_20200119').where(_.or([{
-      w_s: db.RegExp({
-        regexp: '.*' + search_word,
-        options: 'i',
-      })
-    },
-    {
-      w_js_cn: db.RegExp({
-        regexp: '.*' + search_word,
-        options: 'i',
-      })
-    },
-    {
-      word: db.RegExp({
-        regexp: '.*' + search_word,
-        options: 'i',
-      })
-    }
-  ])).get({
-      success: function(res) {
+        w_s: db.RegExp({
+          regexp: '.*' + search_word,
+          options: 'i',
+        })
+      },
+      {
+        w_js_cn: db.RegExp({
+          regexp: '.*' + search_word,
+          options: 'i',
+        })
+      },
+      {
+        word: db.RegExp({
+          regexp: '.*' + search_word,
+          options: 'i',
+        })
+      }
+    ])).get({
+      success: function (res) {
         console.log(res.data)
         wx.setStorageSync('consult_data_dic', res.data);
         wx.setStorageSync('consult_data', res.data);
-        if(res.data.length == 0){
+        if (res.data.length == 0) {
           wx.showToast({
             title: '没有查询结果😕',
             icon: 'none',
@@ -907,43 +930,43 @@ Page({
           })
         }
 
-        if(res.data.length == 1){
+        if (res.data.length == 1) {
           that.vocab_index_result();
         }
-        
-        if(res.data.length > 1){
+
+        if (res.data.length > 1) {
           that.lab_result();
         }
       }
     })
   },
 
-  vocab_index_result: function() {
+  vocab_index_result: function () {
     wx.navigateTo({
       url: '../vocab/vocab_index_result',
     })
   },
 
-  lab_result: function() {
+  lab_result: function () {
     wx.navigateTo({
       url: '../lab/lab_result',
     })
   },
 
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: '法语动词变位查询利器！快来看看吧😁',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function(shareTickets) {
+      success: function (shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function(res) {
+      complete: function (res) {
         // 不管成功失败都会执行
       }
     }

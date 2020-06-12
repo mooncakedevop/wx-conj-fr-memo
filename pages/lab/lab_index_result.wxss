@@ -1,0 +1,16 @@
+/* pages/lab/lab_index_result.wxss */
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 50vh;
+}
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.padding-conj {
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}
+

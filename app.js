@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -56,10 +56,10 @@ App({
     msg: null,
 
     vocal: null,
-
+    choosed_answer_number: null,
   },
 
-  getSkin: function() {
+  getSkin: function () {
     var that = this
     var settings_new = wx.getStorageSync('settings_new');
     that.globalData.dark_mode = settings_new[0].dark_mode;
@@ -67,7 +67,7 @@ App({
   },
 
   //导航栏标题背景
-  setNavBarBg: function() {
+  setNavBarBg: function () {
     var that = this
     if (that.globalData.dark_mode == false) {
       that.setSkinNormalTitle()
@@ -75,13 +75,13 @@ App({
       that.setSkinBlackTitle()
     }
   },
-  setSkinBlackTitle: function() {
+  setSkinBlackTitle: function () {
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
       backgroundColor: '#2e3136',
     })
   },
-  setSkinNormalTitle: function() {
+  setSkinNormalTitle: function () {
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#ffffff',

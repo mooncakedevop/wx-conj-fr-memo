@@ -1,0 +1,16 @@
+
+<view class="padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
+  <view class="cu-bar btn-group">
+    <button class='cu-btn bg-blue light round shadow' bindtap="vocab_index">返回上一页</button>
+  </view>
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-red light'}}">
+    <view class='action'>
+      找到下列{{list_number}}种可能，点击单词查看详情：
+    </view>
+  </view>
+  <view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+    <view class="padding {{dark_mode==true?'blk-bg-grey3':''}}">
+      <view class="list-lab-result text-left {{dark_mode==true?'blk-bg-grey2':'lines-green'}}" wx:for="{{lab_result_list}}" wx:for-index="idx" wx:key id="{{idx}}" bindtap="choosed_answer"><text class="bold">{{lab_result_list[idx].word}}</text>：{{lab_result_list[idx].w_js_cn}}</view>
+    </view>
+  </view>
+</view>

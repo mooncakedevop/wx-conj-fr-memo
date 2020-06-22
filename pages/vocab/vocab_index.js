@@ -1,6 +1,5 @@
 const app = getApp()
 const db = wx.cloud.database() //初始化数据库
-const verb = db.collection('vocab_dic_larousse_20190807')
 const word_frequence = require('../../data/word_frequence.js')
 
 Page({
@@ -100,12 +99,22 @@ Page({
     if (learn_word_new_today[0] != repeat_date) {
 
       var learn_word_new_today = [repeat_date];
-      var i = 0;
-      while (i < app.globalData.freq_number) { //每天背多少词呢？
-        var learn_no = Math.floor(Math.random() * (difference.length - 0 + 1) + 0);
-        learn_word_new_today.push(difference[learn_no])
-          i++;
+      if(difference.length <= app.globalData.freq_number){
+        var i = 0;
+        while (i < difference.length) { //每天背多少词呢？
+          var learn_no = Math.floor(Math.random() * (difference.length - 0 + 1) + 0);
+          learn_word_new_today.push(difference[learn_no])
+            i++;
+        }
+      } else {
+        var i = 0;
+        while (i < app.globalData.freq_number) { //每天背多少词呢？
+          var learn_no = Math.floor(Math.random() * (difference.length - 0 + 1) + 0);
+          learn_word_new_today.push(difference[learn_no])
+            i++;
+        }
       }
+
       app.globalData.learn_word_new_today = learn_word_new_today
       wx.setStorageSync('learn_word_new_today', learn_word_new_today)
 
@@ -214,7 +223,7 @@ Page({
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: search_word
     }])).get({
       success: function(res) {

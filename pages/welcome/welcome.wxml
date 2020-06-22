@@ -18,7 +18,7 @@
       </view>
       <view class="padding-sm">
         <view class="bg-blue round padding radius text-center shadow" bindtap="searcher">
-          <view class="text-sm">🔎 7000动词变位查询</view>
+          <view class="text-sm">🔎 法汉汉法 + 动词变位</view>
         </view>
       </view>
       <view class="padding-sm">
@@ -28,14 +28,19 @@
       </view>
     </view>
 
-    <view class=" text-sm margin-text">
-      <text class="text-grey">✔ 完全免费\n</text>
-      <text class="text-grey">✔ 法语背默单词（频率最高5000词）\n</text>
-      <text class="text-grey">✔ 7000+法语动词变位正查反查\n</text>
-      <text class="text-grey">✔ 常用法语动词变位强化练习\n</text>
-      <text class="text-grey">✔ 自由选择动词和时态范围\n</text>
-      <text class="text-grey">✔ 法汉双解和例句\n</text>
-      <text class="text-grey">✔ 法语真人发音\n</text>
+    <view class="text-sm margin-text text-left">
+      <view class="text-grey text-margin">✔ 完全免费\n</view>
+      <view class="text-grey text-margin">✔ 法语背默单词（频率最高5000词）\n</view>
+      <view class="text-grey text-margin">✔ 12000+法汉汉法小词典：双解和例句\n</view>
+      <view class="text-grey text-margin">✔ 7000+法语动词变位正查反查\n</view>
+      <view class="text-grey text-margin">✔ 常用法语动词变位强化练习\n</view>
+      <view class="text-grey text-margin">✔ 法语真人发音\n</view>
+    </view>
+
+    <view class="text-xs">
+      <view class="text-grey text-margin">v3.7.0 (2020.6.11)</view>
+      <view class="text-grey text-margin">微信公众号：不淡定的实验室</view>
+      <view class="text-grey text-margin">https://xd.sh.cn/conj-helper</view>
     </view>
 
     <official-account></official-account>

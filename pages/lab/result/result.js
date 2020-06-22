@@ -42,7 +42,7 @@ Page({
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
-    db.collection('vocab_dic_larousse_20190807').where(_.or([{
+    db.collection('vocab_dic_larousse_20200119').where(_.or([{
       w_s: search_word
     }])).get({
       success: function(res) {

@@ -55,35 +55,51 @@ Page({
   },
 
   remind: function (e) {
-    console.log(app.globalData.openid)
+
     wx.requestSubscribeMessage({
       tmplIds: ['rAL1dIT5XEigQKmW14Ulxw24couywZ6su6jNUhdVNn4'],
       success(res) {
         console.log(res)
         if (res.errMsg == "requestSubscribeMessage:ok") {
-          wx.cloud.callFunction({
+          console.log(app.globalData.openid)
+          const db = wx.cloud.database()
+          db.collection('subscribeMessages').where({
             touser: app.globalData.openid,
-            name: "subscribe",
-            data: {},
+            done: false
+          }).get({
             success: function (res) {
-              console.log(res.result)
-              wx.showToast({
-                title: '设置成功',
-                icon: 'success',
-                duration: 1500
-              })
-            },
-            fail: console.error
-          })
-          if (interstitialAd) {
-            interstitialAd.show().catch((err) => {
-              console.error(err)
-            })
-          }
+              console.log(res)
+
+              if (res.data.length != 0) {
+                wx.showToast({
+                  title: '您已设置过',
+                  icon: 'none',
+                  duration: 1500
+                })
+              }
+
+              if (res.data.length == 0) {
+                wx.cloud.callFunction({
+                  touser: app.globalData.openid,
+                  name: "subscribe",
+                  data: {},
+                  success: function (res) {
+                    console.log(res.result)
+                    wx.showToast({
+                      title: '设置成功',
+                      icon: 'success',
+                      duration: 1500
+                    })
+                  },
+                  fail: console.error
+                })
+              }
+            }
+          });
         } else {
           wx.showToast({
             title: '设置失败',
-            icon: 'fail',
+            icon: 'none',
             duration: 1500
           })
         }

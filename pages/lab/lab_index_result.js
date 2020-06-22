@@ -1,4 +1,5 @@
 const db = wx.cloud.database() //初始化数据库
+const app = getApp()
 
 Page({
 
@@ -25,17 +26,17 @@ Page({
   onLoad: function (options) {
     var settings_new = wx.getStorageSync('settings_new');
     var dark_mode = settings_new[0].dark_mode;
-    
-    var consult_data = wx.getStorageSync('consult_data');
+
+    let consult_data = wx.getStorageSync('consult_data_dic')[app.globalData.choosed_answer_number]
     console.log(consult_data)
-    var learn_word = consult_data[0].w_s;
-    var learn_cx = consult_data[0].w_cx;
-    var learn_js_cn = consult_data[0].w_js_cn;
-    var learn_js_fr = consult_data[0].w_js_fr;
-    var learn_lj_cn = consult_data[0].w_lj_cn;
-    var learn_lj_fr = consult_data[0].w_lj_fr;
-    var learn_word_all = consult_data[0].word;
-    var learn_word_no = consult_data[0].w_no;
+    var learn_word = consult_data.w_s;
+    var learn_cx = consult_data.w_cx;
+    var learn_js_cn = consult_data.w_js_cn;
+    var learn_js_fr = consult_data.w_js_fr;
+    var learn_lj_cn = consult_data.w_lj_cn;
+    var learn_lj_fr = consult_data.w_lj_fr;
+    var learn_word_all = consult_data.word;
+    var learn_word_no = consult_data.w_no;
 
     learn_cx = learn_cx.split(";");
     learn_js_cn = learn_js_cn.split(";");
@@ -44,7 +45,7 @@ Page({
     learn_lj_fr = learn_lj_fr.split(";");
     learn_word_all = learn_word_all.split(";");
 
-    var learn_word_cx = []  //第二格
+    var learn_word_cx = [] //第二格
     for (var i = 0; i < learn_word_all.length; i++) {
       var learn_word_cx_objet = {
         list: " ",
@@ -57,7 +58,7 @@ Page({
       learn_word_cx.push(learn_word_cx_objet)
     }
 
-    var learn_js = []  //第三格
+    var learn_js = [] //第三格
     for (var i = 0; i < learn_js_cn.length; i++) {
       var learn_js_objet = {
         list: " ",
@@ -70,7 +71,7 @@ Page({
       learn_js.push(learn_js_objet)
     }
 
-    var learn_lj = []  //第四格
+    var learn_lj = [] //第四格
     for (var i = 0; i < learn_lj_cn.length; i++) {
       var learn_lj_objet = {
         list: " ",

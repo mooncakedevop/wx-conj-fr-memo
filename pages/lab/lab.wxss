@@ -38,3 +38,12 @@
   width: 100%;
   overflow: hidden;
 }
+
+.text-margin {
+  margin-left: 2vw;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
+  border-bottom: dashed;
+  border-bottom-color: white;
+  border-bottom-width: 1px;
+}

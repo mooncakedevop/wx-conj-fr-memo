@@ -13,10 +13,6 @@ Page({
     var version = wx.getStorageSync('version')
 
     if (version == '') { //如果没有任何数据，那就代表是新用户
-      wx.setStorageSync('carte_arrey', [{
-        "carte_arrey": [0, 0, 123, 1, 84, 177, 203, 235, 261, 300, 325, 364, 388, 423, 447, 474],
-        "likeandsave": [424]
-      }])
       wx.setStorageSync('version', [{
         "version": "v3.6.0"
       }])
@@ -50,7 +46,6 @@ Page({
       console.log(wx.getStorageSync('mots_deja_vu'))
       console.log(wx.getStorageSync('version'))
       console.log(wx.getStorageSync('settings_new'))
-      console.log(wx.getStorageSync('carte_arrey'))
     }
 
     var settings_new = wx.getStorageSync('settings_new')
@@ -106,12 +101,6 @@ Page({
   searcher: function() {
     wx.switchTab({
       url: '../lab/lab',
-    })
-  },
-
-  training: function() {
-    wx.navigateTo({
-      url: '../carte/milestone',
     })
   },
 

@@ -14,7 +14,6 @@ Page({
     learn_lj_cn: null,
     learn_lj_fr: null,
     learn_word_all: null,
-    learn_word_no: null,
     learn_word_cx: null,
     learn_lj: null,
     dark_mode: null,
@@ -36,7 +35,6 @@ Page({
     var learn_lj_cn = consult_data.w_lj_cn;
     var learn_lj_fr = consult_data.w_lj_fr;
     var learn_word_all = consult_data.word;
-    var learn_word_no = consult_data.w_no;
 
     learn_cx = learn_cx.split(";");
     learn_js_cn = learn_js_cn.split(";");
@@ -89,7 +87,6 @@ Page({
       learn_word_cx: learn_word_cx,
       learn_js: learn_js,
       learn_lj: learn_lj,
-      learn_word_no: learn_word_no,
       dark_mode: dark_mode,
     })
   },

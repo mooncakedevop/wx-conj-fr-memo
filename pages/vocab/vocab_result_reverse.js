@@ -16,7 +16,6 @@ Page({
     learn_word: app.globalData.learn_word,
     learn_word_cx: null,
     learn_word_all: null,
-    learn_word_no: null,
     learn_lj: null,
     learn_js: null,
     dark_mode: null,

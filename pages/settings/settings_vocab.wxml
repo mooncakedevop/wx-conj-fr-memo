@@ -53,24 +53,31 @@
 
   <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-blue light'}}">
     <view class='action'>
-      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-blue'}}"></text>词书B：未完成
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-blue'}}"></text>词书B：TEF TCF 法语考试词汇
     </view>
   </view>
   <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
     <view class="cu-item">
-      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">基础（未完成🤷‍）</view>
-      <switch checked="{{tef_1500}}" bindchange="tef_1500" />
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">TEF-TCF词书</view>
+      <switch checked="{{tef_tcf}}" bindchange="tef_tcf" />
     </view>
     <view class="cu-item">
-      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">有点水平（未完成🤷‍）</view>
-      <switch checked="{{tef_3000}}" bindchange="tef_3000" />
+      <view class="text-left text-xs text-grey">本词书‍列表来源于网络，各个词书的单词不重复。</view>
+    </view>
+  </view>
+  
+  <view class="cu-bar solid-bottom margin-top  {{dark_mode==true?'blk-bg-grey2':'bg-yellow light'}}">
+    <view class='action'>
+      <text class="icon-title {{dark_mode==true?'blk-text-white':'text-yellow'}}"></text>词书C：大学法语四级考试词汇
+    </view>
+  </view>
+  <view class="cu-list menu bg-white-last  {{dark_mode==true?'menu-dark':''}}">
+    <view class="cu-item">
+      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">大学法语四级</view>
+      <switch checked="{{cft_4}}" bindchange="cft_4" />
     </view>
     <view class="cu-item">
-      <view class="{{dark_mode==true?'blk-text-white':'text-grey'}}">厉害（未完成🤷‍）</view>
-      <switch checked="{{tef_5000}}" bindchange="tef_5000" />
-    </view>
-    <view class="cu-item">
-      <view class="text-left text-xs text-grey">词书B词汇列表还没有搞定🤷‍</view>
+      <view class="text-left text-xs text-grey">本词书‍列表来源于网络，各个词书的单词不重复。</view>
     </view>
   </view>
 </view>

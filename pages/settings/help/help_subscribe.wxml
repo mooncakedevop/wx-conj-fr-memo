@@ -33,8 +33,6 @@
 		<view class='text-sm text-help'>
 			学习提醒使用了微信的订阅通知功能。当允许法语记忆发送一次学习计划提醒之后，您将<text class="bold">在2天之后的同一时间收到一次</text>学习提醒，点击即可进入小程序。</view>
 		<image mode="widthFix" src="cloud://conj-helper-96fe10.636f-conj-helper-96fe10-1258914721/images/conj_helper_help_subscribe_0.jpg" />
-		<view class='text-sm text-help'>
-			<text class="bold">有印象的单词：</text>背过的单词（点击过一次“认识”的单词）。</view>
 		<view class='text-sm text-help'>点击允许后，学习计划提醒<text class="bold">能且只能提醒一次</text>。如需要再次提醒，需要再次点击最上方按钮。</view>
 		<view class="dash-conj"></view>
 

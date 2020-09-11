@@ -33,8 +33,8 @@
 
 .text-help {
   line-height: 180%;
-  margin-left: 1.5vh;
-  margin-right: 1.5vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
   margin-top: 0.5vh;
   margin-bottom: 0.5vh;
   text-align: justify;

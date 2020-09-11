@@ -14,6 +14,8 @@ Page({
     freq_1500: null,
     freq_3000: null,
     freq_5000: null,
+    tef_tcf: null,
+    cft_4: null,
     picker: ['10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60'],
     dark_mode: null,
   },
@@ -21,12 +23,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var settings_new = wx.getStorageSync('settings_new')
 
     app.globalData.freq = settings_new[0].freq
     app.globalData.freq_number = settings_new[0].freq_number
-    
+
     var freq = app.globalData.freq
 
     this.setData({
@@ -35,6 +37,8 @@ Page({
       freq_1500: freq[0],
       freq_3000: freq[1],
       freq_5000: freq[2],
+      tef_tcf: freq[3],
+      cft_4: freq[4],
     })
 
     // 在页面onLoad回调事件中创建插屏广告实例
@@ -49,15 +53,15 @@ Page({
 
   },
 
-  freq_1500: function(e) {
+  freq_1500: function (e) {
     var settings_new = wx.getStorageSync('settings_new');
     if (e.detail.value == true) {
-      app.globalData.freq = [true, false, false];
+      app.globalData.freq = [true, false, false, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
       wx.setStorageSync('learn_word_new_today', null);
     } else {
-      app.globalData.freq = [false, true, false];
+      app.globalData.freq = [false, true, false, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
     }
@@ -69,15 +73,15 @@ Page({
     }
   },
 
-  freq_3000: function(e) {
+  freq_3000: function (e) {
     var settings_new = wx.getStorageSync('settings_new');
     if (e.detail.value == true) {
-      app.globalData.freq = [false, true, false];
+      app.globalData.freq = [false, true, false, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
       wx.setStorageSync('learn_word_new_today', null);
     } else {
-      app.globalData.freq = [false, false, true];
+      app.globalData.freq = [false, false, true, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
     }
@@ -89,15 +93,15 @@ Page({
     }
   },
 
-  freq_5000: function(e) {
+  freq_5000: function (e) {
     var settings_new = wx.getStorageSync('settings_new');
     if (e.detail.value == true) {
-      app.globalData.freq = [false, false, true];
+      app.globalData.freq = [false, false, true, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
       wx.setStorageSync('learn_word_new_today', null);
     } else {
-      app.globalData.freq = [true, false, false];
+      app.globalData.freq = [true, false, false, false, false];
       settings_new[0].freq = app.globalData.freq;
       wx.setStorageSync('settings_new', settings_new)
     }
@@ -109,7 +113,47 @@ Page({
     }
   },
 
-  new_user_data: function(options) {
+  tef_tcf: function (e) {
+    var settings_new = wx.getStorageSync('settings_new');
+    if (e.detail.value == true) {
+      app.globalData.freq = [false, false, false, true, false];
+      settings_new[0].freq = app.globalData.freq;
+      wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('learn_word_new_today', null);
+    } else {
+      app.globalData.freq = [false, false, false, false, true];
+      settings_new[0].freq = app.globalData.freq;
+      wx.setStorageSync('settings_new', settings_new)
+    }
+    this.successToast();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
+  },
+
+  cft_4: function (e) {
+    var settings_new = wx.getStorageSync('settings_new');
+    if (e.detail.value == true) {
+      app.globalData.freq = [false, false, false, false, true];
+      settings_new[0].freq = app.globalData.freq;
+      wx.setStorageSync('settings_new', settings_new)
+      wx.setStorageSync('learn_word_new_today', null);
+    } else {
+      app.globalData.freq = [false, false, false, true, false];
+      settings_new[0].freq = app.globalData.freq;
+      wx.setStorageSync('settings_new', settings_new)
+    }
+    this.successToast();
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
+  },
+
+  new_user_data: function (options) {
     var repeat_date = new Date();
     var year = repeat_date.getFullYear();
     var month = repeat_date.getMonth() + 1;
@@ -163,7 +207,7 @@ Page({
     }
   },
 
-  settings: function() {
+  settings: function () {
     if (interstitialAd) {
       interstitialAd.show().catch((err) => {
         console.error(err)
@@ -174,7 +218,7 @@ Page({
     })
   },
 
-  successToast: function() {
+  successToast: function () {
     wx.showToast({
       title: '设置已保存',
       icon: 'sucess',
@@ -213,59 +257,59 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: '搞定法语背单词就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function(shareTickets) {
+      success: function (shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function(res) {
+      complete: function (res) {
         // 不管成功失败都会执行
       }
     }

@@ -16,7 +16,6 @@ Page({
     this.check_old_version();
     var mots_deja_vu = wx.getStorageSync('mots_deja_vu') //用户词库
     var learn_word_new_today = wx.getStorageSync('learn_word_new_today') //今日新词
-    var learn_word_today = wx.getStorageSync('learn_word_today') //今天要出现的所有词
     var settings_new = wx.getStorageSync('settings_new')
     app.globalData.freq = settings_new[0].freq
     app.globalData.freq_number = settings_new[0].freq_number
@@ -46,10 +45,20 @@ Page({
       var temp = word_frequence;
       var wordlist = temp.freq_5000;
     }
+    if (app.globalData.freq[3] == true) {
+      var temp = word_frequence;
+      var wordlist = temp.tef_tcf;
+    }
+    if (app.globalData.freq[4] == true) {
+      var temp = word_frequence;
+      var wordlist = temp.cft_4;
+    }
+    console.log(wordlist);
+
 
     var wordlist_full = [];
     for (var i = 0; i < wordlist.length; i++) {
-      var learn_word = wordlist[i].word;
+      var learn_word = wordlist[i];
       var learn_word_new = {
         learn_word: learn_word,
         date: 9999999999999,
@@ -97,7 +106,6 @@ Page({
     }
 
     if (learn_word_new_today[0] != repeat_date) {
-
       var learn_word_new_today = [repeat_date];
       if(difference.length <= app.globalData.freq_number){
         var i = 0;

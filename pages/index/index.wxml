@@ -1,55 +1,56 @@
 <view class="page padding radius text-center shadow-blur title_css {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
-  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
-  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
-  <view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
-  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_100}}">进阶100</view>
-  <view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_230}}">高手230</view>
-  
-  <view class="text-sl {{dark_mode==true?'blk-text-white':'text-sl'}}">{{content}}</view>
-  <view class="text-white">{{shitai_chinois}}</view>
-  <view class="text-sm"> </view>
-  <view class='cu-tag bg-mauve light round shadow' bindtap="word_detail">单词双解和例句</view>
-  <view class='cu-tag bg-red light round shadow' bindtap="hint">提示❓</view>
-  <view class='cu-tag bg-blue light round shadow' bindtap="next_conj">跳过➡</view>
-  <view class="text-white "></view>
+	<view class='cu-tag bg-green light round sm shadow' hidden="{{tag_classic}}">典型动词</view>
+	<view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_selected}}">典型精选</view>
+	<view class='cu-tag bg-green light round sm shadow' hidden="{{tag_50}}">基础50</view>
+	<view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_100}}">进阶100</view>
+	<view class='cu-tag bg-cyan light round sm shadow' hidden="{{tag_230}}">高手230</view>
+
+	<view class="text-sl {{dark_mode==true?'blk-text-white':'text-sl'}}">{{content}}</view>
+	<view class="text-white">{{shitai_chinois}}</view>
+	<view class="text-sm"> </view>
+	<view class='cu-tag bg-mauve light round shadow' bindtap="navigate_back">返回上一页</view>
+	<view class='cu-tag bg-mauve light round shadow' bindtap="word_detail">单词双解和例句</view>
+	<view class='cu-tag bg-red light round shadow' bindtap="hint">提示❓</view>
+	<view class='cu-tag bg-blue light round shadow' bindtap="next_conj">跳过➡</view>
+	<view class="text-white "></view>
 </view>
 
 <view class="cu-form-group shadow {{is_bg_green[0]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_je">
-  <view class="title">{{mode_je}}</view>
-  <view>{{value_answer[0]}}</view>
-  <icon type="{{iconType[0]}}" size="23" color="{{iconColor[0]}}"></icon>
+	<view class="title">{{mode_je}}</view>
+	<view>{{value_answer[0]}}</view>
+	<icon type="{{iconType[0]}}" size="23" color="{{iconColor[0]}}"></icon>
 </view>
 
 <view class="cu-form-group shadow {{is_bg_green[1]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_tu">
-  <view class="title">Tu</view>
-  <view>{{value_answer[1]}}</view>
-  <icon type="{{iconType[1]}}" size="23" color="{{iconColor[1]}}"></icon>
+	<view class="title">Tu</view>
+	<view>{{value_answer[1]}}</view>
+	<icon type="{{iconType[1]}}" size="23" color="{{iconColor[1]}}"></icon>
 </view>
 
 <view class="cu-form-group shadow {{is_bg_green[2]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_il">
-  <view class="title">Il</view>
-  <view>{{value_answer[2]}}</view>
-  <icon type="{{iconType[2]}}" size="23" color="{{iconColor[2]}}"></icon>
+	<view class="title">Il</view>
+	<view>{{value_answer[2]}}</view>
+	<icon type="{{iconType[2]}}" size="23" color="{{iconColor[2]}}"></icon>
 </view>
 
 <view class="cu-form-group  shadow {{is_bg_green[3]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_nous">
-  <view class="title">Nous</view>
-  <view>{{value_answer[3]}}</view>
-  <icon type="{{iconType[3]}}" size="23" color="{{iconColor[3]}}"></icon>
+	<view class="title">Nous</view>
+	<view>{{value_answer[3]}}</view>
+	<icon type="{{iconType[3]}}" size="23" color="{{iconColor[3]}}"></icon>
 </view>
 
 <view class="cu-form-group shadow {{is_bg_green[4]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_vous">
-  <view class="title">Vous</view>
-  <view>{{value_answer[4]}}</view>
-  <icon type="{{iconType[4]}}" size="23" color="{{iconColor[4]}}"></icon>
+	<view class="title">Vous</view>
+	<view>{{value_answer[4]}}</view>
+	<icon type="{{iconType[4]}}" size="23" color="{{iconColor[4]}}"></icon>
 </view>
 
 <view class="cu-form-group shadow {{is_bg_green[5]}} light {{dark_mode==true?'blk-bg-grey2':''}}" bindtap="input_ils">
-  <view class="title">Ils</view>
-  <view>{{value_answer[5]}}</view>
-  <icon type="{{iconType[5]}}" size="23" color="{{iconColor[5]}}"></icon>
+	<view class="title">Ils</view>
+	<view>{{value_answer[5]}}</view>
+	<icon type="{{iconType[5]}}" size="23" color="{{iconColor[5]}}"></icon>
 </view>
 
 <view class="padding bg-answer-hc {{dark_mode==true?'blk-bg-black':''}}">
-  <view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
+	<view class="cu-btn round shadow padding-tag-hc {{dark_mode==true?'blk-bg-grey2':'bg-green'}}" wx:for="{{answer_for_choose}}" wx:for-item="i" wx:for-index="j" wx:key id="{{j}}" bindtap="choosed_answer">{{answer_for_choose[j]}}</view>
 </view>

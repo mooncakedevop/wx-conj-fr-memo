@@ -853,7 +853,7 @@ Page({
   },
 
   intro: function () {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../index/index',
     })
   },

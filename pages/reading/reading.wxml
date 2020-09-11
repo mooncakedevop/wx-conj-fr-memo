@@ -1,0 +1,13 @@
+<!--pages/reading/reading.wxml-->
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
+
+	<view class="cu-bar solid-bottom margin-top light {{dark_mode==true?'blk-bg-grey2':'bg-red'}}">
+		<view class='action'>
+			<text class="icon-title text-sm {{dark_mode==true?'blk-text-white':'text-red'}}"></text>{{msg[0]}}
+		</view>
+	</view>
+	<view class="padding bg-white-last {{dark_mode==true?'blk-bg-grey3':'bg-white'}}">
+		<rich-text class="text-xs-pos text-sm bold">{{msg[1]}}</rich-text>
+	</view>
+
+</view>

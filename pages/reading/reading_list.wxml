@@ -15,3 +15,8 @@
 		</view>
 	</view>
 </view>
+
+<view class="box flex">
+  <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="random_5">随机来5篇</button>
+  <button class="flex-sub cu-btn bg-mauve round shadow lg" bindtap="newest_5">最新来5篇</button>
+</view>

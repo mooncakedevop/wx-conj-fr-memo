@@ -12,7 +12,7 @@ Page({
 
   onLoad() {
     var settings_new = wx.getStorageSync('settings_new');
-    this.onQuery_article();
+    this.onQuery_article('newest');
 
     this.setData({
       dark_mode: settings_new[0].dark_mode,
@@ -29,19 +29,40 @@ Page({
     }
   },
 
-  onQuery_article: function() {
+  onQuery_article: function(listType) {
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
-    db.collection('reading_articles').get({
-      success: function(res) {
-        console.log(res.data)
-        wx.setStorageSync('article_detail_info', res.data);
-        that.setData({
-          article_detail_info: res.data,
-        })
-      }
-    })
+
+    if (listType == "random"){
+      db.collection('reading_articles')
+      .orderBy('title', 'desc')
+      .limit(5)
+      .get({
+        success: function(res) {
+          console.log(res.data)
+          wx.setStorageSync('article_detail_info', res.data);
+          that.setData({
+            article_detail_info: res.data,
+          })
+        }
+      })
+    }
+
+    if (listType == "newest"){
+      db.collection('reading_articles')
+      .orderBy('articleid', 'desc')
+      .limit(5)
+      .get({
+        success: function(res) {
+          console.log(res.data)
+          wx.setStorageSync('article_detail_info', res.data);
+          that.setData({
+            article_detail_info: res.data,
+          })
+        }
+      })
+    }
   },
 
   article_reading_page: function(e){
@@ -50,6 +71,14 @@ Page({
     wx.navigateTo({
       url: 'reading',
     })
+  },
+
+  random_5:function(e){
+    this.onQuery_article('random');
+  },
+
+  newest_5:function(e){
+    this.onQuery_article('newest');
   },
 
     /**

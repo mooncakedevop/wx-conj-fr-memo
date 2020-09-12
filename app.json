@@ -5,6 +5,7 @@
     "pages/index/index",
     "pages/lab/lab",
     "pages/reading/reading",
+    "pages/reading/reading_list",
     "pages/settings/settings",
     "pages/settings/settings_vocab",
     "pages/settings/settings_conj",
@@ -34,8 +35,8 @@
         "selectedIconPath": "style/search.png"
       },
       {
-        "pagePath": "pages/reading/reading",
-        "text": "时文阅读",
+        "pagePath": "pages/reading/reading_list",
+        "text": "法语时文",
         "iconPath": "style/folder.png",
         "selectedIconPath": "style/folder.png"
       },

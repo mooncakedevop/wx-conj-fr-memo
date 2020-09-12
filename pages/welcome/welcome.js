@@ -106,8 +106,7 @@ Page({
 
   reading: function() {
     wx.switchTab({
-      url: '../reading/reading',
-      // url: '../reading/reading_list',
+      url: '../reading/reading_list',
     })
   },
 

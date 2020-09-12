@@ -33,9 +33,9 @@
 
 .text-help {
   line-height: 180%;
-  margin-left: 1vh;
-  margin-right: 1vh;
-  margin-top: 0.5vh;
-  margin-bottom: 0.5vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   text-align: justify;
 }

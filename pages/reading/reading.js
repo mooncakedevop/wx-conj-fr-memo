@@ -6,20 +6,19 @@ let interstitialAd = null
 
 Page({
   data: {
-    title:null,
-    author:null,
-    summary:null,
-    date:null,
-    contents: null,
+    article_detail:null,
     dark_mode: null,
   },
 
   onLoad() {
     var settings_new = wx.getStorageSync('settings_new');
-    this.onQuery_article();
+    var article_all = wx.getStorageSync('article_detail_info');
+    console.log(article_all);
+    console.log(app.globalData.article_number);
 
     this.setData({
       dark_mode: settings_new[0].dark_mode,
+      article_detail: article_all[app.globalData.article_number],
     })
 
     // 在页面onLoad回调事件中创建插屏广告实例
@@ -33,24 +32,16 @@ Page({
     }
   },
 
-  onQuery_article: function() {
-    var that = this
-    const db = wx.cloud.database()
-    const _ = db.command
-    db.collection('reading_articles').get({
-      success: function(res) {
-        console.log(res.data)
-        that.setData({
-          title: res.data[0].title,
-          author: res.data[0].author,
-          date: res.data[0].date,
-          summary: res.data[0].summary,
-          contents: res.data[0].contents,
-         })
-      }
-    })
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
   },
-
+  
   onShareAppMessage: function(res) {
     return {
       title: '搞定法语动词变位就靠它了！😱',

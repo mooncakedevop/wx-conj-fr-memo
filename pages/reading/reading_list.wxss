@@ -1,1 +1,23 @@
-/* pages/reading/reading_list.wxss */
+/* pages/reading/reading.wxss */
+
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
+.title_css {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.card-padding {
+  padding: 2vh;
+}
+
+.card-margin {
+  margin: 2vh;
+}
+
+.card-radius {
+  border-radius: 4vw;
+}

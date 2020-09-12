@@ -1,23 +1,84 @@
-// pages/reading/reading_list.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+const app = getApp()
+const db = wx.cloud.database() //初始化数据库
+const settings = db.collection('user_setting')
+// 在页面中定义插屏广告
+let interstitialAd = null
 
-  },
-
-  /**
-   * 组件的初始数据
-   */
+Page({
   data: {
-
+    article_detail_info: null,
+    dark_mode: null,
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+  onLoad() {
+    var settings_new = wx.getStorageSync('settings_new');
+    this.onQuery_article();
 
+    this.setData({
+      dark_mode: settings_new[0].dark_mode,
+    })
+
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-e563df22798519aa'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+  },
+
+  onQuery_article: function() {
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('reading_articles').get({
+      success: function(res) {
+        console.log(res.data)
+        wx.setStorageSync('article_detail_info', res.data);
+        that.setData({
+          article_detail_info: res.data,
+        })
+      }
+    })
+  },
+
+  article_reading_page: function(e){
+    console.log(e);
+    app.globalData.article_number = e.currentTarget.id;
+    wx.navigateTo({
+      url: 'reading',
+    })
+  },
+
+    /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    if (getCurrentPages().length != 0) {
+      //刷新当前页面的数据
+      getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    }
+  },
+
+  onShareAppMessage: function(res) {
+    return {
+      title: '搞定法语动词变位就靠它了！😱',
+      path: 'pages/welcome/welcome',
+      imageUrl: '',
+      success: function(shareTickets) {
+        console.info(shareTickets + '成功');
+        // 转发成功
+      },
+      fail: function(res) {
+        console.log(res + '失败');
+        // 转发失败
+      },
+      complete: function(res) {
+        // 不管成功失败都会执行
+      }
+    }
   }
 })
+

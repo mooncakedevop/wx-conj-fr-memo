@@ -167,6 +167,20 @@
 					"id": -1,
 					"name": "pages/lab/lab_result",
 					"pathName": "pages/lab/lab_result",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/reading/reading",
+					"pathName": "pages/reading/reading",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/reading/reading_list",
+					"pathName": "pages/reading/reading_list",
 					"scene": null
 				}
 			]

@@ -29,43 +29,54 @@ Page({
     }
   },
 
-  onQuery_article: function(listType) {
+  onQuery_article: function (listType) {
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
 
-    if (listType == "random"){
+    if (listType == "random") {
       db.collection('reading_articles')
-      .orderBy('title', 'desc')
-      .limit(5)
-      .get({
-        success: function(res) {
-          console.log(res.data)
-          wx.setStorageSync('article_detail_info', res.data);
-          that.setData({
-            article_detail_info: res.data,
-          })
-        }
-      })
+        .aggregate()
+        .sample({
+          size: 5
+        })
+        .end().then(res => {
+            console.log(res.list)
+            wx.setStorageSync('article_detail_info', res.list);
+            that.setData({
+              article_detail_info: res.list,
+            })
+            wx.showToast({
+              title: '更新完成',
+              duration: 1500,
+              mask: true,
+            })
+          }
+        )
     }
 
-    if (listType == "newest"){
+    if (listType == "newest") {
       db.collection('reading_articles')
-      .orderBy('articleid', 'desc')
-      .limit(5)
-      .get({
-        success: function(res) {
-          console.log(res.data)
-          wx.setStorageSync('article_detail_info', res.data);
-          that.setData({
-            article_detail_info: res.data,
-          })
-        }
-      })
+        .orderBy('articleid', 'desc')
+        .limit(5)
+        .get({
+          success: function (res) {
+            console.log(res.data)
+            wx.setStorageSync('article_detail_info', res.data);
+            that.setData({
+              article_detail_info: res.data,
+            })
+            wx.showToast({
+              title: '更新完成',
+              duration: 1500,
+              mask: true,
+            })
+          }
+        })
     }
   },
 
-  article_reading_page: function(e){
+  article_reading_page: function (e) {
     console.log(e);
     app.globalData.article_number = e.currentTarget.id;
     wx.navigateTo({
@@ -73,41 +84,40 @@ Page({
     })
   },
 
-  random_5:function(e){
+  random_5: function (e) {
     this.onQuery_article('random');
   },
 
-  newest_5:function(e){
+  newest_5: function (e) {
     this.onQuery_article('newest');
   },
 
-    /**
+  /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     if (getCurrentPages().length != 0) {
       //刷新当前页面的数据
       getCurrentPages()[getCurrentPages().length - 1].onLoad()
     }
   },
 
-  onShareAppMessage: function(res) {
+  onShareAppMessage: function (res) {
     return {
       title: '搞定法语动词变位就靠它了！😱',
       path: 'pages/welcome/welcome',
       imageUrl: '',
-      success: function(shareTickets) {
+      success: function (shareTickets) {
         console.info(shareTickets + '成功');
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res + '失败');
         // 转发失败
       },
-      complete: function(res) {
+      complete: function (res) {
         // 不管成功失败都会执行
       }
     }
   }
 })
-

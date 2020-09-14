@@ -275,29 +275,9 @@ Page({
   },
 
   //帮助
-  help: function () {
+  navigation_conj: function () {
     wx.navigateTo({
-      url: '../settings/help/help_detail',
-    })
-  },
-
-  like_me: function() {
-    var self = this;
-    wx.setClipboardData({
-      data: "hxdred",
-      success: function(res) {
-        wx.showModal({
-          title: '提示',
-          content: '✨复制成功✨请粘贴在微信搜索框搜索公众号',
-          success: function(res) {
-            if (res.confirm) {
-              console.log('确定')
-            } else if (res.cancel) {
-              console.log('取消')
-            }
-          }
-        })
-      }
+      url: '../index/index',
     })
   },
 

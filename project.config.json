@@ -181,6 +181,13 @@
 					"id": -1,
 					"name": "pages/reading/reading_list",
 					"pathName": "pages/reading/reading_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vocab/vocab_index",
+					"pathName": "pages/vocab/vocab_index",
 					"scene": null
 				}
 			]

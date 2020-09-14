@@ -1,36 +1,78 @@
 <view class="page {{dark_mode==true?'blk-bg-black':'bg-white'}}" xmlns:wx="http://www.w3.org/1999/xhtml">
 
-  <view class="margin-avatar">
-    <image src="{{dark_mode==true?'/data/conj_black.png':'/data/conj_trans.png'}}" class="png" mode="widthFix"></image>
-  </view>
+	<view class="margin-avatar">
+		<image src="{{dark_mode==true?'/data/conj_black.png':'/data/conj_trans.png'}}" class="png" mode="widthFix"></image>
+	</view>
 
-  <view class="padding radius text-center shadow-blur">
-    <view class="cu-bar padding bg-white-last {{dark_mode==true?'blk-bg-grey2':'bg-gradual-red'}}">
-      <view class="flex-sub text-center">
-        <view class="grid col-2 padding-lg">
-          <view class="text-sm">今天要学习
-            <view class="text-sl">{{main_today_all}}</view>
-          </view>
-          <view class="text-sm">有印象的单词
-            <view class="text-sl">{{main_already_word}}</view>
-          </view>
-          <view class='text-sm'>今日新词
-            <view class="text-sl">{{main_new_word}}</view>
-          </view>
-          <view class='text-sm'>今日待复习
-            <view class="text-sl">{{main_review_word}}</view>
-          </view>
-        </view>
-        <view class="cu-bar btn-group">
-          <button class='cu-btn lines-white shadow sm round' bindtap="help">使用帮助</button>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
 
-<view class="box flex">
-  <button class="flex-sub cu-btn shadow round {{dark_mode==true?'lines-red':'lines-red'}} lg" bindtap="analyse">单词表</button>
-  <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="start">认单词</button>
-  <button class="flex-sub cu-btn bg-mauve round shadow lg" bindtap="start_reverse">默单词</button>
+	<view class="padding">
+		<view class="cu-item bg-gradual-red shadow-blur radius">
+			<view class="cardTitle bold card-title">
+				法语背单词 Vocabulaire
+			</view>
+			<view class="flex-sub text-center">
+				<view class="grid col-3">
+					<view class="text-sm">有印象的单词
+						<view class="text-sl">{{main_already_word}}</view>
+					</view>
+					<view class='text-sm'>今日新词
+						<view class="text-sl">{{main_new_word}}</view>
+					</view>
+					<view class='text-sm'>今日待复习
+						<view class="text-sl">{{main_review_word}}</view>
+					</view>
+				</view>
+				<view class="box flex">
+					<button class="flex-sub cu-btn lines-white round shadow lg" bindtap="start">认单词</button>
+					<button class="flex-sub cu-btn lines-white round shadow lg" bindtap="start_reverse">默单词</button>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="padding">
+		<view class="cu-item bg-mauve shadow-blur radius">
+			<view class="cardTitle bold card-title">
+				动词变位练习 Conjugaison
+			</view>
+			<view class="box flex">
+				<button class="flex-sub cu-btn lines-white round shadow lg" bindtap="navigation_conj">变位练习</button>
+			</view>
+		</view>
+	</view>
+
+	<view class="padding">
+		<view class="cu-bar solid-bottom {{dark_mode==true?'blk-bg-grey2':'bg-white light'}}">
+			<view class='action  text-center'>
+				<text class="{{dark_mode==true?'blk-text-white':'text-black'}}"></text>快速设置
+			</view>
+		</view>
+		<view class="cu-list menu {{dark_mode==true?'menu-dark':''}}">
+			<view class="cu-item arrow">
+				<navigator class="content text-left" hover-class="none" url="../vocab/vocab_analyse" open-type="navigate">
+					<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🗃 单词表</text>
+				</navigator>
+			</view>
+			<view class="cu-item arrow">
+				<navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
+					<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔮 背单词设置</text>
+				</navigator>
+			</view>
+			<view class="cu-item arrow">
+				<navigator class="content text-left" hover-class="none" url="../settings/settings_conj" open-type="navigate">
+					<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">📚 动词变位设置</text>
+				</navigator>
+			</view>
+			<view class="cu-item arrow">
+				<navigator class="content text-left" hover-class="none" url="../settings/help/help_subscribe" open-type="navigate">
+					<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">⏱ 学习提醒</text>
+				</navigator>
+			</view>
+			<view class="cu-item arrow  bg-white-last">
+				<navigator class="content text-left" hover-class="none" url="../settings/help/help_detail" open-type="navigate">
+					<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">❓ 使用帮助</text>
+				</navigator>
+			</view>
+		</view>
+	</view>
 </view>

@@ -7,21 +7,21 @@
   bottom: 0;
 }
 
-.card-title{
+.card-title {
   letter-spacing: 8px;
 }
 
-.cardTitle{
+.cardTitle {
   color: #fff;
   padding: 90rpx 60rpx;
   font-size: 40rpx;
   font-weight: 300;
   transform: skew(-10deg, 0deg);
   position: relative;
-  text-shadow: 0px 0px 6rpx rgba(0,0,0,0.3)
+  text-shadow: 0px 0px 6rpx rgba(0, 0, 0, 0.3)
 }
 
-.cardTitle::before{
+.cardTitle::before {
   content: "";
   position: absolute;
   width: 60rpx;
@@ -30,10 +30,11 @@
   background-color: #fff;
   display: block;
   top: 60rpx;
-  left: 50rpx;  
+  left: 50rpx;
   transform: skew(10deg, 0deg);
 }
-.cardTitle::after{
+
+.cardTitle::after {
   content: "";
   position: absolute;
   width: 140rpx;
@@ -42,18 +43,18 @@
   background-color: #fff;
   display: block;
   bottom: 76rpx;
-  left: 90rpx;  
+  left: 90rpx;
   transform: skew(10deg, 0deg);
   opacity: 0.1;
 }
 
-.divLine{
+.divLine {
   border-bottom: dashed;
   border-bottom-color: grey;
   border-bottom-width: 1px;
- }
+}
 
-.flex-sub{
+.flex-sub {
   margin-left: 2vw;
   margin-right: 2vw;
 }
@@ -69,8 +70,12 @@
   overflow: hidden;
 }
 
-.radius{
-  border-radius:4vw;
+.radius {
+  border-radius: 4vw;
+}
+
+.text-margin {
+  padding-bottom: 3px;
 }
 
 .text-sm {
@@ -78,4 +83,3 @@
   padding-top: 0.3vh;
   padding-bottom: 0.3vh;
 }
-

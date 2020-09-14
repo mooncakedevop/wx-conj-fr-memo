@@ -882,6 +882,12 @@ Page({
     })
   },
 
+  navigate_back:function(){
+    wx.navigateBack({
+      delta:1,
+    })
+  },
+
   hint: function() {
     // 在适合的场景显示插屏广告
     if (interstitialAd) {

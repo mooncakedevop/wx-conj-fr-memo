@@ -4,6 +4,8 @@
     "pages/welcome/welcome",
     "pages/index/index",
     "pages/lab/lab",
+    "pages/reading/reading",
+    "pages/reading/reading_list",
     "pages/settings/settings",
     "pages/settings/settings_vocab",
     "pages/settings/settings_conj",
@@ -22,13 +24,7 @@
     "list": [
       {
         "pagePath": "pages/vocab/vocab_index",
-        "text": "背单词",
-        "iconPath": "style/folder.png",
-        "selectedIconPath": "style/folder.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "变位练习",
+        "text": "练习",
         "iconPath": "style/draw.png",
         "selectedIconPath": "style/draw.png"
       },
@@ -37,6 +33,12 @@
         "text": "法汉小词典",
         "iconPath": "style/search.png",
         "selectedIconPath": "style/search.png"
+      },
+      {
+        "pagePath": "pages/reading/reading_list",
+        "text": "法语时文",
+        "iconPath": "style/folder.png",
+        "selectedIconPath": "style/folder.png"
       },
       {
         "pagePath": "pages/settings/settings",

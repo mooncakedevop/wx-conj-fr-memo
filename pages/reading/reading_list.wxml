@@ -1,0 +1,22 @@
+<!--pages/reading/reading_list.wxml-->
+<view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-gradual-blue'}}">
+	<view class="{{dark_mode==true?'blk-bg-grey3':'bg-white'}} card-margin card-radius" wx:for="{{article_detail_info}}" wx:for-index="idx"  id="{{idx}}"  wx:key bindtap="article_reading_page">
+		<view class="title card-padding">
+			<rich-text nodes="{{article_detail_info[idx].title}}"></rich-text>
+		</view>
+		<view class="content">
+			<view class="card-padding">
+				<rich-text class="text-content text-left" nodes="{{article_detail_info[idx].summary}}"></rich-text>
+				<view class="">
+					<view class="cu-tag bg-red round card-margin">{{article_detail_info[idx].author}}</view>
+					<view class="cu-tag {{dark_mode==true?'line-white':'line-mauve'}} round card-margin">{{article_detail_info[idx].date}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="box flex">
+  <button class="flex-sub cu-btn bg-red round shadow lg" bindtap="random_5">随机来5篇</button>
+  <button class="flex-sub cu-btn bg-mauve round shadow lg" bindtap="newest_5">最新来5篇</button>
+</view>

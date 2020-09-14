@@ -93,7 +93,7 @@ Page({
   },
 
   intro: function() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../index/index',
     })
   },
@@ -101,6 +101,12 @@ Page({
   searcher: function() {
     wx.switchTab({
       url: '../lab/lab',
+    })
+  },
+
+  reading: function() {
+    wx.switchTab({
+      url: '../reading/reading_list',
     })
   },
 

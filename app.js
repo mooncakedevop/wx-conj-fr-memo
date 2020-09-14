@@ -57,6 +57,8 @@ App({
 
     vocal: null,
     choosed_answer_number: null,
+
+    article_number: null,
   },
 
   getSkin: function () {

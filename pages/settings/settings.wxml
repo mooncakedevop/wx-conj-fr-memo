@@ -26,18 +26,13 @@
 				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🔬 不淡定的实验室</text>
 			</view>
 			<view class="action">
-				<view class="cu-tag round bg-olive light">微信公众号</view>
-				<view class="cu-tag round bg-red light">关注我</view>
+				<view class="cu-tag round bg-olive light">错误反馈</view>
+				<view class="cu-tag round bg-red light">提意见</view>
 			</view>
 		</view>
 		<view class="cu-item">
 			<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">🌜 黑夜模式</text>
 			<switch checked="{{dark_mode}}" bindchange="dark_mode" />
-		</view>
-		<view class="cu-item arrow">
-			<navigator class="content text-left" hover-class="none" url="../settings/help/help_subscribe" open-type="navigate">
-				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">⏱ 学习提醒</text>
-			</navigator>
 		</view>
 		<view class="cu-item arrow">
 			<navigator class="content text-left" hover-class="none" url="../settings/settings_vocab" open-type="navigate">
@@ -50,21 +45,14 @@
 			</navigator>
 		</view>
 		<view class="cu-item arrow">
-			<navigator class="content text-left" hover-class="none" url="../settings/help/help_detail" open-type="navigate">
-				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">❓ 使用帮助</text>
+			<navigator class="content text-left" hover-class="none" url="../settings/help/help_subscribe" open-type="navigate">
+				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">⏱ 学习提醒</text>
 			</navigator>
 		</view>
 		<view class="cu-item arrow">
-			<button class="cu-btn content" open-type="feedback">
-				<text class="cuIcon-btn text-olive"></text>
-				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}} left">📨 报错与建议</text>
-			</button>
-		</view>
-		<view class="cu-item arrow">
-			<button class="cu-btn content" open-type="contact">
-				<text class="cuIcon-btn text-olive"></text>
-				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}} left">📡 联系客服</text>
-			</button>
+			<navigator class="content text-left" hover-class="none" url="../settings/help/help_detail" open-type="navigate">
+				<text class="{{dark_mode==true?'blk-text-white':'text-grey'}}">❓ 使用帮助</text>
+			</navigator>
 		</view>
 		<view class="cu-item arrow" bindtap="zhuye">
 			<view class="content text-left">

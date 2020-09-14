@@ -42,6 +42,12 @@ Page({
     }
   },
   
+  settings: function() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  
   onShareAppMessage: function(res) {
     return {
       title: '搞定法语动词变位就靠它了！😱',

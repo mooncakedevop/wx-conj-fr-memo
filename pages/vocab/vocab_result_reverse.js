@@ -79,7 +79,7 @@ Page({
     wx.showToast({
       title: 'Chargement😍',
       icon: 'none',
-      duration: 1500,
+      duration: 1000,
       mask: true,
     })
 
@@ -243,7 +243,7 @@ Page({
           wx.showToast({
             title: '已标记为简单👌',
             icon: 'none',
-            duration: 1500,
+            duration: 1000,
             mask: true,
           })
 
@@ -304,7 +304,7 @@ Page({
       wx.showToast({
         title: '等一下下🛸',
         icon: 'none',
-        duration: 2000,
+        duration: 1500,
         mask: true,
       })
       var learn_word = app.globalData.learn_word;
@@ -340,7 +340,7 @@ Page({
             title: '答对了🎉',
             image: '/style/paper-plane.png',
             icon: 'sucess',
-            duration: 2000,
+            duration: 1000,
             mask: true,
           })
           this.hint_lj()

@@ -8,8 +8,8 @@
 	<view class="text-sl {{dark_mode==true?'blk-text-white':'text-sl'}}">{{content}}</view>
 	<view class="text-white">{{shitai_chinois}}</view>
 	<view class="text-sm"> </view>
-	<view class='cu-tag bg-mauve light round shadow' bindtap="navigate_back">返回上一页</view>
-	<view class='cu-tag bg-mauve light round shadow' bindtap="word_detail">单词双解和例句</view>
+	<view class='cu-tag bg-mauve light round shadow' bindtap="navigate_back">返回</view>
+	<view class='cu-tag bg-mauve light round shadow' bindtap="word_detail">双解和例句</view>
 	<view class='cu-tag bg-red light round shadow' bindtap="hint">提示❓</view>
 	<view class='cu-tag bg-blue light round shadow' bindtap="next_conj">跳过➡</view>
 	<view class="text-white "></view>

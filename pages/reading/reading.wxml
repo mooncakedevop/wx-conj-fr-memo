@@ -1,6 +1,12 @@
 <!--pages/reading/reading.wxml-->
 <view class=" padding radius text-center shadow-blur title_css page {{dark_mode==true?'blk-bg-black':'bg-white'}}">
 
+	<view class='box'>
+		<view class="cu-bar btn-group">
+			<button class='cu-btn bg-blue light round shadow' bindtap="settings">返回上一页</button>
+		</view>
+	</view>
+
 	<rich-text class="text-center  {{dark_mode==true?'blk-text-grey1':''}}" nodes="{{article_detail.title}}"></rich-text>
 
 	<rich-text class="text-right text-author {{dark_mode==true?'blk-text-grey1':''}}" nodes="{{article_detail.author}}"></rich-text>

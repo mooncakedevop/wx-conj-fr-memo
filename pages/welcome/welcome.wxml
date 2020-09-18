@@ -12,11 +12,6 @@
 				</view>
 			</view>
 			<view class="padding-sm">
-				<view class="bg-purple round padding radius text-center shadow" bindtap="reading">
-					<view class="text-sm">🛴 法语时文阅读 Beta</view>
-				</view>
-			</view>
-			<view class="padding-sm">
 				<view class="bg-blue round padding radius text-center shadow" bindtap="searcher">
 					<view class="text-sm">🔎 法汉汉法 + 动词变位查询</view>
 				</view>
@@ -38,7 +33,7 @@
 		</view>
 
 		<view class="text-xs">
-			<view class="text-grey text-margin">v3.8.0 (2020.9.14)</view>
+			<view class="text-grey text-margin">v3.8.1 (2020.9.19)</view>
 			<view class="text-grey text-margin">微信公众号：不淡定的实验室</view>
 			<view class="text-grey text-margin">https://xd.sh.cn</view>
 		</view>

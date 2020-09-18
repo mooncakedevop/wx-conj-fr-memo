@@ -24,7 +24,7 @@
     "list": [
       {
         "pagePath": "pages/vocab/vocab_index",
-        "text": "练习",
+        "text": "单词和变位练习",
         "iconPath": "style/draw.png",
         "selectedIconPath": "style/draw.png"
       },
@@ -33,12 +33,6 @@
         "text": "法汉小词典",
         "iconPath": "style/search.png",
         "selectedIconPath": "style/search.png"
-      },
-      {
-        "pagePath": "pages/reading/reading_list",
-        "text": "法语时文",
-        "iconPath": "style/folder.png",
-        "selectedIconPath": "style/folder.png"
       },
       {
         "pagePath": "pages/settings/settings",

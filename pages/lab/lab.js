@@ -549,6 +549,10 @@ Page({
 
       var mode_je = 'Je' //je要不要缩合？
       var mode_s = 's' //复数要配合
+
+      if(verbe_auxiliaire_je == "étais"){
+        var mode_je = 'J\'' //je要不要缩合？
+      }
     } else {
       var verbe_auxiliaire_je = avoir_etre.avoirEtre[0].indi_imp1
       var verbe_auxiliaire_tu = avoir_etre.avoirEtre[0].indi_imp2

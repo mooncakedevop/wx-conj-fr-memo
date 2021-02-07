@@ -269,7 +269,7 @@ Page({
   copy: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://xd.sh.cn/conj-helper",
+      data: "https://budanding.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',
@@ -301,7 +301,7 @@ Page({
   zhuye: function() {
     var self = this;
     wx.setClipboardData({
-      data: "https://xd.sh.cn/conj-helper",
+      data: "https://budanding.cn/conj-helper",
       success: function(res) {
         wx.showModal({
           title: '提示',
@@ -327,7 +327,7 @@ Page({
   gongzhonghao: function() {
     var self = this;
     wx.setClipboardData({
-      data: "hxdred",
+      data: "不淡定的实验室",
       success: function(res) {
         wx.showModal({
           title: '提示',

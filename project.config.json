@@ -1,198 +1,201 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": true,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": true,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"bundle": true,
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
-	"appid": "wx168d50e200bd0513",
-	"projectname": "conj_helper",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"cloudfunctionRoot": "cloud-functions/",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "settings",
-					"pathName": "pages/settings/settings",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "search",
-					"pathName": "pages/lab/lab",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "help",
-					"pathName": "pages/settings/help/help",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "carte",
-					"pathName": "pages/carte/carte",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "success",
-					"pathName": "pages/carte/success",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "test",
-					"pathName": "pages/carte/test",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "vocab_result",
-					"pathName": "pages/vocab/vocab_result",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/vocab/vocab_learn",
-					"pathName": "pages/vocab/vocab_learn",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/settings/help/help_detail",
-					"pathName": "pages/settings/help/help_detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/vocab/vocab_analyse",
-					"pathName": "pages/vocab/vocab_analyse",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/settings/help/help",
-					"pathName": "pages/settings/help/help",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/settings/help/help_detail",
-					"pathName": "pages/settings/help/help_detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/settings/help/help_subscribe",
-					"pathName": "pages/settings/help/help_subscribe",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/lab/lab_result",
-					"pathName": "pages/lab/lab_result",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/reading/reading",
-					"pathName": "pages/reading/reading",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/reading/reading_list",
-					"pathName": "pages/reading/reading_list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/vocab/vocab_index",
-					"pathName": "pages/vocab/vocab_index",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.1",
+  "appid": "wx168d50e200bd0513",
+  "projectname": "conj_helper",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "cloudfunctionRoot": "cloud-functions/",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "settings",
+          "pathName": "pages/settings/settings",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "search",
+          "pathName": "pages/lab/lab",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "help",
+          "pathName": "pages/settings/help/help",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "carte",
+          "pathName": "pages/carte/carte",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "success",
+          "pathName": "pages/carte/success",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "test",
+          "pathName": "pages/carte/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "vocab_result",
+          "pathName": "pages/vocab/vocab_result",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/vocab/vocab_learn",
+          "pathName": "pages/vocab/vocab_learn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/settings/help/help_detail",
+          "pathName": "pages/settings/help/help_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/vocab/vocab_analyse",
+          "pathName": "pages/vocab/vocab_analyse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/settings/help/help",
+          "pathName": "pages/settings/help/help",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/settings/help/help_detail",
+          "pathName": "pages/settings/help/help_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/settings/help/help_subscribe",
+          "pathName": "pages/settings/help/help_subscribe",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/lab/lab_result",
+          "pathName": "pages/lab/lab_result",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/reading/reading",
+          "pathName": "pages/reading/reading",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/reading/reading_list",
+          "pathName": "pages/reading/reading_list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/vocab/vocab_index",
+          "pathName": "pages/vocab/vocab_index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
